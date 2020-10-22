@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 22 Oct 2020 16:58:02 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
+environment. We will present user guides…]]></description><link>https://epi2me-labs.github.io/blog/launch/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/launch/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome!&lt;/p&gt;
+&lt;p&gt;On this site we hope to bring additional information regarding the EPI2MELabs notebook
+environment. We will present user guides, help pages and demonstrations of the available
+notebooks. All in an an open setting.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[About]]></title><description><![CDATA[EPI2ME Labs maintains a collection of example bioinformatics notebooks for
+running analysis in your web browser. Our GitHub repository…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;EPI2ME Labs&lt;/strong&gt; maintains a collection of example bioinformatics notebooks for
+running analysis in your web browser. Our GitHub repository contains a growing
+collection of notebooks on a range of topics from basic quality control to
+genome assembly. These are free and open to use by anyone.&lt;/p&gt;
+&lt;p&gt;EPI2ME Labs extends the JupyterLab notebook framework with a pre-configured
+analysis server. The notebooks display Python code needed to run data analysis,
+however zero configuration of the code is required. Because of this, the
+notebooks can be used both by &lt;strong&gt;students&lt;/strong&gt; and &lt;strong&gt;researchers&lt;/strong&gt; new to nanopore
+sequence data analysis, and more experienced bioinformaticians who are
+comfortable working with Python.&lt;/p&gt;
+&lt;p&gt;The EPI2ME Labs server runs in a &lt;a href=&quot;https://www.docker.com/resources/what-container&quot;&gt;Docker
+container&lt;/a&gt; to provide an
+isolated and resettable environment.&lt;/p&gt;
+&lt;h2&gt;Setting up EPI2ME Labs&lt;/h2&gt;
+&lt;p&gt;EPI2ME Labs notebooks are supported on the GridION Mk1 sequencing platform as
+well as any Windows 10, macOS, or Linux desktop. All components are also
+released open-source in our &lt;a href=&quot;https://github.com/epi2me-labs&quot;&gt;GitHub&lt;/a&gt;
+repository.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;System requirements for running EPI2ME Labs:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Compute requirements: the amount of compute needed for each type of analysis
+is specified in each EPI2ME Labs tutorial.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Installation quick start&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Our &lt;a href=&quot;/blog/quickstart&quot;&gt;Quick Start guide&lt;/a&gt; will help you to get started running a
+notebook server and web-based analyses.&lt;/p&gt;
+&lt;h2&gt;Available notebooks&lt;/h2&gt;
+&lt;p&gt;A complete list of available notebooks can be found by clicking &lt;strong&gt;File&lt;/strong&gt;, then
+&lt;strong&gt;Open notebook&lt;/strong&gt; at the top of this page and then clicking on the GitHub tab.
+Enter &lt;strong&gt;epi2me-labs&lt;/strong&gt; in the textbox, and make sure the respository
+&lt;code class=&quot;language-text&quot;&gt;epi2me-labs/tutorials&lt;/code&gt; is selected.&lt;/p&gt;
+&lt;p&gt;Alternatively visit our &lt;a href=&quot;/blog/nbindex&quot;&gt;Index of Notebooks&lt;/a&gt; page to see a complete
+listing with descriptions.&lt;/p&gt;
+&lt;h2&gt;Using notebooks&lt;/h2&gt;
+&lt;p&gt;In their basic form, notebooks provide a platform for running data analysis
+code and plotting graphs. &lt;/p&gt;
+&lt;p&gt;Notebooks allow the combination of executable code, rich text, images, HTML,
+LaTeX and more into a single document enabling the creation of an easy to
+follow set of instructions to analyse your data. By extending Google’s Colab
+environment you can create your own notebooks, and store them in your Google
+Drive account. You can easily share your notebooks with others, allowing them
+to comment on your notebooks or even edit them. To learn more, see &lt;a href=&quot;https://colab.research.google.com/notebooks/basic_features_overview.ipynb&quot;&gt;Overview of
+Colab&lt;/a&gt;.
+To create a new notebook you can use the File menu above, or use the following
+link: &lt;a href=&quot;http://colab.research.google.com/#create=true&quot;&gt;create a new Colab
+notebook&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To learn more about the Jupyter project, see
+&lt;a href=&quot;https://www.jupyter.org/&quot;&gt;jupyter.org&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Using notebooks&lt;/h2&gt;
+&lt;p&gt;In their basic form, notebooks provide a platform for running data analysis
+code and plotting graphs. &lt;/p&gt;
+&lt;p&gt;Notebooks allow the combination of executable code, rich text, images, HTML,
+LaTeX and more into a single document enabling the creation of an easy to
+follow set of instructions to analyse your data.&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;more-resources&quot;&gt;&lt;/a&gt; ## More Resources&lt;/p&gt;
+&lt;p&gt;The following is a collection of examples and resources for using Jupyter
+notebooks. Some resource are provided by Google Colab while others by EPI2ME
+Labs.&lt;/p&gt;
+&lt;h3&gt;EPI2ME Labs&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/epi2me-labs&quot;&gt;EPI2ME Labs GitHub repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://colab.research.google.com/github/epi2me-labs/resources/blob/master/epi2me-labs-server.ipynb&quot;&gt;Managing the EPI2ME labs
+server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>
