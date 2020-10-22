@@ -7,7 +7,7 @@
 
 import React from "react"
 import {graphql, useStaticQuery, Link} from "gatsby";
-import logo from '../../../content/assets/ont-logo.svg';
+import logo from '../../../content/assets/labs-logo.svg';
 import styles from './navBar.module.css'
 
 const NavBar = () => {
@@ -30,13 +30,14 @@ const NavBar = () => {
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarLogo}>
-        <a href="https://nanoporetech.com/">
+        <Link to="/">
           <img
             src={logo}
             alt={author?.name || ``}
           />
-        </a>
+        </Link>
       </div>
+      <div className={styles.navBarPush}></div>
 
       <div className={styles.navBarLinks}>
         <ul>

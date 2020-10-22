@@ -12,7 +12,6 @@ const AboutPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="About" />
-      <h1>About ONT Open Datasets</h1>
       <section
         dangerouslySetInnerHTML={{ __html: data.markdownRemark?.html }}
         itemProp="articleBody"

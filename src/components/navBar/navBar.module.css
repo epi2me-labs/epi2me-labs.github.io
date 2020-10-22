@@ -1,18 +1,17 @@
 .navBar {
   height: 60px;
   display: flex;
-  justify-content: space-between;
   background-color: #115571;
 }
 
-.navBarLogo {
-  width: 50%;
-}
 
 .navBarLogo img {
-  width: auto;
   height: 100%;
-  padding: 15px;
+  padding: 10px;
+}
+
+.navBarPush {
+    margin-left: auto;
 }
 
 .navBarLinks {
@@ -21,6 +20,7 @@
   align-content: center;
   flex-wrap: wrap;
 }
+
 
 .navBarLinks ul {
   margin: 0;
@@ -37,3 +37,4 @@
   color: white;
   text-decoration: none;
 }
+

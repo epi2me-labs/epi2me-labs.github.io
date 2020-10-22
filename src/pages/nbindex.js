@@ -11,7 +11,7 @@ const NBIndexPage = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Notebook Index" />
+      <SEO title="Notebook index" />
       <h1>Index of Available Notebooks and Tutorials</h1>
       <section
         dangerouslySetInnerHTML={{ __html: data.markdownRemark?.html }}

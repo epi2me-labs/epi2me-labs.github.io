@@ -4,10 +4,11 @@ date: "2020-10-22T00:00:00.000Z"
 description: "Getting started with EPI2MELabs"
 ---
 
+# EPI2MELabs Quick Start Guide
 
 The following guide illustrates installation and use of the EPI2ME Labs notebook server. 
 
-EPI2ME Labs can also be run on MacOS and Windows 10. On these platforms follow the instructions at [Docker Desktop](https://docs.docker.com/desktop/) to install Docker. *Docker installations through Docker Toolbox are not supported. Please also be sure to select the Hyper-V option during installation.* The EPI2ME Labs Launcher application is available for these platforms from the [Software Downloads](https://community.nanoporetech.com/downloads) page on the Nanopore Community or the [GitHub release](https://github.com/epi2me-labs/labslauncher/releases/latest) page. Please see also the Windows/MacOS Docker Install section below.
+EPI2ME Labs can also be run on Windows 10, macOS and Linux. For Windows and macOS platforms follow the instructions at [Docker Desktop](https://docs.docker.com/desktop/) to install Docker. *Docker installations through Docker Toolbox are not supported. Please also be sure to select the Hyper-V option during installation.* The EPI2ME Labs Launcher application is available for these platforms from the [Software Downloads](https://community.nanoporetech.com/downloads) page on the Nanopore Community or the [GitHub release](https://github.com/epi2me-labs/labslauncher/releases/latest) page. Please see also the Windows/MacOS Docker Install section below.
 
 ## Installation
 

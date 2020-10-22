@@ -71,23 +71,10 @@ To learn more about the Jupyter project, see
 [jupyter.org](https://www.jupyter.org/).
 
 
-## Using notebooks
-
-In their basic form, notebooks provide a platform for running data analysis
-code and plotting graphs. 
-
-Notebooks allow the combination of executable code, rich text, images, HTML,
-LaTeX and more into a single document enabling the creation of an easy to
-follow set of instructions to analyse your data.
-
-<a name="more-resources"></a> ## More Resources
+## Further Resources
 
 The following is a collection of examples and resources for using Jupyter
-notebooks. Some resource are provided by Google Colab while others by EPI2ME
-Labs.
+notebooks
 
-### EPI2ME Labs
 - [EPI2ME Labs GitHub repository](https://github.com/epi2me-labs)
-- [Managing the EPI2ME labs
-  server](https://colab.research.google.com/github/epi2me-labs/resources/blob/master/epi2me-labs-server.ipynb)
 

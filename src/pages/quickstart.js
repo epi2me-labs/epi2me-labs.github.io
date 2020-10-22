@@ -12,7 +12,6 @@ const QuickStartPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Quick Start" />
-      <h1>EPI2MELabs quick start guide</h1>
       <section
         dangerouslySetInnerHTML={{ __html: data.markdownRemark?.html }}
         itemProp="articleBody"

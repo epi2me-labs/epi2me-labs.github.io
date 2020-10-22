@@ -37,8 +37,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/about`,
-        name: `about`,
+        path: `${__dirname}/content/quickstart`,
+        name: `quickstart`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/nbindex`,
+        name: `nbindex`,
       },
     },
     {
@@ -75,7 +82,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `ONT Open Datasets`,
+        name: `EPI2MELabs`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
