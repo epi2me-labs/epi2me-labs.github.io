@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 22 Oct 2020 17:23:33 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 22 Oct 2020 22:13:41 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides…]]></description><link>https://epi2me-labs.github.io/blog/launch/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/launch/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome!&lt;/p&gt;
 &lt;p&gt;On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides, help pages and demonstrations of the available
@@ -51,19 +51,253 @@ link: &lt;a href=&quot;http://colab.research.google.com/#create=true&quot;&gt;cr
 notebook&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To learn more about the Jupyter project, see
 &lt;a href=&quot;https://www.jupyter.org/&quot;&gt;jupyter.org&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Using notebooks&lt;/h2&gt;
-&lt;p&gt;In their basic form, notebooks provide a platform for running data analysis
-code and plotting graphs. &lt;/p&gt;
-&lt;p&gt;Notebooks allow the combination of executable code, rich text, images, HTML,
-LaTeX and more into a single document enabling the creation of an easy to
-follow set of instructions to analyse your data.&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;more-resources&quot;&gt;&lt;/a&gt; ## More Resources&lt;/p&gt;
+&lt;h2&gt;Further Resources&lt;/h2&gt;
 &lt;p&gt;The following is a collection of examples and resources for using Jupyter
-notebooks. Some resource are provided by Google Colab while others by EPI2ME
-Labs.&lt;/p&gt;
-&lt;h3&gt;EPI2ME Labs&lt;/h3&gt;
+notebooks&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/epi2me-labs&quot;&gt;EPI2ME Labs GitHub repository&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://colab.research.google.com/github/epi2me-labs/resources/blob/master/epi2me-labs-server.ipynb&quot;&gt;Managing the EPI2ME labs
-server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs Quick Start Guide]]></title><description><![CDATA[EPI2MELabs Quick Start Guide The following guide illustrates installation and use of the EPI2ME Labs notebook server.  EPI2ME Labs can also…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2MELabs Quick Start Guide&lt;/h1&gt;
+&lt;p&gt;The following guide illustrates installation and use of the EPI2ME Labs notebook server. &lt;/p&gt;
+&lt;p&gt;EPI2ME Labs can also be run on Windows 10, macOS and Linux. For Windows and macOS platforms follow the instructions at &lt;a href=&quot;https://docs.docker.com/desktop/&quot;&gt;Docker Desktop&lt;/a&gt; to install Docker. &lt;em&gt;Docker installations through Docker Toolbox are not supported. Please also be sure to select the Hyper-V option during installation.&lt;/em&gt; The EPI2ME Labs Launcher application is available for these platforms from the &lt;a href=&quot;https://community.nanoporetech.com/downloads&quot;&gt;Software Downloads&lt;/a&gt; page on the Nanopore Community or the &lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/latest&quot;&gt;GitHub release&lt;/a&gt; page. Please see also the Windows/MacOS Docker Install section below.&lt;/p&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;The EPI2ME Labs server runs in a &lt;a href=&quot;https://www.docker.com/resources/what-container&quot;&gt;Docker&lt;/a&gt; container in order to provide an isolated and resettable environment. It can be controlled using the EPI2ME Labs launcher application. The instructions below will install both of these tools onto your system&lt;/p&gt;
+&lt;h3&gt;GridIon/PromethION Docker install&lt;/h3&gt;
+&lt;p&gt;Docker is not currently installed by default on GridION devices. To install docker follow the instructions below.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Click on the &lt;strong&gt;Search your computer&lt;/strong&gt; button.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Search for “terminal”, and click on the Terminal application:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;p&gt;A terminal window will open:&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Run the Docker installation command (you can copy and paste this into the terminal window and press &lt;strong&gt;Enter&lt;/strong&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt update
+sudo apt install docker.io
+sudo usermod -aG docker &amp;lt;username&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;where &lt;code class=&quot;language-text&quot;&gt;&amp;lt;username&amp;gt;&lt;/code&gt; should be replaced with your computer username.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Close your terminal window.&lt;/li&gt;
+&lt;li&gt;Log out of your GridION and log back in again.&lt;/li&gt;
+&lt;li&gt;Open a new terminal window.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To test docker is working correctly, run&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker run hello-world&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;p&gt;&lt;a name=&quot;win-osx-install&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Windows and macOS Docker install&lt;/h3&gt;
+&lt;p&gt;EPI2ME Labs is supported on Windows 10 Profession (and Enterprise) and macOS through &lt;a href=&quot;https://docs.docker.com/desktop/&quot;&gt;Docker Desktop&lt;/a&gt;. Use of Docker Desktop on Windows 10 Home through the use of Windows Subsytem for Linux 2 (WSL2) is untested. For the most part, users should simply follow the installation instructions for their system on the Docker website.&lt;/p&gt;
+&lt;h4&gt;Data shares&lt;/h4&gt;
+&lt;p&gt;During installation users may be asked to allow Docker access to parts of their file system; users should grant access to any locations where data resides they wish to analyse with EPI2ME Labs. In particular users are likely to want to add the MinKNOW output directory as a share in Docker.&lt;/p&gt;
+&lt;p&gt;It is possible to allow data shares to Docker after installation by opening the Docker Desktop program and navigating to its settings page:&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;p&gt;On Windows 10 it may be possible to avoid having to add folders manually in the Docker Desktop program by checking that application notifications are enabled in the system Settings:&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;p&gt;With notifications enabled, users may see pop-ups like the following when running the EPI2ME Labs launcher; users should click “Share it” in these instances.&lt;/p&gt;
+&lt;h4&gt;Resource Limits&lt;/h4&gt;
+&lt;p&gt;By default Docker Desktop sets fairly conservative resource limits for itself, you may wish to change these in the Docker Desktop settings pane. We recommend setting the Memory limit to at least 8Gb (some EPI2ME Labs tutorials may require more as indicated in their introductions) and the CPUs to one or two less than the maximum value for your system.&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;h3&gt;Install the EPI2ME Labs launcher application&lt;/h3&gt;
+&lt;p&gt;The EPI2ME Labs launcher application provides a convenient way to start, stop, and update the EPI2ME Labs notebook server. The source code for the application is available in our GitHub &lt;a href=&quot;https://github.com/epi2me-labs/labslauncher&quot;&gt;repository&lt;/a&gt;, but is easily installed on to a GridION device by following the instructions below.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install the EPI2ME Labs launcher using the following commands (you can copy and paste this into the terminal window and press &lt;strong&gt;Enter&lt;/strong&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt update
+sudo apt install ont-epi2melabs-launcher&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Click on the Search your computer icon, and search for “EPI2ME”. Then click on the &lt;strong&gt;EPI2ME-Labs Server Control&lt;/strong&gt; icon. This will start the launcher.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;h2&gt;Start EPI2ME Labs from the launcher&lt;/h2&gt;
+&lt;p&gt;The EPI2ME Labs launcher interface has all the functionality required for users to manage the EPI2ME Labs notebook server.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;To start a notebook server click the &lt;strong&gt;Start&lt;/strong&gt; button to reach the &lt;strong&gt;Start Server&lt;/strong&gt; screen:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;p&gt;There are three options on the Start Server page:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Select path:&lt;/strong&gt; the location on your computer which you want to be visible within the notebooks&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;token:&lt;/strong&gt; a security token (password) to allow access to the notebook interface&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;port:&lt;/strong&gt; network port to access the notebook server interface&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;The data location is pre-filled with a default data path. To select a different folder, click &lt;strong&gt;Select path&lt;/strong&gt; to show the selection dialog:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Navigate the directory tree until the dialog is within your selected folder, then click &lt;strong&gt;Open&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;We strongly encourage updating the token to a unique value. The token provides an authentication method that allows only trusted users access to the EPI2ME Labs server and is used as an additional security layer to help prevent other users on the network from running code and accessing data. This token will be used later in the workflow to connect Google Colaboratory to the server.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Start&lt;/strong&gt; on the main screen to start the notebook server.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;The first time a server is started the server components must be downloaded. This will not happen on subsequent server starts.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;When the server has successfully launched, there will be a message at the bottom of the launcher interface stating “Server status: running.“:&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;h3&gt;Run a tutorial&lt;/h3&gt;
+&lt;p&gt;With the EPI2ME Labs notebook server running, notebooks can be accessed and run.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Navigate to the &lt;a href=&quot;https://colab.research.google.com/github/epi2me-labs/resources/blob/dev/notebook_index.ipynb&quot;&gt;EPI2ME Labs Index&lt;/a&gt; notebook that contains a list of tutorials.&lt;/li&gt;
+&lt;li&gt;Select and click on one of the tutorials listed on the page.&lt;/li&gt;
+&lt;li&gt;To connect the the Google Colab interface to the EPI2ME Labs notebook server, click &lt;strong&gt;Connect&lt;/strong&gt; in the top-right of the screen, then &lt;strong&gt;Connect to local runtime…&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;Go back to the EPI2ME Labs launcher and copy the URL at the bottom by clicking on the blue URL link - this will copy the address to your clipboard.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;Return to your notebook in your web browser, and paste the URL into the local runtime, then click Connect.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;8&quot;&gt;
+&lt;li&gt;When you first open the tutorial, it will have outputs from example data. To clear outputs from example data, click &lt;strong&gt;Edit&lt;/strong&gt;, then &lt;strong&gt;Clear all outputs&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;9&quot;&gt;
+&lt;li&gt;You can see all your data in the location you provided in the launcher by &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;clicking &lt;strong&gt;epi2melabs&lt;/strong&gt; in the sidebar:&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;10&quot;&gt;
+&lt;li&gt;To copy your own data into the tutorial, right-click on the data file and select &lt;strong&gt;Copy path&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol start=&quot;11&quot;&gt;
+&lt;li&gt;Follow the guidance provided in the tutorial to perform data analysis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Updating the server&lt;/h3&gt;
+&lt;p&gt;The EPI2ME Labs launcher application automatically detects when updates are available to the notebok server. Oxford Nanopore Technologies’ may occassionally provide updates to provide new features or improved performance.&lt;/p&gt;
+&lt;p&gt;When an update is available attempting to start or restart the notebook server when an update is available will result in the following being displayed:&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;To update the server, press the &lt;strong&gt;Update&lt;/strong&gt; button on the main screen. The new server components will be downloaded:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;h2&gt;EPI2ME Labs with Google Colaboratory&lt;/h2&gt;
+&lt;p&gt;For users in territories where Google Colaboratory is not accessible, EPI2ME Labs can be used with the in-built &lt;a href=&quot;https://jupyterlab.readthedocs.io/en/stable/user/interface.html&quot;&gt;JupyterLab&lt;/a&gt; interface.&lt;/p&gt;
+&lt;p&gt;The JupyterLab interface to EPI2ME Labs has some technical differences — these are addressed in this section. We encourage that the Google Colaboratory interface to EPI2ME Labs be used where possible.&lt;/p&gt;
+&lt;h3&gt;Installation of the Jupyter-optimised EPI2ME Labs Launcher&lt;/h3&gt;
+&lt;p&gt;To install the Jupyter-optimised EPI2ME Labs Launcher on your GridION or PromethION run the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt install ont-epi2melabs-launcher-jupyter&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will replace an existing installation of the &lt;code class=&quot;language-text&quot;&gt;ont-epi2melabs-launcher&lt;/code&gt; application.&lt;/p&gt;
+&lt;p&gt;Installers for the Jupyter version are also available from the &lt;a href=&quot;https://community.nanoporetech.com/downloads&quot;&gt;Software Downloads&lt;/a&gt; page on the Nanopore Community or the &lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/latest&quot;&gt;GitHub release&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;There are no differences in the usage of the Jupyter version of the EPI2ME Labs Launcher; please review the preceding sections for details on the application.&lt;/p&gt;
+&lt;h3&gt;Accessing JupyterLab&lt;/h3&gt;
+&lt;p&gt;The process for starting a notebook server is identical to that outlined above in the &lt;em&gt;Start EPI2ME Labs from the launcher&lt;/em&gt; section. In order to open the interface simply copy the server address from the launcher application and paste the address in a web browser.&lt;/p&gt;
+&lt;p&gt;There is no need to connect the Jupyter interface to the notebook server — the components are already linked.&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;p&gt;To save a copy of the notebook in your working directory for later editing, click &lt;strong&gt;File&lt;/strong&gt; and then &lt;strong&gt;Save Notebook As…&lt;/strong&gt;. It is important that the provided filename be prefixed with &lt;code class=&quot;language-text&quot;&gt;epi2melabs/&lt;/code&gt;:&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;h3&gt;Locating and copying paths to your files&lt;/h3&gt;
+&lt;p&gt;You can find your data from the location provided to the &lt;em&gt;EPI2ME Labs Launcher&lt;/em&gt; by selecting &lt;code class=&quot;language-text&quot;&gt;epi2melabs&lt;/code&gt; from the file browser of the sidebar. A right-click opens the dialog that can be used to &lt;strong&gt;Copy path&lt;/strong&gt; to the clipboard.&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;h3&gt;Running code cells&lt;/h3&gt;
+&lt;p&gt;Running code cells in JupyterLab requires clicking the &lt;strong&gt;play&lt;/strong&gt; button in the navigation bar at the top of the screen. There is also a &lt;strong&gt;“Run”&lt;/strong&gt; tab that can be used to run multiple cells.&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;
+&lt;h3&gt;Bookmarks and navigating notebooks&lt;/h3&gt;
+&lt;p&gt;The JupyterLab environment provides a table of contents menu in the left-hand sidebar. These navigation prompts can also be used to &lt;em&gt;fold&lt;/em&gt; content visibility in the notebook.&lt;/p&gt;
+&lt;h1&gt;TODO: image&lt;/h1&gt;</content:encoded></item><item><title><![CDATA[Index of Notebooks and Tutorials]]></title><description><![CDATA[Below you will find a complete list of available notebooks with a short
+description of each. Listed also are notebooks in development. The…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Below you will find a complete list of available notebooks with a short
+description of each. Listed also are notebooks in development.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;The links will be populated in due course.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Basic Tasks&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_fastq_file.ipynb&quot;&gt;Introduction to FASTQ&lt;/a&gt; - An introduction
+to the FASTQ format and simple file operations&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/Introduction_to_Variant_Call_Format_(vcf)_files.ipynb&quot;&gt;Introduction to VCF&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An introduction to Variant Call Format files and their manipulation in
+Python and on the command line.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_SAM_and_BAM_files.ipynb&quot;&gt;Introduction to BAM&lt;/a&gt; - An
+introduction to the SAM and BAM formats for storing alignment data and their
+manipulation with &lt;code class=&quot;language-text&quot;&gt;samtools&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_Fast5_files.ipynb&quot;&gt;Introduction to FAST5&lt;/a&gt; - A guide to
+handling raw sequencing data from Oxford Nanopore Technologies’ sequencing
+devices.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Basic_QC_Tutorial.ipynb&quot;&gt;Basic QC&lt;/a&gt; - A simple workflow using the sequencing
+summary file, produced by MinKNOW and Guppy, to QC measures such as read
+length and quality.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Alignment QC&lt;/em&gt;&lt;/strong&gt; (Planned) - Walking through alignment of reads to a
+reference sequence, and and introduction to the world of &lt;code class=&quot;language-text&quot;&gt;samtools&lt;/code&gt; and
+&lt;code class=&quot;language-text&quot;&gt;pysam&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Curating_Read_Until_input_files_for_MinKNOW.ipynb&quot;&gt;Read Until Inputs&lt;/a&gt; - A
+short snippet to aid the creation of the necessary files required by MinKNOW
+for exome Read Until experiment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Assembly&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Assembly_Tutorial.ipynb&quot;&gt;Assembly tutorial&lt;/a&gt; - A workflow utilising Flye and
+Medaka to produce high quality assemblies of small to mid-sized genomes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Assembly assessment&lt;/em&gt;&lt;/strong&gt; (Planned) - An introduction and tips on assessing
+the quality of an assembly using both reference-based and reference-free
+methods.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Metagenomics&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Metagenomic_classification_tutorial.ipynb&quot;&gt;Metagnomic classification&lt;/a&gt; - An
+introduction to Centrifuge and Pavian for the classification of single
+molecule long-reads, and discovery of What’s in my pot?&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Analysis_of_EPI2ME_16S_CSV_Output.ipynb&quot;&gt;Post-EPI2ME 16S Analysis&lt;/a&gt; - A
+quick demonstration of adding lineage information to EPI2ME 16S output, and
+grouping counts by rank.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Metagenomic assembly&lt;/em&gt;&lt;/strong&gt; (Planned) - A guided approach to metagenomic
+assembly and assessment based on Flye’s metagenomic assembly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;cDNA and RNA&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_Pychopper.ipynb&quot;&gt;QC of cDNA reads&lt;/a&gt; - A workflow using
+pyChopper providing preliminary analysis and data filtering of ONT cDNA read
+datasets.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Isoform_Tutorial.ipynb&quot;&gt;Isoform detection&lt;/a&gt; - A tutorial guide for
+identifying full length transcripts in your cDNA experiments and comparing
+them against a known annotation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;De-novo isoform detection&lt;/em&gt;&lt;/strong&gt; (Planned) - Similar to the Isoform Detection
+notebook above but using a de-novo, assembly-based method for contructing
+transcript consensus sequences.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Differential_gene_expression.ipynb&quot;&gt;Differential Gene Expression&lt;/a&gt; -
+Pipeline for differential gene expression (DGE) and differential transcript
+usage (DTU) analysis using Nanopore long reads.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Variant calling&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Structural_Variation_Tutorial.ipynb&quot;&gt;Structural variant calling&lt;/a&gt; - A
+notebook which walks through the steps of identifying and classifying
+structural variants from long-read datasets.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Human_Variant_Calling_with_Medaka.ipynb&quot;&gt;Human small variant calling&lt;/a&gt; - A
+workflow for calling small variants (both SNPs and Indels) from amplicon data
+using Medaka.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/Viral_and_Bacterial_Variant_Calling.ipynb&quot;&gt;Bacterial small variant calling&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A guide to using Medaka to call small variants in haploid samples&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Other&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Clone_validation_tutorial.ipynb&quot;&gt;Clone validation&lt;/a&gt; - Validation of
+synthetic biological constructs using Nanopore sequencing rather than Sanger
+sequencing.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Cas9_Targeted_Sequencing_Tutorial.ipynb&quot;&gt;Cas9 Targeted Sequencing&lt;/a&gt; - A
+workflow to complement Cas9 targeted sequencing experiments using ONT
+devices.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/SARS_CoV_2_Analysis_Workflow.ipynb&quot;&gt;SARS-CoV-2 Analysis&lt;/a&gt; - A notebook based
+around the ARTIC pipeline for the analysis of SARS-Cov-2 multiplexed amplicon
+datasets.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Modified_Base_Tutorial.ipynb&quot;&gt;Modified bases&lt;/a&gt; - A demonstration of the use
+of Medaka to process and summarise the optional modified base output of
+Guppy.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_how_ONT&amp;#x27;s_medaka_works.ipynb&quot;&gt;Medaka tech. demo&lt;/a&gt; - A deep
+dive into the inner workings of Oxford Nanopore Technologies’ Medaka software&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item></channel></rss>
