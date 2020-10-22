@@ -8,7 +8,9 @@ module.exports = {
     },
     description: `Tutorials and workflows for nanopore sequencing.`,
     siteUrl: `https://epi2me-labs.github.io/blog`,
-    social: {'nanopore'},
+    social: {
+      twitter: `nanopore`,
+    },
   },
   plugins: [
     {
@@ -25,7 +27,14 @@ module.exports = {
         name: `assets`,
       },
     },
-      {
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/about`,
+        name: `about`,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/about`,
