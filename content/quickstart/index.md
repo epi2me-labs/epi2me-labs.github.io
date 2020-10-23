@@ -34,30 +34,32 @@ these tools onto your system
 Docker is not currently installed by default on GridION devices. To install
 docker follow the instructions below.
 
- 1. Click on the **Search your computer** button.
+1. Click on the **Search your computer** button.
 
-#TODO: image
+![search computer 1](./1.png "Search for terminal")
 
 2. Search for "terminal", and click on the Terminal application:
 
-
-#TODO: image
+![search computer 2](./2.png "Search for terminal")
 
 A terminal window will open:
 
-#TODO: image
+![terminal window](./3.png "Terminal window")
 
 3. Run the Docker installation command (you can copy and paste this into the
-   terminal window and press **Enter**): ``` sudo apt update sudo apt install
-docker.io sudo usermod -aG docker <username> ``` where `<username>` should be
-replaced with your computer username.
-
+   terminal window and press **Enter**):
+   ```
+   sudo apt update
+   sudo apt install docker.io
+   sudo usermod -aG docker <username>
+   ```
+   where `<username>` should be replaced with your computer username.
 4. Close your terminal window.
 5. Log out of your GridION and log back in again.
 6. Open a new terminal window.
 7. To test docker is working correctly, run ``` docker run hello-world ```
 
-#TODO: image
+![docker hello](./4.png "Docker hello world")
 
 ## Windows and macOS Docker install
 
@@ -78,17 +80,19 @@ the MinKNOW output directory as a share in Docker.
 It is possible to allow data shares to Docker after installation by opening the
 Docker Desktop program and navigating to its settings page:
 
-#TODO: image
+![docker data share](./5.png "Docker data share")
 
 On Windows 10 it may be possible to avoid having to add folders manually in the
 Docker Desktop program by checking that application notifications are enabled
 in the system Settings:
 
-#TODO: image
+![docker share permission](./6.png "Docker windows share permission")
 
 With notifications enabled, users may see pop-ups like the following when
 running the EPI2ME Labs launcher; users should click "Share it" in these
 instances.
+
+![docker share notify](./7.png "Docker windows share notification")
 
 ### Resource Limits
 
@@ -98,7 +102,7 @@ setting the Memory limit to at least 8Gb (some EPI2ME Labs tutorials may
 require more as indicated in their introductions) and the CPUs to one or two
 less than the maximum value for your system.
 
-#TODO: image
+![docker resource](./8.png "Docker resources")
 
 ## Install the EPI2ME Labs launcher application
 
@@ -135,7 +139,7 @@ to manage the EPI2ME Labs notebook server.
 1. To start a notebook server click the **Start** button to reach the **Start
    Server** screen:
 
-#TODO: image
+![start screen](./startscreen.png "Launcher home screen")
 
 There are three options on the Start Server page:
 - **Select path:** the location on your computer which you want to be visible
@@ -144,12 +148,12 @@ There are three options on the Start Server page:
   interface
 - **port:** network port to access the notebook server interface
 
-#TODO: image
+![option screen](./optionscreen.png "Launcher option screen")
 
 2. The data location is pre-filled with a default data path. To select a
 different folder, click **Select path** to show the selection dialog:
 
-#TODO: image
+![path select screen](./filebrowser.png "Launcher filebrowser")
 
 3. Navigate the directory tree until the dialog is within your selected folder,
 then click **Open**.
@@ -170,7 +174,7 @@ server.
 When the server has successfully launched, there will be a message at the
 bottom of the launcher interface stating "Server status: running.":
 
-#TODO: image
+![server running](./serverrunning.png "Server started")
 
 ### Updating the server
 
@@ -181,39 +185,40 @@ occassionally provide updates to provide new features or improved performance.
 When an update is available attempting to start or restart the notebook server
 when an update is available will result in the following being displayed:
 
-#TODO: image
+![Update available](./updateavailable.png "Server update available")
 
 1. To update the server, press the **Update** button on the main screen. The
 new server components will be downloaded:
 
-
-#TODO: image
+![Update download](./downloadupdate.png "Server updating")
 
 ### Run a tutorial
 
+####TODO: rewrite this section
+
 1. With the EPI2ME Labs notebook server running, click the link within the Launcher:
 
-#TODO: image
+######TODO: image
 
 2. On the landing page select the notebook you wish to open.
 
-#TODO: image
+#####TODO: image
 
 3. When you first open the tutorial, it will have outputs from example data. These
 should be helpful for understand the expected outcome of each step.
 
-#TODO: image
+#####TODO: image
 
 4. You can see all your data in the location you provided in the launcher by 
 
 clicking **/epi2melabs** in the sidebar:
 
-#TODO: image
+#####TODO: image
 
 5. To copy your own data into the tutorial, right-click on the data file and
 select **Copy path**.
 
-#TODO: image
+![Copy filepaths](./copypath.png "Copying filepaths")
 
 6. Follow the guidance provided in the tutorial to perform data analysis.
 
@@ -223,7 +228,7 @@ Running code cells in JupyterLab requires clicking the **play** button in the
 navigation bar at the top of the screen (or to the right-hand side of a code cell).
 There is also a **"Run"** tab that can be used to run multiple cells.
 
-#TODO: image
+![Run code cells](./runcodecells.png "Running code cells")
 
 ### Bookmarks and navigating notebooks
 
@@ -231,7 +236,7 @@ The JupyterLab environment provides a table of contents menu in the left-hand
 sidebar. These navigation prompts can also be used to *fold* content visibility
 in the notebook.
 
-#TODO: image
+![Bookmarks](./bookmarks.png "Notebook Bookmarks")
 
 
 
