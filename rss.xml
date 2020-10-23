@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Oct 2020 13:56:51 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Oct 2020 14:01:45 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides…]]></description><link>https://epi2me-labs.github.io/blog/launch/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/launch/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome!&lt;/p&gt;
 &lt;p&gt;On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides, help pages and demonstrations of the available
@@ -437,24 +437,24 @@ different folder, click &lt;strong&gt;Select path&lt;/strong&gt; to show the sel
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/b3b49220d8d8522297de19998f2c4d47/43fbc/filebrowser.png&quot;
+    href=&quot;/blog/static/07e970779407474ebf96ebb23c5e4eaa/43fbc/filebrowser.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABRUlEQVQoz6WT0XKCMBBF8/9f0S/oR/Sh2qdqqxYIDgQiiIBWR5QAzu1uqtbpTEenPpy52bC5bDaJUEohiiKwBkEAKSVc14P0XIz8EDJQyOZzzIksy6DCEI7j2LyQxqf5NE2htYaYTMbwXAc6jhDHMfI8R1GWKIoCeVESBUqKL1lQDptxERwvl0ukZMxryXCEfu/ZmtZ1jbbr0DQNmrb9geNLaK47HNCdcon2mCucjwnehgNMpz6qqoKhj8aYq9RHfs+L4eAVL/0eeOvVbmf/dovhXwhuPleZzLSt8GzI+g+ElB7Go3f4pNtqa/twl+HUl9aQ9dTD+p4tp8mM7hBBuqMe2lO+POEb4CL2hguhCpPk24x1tVphs9lgfQM2b722Y2P2wIHoaoiYLjS/EK3j82u5Cl1qVqXoMUQBnGCBh6ctHvuf+AIpH0P8MsN/SwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABPklEQVQoz62T606DQBCF9/2fwifwIfyhTdR4qxWKDewuZUuB1jaFskBznNlebExMG/XHl9kZhsOBYYSUEkopcAzDEEEQwPeHCIY++u8RglAinUwwIdI0hYwieJ7n+iI67+vGGMRxDDEYvGLoe4i1gtYaWZYhLwrkeY4sL4gcBeXHTKmHxdgE57PZDIaE+V4n2Lu5dqJ1XaPtOjRNg6Ztv+D8GKp1mw26fS/R7nrFGwk+PT5gNApQliUsXbTWnqTe8b0u+i/PuL+7BQuXVemedo7gTwgpQ/f9jEmcw4Mgx18glIyglUSSjP9H0JgxDIkl4xirnWD9l1dmoT1VVW2nfDzhM2Bna8tG2GGydcjM53Msl0sszsD1LRbubO0a2BBdDaFpILwhcawP23IS+qk5SknLoEJ44RQXVytc9j7wCc1BRQz7RQulAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;path select screen&quot;
         title=&quot;Launcher filebrowser&quot;
-        src=&quot;/blog/static/b3b49220d8d8522297de19998f2c4d47/fcda8/filebrowser.png&quot;
-        srcset=&quot;/blog/static/b3b49220d8d8522297de19998f2c4d47/12f09/filebrowser.png 148w,
-/blog/static/b3b49220d8d8522297de19998f2c4d47/e4a3f/filebrowser.png 295w,
-/blog/static/b3b49220d8d8522297de19998f2c4d47/fcda8/filebrowser.png 590w,
-/blog/static/b3b49220d8d8522297de19998f2c4d47/43fbc/filebrowser.png 797w&quot;
+        src=&quot;/blog/static/07e970779407474ebf96ebb23c5e4eaa/fcda8/filebrowser.png&quot;
+        srcset=&quot;/blog/static/07e970779407474ebf96ebb23c5e4eaa/12f09/filebrowser.png 148w,
+/blog/static/07e970779407474ebf96ebb23c5e4eaa/e4a3f/filebrowser.png 295w,
+/blog/static/07e970779407474ebf96ebb23c5e4eaa/fcda8/filebrowser.png 590w,
+/blog/static/07e970779407474ebf96ebb23c5e4eaa/43fbc/filebrowser.png 797w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -636,7 +636,36 @@ select &lt;strong&gt;Copy path&lt;/strong&gt;.&lt;/li&gt;
 &lt;p&gt;Running code cells in JupyterLab requires clicking the &lt;strong&gt;play&lt;/strong&gt; button in the
 navigation bar at the top of the screen (or to the right-hand side of a code cell).
 There is also a &lt;strong&gt;“Run”&lt;/strong&gt; tab that can be used to run multiple cells.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;./runcodecells.png&quot; alt=&quot;Run code cells&quot; title=&quot;Running code cells&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/70d411c5f925496433179c402bcc06d9/40040/runcodecell.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.2972972972973%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABVUlEQVQoz42SUU+DMBSF+f+v/g+jL/4FX4yLMRFdNOrCsrFCoaUtpbdwvHSbLsbEkXz09gIn556SmbaCbCR2VYtycwvd3OP9o8HD4xL5yyeemTzPzyajOIIoMIB3r6iKCzTbS+YaancFK28ARJx7ZceCwgDvRxi9hq4XaMUCjbiDkk+w1jA2rc7ZAw49k/rGIISwF5Q2IsYJldKoZIO6tZDdAM39nt/x7LwfItxAcD4wxHs6WUPCh4jAOtmyJMRxwlYI1LLltcGmbqE7gzgMIO9BfY/AbujgYpoY/GLu8S17E4SRi855mHkEFnDWwXQdj9/Buj6NM40jfzDiR/EgdVrPIy/LkPZFUWK9WkGVAqooYCuBnl121rPoPjOaT+4oiL/JahPTc825GW1hVAfP4RGbIe5zNImB8wln8H3KSrXYiYpzlAjsZHZDgdK4cx3594ox/ssX9bW20Uzoq9IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Run code cells&quot;
+        title=&quot;Running code cells&quot;
+        src=&quot;/blog/static/70d411c5f925496433179c402bcc06d9/fcda8/runcodecell.png&quot;
+        srcset=&quot;/blog/static/70d411c5f925496433179c402bcc06d9/12f09/runcodecell.png 148w,
+/blog/static/70d411c5f925496433179c402bcc06d9/e4a3f/runcodecell.png 295w,
+/blog/static/70d411c5f925496433179c402bcc06d9/fcda8/runcodecell.png 590w,
+/blog/static/70d411c5f925496433179c402bcc06d9/40040/runcodecell.png 616w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h3&gt;Bookmarks and navigating notebooks&lt;/h3&gt;
 &lt;p&gt;The JupyterLab environment provides a table of contents menu in the left-hand
 sidebar. These navigation prompts can also be used to &lt;em&gt;fold&lt;/em&gt; content visibility
