@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Oct 2020 19:07:32 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Oct 2020 22:15:11 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs moves to JupyterLab]]></title><description><![CDATA[When we released EPI2MELabs earlier this year we wanted to create an
+environment where “non-coders”, people with little to no experience of…]]></description><link>https://epi2me-labs.github.io/blog/jupytermove/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/jupytermove/</guid><pubDate>Fri, 23 Oct 2020 23:23:00 GMT</pubDate><content:encoded>&lt;p&gt;When we released EPI2MELabs earlier this year we wanted to create an
+environment where “non-coders”, people with little to no experience of writing
+computer code could learn to analyse their nanopore sequencing data. To this
+end we needed a slick, minimal, welcoming presentation of the data analysis. We
+wanted to enable learn the ropes of sequence analysis without being scared by
+it.&lt;/p&gt;
+&lt;p&gt;We elected to couple our analysis software with Python notebooks as a first
+step.  However we felt that the standard JupyterLab interface for Python
+notebooks was a little too “made by software developers, for software
+developers”, so started to look for alternatives. The Google Colab interface
+fit the bill: it has a clean design with no complex menus, allows code to be
+hidden and contains many nice visual hints as to what is happening when code is
+run. We therefore built our analysis notebooks and tutorials around the Google
+Colab and recommended that it be used with our customised Jupyter notebook
+server.&lt;/p&gt;
+&lt;p&gt;Google Colab is not without its floors however for our purposes. Connecting the
+user interface to the notebook server is a clunky affair, the interface is
+geared toward using Google’s cloud compute and storing documents in Google
+Drive. It is also not available for users in some territories.&lt;/p&gt;
+&lt;p&gt;To simplify the EPI2MELabs experience for our growing userbase, starting with
+version 0.2.6 we are recommending that users no longer use the Google Colab
+interface and instead use the more standard JupyterLab interface included with the
+EPI2MELabs server software. The EPI2MELabs Launcher application has been
+updated to version 0.6.5 and streamlines the opening of the interface. We will
+no longer be supporting the use of EPI2MELabs with Google Colab.&lt;/p&gt;
+&lt;p&gt;But what of the reasons given above for not using JupyterLab from the outset?
+In the last month we have worked hard to optimise of analysis notebooks and
+tutorials for the JupyterLab interface. This has involved adding additional
+functionality to JupyterLab; small user interface tweaks have been made here
+and there to create a more comfortable experience. Of particular note, on
+opening EPI2MELabs in their browser users will now be shown a list of all
+available analyses and tutorials. When selecting a notebook template a copy
+will be made an stored on the users computer. It may be edited and saved freely
+without fear of irreveribly losing the original template. The users saved
+notebooks can also be reopened from the launch page providing a convenient
+location to start new analyses, or resume old ones.&lt;/p&gt;
+&lt;p&gt;This work has not finished: we intend to further enhance the visual display of
+code within Jupyterlab to provide a more enticing experience for all users.
+These efforts will be contributed back to the wider Jupter community.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides…]]></description><link>https://epi2me-labs.github.io/blog/launch/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/launch/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome!&lt;/p&gt;
 &lt;p&gt;On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides, help pages and demonstrations of the available
