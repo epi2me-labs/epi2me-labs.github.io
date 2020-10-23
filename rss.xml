@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Oct 2020 14:01:45 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Oct 2020 19:07:32 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides…]]></description><link>https://epi2me-labs.github.io/blog/launch/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/launch/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome!&lt;/p&gt;
 &lt;p&gt;On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides, help pages and demonstrations of the available
@@ -578,28 +578,104 @@ new server components will be downloaded:&lt;/li&gt;
 &lt;h3&gt;Run a tutorial&lt;/h3&gt;
 &lt;h4&gt;TODO: rewrite this section&lt;/h4&gt;
 &lt;ol&gt;
-&lt;li&gt;With the EPI2ME Labs notebook server running, click the link within the Launcher:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h6&gt;TODO: image&lt;/h6&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;On the landing page select the notebook you wish to open.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h5&gt;TODO: image&lt;/h5&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;When you first open the tutorial, it will have outputs from example data. These
-should be helpful for understand the expected outcome of each step.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h5&gt;TODO: image&lt;/h5&gt;
-&lt;ol start=&quot;4&quot;&gt;
-&lt;li&gt;You can see all your data in the location you provided in the launcher by &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;clicking &lt;strong&gt;/epi2melabs&lt;/strong&gt; in the sidebar:&lt;/p&gt;
-&lt;h5&gt;TODO: image&lt;/h5&gt;
-&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;With the EPI2ME Labs notebook server running, click the Open EPI2MELabs link
+within the Launcher:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 398px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.40540540540542%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAADTUlEQVQ4y3VV63LaVhDmdTqTl+sztEn/daZP0JlMp07TTGcyuTgOTGKMAYNsbEQBCRBIoPsdXFD968vuASkyTX98nHP27H570Z6lsvhwBuvqBK/kE3RGPahjFYqqQpIk1Go11Ot1NBoNNJtNtFotce71SI90xuNxAUVRBCrWcgVrZcCxl0hcm+DBtW2YpgmbVsuyBPjM4L19uHccB57rijW/qwRRhPskxel0jh+7PfzUaUMydKQkn2oadN3AfLHAcrWCbhiYzecwDHKeJDCWS0xnM7HGcYyIbCp+4COJEnQnHbySXuKFfAOVvM4mU7w7q+K8cYm3Hz7izemZ2DeabTz//Q+MFRW//naC12/fYzgaC7IgCFAJidCL7gHjJaB8D6Qmdvdb4bn2+RyX7SthzFGefqzhU/0C7a6EzxeXqH46F04Hfw+/Enp+gGyd4Fn1Gt/9/Bee/PIGf96o+CcOcX7ZwgUhikKRkkk1WlGtfN9HGIaCYF9juzhTygE2cYR3soYfqrd4Wu2hMzWwJplzKDgrMjiKmORsnINleXR8rvAPk+7SGNiuBTZJLGRflcOC9P9QRFgcwgAe7T1KR0TD3kUE4aOIcuR2x7J9hFRH0/YJHmwvJOIYDq18ZnCdWdnzPAGuIUfOa1l2SDnAzEphRRm89AHTZYDecAFV9+DEGVzC1EwRUGvtsh12ux1iKsmCvvpms0GWZUKWpuk+wogINTOB7t7DDLZQFh6kgUaEAZzkAXb0L3RvSyRrZNsMD7sHpPQQNGp6jpJJ1+u16IIiZd64ng/X9UT6MRnMFzpkuQ+F3ulw0Ic2UyHPqANGLXKmCtI8Zf9Qd5HycXHzD2KulriWVfTHGpq9MTqDGVpE3hzdYWKopBPhW7ZFhMefP6U6yXqMq0mEGy1GWw1xpcToz1OkcfJIt2xbOfZQVkwiIo73WB9Wlh2TlTkq5cvj/grEuRzFXnYcwLcbu3TJReYn5/K88wMBv/hwj5/jfwjLUfGM4xZgI0m6hty/Q3tkoT4MRA17qiVkXZo2bMOtcvxyigjZK492Hv2DwUDsb28Jd32CTCNsgi7dDYdDIuzS3a0Y/azP07oYX+Vwy2M+34vUXUf0W/63kOvwHaM8zr4Aapj8hJEhUv8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Open EPI2MeLabs&quot;
+        title=&quot;Open EPI2MeLabs&quot;
+        src=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
+        srcset=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/12f09/serverrunning.png 148w,
+/blog/static/318f10438595fac3d360871e6dc6756a/e4a3f/serverrunning.png 295w,
+/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png 398w&quot;
+        sizes=&quot;(max-width: 398px) 100vw, 398px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;On the landing page select the notebook you wish to open. Opening a notebook
+template will create a copy of the file as a new document for you to edit.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/38f44625d571272ee09918549f36a5d2/0d6fe/notebooksplash.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.35135135135135%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAACPElEQVQoz12STU8TURSGpwiuMNGFC6PBlQpLExNM3LtzQYzxD/gD/BmS6EIWKq0aqYG2tAULRgMKRhKNYoDYCCS0QaDQVpiZTj+mnU6nfTzTAqne5Ml9z3lvTs7JPcr+nz00XUdVNYolE03V0Q40QSenGRh6vo3/4xa6mqNgFDCLJkqpWMQ0TSlWwtXJbJafe2k2jTzLW1t839hgMZlkMZHgS+J3SycTzbidH5Jf2dxE2d7exrZt7Hqdej7P3fkFlLEw3ZEYXYEInaKP6Jl6xanYOJ2BMF1teVd7RsfpicZQUqkUhmFg1Wo4eYOB9/MoL4Kc8EfwCB3+aBPP6yj3wvc589KPMjIpuZbnOfSVkQjnQ1Mou7u7FGXUWqNBvWBwe1oKPglw8rl05wvT4R1HGRbcezBI12CATm+46bm5jjZ9wX/YYaVSwWmAbegMTMyhPBpFGQrS/SzKzYlP9IdmuRqY4VpohhuRj9yKfaY/OMv10AfO+t6gPA4035/zTaKk02ksy6JWb+BIh3ci0uGDMU4PRen1TdPne0uvd7qpr8h9aXiKy96WdumTvPvW8zDExadS3P1h9zRkZKdm8yuVIfpthXdLcRbia8wtx4nvZFjPqKzu7bOaPmBN9PoxByztZPm6lZY7g+KOe3Qcx8GulKFawjZLVErFJpZQldipVsUzJc4fe07VgroD0kzDtlDK5fI/BQuyj5aRJZfLoQm6kJMtcPfUrFhUi6os/D6qnkPVNEoyoSMrVxbP1X8BYZeDsAMjvw8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Notebook launch&quot;
+        title=&quot;Launch a notebook&quot;
+        src=&quot;/blog/static/38f44625d571272ee09918549f36a5d2/fcda8/notebooksplash.png&quot;
+        srcset=&quot;/blog/static/38f44625d571272ee09918549f36a5d2/12f09/notebooksplash.png 148w,
+/blog/static/38f44625d571272ee09918549f36a5d2/e4a3f/notebooksplash.png 295w,
+/blog/static/38f44625d571272ee09918549f36a5d2/fcda8/notebooksplash.png 590w,
+/blog/static/38f44625d571272ee09918549f36a5d2/efc66/notebooksplash.png 885w,
+/blog/static/38f44625d571272ee09918549f36a5d2/0d6fe/notebooksplash.png 1115w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;You can see all your data in the location you provided in the launcher by
+clicking &lt;strong&gt;/epi2melabs&lt;/strong&gt; in the sidebar:
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 325px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/10edb3fee5539f49b09f80ae40a8f255/ff46a/epi2melabsmount.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAACYUlEQVQ4y31SaW/aQBD1//8l/V6JqDTqp1QVEEIBBxvMbe7L6/vmdd86IBRFHWm0O8fOvHmz2tywsGw1YI8b+Dn6DcteIfR8BJ4L1wtwcVw4woNwPfhBhCCMpUYPWtnM3R8v0KYdHctfddjmE77p32Ft10DsovQOOJzOmE6nWK3X2Gy3+J94EoBwfWhCdhVxDhEUSPwcUZQgSWKURYE4SaSmSLNM+lIkaarsyp8omzFqnhcIoxhaJo3NpuoeRCHiOIY1nqAorxiYQxhDC612B38aLTRf29AHJl7fOnj720O3r8NebyH8AI6kREiqtDyNEUeB6lAUJXKJrCxLpZEszu7kyA8ChSqMogp1miGUftp8U6FPoMWHGQqxxu5wxtiyQMTtdlty4uF4PGIwGCjfYrGAbdty9ASGYWA0HEp6Iuz3e/T7fdkgxWw2g4Zrqcalgwl5xs6hsqmXy0UVoTJOStiMOZniNoEQQk20Wq2g6e/vGI1G920FcrRH6Xa7cF33bvPu+/7dZkHHcdSdP0LTdV2NQCF8Jp/PZ5xOp7sSFf1ExpPoiOh6vSrlnVKNfP9HHpqNBna7HTqdjuKFZ6/XUw0mkwksyTHPtfyXLPRZFEKSbpqmHMXDdL5U5H8WcvlYgLQsl0uFiA3eJW1b+fEVwlqthh/1ukxyMek3VReOxTE52m0JPMkXF8ElsDGRMp+FOBmLaww6kuiNsADrCQfJo2GYalFMGI/HCg03TLnxxoKMz+fzOw28axXxR2R5rh48kv1Zb3JbxE3zj7dq5OfnZ7y8vHwkll+S/Vjoq/jNx4L/AHu+ctqp2QvyAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;epi2melabs mount&quot;
+        title=&quot;Data access from epi2melabs folder&quot;
+        src=&quot;/blog/static/10edb3fee5539f49b09f80ae40a8f255/ff46a/epi2melabsmount.png&quot;
+        srcset=&quot;/blog/static/10edb3fee5539f49b09f80ae40a8f255/12f09/epi2melabsmount.png 148w,
+/blog/static/10edb3fee5539f49b09f80ae40a8f255/e4a3f/epi2melabsmount.png 295w,
+/blog/static/10edb3fee5539f49b09f80ae40a8f255/ff46a/epi2melabsmount.png 325w&quot;
+        sizes=&quot;(max-width: 325px) 100vw, 325px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;To copy your own data into the tutorial, right-click on the data file and
-select &lt;strong&gt;Copy path&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
+select &lt;strong&gt;Copy path&lt;/strong&gt;.
+&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
@@ -628,8 +704,7 @@ select &lt;strong&gt;Copy path&lt;/strong&gt;.&lt;/li&gt;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;6&quot;&gt;
+    &lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Follow the guidance provided in the tutorial to perform data analysis.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4&gt;Running code cells&lt;/h4&gt;
