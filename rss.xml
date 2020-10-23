@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Oct 2020 13:53:25 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Oct 2020 13:56:51 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides…]]></description><link>https://epi2me-labs.github.io/blog/launch/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/launch/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome!&lt;/p&gt;
 &lt;p&gt;On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides, help pages and demonstrations of the available
@@ -363,28 +363,28 @@ Server&lt;/strong&gt; screen:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 512px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 398px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/2aadf9ed3f0e61f8d4b53201475f0b40/01e7c/startscreen.png&quot;
+    href=&quot;/blog/static/118bc434a52fff37bc283cec92038141/692d4/startscreen.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 104.05405405405406%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAADh0lEQVQ4y61VS08bVxQ2tItWIaXpLksifkB3PHZRF9mEXTawgW0wICFVlSp1U9RK3fUPpCsUKQrPAMLGYKxKoQjbYNwgPxjPi4mxx4/xC9vEM74n51zGjsmDqFJHOvrOzL33m3O+c+aMw4FX6fsHjv/jury8dDhg5Afyu8LPFydC3id/PN1f+PXAH5gLBINzHo9n7sXaGkev19vGIK75/X60APm/o/00Ojr6FWeN/vwjwddCIHhsXWjwOi9Do1yBcrEI6XQazs+TkEqlQEc/mUxCJqNDEdfK5TLHi4sLEEXRHBkZucsJF3a8BN9KqvpPtd6A+ZPE5W8HAfNAVcycnjFFWTYlWTElRTHPNM1MiJKZzWY5ipLUMAwDdF3PDg8P93HC1cVFgjsJIXFQr9dAjf1lRRNbLFUos8OjI+be2UXzMpdnh/39co+tb7rZ9q6PzT9bYB6vr5nP5zGD88LAwMA9Tri0tHRFmCDCOizuzlt/utYhIOmgSCIgISiqSlHA0XEYEqII8VMBorE4nESiTYoQJSkMDg5eEa6srHBCEQlrSPjL1ivr0dOXsBEWoJTPgSBKqKUOFEkBD3MsFFp+s1Qqoc7nhaGhoeuEFCGWHcyyYUG1BJWCAdlcjh/OIaJuH7ObCSnlVFq3Uphe1iahVN8n6nhBkyp9jbBTw0ajQe1g0VupVVrtwaO0UyXNiJAQ75u0/skIW4REJEkSP1StVoFeQH7R1o6itrW8mZBSxs1WJpPhBLFYDMLhMIRCIYgKAhynUxDByPN2yrjvw5SXl5evFQU3Wrl3B7hRRBzpGWlo64j2YVE6CSnCTsIry9kFyn2sMJ+vMhFSNC3hDQO1yme5Gaibcb2Nbias1Wq02URdGA4GlhAEJshnLKYZ7FTLM0nRmHB6ytK6zrAgjBrb1tB4v22+w4nhpyprmtakYkSjMTg8DEIw9Ar28as5iqpwePwvBIMBiEQigAGALMusUqlQixXbhKurq3zaxOPxPQpfVdU3giCYuNlUcMIoimyeqbKZ1M5MhT9T+Rq2FWGD5MEgMvgtX02bsbExgluTk5P3Z2ZmxhHHESempqba5kR7POlEf7r9bHp6esLpdI6Tzc7OPuzp6blDg5qT9vb2foFAE/c22jf/0W7bZ7/s6+t79z/Y2Njo8vl83Zubm90ul4ub2+1u+533hC1/e3u7G38L3f39/ZznLZ+ESL0XVauJAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 105.40540540540542%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAAC1ElEQVQ4y5VVWW4TQRD1dZC4HGeIwicSN0AIKRAQEgITEkeJszqxE68M9mS8jB2PPfvi9fNR1Z6ejJ0QiY/n7qmqrqVfVTvj+z48z4PjuogmE0xnM8znc7B8PB7DsizYtg3HceCSDX8HYShsZmQrIb8zbGgTIs/FIvAJAQIOQDIZzCd4pJd7P6UPyJ5XGTDDzia+h+ydhq3rG2xfXaCo9xCQXNXa6PZ6aHc60Pt9sdfabfR0XTjR9T5UOsc6dsZORYaBF6CkXeNLaRcf67dQTRNtTcPPg0Pkzy6Q/XWAH3v7Yn92WcD7nU9otlS8+7CDb9k9KM3W6trYoevYsLwp0N8FWq+AcIjFdC4yOTzO47xwJQ5zdnsU4OjkFIViCcen58gd5ZHdz6HxW3lwaNkOllGA17kbvHjzFS/ffsfnWxUz30X+/BKnBL4/LnFoGLgfDgVJskSDZIYxeig5ucN6B1u5CrZzZVxrfUQkG1PpzDQbMgQpJOfDEp4gzHsghX/Y6SL0gXkkMAk8IZPMyujPYY0U6dS0V7Bj2f9iRUq84YaVTcxZ8ZqWiX6lVe4l0jJRsmgbas7FYoHlcokoitDtdhMZg/dsHJKOwQSxE5azfRTLkpI5IxZOaPRY0aFGZmMOwCM1nU4R0vc0Bk+SSYStSPKTiVorWZbIa0izylnWajU0m01Uq1WaGg2KOUZ9PIJOdl5875vEJKSkL5bXwWAAVVWF4xY5FSNoW1AtE/eyD58jZZN+LoMz5dLFyg8B3yPBTwV+lOFmhKcMn+w7Z91eIpN2kF7X4cR4XOI/G3uzt3jkTH5gqdGtuNlNyxbspsfxkcN0VrKv+FCpdIN6rYrCHwMnioOC6qKsGkJWpNdG3vMmmUmGHLVcLpOjEhqNhthXKoRqjVCnJ+wORdIpikIOi6SriJZi+yG9QEkfptNlBYOfJLkXpZur/xb+Ho1GiQ3rGOnn7C+/JwqdxlcncAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;start screen&quot;
         title=&quot;Launcher home screen&quot;
-        src=&quot;/blog/static/2aadf9ed3f0e61f8d4b53201475f0b40/01e7c/startscreen.png&quot;
-        srcset=&quot;/blog/static/2aadf9ed3f0e61f8d4b53201475f0b40/12f09/startscreen.png 148w,
-/blog/static/2aadf9ed3f0e61f8d4b53201475f0b40/e4a3f/startscreen.png 295w,
-/blog/static/2aadf9ed3f0e61f8d4b53201475f0b40/01e7c/startscreen.png 512w&quot;
-        sizes=&quot;(max-width: 512px) 100vw, 512px&quot;
+        src=&quot;/blog/static/118bc434a52fff37bc283cec92038141/692d4/startscreen.png&quot;
+        srcset=&quot;/blog/static/118bc434a52fff37bc283cec92038141/12f09/startscreen.png 148w,
+/blog/static/118bc434a52fff37bc283cec92038141/e4a3f/startscreen.png 295w,
+/blog/static/118bc434a52fff37bc283cec92038141/692d4/startscreen.png 398w&quot;
+        sizes=&quot;(max-width: 398px) 100vw, 398px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -400,28 +400,28 @@ interface&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 512px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 395px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/72a6856cd6eedd61cbe0ee59c07828db/01e7c/optionscreen.png&quot;
+    href=&quot;/blog/static/946a2ff4aee7ced8569831bb856e2d04/2cb6c/optionscreen.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 104.05405405405406%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAAC00lEQVQ4y61VTU8TQRgu1YPGIuLNY01/gEc+TnrxAj8ALnCDQNKECwdvkph49uxRIxFbSGgKCWl70ljbGE0KtN1+f9OWftLSstsd32dg1rUuiUY3efLMzM4887zvvjNrMtHTfPTU9D+eXq9nMrGZJ2iPfH//YfGr5/XLd5+3ngcDwY1gMLhxcHCwsbu7y9nn83H2er38XSAQ4Ex4QVifm5u7xVUjz9ZBt6VA8JvaybN4NckajQar1+usWCyybDbLcrkcy+fzLJPJsEKhwN8BtVqNnZ2dsXg8Ls/Ozj7ggq/evAXdS6TTn5LpHJPC0V4kEpFpskyL5GazKbdaLY0xXq1W5dPTU/AFRE9KJ5Xp6WkrF9za3ASNxyTJ3263WTKZVAhqJptRaZFKjlRypoE2USkCwQM4pDn1iYmJh1zQ6XRyQbLtPz8/Z6lUSkGYAHZHmJIksVgsxhKJBA9RhwHWQHBycvJScHt7mwuSKz9yFgqFFHLGAAoJG7CjoyN2fHzMx7rdrqGg5lAI0u7+crmMD6Ag4WhDgJxzQAApGXZIpWIsCIf4goeHhwpcwR1CDofD3OGQs+tDdjgcWg7pS7J0Oq2gTCAIiJLBOwMMOp2OcQ4p6f5+v48weQ4rlQqHyCdSYIABavZaQdgnEQVCwqEQFn09aHwAp78IirLRCxot/idBI0fDY1fOfxc0Clkfqj5kg/4f5VCmZKu0QAONcYg2+GqOEKwNl819EvyiqiovBdQh6gzhYIFwhz6KHsWMY0h1qqIySLAxNTV1Kbizs8Nvm2g0+hGL6fj1CXKpVJLBeogxMImgfYHyoXNfppNyedvMz8+D7qysrDy22+0LS0tLC8vLy4vEGtA3GsPc1dXVhbW1tRmLxTKOi5qLjo2N3SDCjTtKuPuXGL1ae9Nqtf78H7hcrhG65s1ut9u8t7fHsb+/r7X1fbBo02/B7PF4zDabjev8AHhmWXoQRYkwAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 106.08108108108108%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAAB60lEQVQ4y9VVyXKCQBDl/38k+YDk5Emr9BAtKdGIgAsKgoj7rmVVh9dWIyFjkkMuObyaGaaX1296Bm3w+kL+2xM9G8+ktxtkmRZZtk3VapUKhQIVi0Uql8tUqVR4LJVKVK/XybIs6nQ6X6CNRyOKAp/80KMwDCkMQvJ9nzzPo1GyBwyHQ4brujxibzwes10eWjybUcMwqP3eJiMZbcemxWJB8/lcOQqwVkGL45jcwYCz9/t9ZjRLkuA7gHkW0+n0IWDPAff7PZeBoIMkeLfbpd1uxxI4jkN2oim+6brOLK7XK53P5xSXy4UOh8MtILIGQcDsoAGCQB9sRlFEvV4vZS7sl8vlp/JFAg6IBVjgVBEIazjBAIlM02Rtm80msz+dTswmi+PxSNvt9h4Q5QCSBcAcbBEIcsARTpAiD0i22WxuAeGIkqCTBMsGbLVaXKo4qYBEq9XqzhDB4Fir1ZiNtAAkgBQ4LIifL1VZsrQCDiDfKpiDJfYf9Z1A7DVVr6l6MCvHI8BOUxmrguSTqpCW/Jf4BwFVmv3WWXVw6aGgNbIvyk8nqrJPGaKP1us19yI2MZc7LWN2jlHs4S/2aR/i9cClxxXEA4DOx1VCIoyTyYQbHHbyDfb4DciDkV697E0RJsL0u3LFXp45keAD1i0drS5qxhYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;option screen&quot;
         title=&quot;Launcher option screen&quot;
-        src=&quot;/blog/static/72a6856cd6eedd61cbe0ee59c07828db/01e7c/optionscreen.png&quot;
-        srcset=&quot;/blog/static/72a6856cd6eedd61cbe0ee59c07828db/12f09/optionscreen.png 148w,
-/blog/static/72a6856cd6eedd61cbe0ee59c07828db/e4a3f/optionscreen.png 295w,
-/blog/static/72a6856cd6eedd61cbe0ee59c07828db/01e7c/optionscreen.png 512w&quot;
-        sizes=&quot;(max-width: 512px) 100vw, 512px&quot;
+        src=&quot;/blog/static/946a2ff4aee7ced8569831bb856e2d04/2cb6c/optionscreen.png&quot;
+        srcset=&quot;/blog/static/946a2ff4aee7ced8569831bb856e2d04/12f09/optionscreen.png 148w,
+/blog/static/946a2ff4aee7ced8569831bb856e2d04/e4a3f/optionscreen.png 295w,
+/blog/static/946a2ff4aee7ced8569831bb856e2d04/2cb6c/optionscreen.png 395w&quot;
+        sizes=&quot;(max-width: 395px) 100vw, 395px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -437,25 +437,24 @@ different folder, click &lt;strong&gt;Select path&lt;/strong&gt; to show the sel
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/1e448875b4968f830865880616e53e14/636c2/filebrowser.png&quot;
+    href=&quot;/blog/static/b3b49220d8d8522297de19998f2c4d47/43fbc/filebrowser.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 61.48648648648649%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABw0lEQVQoz6WSzW6bQBCAHTVpTj1X8r3qvds8XB+gj9BbozxFT74EnG1kYWI7NtjmxxCnNokdwD9gYAFPZpF/UilKLXWkT8sMsx+aEaUSRrvT+aQo6lmrdful2+sRSZKIXJdItd4g141bYmh9YhgG0XWdyLJMms0m0TStyDmWZZ2pqvq5tIl3qqJcPk2ncGfbKb7MsSk3kK4xyHV7mDvjce44ToFpmjnKinM0GvFa6nke4B0JXUdc+F6qXdM7y4Q/Qzt3PRfCMCxYbQiCYEe4WoHv+/A4mcBisYBlEOSMMUBxE10nhVCWalf9rgKWqacsZWuWpmts2sPzLZineGZZts0zwPBnsxt0HRfCulSjQ3uAIw+yKI4hwS8mSfIm8f65EOLYjZ2w027R6eMYnNH9wcLkLSGOS5czD6aThyyKor2Qn//iNaGpazRczmHyMP5beADxRui+FBpaT5z7LhcmURxlfNHJIaCMsYRx4XzmyTuhNTBveDEMFhDjDg+B7xplkGZriPGuee/2t8KTSqXy41IQZFGsVkVRpIIgUBERXmFbx15Kr0T6q0Kr387b9e8Xv38WwnK5zP/uU+TDf3J6/PHr0TMpntBzzJh4TgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.08108108108109%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABRUlEQVQoz6WT0XKCMBBF8/9f0S/oR/Sh2qdqqxYIDgQiiIBWR5QAzu1uqtbpTEenPpy52bC5bDaJUEohiiKwBkEAKSVc14P0XIz8EDJQyOZzzIksy6DCEI7j2LyQxqf5NE2htYaYTMbwXAc6jhDHMfI8R1GWKIoCeVESBUqKL1lQDptxERwvl0ukZMxryXCEfu/ZmtZ1jbbr0DQNmrb9geNLaK47HNCdcon2mCucjwnehgNMpz6qqoKhj8aYq9RHfs+L4eAVL/0eeOvVbmf/dovhXwhuPleZzLSt8GzI+g+ElB7Go3f4pNtqa/twl+HUl9aQ9dTD+p4tp8mM7hBBuqMe2lO+POEb4CL2hguhCpPk24x1tVphs9lgfQM2b722Y2P2wIHoaoiYLjS/EK3j82u5Cl1qVqXoMUQBnGCBh6ctHvuf+AIpH0P8MsN/SwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;path select screen&quot;
         title=&quot;Launcher filebrowser&quot;
-        src=&quot;/blog/static/1e448875b4968f830865880616e53e14/fcda8/filebrowser.png&quot;
-        srcset=&quot;/blog/static/1e448875b4968f830865880616e53e14/12f09/filebrowser.png 148w,
-/blog/static/1e448875b4968f830865880616e53e14/e4a3f/filebrowser.png 295w,
-/blog/static/1e448875b4968f830865880616e53e14/fcda8/filebrowser.png 590w,
-/blog/static/1e448875b4968f830865880616e53e14/efc66/filebrowser.png 885w,
-/blog/static/1e448875b4968f830865880616e53e14/636c2/filebrowser.png 911w&quot;
+        src=&quot;/blog/static/b3b49220d8d8522297de19998f2c4d47/fcda8/filebrowser.png&quot;
+        srcset=&quot;/blog/static/b3b49220d8d8522297de19998f2c4d47/12f09/filebrowser.png 148w,
+/blog/static/b3b49220d8d8522297de19998f2c4d47/e4a3f/filebrowser.png 295w,
+/blog/static/b3b49220d8d8522297de19998f2c4d47/fcda8/filebrowser.png 590w,
+/blog/static/b3b49220d8d8522297de19998f2c4d47/43fbc/filebrowser.png 797w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -481,28 +480,28 @@ downloaded. This will not happen on subsequent server starts.&lt;/strong&gt;&lt;
 bottom of the launcher interface stating “Server status: running.“:&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 512px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 398px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/497d0f3594f7e8456cefd49d6b2233e7/01e7c/serverrunning.png&quot;
+    href=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 104.05405405405406%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAAD10lEQVQ4y62VS28bVRTH08ACREpadiyD8gHY5bFDYsGC7Ngkm2RLnESKhJCQ2BCBxI4vAKuoEqrjJG2j2HXiWEgJkR9J7bayZzwPz3jix7z9tusZz+Hca9etoSpCYqSj/525c386c/7n3pmYwKv+6RcT/8fV6XQmJmDpczK+lb6/t/Yk8uvP9y79P8TiiZ1EMrkTDod3Hjx8SDUSiYw0iXPxeJwGjn9KJBLfLi8vv0epzHffEHmfSyRTblOBGzMPvXoD6tUqVCoVKJWKUC6XQcVxsVgETVOhinP1ep1qs9kEQRCcpaWljynQfxohckeU5T9bnR7sPue7P8YSTkyWHEPVHCGfd8S85IiS5BQUxeEF0dF1naogij3LskBVVX1xcXGGAg/39ojc5Tk+1um0QWZ+c7P8Y69s172r62svdHqGEfGC4VPvj/ML79FxyDs5i3q7v/u9cCTaN00Tv6Bkz83NfUKBgUBgAOQJsAN7Z7vuL8FHkBBVkEQBEAiSLJMs4DqVBl4QgM1xkGVYeJ7J9kmGWBJ7fn5+ADw4OKBAAYFtBH7/+Jn71b1zOEpzUDMN4AQRa6kCycTGxVRt++W4X6vVsM4le2FhYRw4yLCLhlgutGrQsC3QdYMuNgwDx/qb4u3AF90OVFTVrWgazcQ0cBG6ShUBGj4nSuaG933i9Bjwvj8w+mSz4UDJaLqFig25fBnkMtbHaIJUqiLEgkZj0CqknYg2Go0+aZsxoD9wOAKqNQdkteXyNxbE0zywsg5FswN8qQ6WZUOr2YJ6rQ6iKNIs3wg8HKthhxjgqpoOFtaOZXOQTqfhaSoFDJuBy8wFJJg4GmLTz0fn+6TGY8D9/f0RsNvtogG6S0wgdSuWNYgxFYizZbjIVOA8UwbxpjSsqUHM+qcprwNJhlhsVx+6qmGUKhiqMYiKMQARhwfv/FvbDIG6RluFNG3VMjF0GrZl/r2N3g5st9vkZQcd9NBJj+c4jxMLHqNYHquYniApHpfLedhaHoI90tjDtrFGwOHW+whPjHiv1wNFUfoMw0A2y8DVVRKST57BJe6a66wMV6mnkEwmIJPJACYA+XzeQ6fJ1qu+cvmQts0dlmUvSPqyLL/gOM7Blx0JTxhJyjsFOe8UlYIj0WcyncPWIdojbmMSGu7lwWmzsrJC5IP19fXPtra2VlFXUdc2NjZG4cP4et2H483Rs83NzTWfz7dKYnt7+8upqam75KCm0Onp6XdQyIl7G+PD/xi3h2vfnZmZefU/ODo6uhWNRiePj48ng8EgjVAoNBq/fk/05fjk5GQSfwuTs7OzlPMXOOpGBouw9hgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 105.40540540540542%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAADTUlEQVQ4y3VV63LaVhDmdTqTl+sztEn/daZP0JlMp07TTGcyuTgOTGKMAYNsbEQBCRBIoPsdXFD968vuASkyTX98nHP27H570Z6lsvhwBuvqBK/kE3RGPahjFYqqQpIk1Go11Ot1NBoNNJtNtFotce71SI90xuNxAUVRBCrWcgVrZcCxl0hcm+DBtW2YpgmbVsuyBPjM4L19uHccB57rijW/qwRRhPskxel0jh+7PfzUaUMydKQkn2oadN3AfLHAcrWCbhiYzecwDHKeJDCWS0xnM7HGcYyIbCp+4COJEnQnHbySXuKFfAOVvM4mU7w7q+K8cYm3Hz7izemZ2DeabTz//Q+MFRW//naC12/fYzgaC7IgCFAJidCL7gHjJaB8D6Qmdvdb4bn2+RyX7SthzFGefqzhU/0C7a6EzxeXqH46F04Hfw+/Enp+gGyd4Fn1Gt/9/Bee/PIGf96o+CcOcX7ZwgUhikKRkkk1WlGtfN9HGIaCYF9juzhTygE2cYR3soYfqrd4Wu2hMzWwJplzKDgrMjiKmORsnINleXR8rvAPk+7SGNiuBTZJLGRflcOC9P9QRFgcwgAe7T1KR0TD3kUE4aOIcuR2x7J9hFRH0/YJHmwvJOIYDq18ZnCdWdnzPAGuIUfOa1l2SDnAzEphRRm89AHTZYDecAFV9+DEGVzC1EwRUGvtsh12ux1iKsmCvvpms0GWZUKWpuk+wogINTOB7t7DDLZQFh6kgUaEAZzkAXb0L3RvSyRrZNsMD7sHpPQQNGp6jpJJ1+u16IIiZd64ng/X9UT6MRnMFzpkuQ+F3ulw0Ic2UyHPqANGLXKmCtI8Zf9Qd5HycXHzD2KulriWVfTHGpq9MTqDGVpE3hzdYWKopBPhW7ZFhMefP6U6yXqMq0mEGy1GWw1xpcToz1OkcfJIt2xbOfZQVkwiIo73WB9Wlh2TlTkq5cvj/grEuRzFXnYcwLcbu3TJReYn5/K88wMBv/hwj5/jfwjLUfGM4xZgI0m6hty/Q3tkoT4MRA17qiVkXZo2bMOtcvxyigjZK492Hv2DwUDsb28Jd32CTCNsgi7dDYdDIuzS3a0Y/azP07oYX+Vwy2M+34vUXUf0W/63kOvwHaM8zr4Aapj8hJEhUv8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;server running&quot;
         title=&quot;Server started&quot;
-        src=&quot;/blog/static/497d0f3594f7e8456cefd49d6b2233e7/01e7c/serverrunning.png&quot;
-        srcset=&quot;/blog/static/497d0f3594f7e8456cefd49d6b2233e7/12f09/serverrunning.png 148w,
-/blog/static/497d0f3594f7e8456cefd49d6b2233e7/e4a3f/serverrunning.png 295w,
-/blog/static/497d0f3594f7e8456cefd49d6b2233e7/01e7c/serverrunning.png 512w&quot;
-        sizes=&quot;(max-width: 512px) 100vw, 512px&quot;
+        src=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
+        srcset=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/12f09/serverrunning.png 148w,
+/blog/static/318f10438595fac3d360871e6dc6756a/e4a3f/serverrunning.png 295w,
+/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png 398w&quot;
+        sizes=&quot;(max-width: 398px) 100vw, 398px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
