@@ -1,7 +1,7 @@
 ---
 title: EPI2MELabs moves to JupyterLab
 date: "2020-10-23T23:23:00.000Z"
-description: "Why were are moving EPI2MELabs to the JupyterLab frontend."
+description: "Why we are moving EPI2MELabs to the JupyterLab frontend."
 tags:
 ---
 
