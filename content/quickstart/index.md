@@ -228,7 +228,7 @@ Running code cells in JupyterLab requires clicking the **play** button in the
 navigation bar at the top of the screen (or to the right-hand side of a code cell).
 There is also a **"Run"** tab that can be used to run multiple cells.
 
-![Run code cells](./runcodecells.png "Running code cells")
+![Run code cells](./runcodecell.png "Running code cells")
 
 ### Bookmarks and navigating notebooks
 
