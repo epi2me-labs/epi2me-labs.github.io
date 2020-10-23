@@ -196,31 +196,19 @@ new server components will be downloaded:
 
 ####TODO: rewrite this section
 
-1. With the EPI2ME Labs notebook server running, click the link within the Launcher:
-
-######TODO: image
-
-2. On the landing page select the notebook you wish to open.
-
-#####TODO: image
-
-3. When you first open the tutorial, it will have outputs from example data. These
-should be helpful for understand the expected outcome of each step.
-
-#####TODO: image
-
-4. You can see all your data in the location you provided in the launcher by 
-
+1. With the EPI2ME Labs notebook server running, click the Open EPI2MELabs link
+within the Launcher:
+   ![Open EPI2MeLabs](./serverrunning.png "Open EPI2MeLabs")
+2. On the landing page select the notebook you wish to open. Opening a notebook
+template will create a copy of the file as a new document for you to edit.
+   ![Notebook launch](./notebooksplash.png "Launch a notebook")
+3. You can see all your data in the location you provided in the launcher by 
 clicking **/epi2melabs** in the sidebar:
-
-#####TODO: image
-
-5. To copy your own data into the tutorial, right-click on the data file and
+   ![epi2melabs mount](./epi2melabsmount.png "Data access from epi2melabs folder")
+4. To copy your own data into the tutorial, right-click on the data file and
 select **Copy path**.
-
 ![Copy filepaths](./copypath.png "Copying filepaths")
-
-6. Follow the guidance provided in the tutorial to perform data analysis.
+5. Follow the guidance provided in the tutorial to perform data analysis.
 
 #### Running code cells
 
