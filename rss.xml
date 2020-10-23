@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 22 Oct 2020 22:13:41 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Oct 2020 10:44:32 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides…]]></description><link>https://epi2me-labs.github.io/blog/launch/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/launch/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome!&lt;/p&gt;
 &lt;p&gt;On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides, help pages and demonstrations of the available
@@ -300,4 +300,24 @@ of Medaka to process and summarise the optional modified base output of
 Guppy.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_how_ONT&amp;#x27;s_medaka_works.ipynb&quot;&gt;Medaka tech. demo&lt;/a&gt; - A deep
 dive into the inner workings of Oxford Nanopore Technologies’ Medaka software&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item></channel></rss>
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs downloads and resources]]></title><description><![CDATA[EPI2MELabs downloads and resources Below are listed all resources on which EPI2MELabs is built. We aim for all
+components of EPI2MELabs to…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2MELabs downloads and resources&lt;/h1&gt;
+&lt;p&gt;Below are listed all resources on which EPI2MELabs is built. We aim for all
+components of EPI2MELabs to be open source (including this website!).
+If you find something is not available please contact support@nanoporetech.com&lt;/p&gt;
+&lt;h2&gt;EPI2MELabs Launcher&lt;/h2&gt;
+&lt;p&gt;The LabsLauncher is used to start, stop, and update the EPI2MELabs notebook
+server. We provide executables for Windows 10, macOS, and Linux.&lt;/p&gt;
+&lt;h1&gt;TODO: add download links&lt;/h1&gt;
+&lt;p&gt;The launcher is written in Python with &lt;a href=&quot;https://www.qt.io/&quot;&gt;Qt&lt;/a&gt; and the
+sourcecode is available from GitHub:
+&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher&quot;&gt;https://github.com/epi2me-labs/labslauncher&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Notebook files&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;A listing of all available notebooks is available on the &lt;a href=&quot;/blog/nbindex&quot;&gt;Notebook
+Index&lt;/a&gt; page.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The notebooks used within EPI2MELabs are available in their source form from
+the GitHub repository: &lt;a href=&quot;https://github.com/epi2me-labs/notebooks&quot;&gt;https://github.com/epi2me-labs/notebooks&lt;/a&gt;. These are
+updated regularly with enhancements and fixes.&lt;/p&gt;
+&lt;h2&gt;Docker containers&lt;/h2&gt;
+&lt;p&gt;The docker container for the EPI2MELabs notebook server is hosted on dockerhub:
+&lt;a href=&quot;https://hub.docker.com/r/ontresearch/nanolabs-notebook&quot;&gt;https://hub.docker.com/r/ontresearch/nanolabs-notebook&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
