@@ -1,7 +1,7 @@
 ---
 title: EPI2MELabs Blog Launch
 date: "2020-10-22T00:00:00.000Z"
-description: "EPI2MELabs Blog Launch"
+description: "Welcome to the EPI2MELabs blog, where we will aim to provide updates on new analysis notebooks and tutorials"
 tags:
 ---
 
