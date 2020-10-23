@@ -16,7 +16,12 @@ If you find something is not available please contact support@nanoporetech.com
 The LabsLauncher is used to start, stop, and update the EPI2MELabs notebook
 server. We provide executables for Windows 10, macOS, and Linux.
 
-#TODO: add download links
+| Platform     | Download                                                                                                                                                          |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Windows 10   | [ont-epi2melabs-installer-v0.6.3-win10.exe](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.3/ont-epi2melabs-installer-v0.6.3-win10.exe)       |
+| macOS        | [ont-epi2melabs-launcher-v0.6.3-macos.app.zip](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.3/ont-epi2melabs-launcher-v0.6.3-macos.app.zip) |
+| Ubuntu 16.04 | [ont-epi2melabs-launcher-0.6.3-0.xenial.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.3/ont-epi2melabs-launcher-0.6.3-0.xenial.deb)     |
+| Ubuntu 18.04 | [ont-epi2melabs-launcher-0.6.3-0.bionic.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.3/ont-epi2melabs-launcher-0.6.3-0.bionic.deb)     |
 
 The launcher is written in Python with [Qt](https://www.qt.io/) and the
 sourcecode is available from GitHub:
