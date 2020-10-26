@@ -1,1 +1,1 @@
-Website build for: https://epi2me-labs.github.io/blog/
+Website build for: https://epi2me-labs.github.io/
