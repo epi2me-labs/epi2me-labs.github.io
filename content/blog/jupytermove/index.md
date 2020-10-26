@@ -22,7 +22,7 @@ run. We therefore built our analysis notebooks and tutorials around the Google
 Colab and recommended that it be used with our customised Jupyter notebook
 server.
 
-Google Colab is not without its floors however for our purposes. Connecting the
+Google Colab is not without its flaws however for our purposes. Connecting the
 user interface to the notebook server is a clunky affair, the interface is
 geared toward using Google's cloud compute and storing documents in Google
 Drive. It is also not available for users in some territories.
@@ -31,7 +31,7 @@ To simplify the EPI2MELabs experience for our growing userbase, starting with
 version 0.2.6 we are recommending that users no longer use the Google Colab
 interface and instead use the more standard JupyterLab interface included with the
 EPI2MELabs server software. The EPI2MELabs Launcher application has been
-updated to version 0.6.5 and streamlines the opening of the interface. We will
+updated to version 0.6.4 and streamlines the opening of the interface. We will
 no longer be supporting the use of EPI2MELabs with Google Colab.
 
 But what of the reasons given above for not using JupyterLab from the outset?
