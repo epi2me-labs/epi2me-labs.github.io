@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 09:05:13 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs moves to JupyterLab]]></title><description><![CDATA[When we released EPI2MELabs earlier this year we wanted to create an
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 12:33:18 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs moves to JupyterLab]]></title><description><![CDATA[When we released EPI2MELabs earlier this year we wanted to create an
 environment where “non-coders”, people with little to no experience of…]]></description><link>https://epi2me-labs.github.io/blog/jupytermove/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/jupytermove/</guid><pubDate>Fri, 23 Oct 2020 23:23:00 GMT</pubDate><content:encoded>&lt;p&gt;When we released EPI2MELabs earlier this year we wanted to create an
 environment where “non-coders”, people with little to no experience of writing
 computer code could learn to analyse their nanopore sequencing data. To this
@@ -62,11 +62,11 @@ isolated and resettable environment.&lt;/p&gt;
 well as any Windows 10, macOS, or Linux desktop. All components are also
 released open-source in our &lt;a href=&quot;https://github.com/epi2me-labs&quot;&gt;GitHub&lt;/a&gt;
 repository.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&quot;/blog/quickstart&quot;&gt;Quick Start guide&lt;/a&gt; will help you to get started running a
+&lt;p&gt;The &lt;a href=&quot;/quickstart&quot;&gt;Quick Start guide&lt;/a&gt; will help you to get started running a
 notebook server and web-based analyses.&lt;/p&gt;
-&lt;p&gt;Our &lt;a href=&quot;/blog/nbindex&quot;&gt;Index of Notebooks&lt;/a&gt; page to see a complete listing with
+&lt;p&gt;Our &lt;a href=&quot;/nbindex&quot;&gt;Index of Notebooks&lt;/a&gt; page to see a complete listing with
 descriptions.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&quot;/blog/downloads&quot;&gt;Downloads&lt;/a&gt; page contains a list of all available resources to
+&lt;p&gt;The &lt;a href=&quot;/downloads&quot;&gt;Downloads&lt;/a&gt; page contains a list of all available resources to
 get you started.&lt;/p&gt;
 &lt;p&gt;To learn more about the Jupyter project, see
 &lt;a href=&quot;https://www.jupyter.org/&quot;&gt;jupyter.org&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs Quick Start Guide]]></title><description><![CDATA[EPI2MELabs Quick Start Guide The following guide illustrates installation and use of the EPI2ME Labs
@@ -101,7 +101,7 @@ docker follow the instructions below.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/addfb9e9b15547ddc93b7b99c3a064ce/ff46a/1.png&quot;
+    href=&quot;/static/addfb9e9b15547ddc93b7b99c3a064ce/ff46a/1.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -114,10 +114,10 @@ docker follow the instructions below.&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;search computer 1&quot;
         title=&quot;Search for terminal&quot;
-        src=&quot;/blog/static/addfb9e9b15547ddc93b7b99c3a064ce/ff46a/1.png&quot;
-        srcset=&quot;/blog/static/addfb9e9b15547ddc93b7b99c3a064ce/12f09/1.png 148w,
-/blog/static/addfb9e9b15547ddc93b7b99c3a064ce/e4a3f/1.png 295w,
-/blog/static/addfb9e9b15547ddc93b7b99c3a064ce/ff46a/1.png 325w&quot;
+        src=&quot;/static/addfb9e9b15547ddc93b7b99c3a064ce/ff46a/1.png&quot;
+        srcset=&quot;/static/addfb9e9b15547ddc93b7b99c3a064ce/12f09/1.png 148w,
+/static/addfb9e9b15547ddc93b7b99c3a064ce/e4a3f/1.png 295w,
+/static/addfb9e9b15547ddc93b7b99c3a064ce/ff46a/1.png 325w&quot;
         sizes=&quot;(max-width: 325px) 100vw, 325px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -133,7 +133,7 @@ docker follow the instructions below.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/4f70425ab3f09a852bdea71d02ba40d6/0e0c3/2.png&quot;
+    href=&quot;/static/4f70425ab3f09a852bdea71d02ba40d6/0e0c3/2.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -146,10 +146,10 @@ docker follow the instructions below.&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;search computer 2&quot;
         title=&quot;Search for terminal&quot;
-        src=&quot;/blog/static/4f70425ab3f09a852bdea71d02ba40d6/0e0c3/2.png&quot;
-        srcset=&quot;/blog/static/4f70425ab3f09a852bdea71d02ba40d6/12f09/2.png 148w,
-/blog/static/4f70425ab3f09a852bdea71d02ba40d6/e4a3f/2.png 295w,
-/blog/static/4f70425ab3f09a852bdea71d02ba40d6/0e0c3/2.png 432w&quot;
+        src=&quot;/static/4f70425ab3f09a852bdea71d02ba40d6/0e0c3/2.png&quot;
+        srcset=&quot;/static/4f70425ab3f09a852bdea71d02ba40d6/12f09/2.png 148w,
+/static/4f70425ab3f09a852bdea71d02ba40d6/e4a3f/2.png 295w,
+/static/4f70425ab3f09a852bdea71d02ba40d6/0e0c3/2.png 432w&quot;
         sizes=&quot;(max-width: 432px) 100vw, 432px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -163,7 +163,7 @@ docker follow the instructions below.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/7133b36c95e1c6bb6e67e012e236446a/084e2/3.png&quot;
+    href=&quot;/static/7133b36c95e1c6bb6e67e012e236446a/084e2/3.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -176,11 +176,11 @@ docker follow the instructions below.&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;terminal window&quot;
         title=&quot;Terminal window&quot;
-        src=&quot;/blog/static/7133b36c95e1c6bb6e67e012e236446a/fcda8/3.png&quot;
-        srcset=&quot;/blog/static/7133b36c95e1c6bb6e67e012e236446a/12f09/3.png 148w,
-/blog/static/7133b36c95e1c6bb6e67e012e236446a/e4a3f/3.png 295w,
-/blog/static/7133b36c95e1c6bb6e67e012e236446a/fcda8/3.png 590w,
-/blog/static/7133b36c95e1c6bb6e67e012e236446a/084e2/3.png 632w&quot;
+        src=&quot;/static/7133b36c95e1c6bb6e67e012e236446a/fcda8/3.png&quot;
+        srcset=&quot;/static/7133b36c95e1c6bb6e67e012e236446a/12f09/3.png 148w,
+/static/7133b36c95e1c6bb6e67e012e236446a/e4a3f/3.png 295w,
+/static/7133b36c95e1c6bb6e67e012e236446a/fcda8/3.png 590w,
+/static/7133b36c95e1c6bb6e67e012e236446a/084e2/3.png 632w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -207,7 +207,7 @@ sudo usermod -aG docker &amp;lt;username&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/di
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/495a30318082d77edf03f8a1bf0ce411/a07a7/4.png&quot;
+    href=&quot;/static/495a30318082d77edf03f8a1bf0ce411/a07a7/4.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -220,10 +220,10 @@ sudo usermod -aG docker &amp;lt;username&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/di
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;docker hello&quot;
         title=&quot;Docker hello world&quot;
-        src=&quot;/blog/static/495a30318082d77edf03f8a1bf0ce411/a07a7/4.png&quot;
-        srcset=&quot;/blog/static/495a30318082d77edf03f8a1bf0ce411/12f09/4.png 148w,
-/blog/static/495a30318082d77edf03f8a1bf0ce411/e4a3f/4.png 295w,
-/blog/static/495a30318082d77edf03f8a1bf0ce411/a07a7/4.png 534w&quot;
+        src=&quot;/static/495a30318082d77edf03f8a1bf0ce411/a07a7/4.png&quot;
+        srcset=&quot;/static/495a30318082d77edf03f8a1bf0ce411/12f09/4.png 148w,
+/static/495a30318082d77edf03f8a1bf0ce411/e4a3f/4.png 295w,
+/static/495a30318082d77edf03f8a1bf0ce411/a07a7/4.png 534w&quot;
         sizes=&quot;(max-width: 534px) 100vw, 534px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -249,7 +249,7 @@ Docker Desktop program and navigating to its settings page:&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/812591a6dee21163d352f02a41c62ea8/940c5/5.png&quot;
+    href=&quot;/static/812591a6dee21163d352f02a41c62ea8/940c5/5.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -262,11 +262,11 @@ Docker Desktop program and navigating to its settings page:&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;docker data share&quot;
         title=&quot;Docker data share&quot;
-        src=&quot;/blog/static/812591a6dee21163d352f02a41c62ea8/fcda8/5.png&quot;
-        srcset=&quot;/blog/static/812591a6dee21163d352f02a41c62ea8/12f09/5.png 148w,
-/blog/static/812591a6dee21163d352f02a41c62ea8/e4a3f/5.png 295w,
-/blog/static/812591a6dee21163d352f02a41c62ea8/fcda8/5.png 590w,
-/blog/static/812591a6dee21163d352f02a41c62ea8/940c5/5.png 772w&quot;
+        src=&quot;/static/812591a6dee21163d352f02a41c62ea8/fcda8/5.png&quot;
+        srcset=&quot;/static/812591a6dee21163d352f02a41c62ea8/12f09/5.png 148w,
+/static/812591a6dee21163d352f02a41c62ea8/e4a3f/5.png 295w,
+/static/812591a6dee21163d352f02a41c62ea8/fcda8/5.png 590w,
+/static/812591a6dee21163d352f02a41c62ea8/940c5/5.png 772w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -282,7 +282,7 @@ in the system Settings:&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/d9ad53dca398d7c0038dca7949466139/43fbc/6.png&quot;
+    href=&quot;/static/d9ad53dca398d7c0038dca7949466139/43fbc/6.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -295,11 +295,11 @@ in the system Settings:&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;docker share permission&quot;
         title=&quot;Docker windows share permission&quot;
-        src=&quot;/blog/static/d9ad53dca398d7c0038dca7949466139/fcda8/6.png&quot;
-        srcset=&quot;/blog/static/d9ad53dca398d7c0038dca7949466139/12f09/6.png 148w,
-/blog/static/d9ad53dca398d7c0038dca7949466139/e4a3f/6.png 295w,
-/blog/static/d9ad53dca398d7c0038dca7949466139/fcda8/6.png 590w,
-/blog/static/d9ad53dca398d7c0038dca7949466139/43fbc/6.png 797w&quot;
+        src=&quot;/static/d9ad53dca398d7c0038dca7949466139/fcda8/6.png&quot;
+        srcset=&quot;/static/d9ad53dca398d7c0038dca7949466139/12f09/6.png 148w,
+/static/d9ad53dca398d7c0038dca7949466139/e4a3f/6.png 295w,
+/static/d9ad53dca398d7c0038dca7949466139/fcda8/6.png 590w,
+/static/d9ad53dca398d7c0038dca7949466139/43fbc/6.png 797w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -315,7 +315,7 @@ instances.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/6820297cf2ac9c816643acbb81a83597/e61aa/7.png&quot;
+    href=&quot;/static/6820297cf2ac9c816643acbb81a83597/e61aa/7.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -328,9 +328,9 @@ instances.&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;docker share notify&quot;
         title=&quot;Docker windows share notification&quot;
-        src=&quot;/blog/static/6820297cf2ac9c816643acbb81a83597/e61aa/7.png&quot;
-        srcset=&quot;/blog/static/6820297cf2ac9c816643acbb81a83597/12f09/7.png 148w,
-/blog/static/6820297cf2ac9c816643acbb81a83597/e61aa/7.png 264w&quot;
+        src=&quot;/static/6820297cf2ac9c816643acbb81a83597/e61aa/7.png&quot;
+        srcset=&quot;/static/6820297cf2ac9c816643acbb81a83597/12f09/7.png 148w,
+/static/6820297cf2ac9c816643acbb81a83597/e61aa/7.png 264w&quot;
         sizes=&quot;(max-width: 264px) 100vw, 264px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -349,7 +349,7 @@ less than the maximum value for your system.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/476d5084979c52d69ef6de997d95d9fd/167b5/8.png&quot;
+    href=&quot;/static/476d5084979c52d69ef6de997d95d9fd/167b5/8.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -362,11 +362,11 @@ less than the maximum value for your system.&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;docker resource&quot;
         title=&quot;Docker resources&quot;
-        src=&quot;/blog/static/476d5084979c52d69ef6de997d95d9fd/fcda8/8.png&quot;
-        srcset=&quot;/blog/static/476d5084979c52d69ef6de997d95d9fd/12f09/8.png 148w,
-/blog/static/476d5084979c52d69ef6de997d95d9fd/e4a3f/8.png 295w,
-/blog/static/476d5084979c52d69ef6de997d95d9fd/fcda8/8.png 590w,
-/blog/static/476d5084979c52d69ef6de997d95d9fd/167b5/8.png 776w&quot;
+        src=&quot;/static/476d5084979c52d69ef6de997d95d9fd/fcda8/8.png&quot;
+        srcset=&quot;/static/476d5084979c52d69ef6de997d95d9fd/12f09/8.png 148w,
+/static/476d5084979c52d69ef6de997d95d9fd/e4a3f/8.png 295w,
+/static/476d5084979c52d69ef6de997d95d9fd/fcda8/8.png 590w,
+/static/476d5084979c52d69ef6de997d95d9fd/167b5/8.png 776w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -391,7 +391,7 @@ on the &lt;strong&gt;EPI2ME-Labs Server Control&lt;/strong&gt; icon. This will s
 &lt;/ol&gt;
 &lt;h3&gt;Installing the Launcher on Windows 10 and macOS&lt;/h3&gt;
 &lt;p&gt;We provide a Windows 10 installer and an macOS Application bundle on the
-&lt;a href=&quot;/blog/downloads&quot;&gt;Downloads&lt;/a&gt; page. Simply download and run these files to install
+&lt;a href=&quot;/downloads&quot;&gt;Downloads&lt;/a&gt; page. Simply download and run these files to install
 the EPI2MELabs Launcher on these platforms.&lt;/p&gt;
 &lt;h2&gt;Start EPI2ME Labs from the launcher&lt;/h2&gt;
 &lt;p&gt;The EPI2ME Labs launcher interface has all the functionality required for users
@@ -406,7 +406,7 @@ Server&lt;/strong&gt; screen:&lt;/li&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/118bc434a52fff37bc283cec92038141/692d4/startscreen.png&quot;
+    href=&quot;/static/118bc434a52fff37bc283cec92038141/692d4/startscreen.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -419,10 +419,10 @@ Server&lt;/strong&gt; screen:&lt;/li&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;start screen&quot;
         title=&quot;Launcher home screen&quot;
-        src=&quot;/blog/static/118bc434a52fff37bc283cec92038141/692d4/startscreen.png&quot;
-        srcset=&quot;/blog/static/118bc434a52fff37bc283cec92038141/12f09/startscreen.png 148w,
-/blog/static/118bc434a52fff37bc283cec92038141/e4a3f/startscreen.png 295w,
-/blog/static/118bc434a52fff37bc283cec92038141/692d4/startscreen.png 398w&quot;
+        src=&quot;/static/118bc434a52fff37bc283cec92038141/692d4/startscreen.png&quot;
+        srcset=&quot;/static/118bc434a52fff37bc283cec92038141/12f09/startscreen.png 148w,
+/static/118bc434a52fff37bc283cec92038141/e4a3f/startscreen.png 295w,
+/static/118bc434a52fff37bc283cec92038141/692d4/startscreen.png 398w&quot;
         sizes=&quot;(max-width: 398px) 100vw, 398px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -443,7 +443,7 @@ interface&lt;/li&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/946a2ff4aee7ced8569831bb856e2d04/2cb6c/optionscreen.png&quot;
+    href=&quot;/static/946a2ff4aee7ced8569831bb856e2d04/2cb6c/optionscreen.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -456,10 +456,10 @@ interface&lt;/li&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;option screen&quot;
         title=&quot;Launcher option screen&quot;
-        src=&quot;/blog/static/946a2ff4aee7ced8569831bb856e2d04/2cb6c/optionscreen.png&quot;
-        srcset=&quot;/blog/static/946a2ff4aee7ced8569831bb856e2d04/12f09/optionscreen.png 148w,
-/blog/static/946a2ff4aee7ced8569831bb856e2d04/e4a3f/optionscreen.png 295w,
-/blog/static/946a2ff4aee7ced8569831bb856e2d04/2cb6c/optionscreen.png 395w&quot;
+        src=&quot;/static/946a2ff4aee7ced8569831bb856e2d04/2cb6c/optionscreen.png&quot;
+        srcset=&quot;/static/946a2ff4aee7ced8569831bb856e2d04/12f09/optionscreen.png 148w,
+/static/946a2ff4aee7ced8569831bb856e2d04/e4a3f/optionscreen.png 295w,
+/static/946a2ff4aee7ced8569831bb856e2d04/2cb6c/optionscreen.png 395w&quot;
         sizes=&quot;(max-width: 395px) 100vw, 395px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -476,7 +476,7 @@ different folder, click &lt;strong&gt;Select path&lt;/strong&gt; to show the sel
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/07e970779407474ebf96ebb23c5e4eaa/43fbc/filebrowser.png&quot;
+    href=&quot;/static/07e970779407474ebf96ebb23c5e4eaa/43fbc/filebrowser.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -489,11 +489,11 @@ different folder, click &lt;strong&gt;Select path&lt;/strong&gt; to show the sel
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;path select screen&quot;
         title=&quot;Launcher filebrowser&quot;
-        src=&quot;/blog/static/07e970779407474ebf96ebb23c5e4eaa/fcda8/filebrowser.png&quot;
-        srcset=&quot;/blog/static/07e970779407474ebf96ebb23c5e4eaa/12f09/filebrowser.png 148w,
-/blog/static/07e970779407474ebf96ebb23c5e4eaa/e4a3f/filebrowser.png 295w,
-/blog/static/07e970779407474ebf96ebb23c5e4eaa/fcda8/filebrowser.png 590w,
-/blog/static/07e970779407474ebf96ebb23c5e4eaa/43fbc/filebrowser.png 797w&quot;
+        src=&quot;/static/07e970779407474ebf96ebb23c5e4eaa/fcda8/filebrowser.png&quot;
+        srcset=&quot;/static/07e970779407474ebf96ebb23c5e4eaa/12f09/filebrowser.png 148w,
+/static/07e970779407474ebf96ebb23c5e4eaa/e4a3f/filebrowser.png 295w,
+/static/07e970779407474ebf96ebb23c5e4eaa/fcda8/filebrowser.png 590w,
+/static/07e970779407474ebf96ebb23c5e4eaa/43fbc/filebrowser.png 797w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -523,7 +523,7 @@ bottom of the launcher interface stating “Server status: running.“:&lt;/p&gt
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
+    href=&quot;/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -536,10 +536,10 @@ bottom of the launcher interface stating “Server status: running.“:&lt;/p&gt
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;server running&quot;
         title=&quot;Server started&quot;
-        src=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
-        srcset=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/12f09/serverrunning.png 148w,
-/blog/static/318f10438595fac3d360871e6dc6756a/e4a3f/serverrunning.png 295w,
-/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png 398w&quot;
+        src=&quot;/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
+        srcset=&quot;/static/318f10438595fac3d360871e6dc6756a/12f09/serverrunning.png 148w,
+/static/318f10438595fac3d360871e6dc6756a/e4a3f/serverrunning.png 295w,
+/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png 398w&quot;
         sizes=&quot;(max-width: 398px) 100vw, 398px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -558,7 +558,7 @@ when an update is available will result in the following being displayed:&lt;/p&
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/513bc310361dc3298cb72de6c2ee6147/9edad/updateavailable.png&quot;
+    href=&quot;/static/513bc310361dc3298cb72de6c2ee6147/9edad/updateavailable.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -571,10 +571,10 @@ when an update is available will result in the following being displayed:&lt;/p&
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Update available&quot;
         title=&quot;Server update available&quot;
-        src=&quot;/blog/static/513bc310361dc3298cb72de6c2ee6147/9edad/updateavailable.png&quot;
-        srcset=&quot;/blog/static/513bc310361dc3298cb72de6c2ee6147/12f09/updateavailable.png 148w,
-/blog/static/513bc310361dc3298cb72de6c2ee6147/e4a3f/updateavailable.png 295w,
-/blog/static/513bc310361dc3298cb72de6c2ee6147/9edad/updateavailable.png 297w&quot;
+        src=&quot;/static/513bc310361dc3298cb72de6c2ee6147/9edad/updateavailable.png&quot;
+        srcset=&quot;/static/513bc310361dc3298cb72de6c2ee6147/12f09/updateavailable.png 148w,
+/static/513bc310361dc3298cb72de6c2ee6147/e4a3f/updateavailable.png 295w,
+/static/513bc310361dc3298cb72de6c2ee6147/9edad/updateavailable.png 297w&quot;
         sizes=&quot;(max-width: 297px) 100vw, 297px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -591,7 +591,7 @@ new server components will be downloaded:&lt;/li&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/dffd7299a8088c9f6984380ac3c8e1ed/9edad/downloadupdate.png&quot;
+    href=&quot;/static/dffd7299a8088c9f6984380ac3c8e1ed/9edad/downloadupdate.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -604,10 +604,10 @@ new server components will be downloaded:&lt;/li&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Update download&quot;
         title=&quot;Server updating&quot;
-        src=&quot;/blog/static/dffd7299a8088c9f6984380ac3c8e1ed/9edad/downloadupdate.png&quot;
-        srcset=&quot;/blog/static/dffd7299a8088c9f6984380ac3c8e1ed/12f09/downloadupdate.png 148w,
-/blog/static/dffd7299a8088c9f6984380ac3c8e1ed/e4a3f/downloadupdate.png 295w,
-/blog/static/dffd7299a8088c9f6984380ac3c8e1ed/9edad/downloadupdate.png 297w&quot;
+        src=&quot;/static/dffd7299a8088c9f6984380ac3c8e1ed/9edad/downloadupdate.png&quot;
+        srcset=&quot;/static/dffd7299a8088c9f6984380ac3c8e1ed/12f09/downloadupdate.png 148w,
+/static/dffd7299a8088c9f6984380ac3c8e1ed/e4a3f/downloadupdate.png 295w,
+/static/dffd7299a8088c9f6984380ac3c8e1ed/9edad/downloadupdate.png 297w&quot;
         sizes=&quot;(max-width: 297px) 100vw, 297px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -625,7 +625,7 @@ within the Launcher:
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
+    href=&quot;/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -638,10 +638,10 @@ within the Launcher:
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Open EPI2MeLabs&quot;
         title=&quot;Open EPI2MeLabs&quot;
-        src=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
-        srcset=&quot;/blog/static/318f10438595fac3d360871e6dc6756a/12f09/serverrunning.png 148w,
-/blog/static/318f10438595fac3d360871e6dc6756a/e4a3f/serverrunning.png 295w,
-/blog/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png 398w&quot;
+        src=&quot;/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png&quot;
+        srcset=&quot;/static/318f10438595fac3d360871e6dc6756a/12f09/serverrunning.png 148w,
+/static/318f10438595fac3d360871e6dc6756a/e4a3f/serverrunning.png 295w,
+/static/318f10438595fac3d360871e6dc6756a/692d4/serverrunning.png 398w&quot;
         sizes=&quot;(max-width: 398px) 100vw, 398px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -656,7 +656,7 @@ template will create a copy of the file as a new document for you to edit.
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/38f44625d571272ee09918549f36a5d2/0d6fe/notebooksplash.png&quot;
+    href=&quot;/static/38f44625d571272ee09918549f36a5d2/0d6fe/notebooksplash.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -669,12 +669,12 @@ template will create a copy of the file as a new document for you to edit.
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Notebook launch&quot;
         title=&quot;Launch a notebook&quot;
-        src=&quot;/blog/static/38f44625d571272ee09918549f36a5d2/fcda8/notebooksplash.png&quot;
-        srcset=&quot;/blog/static/38f44625d571272ee09918549f36a5d2/12f09/notebooksplash.png 148w,
-/blog/static/38f44625d571272ee09918549f36a5d2/e4a3f/notebooksplash.png 295w,
-/blog/static/38f44625d571272ee09918549f36a5d2/fcda8/notebooksplash.png 590w,
-/blog/static/38f44625d571272ee09918549f36a5d2/efc66/notebooksplash.png 885w,
-/blog/static/38f44625d571272ee09918549f36a5d2/0d6fe/notebooksplash.png 1115w&quot;
+        src=&quot;/static/38f44625d571272ee09918549f36a5d2/fcda8/notebooksplash.png&quot;
+        srcset=&quot;/static/38f44625d571272ee09918549f36a5d2/12f09/notebooksplash.png 148w,
+/static/38f44625d571272ee09918549f36a5d2/e4a3f/notebooksplash.png 295w,
+/static/38f44625d571272ee09918549f36a5d2/fcda8/notebooksplash.png 590w,
+/static/38f44625d571272ee09918549f36a5d2/efc66/notebooksplash.png 885w,
+/static/38f44625d571272ee09918549f36a5d2/0d6fe/notebooksplash.png 1115w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -689,7 +689,7 @@ clicking &lt;strong&gt;/epi2melabs&lt;/strong&gt; in the sidebar:
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/10edb3fee5539f49b09f80ae40a8f255/ff46a/epi2melabsmount.png&quot;
+    href=&quot;/static/10edb3fee5539f49b09f80ae40a8f255/ff46a/epi2melabsmount.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -702,10 +702,10 @@ clicking &lt;strong&gt;/epi2melabs&lt;/strong&gt; in the sidebar:
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;epi2melabs mount&quot;
         title=&quot;Data access from epi2melabs folder&quot;
-        src=&quot;/blog/static/10edb3fee5539f49b09f80ae40a8f255/ff46a/epi2melabsmount.png&quot;
-        srcset=&quot;/blog/static/10edb3fee5539f49b09f80ae40a8f255/12f09/epi2melabsmount.png 148w,
-/blog/static/10edb3fee5539f49b09f80ae40a8f255/e4a3f/epi2melabsmount.png 295w,
-/blog/static/10edb3fee5539f49b09f80ae40a8f255/ff46a/epi2melabsmount.png 325w&quot;
+        src=&quot;/static/10edb3fee5539f49b09f80ae40a8f255/ff46a/epi2melabsmount.png&quot;
+        srcset=&quot;/static/10edb3fee5539f49b09f80ae40a8f255/12f09/epi2melabsmount.png 148w,
+/static/10edb3fee5539f49b09f80ae40a8f255/e4a3f/epi2melabsmount.png 295w,
+/static/10edb3fee5539f49b09f80ae40a8f255/ff46a/epi2melabsmount.png 325w&quot;
         sizes=&quot;(max-width: 325px) 100vw, 325px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -720,7 +720,7 @@ select &lt;strong&gt;Copy path&lt;/strong&gt;.
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/266a96c981b9da1d25d2917b4ebf293a/394f7/copypath.png&quot;
+    href=&quot;/static/266a96c981b9da1d25d2917b4ebf293a/394f7/copypath.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -733,11 +733,11 @@ select &lt;strong&gt;Copy path&lt;/strong&gt;.
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Copy filepaths&quot;
         title=&quot;Copying filepaths&quot;
-        src=&quot;/blog/static/266a96c981b9da1d25d2917b4ebf293a/fcda8/copypath.png&quot;
-        srcset=&quot;/blog/static/266a96c981b9da1d25d2917b4ebf293a/12f09/copypath.png 148w,
-/blog/static/266a96c981b9da1d25d2917b4ebf293a/e4a3f/copypath.png 295w,
-/blog/static/266a96c981b9da1d25d2917b4ebf293a/fcda8/copypath.png 590w,
-/blog/static/266a96c981b9da1d25d2917b4ebf293a/394f7/copypath.png 707w&quot;
+        src=&quot;/static/266a96c981b9da1d25d2917b4ebf293a/fcda8/copypath.png&quot;
+        srcset=&quot;/static/266a96c981b9da1d25d2917b4ebf293a/12f09/copypath.png 148w,
+/static/266a96c981b9da1d25d2917b4ebf293a/e4a3f/copypath.png 295w,
+/static/266a96c981b9da1d25d2917b4ebf293a/fcda8/copypath.png 590w,
+/static/266a96c981b9da1d25d2917b4ebf293a/394f7/copypath.png 707w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -756,7 +756,7 @@ There is also a &lt;strong&gt;“Run”&lt;/strong&gt; tab that can be used to r
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/70d411c5f925496433179c402bcc06d9/40040/runcodecell.png&quot;
+    href=&quot;/static/70d411c5f925496433179c402bcc06d9/40040/runcodecell.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -769,11 +769,11 @@ There is also a &lt;strong&gt;“Run”&lt;/strong&gt; tab that can be used to r
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Run code cells&quot;
         title=&quot;Running code cells&quot;
-        src=&quot;/blog/static/70d411c5f925496433179c402bcc06d9/fcda8/runcodecell.png&quot;
-        srcset=&quot;/blog/static/70d411c5f925496433179c402bcc06d9/12f09/runcodecell.png 148w,
-/blog/static/70d411c5f925496433179c402bcc06d9/e4a3f/runcodecell.png 295w,
-/blog/static/70d411c5f925496433179c402bcc06d9/fcda8/runcodecell.png 590w,
-/blog/static/70d411c5f925496433179c402bcc06d9/40040/runcodecell.png 616w&quot;
+        src=&quot;/static/70d411c5f925496433179c402bcc06d9/fcda8/runcodecell.png&quot;
+        srcset=&quot;/static/70d411c5f925496433179c402bcc06d9/12f09/runcodecell.png 148w,
+/static/70d411c5f925496433179c402bcc06d9/e4a3f/runcodecell.png 295w,
+/static/70d411c5f925496433179c402bcc06d9/fcda8/runcodecell.png 590w,
+/static/70d411c5f925496433179c402bcc06d9/40040/runcodecell.png 616w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -790,7 +790,7 @@ in the notebook.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/ff45f8e946983a87e7f6a5f0bc8d169a/e9bf8/bookmarks.png&quot;
+    href=&quot;/static/ff45f8e946983a87e7f6a5f0bc8d169a/e9bf8/bookmarks.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -803,10 +803,10 @@ in the notebook.&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Bookmarks&quot;
         title=&quot;Notebook Bookmarks&quot;
-        src=&quot;/blog/static/ff45f8e946983a87e7f6a5f0bc8d169a/e9bf8/bookmarks.png&quot;
-        srcset=&quot;/blog/static/ff45f8e946983a87e7f6a5f0bc8d169a/12f09/bookmarks.png 148w,
-/blog/static/ff45f8e946983a87e7f6a5f0bc8d169a/e4a3f/bookmarks.png 295w,
-/blog/static/ff45f8e946983a87e7f6a5f0bc8d169a/e9bf8/bookmarks.png 349w&quot;
+        src=&quot;/static/ff45f8e946983a87e7f6a5f0bc8d169a/e9bf8/bookmarks.png&quot;
+        srcset=&quot;/static/ff45f8e946983a87e7f6a5f0bc8d169a/12f09/bookmarks.png 148w,
+/static/ff45f8e946983a87e7f6a5f0bc8d169a/e4a3f/bookmarks.png 295w,
+/static/ff45f8e946983a87e7f6a5f0bc8d169a/e9bf8/bookmarks.png 349w&quot;
         sizes=&quot;(max-width: 349px) 100vw, 349px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -818,34 +818,34 @@ description of each. Listed also are notebooks in development.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;The links will be populated in due course.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;Basic Tasks&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_fastq_file.ipynb&quot;&gt;Introduction to FASTQ&lt;/a&gt; - An introduction
+&lt;li&gt;&lt;a href=&quot;/Introduction_to_fastq_file.ipynb&quot;&gt;Introduction to FASTQ&lt;/a&gt; - An introduction
 to the FASTQ format and simple file operations&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;/blog/Introduction_to_Variant_Call_Format_(vcf)_files.ipynb&quot;&gt;Introduction to VCF&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/Introduction_to_Variant_Call_Format_(vcf)_files.ipynb&quot;&gt;Introduction to VCF&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;An introduction to Variant Call Format files and their manipulation in
 Python and on the command line.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_SAM_and_BAM_files.ipynb&quot;&gt;Introduction to BAM&lt;/a&gt; - An
+&lt;li&gt;&lt;a href=&quot;/Introduction_to_SAM_and_BAM_files.ipynb&quot;&gt;Introduction to BAM&lt;/a&gt; - An
 introduction to the SAM and BAM formats for storing alignment data and their
 manipulation with &lt;code class=&quot;language-text&quot;&gt;samtools&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_Fast5_files.ipynb&quot;&gt;Introduction to FAST5&lt;/a&gt; - A guide to
+&lt;li&gt;&lt;a href=&quot;/Introduction_to_Fast5_files.ipynb&quot;&gt;Introduction to FAST5&lt;/a&gt; - A guide to
 handling raw sequencing data from Oxford Nanopore Technologies’ sequencing
 devices.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Basic_QC_Tutorial.ipynb&quot;&gt;Basic QC&lt;/a&gt; - A simple workflow using the sequencing
+&lt;li&gt;&lt;a href=&quot;/Basic_QC_Tutorial.ipynb&quot;&gt;Basic QC&lt;/a&gt; - A simple workflow using the sequencing
 summary file, produced by MinKNOW and Guppy, to QC measures such as read
 length and quality.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;Alignment QC&lt;/em&gt;&lt;/strong&gt; (Planned) - Walking through alignment of reads to a
 reference sequence, and and introduction to the world of &lt;code class=&quot;language-text&quot;&gt;samtools&lt;/code&gt; and
 &lt;code class=&quot;language-text&quot;&gt;pysam&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Curating_Read_Until_input_files_for_MinKNOW.ipynb&quot;&gt;Read Until Inputs&lt;/a&gt; - A
+&lt;li&gt;&lt;a href=&quot;/Curating_Read_Until_input_files_for_MinKNOW.ipynb&quot;&gt;Read Until Inputs&lt;/a&gt; - A
 short snippet to aid the creation of the necessary files required by MinKNOW
 for exome Read Until experiment&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Assembly&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Assembly_Tutorial.ipynb&quot;&gt;Assembly tutorial&lt;/a&gt; - A workflow utilising Flye and
+&lt;li&gt;&lt;a href=&quot;/Assembly_Tutorial.ipynb&quot;&gt;Assembly tutorial&lt;/a&gt; - A workflow utilising Flye and
 Medaka to produce high quality assemblies of small to mid-sized genomes.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;Assembly assessment&lt;/em&gt;&lt;/strong&gt; (Planned) - An introduction and tips on assessing
 the quality of an assembly using both reference-based and reference-free
@@ -853,10 +853,10 @@ methods.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Metagenomics&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Metagenomic_classification_tutorial.ipynb&quot;&gt;Metagnomic classification&lt;/a&gt; - An
+&lt;li&gt;&lt;a href=&quot;/Metagenomic_classification_tutorial.ipynb&quot;&gt;Metagnomic classification&lt;/a&gt; - An
 introduction to Centrifuge and Pavian for the classification of single
 molecule long-reads, and discovery of What’s in my pot?&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Analysis_of_EPI2ME_16S_CSV_Output.ipynb&quot;&gt;Post-EPI2ME 16S Analysis&lt;/a&gt; - A
+&lt;li&gt;&lt;a href=&quot;/Analysis_of_EPI2ME_16S_CSV_Output.ipynb&quot;&gt;Post-EPI2ME 16S Analysis&lt;/a&gt; - A
 quick demonstration of adding lineage information to EPI2ME 16S output, and
 grouping counts by rank.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;Metagenomic assembly&lt;/em&gt;&lt;/strong&gt; (Planned) - A guided approach to metagenomic
@@ -864,29 +864,29 @@ assembly and assessment based on Flye’s metagenomic assembly.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;cDNA and RNA&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_Pychopper.ipynb&quot;&gt;QC of cDNA reads&lt;/a&gt; - A workflow using
+&lt;li&gt;&lt;a href=&quot;/Introduction_to_Pychopper.ipynb&quot;&gt;QC of cDNA reads&lt;/a&gt; - A workflow using
 pyChopper providing preliminary analysis and data filtering of ONT cDNA read
 datasets.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Isoform_Tutorial.ipynb&quot;&gt;Isoform detection&lt;/a&gt; - A tutorial guide for
+&lt;li&gt;&lt;a href=&quot;/Isoform_Tutorial.ipynb&quot;&gt;Isoform detection&lt;/a&gt; - A tutorial guide for
 identifying full length transcripts in your cDNA experiments and comparing
 them against a known annotation.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;De-novo isoform detection&lt;/em&gt;&lt;/strong&gt; (Planned) - Similar to the Isoform Detection
 notebook above but using a de-novo, assembly-based method for contructing
 transcript consensus sequences.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Differential_gene_expression.ipynb&quot;&gt;Differential Gene Expression&lt;/a&gt; -
+&lt;li&gt;&lt;a href=&quot;/Differential_gene_expression.ipynb&quot;&gt;Differential Gene Expression&lt;/a&gt; -
 Pipeline for differential gene expression (DGE) and differential transcript
 usage (DTU) analysis using Nanopore long reads.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Variant calling&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Structural_Variation_Tutorial.ipynb&quot;&gt;Structural variant calling&lt;/a&gt; - A
+&lt;li&gt;&lt;a href=&quot;/Structural_Variation_Tutorial.ipynb&quot;&gt;Structural variant calling&lt;/a&gt; - A
 notebook which walks through the steps of identifying and classifying
 structural variants from long-read datasets.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Human_Variant_Calling_with_Medaka.ipynb&quot;&gt;Human small variant calling&lt;/a&gt; - A
+&lt;li&gt;&lt;a href=&quot;/Human_Variant_Calling_with_Medaka.ipynb&quot;&gt;Human small variant calling&lt;/a&gt; - A
 workflow for calling small variants (both SNPs and Indels) from amplicon data
 using Medaka.&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;/blog/Viral_and_Bacterial_Variant_Calling.ipynb&quot;&gt;Bacterial small variant calling&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/Viral_and_Bacterial_Variant_Calling.ipynb&quot;&gt;Bacterial small variant calling&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A guide to using Medaka to call small variants in haploid samples&lt;/li&gt;
 &lt;/ul&gt;
@@ -894,19 +894,19 @@ using Medaka.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Other&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Clone_validation_tutorial.ipynb&quot;&gt;Clone validation&lt;/a&gt; - Validation of
+&lt;li&gt;&lt;a href=&quot;/Clone_validation_tutorial.ipynb&quot;&gt;Clone validation&lt;/a&gt; - Validation of
 synthetic biological constructs using Nanopore sequencing rather than Sanger
 sequencing.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Cas9_Targeted_Sequencing_Tutorial.ipynb&quot;&gt;Cas9 Targeted Sequencing&lt;/a&gt; - A
+&lt;li&gt;&lt;a href=&quot;/Cas9_Targeted_Sequencing_Tutorial.ipynb&quot;&gt;Cas9 Targeted Sequencing&lt;/a&gt; - A
 workflow to complement Cas9 targeted sequencing experiments using ONT
 devices.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/SARS_CoV_2_Analysis_Workflow.ipynb&quot;&gt;SARS-CoV-2 Analysis&lt;/a&gt; - A notebook based
+&lt;li&gt;&lt;a href=&quot;/SARS_CoV_2_Analysis_Workflow.ipynb&quot;&gt;SARS-CoV-2 Analysis&lt;/a&gt; - A notebook based
 around the ARTIC pipeline for the analysis of SARS-Cov-2 multiplexed amplicon
 datasets.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Modified_Base_Tutorial.ipynb&quot;&gt;Modified bases&lt;/a&gt; - A demonstration of the use
+&lt;li&gt;&lt;a href=&quot;/Modified_Base_Tutorial.ipynb&quot;&gt;Modified bases&lt;/a&gt; - A demonstration of the use
 of Medaka to process and summarise the optional modified base output of
 Guppy.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/blog/Introduction_to_how_ONT&amp;#x27;s_medaka_works.ipynb&quot;&gt;Medaka tech. demo&lt;/a&gt; - A deep
+&lt;li&gt;&lt;a href=&quot;/Introduction_to_how_ONT&amp;#x27;s_medaka_works.ipynb&quot;&gt;Medaka tech. demo&lt;/a&gt; - A deep
 dive into the inner workings of Oxford Nanopore Technologies’ Medaka software&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs downloads and resources]]></title><description><![CDATA[EPI2MELabs downloads and resources Below are listed all resources on which EPI2MELabs is built. We aim for all
 components of EPI2MELabs to…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2MELabs downloads and resources&lt;/h1&gt;
@@ -946,7 +946,7 @@ server. We provide executables for Windows 10, macOS, and Linux.&lt;/p&gt;
 sourcecode is available from GitHub:
 &lt;a href=&quot;https://github.com/epi2me-labs/labslauncher&quot;&gt;https://github.com/epi2me-labs/labslauncher&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Notebook files&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;A listing of all available notebooks is available on the &lt;a href=&quot;/blog/nbindex&quot;&gt;Notebook
+&lt;p&gt;&lt;em&gt;A listing of all available notebooks is available on the &lt;a href=&quot;/nbindex&quot;&gt;Notebook
 Index&lt;/a&gt; page.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;The notebooks used within EPI2MELabs are available in their source form from
 the GitHub repository: &lt;a href=&quot;https://github.com/epi2me-labs/notebooks&quot;&gt;https://github.com/epi2me-labs/notebooks&lt;/a&gt;. These are
