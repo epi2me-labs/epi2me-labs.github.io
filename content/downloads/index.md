@@ -18,10 +18,10 @@ server. We provide executables for Windows 10, macOS, and Linux.
 
 | Platform     | Download                                                                                                                                                          |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Windows 10   | [ont-epi2melabs-installer-v0.6.4-win10.exe](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.4/ont-epi2melabs-installer-v0.6.4-win10.exe)       |
-| macOS        | [ont-epi2melabs-launcher-v0.6.4-macos.app.zip](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.4/ont-epi2melabs-launcher-v0.6.4-macos.app.zip) |
-| Ubuntu 16.04 | [ont-epi2melabs-launcher-0.6.4-0.xenial.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.4/ont-epi2melabs-launcher-0.6.4-0.xenial.deb)     |
-| Ubuntu 18.04 | [ont-epi2melabs-launcher-0.6.4-0.bionic.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.4/ont-epi2melabs-launcher-0.6.4-0.bionic.deb)     |
+| Windows 10   | [ont-epi2melabs-installer-v0.6.5-win10.exe](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.5/ont-epi2melabs-installer-v0.6.5-win10.exe)       |
+| macOS        | [ont-epi2melabs-launcher-v0.6.5-macos.app.zip](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.5/ont-epi2melabs-launcher-v0.6.5-macos.app.zip) |
+| Ubuntu 16.04 | [ont-epi2melabs-launcher-0.6.5-0.xenial.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.5/ont-epi2melabs-launcher-0.6.4-0.xenial.deb)     |
+| Ubuntu 18.04 | [ont-epi2melabs-launcher-0.6.5-0.bionic.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v0.6.5/ont-epi2melabs-launcher-0.6.5-0.bionic.deb)     |
 
 The launcher is written in Python with [Qt](https://www.qt.io/) and the
 sourcecode is available from GitHub:
