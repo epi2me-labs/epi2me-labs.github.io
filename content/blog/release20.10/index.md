@@ -24,20 +24,23 @@ as any recent documents of your own*
 This release includes a number of extensions to the Jupyter software to support
 usability. These extensions include
 
-Inclusion of autorun code cells that are automatically run when a notebook is
-opened. This functionality allows for the preparation of forms for data-entry
-and for the setting of contextual notebook variables.
+Inclusion of [autorun code
+cells](https://github.com/epi2me-labs/jupyterlab-autorun-cells) that are
+automatically computed when a notebook is opened. This functionality allows for
+the preparation of forms for data-entry and for the setting of contextual
+notebook variables.
 
-The code cell collapser
+The [code cell
+collapser](https://github.com/epi2me-labs/jupyterlab-code-cell-collapser)
 enables larger blocks of computer code to be hidden (or unhidden) within a
 workflow. This makes the more technical notebooks simpler to read by
 encouraging focus to results and the written texts.
 
-The play button replicates
-the functionality of the Google Colaboratory button; a play icon is placed on
-the code cell that is to be run. This is simpler than the default Jupyter play
-button that may execute code that is elsewhere and outside of the visible
-screen.  
+The [play button](https://github.com/epi2me-labs/jupyterlab-play-cell-button)
+extension replicates the functionality of the Google Colaboratory button; a
+play icon is placed on the code cell that is to be run. This is simpler than
+the default Jupyter play button that may execute code that is elsewhere and
+outside of the visible screen.  
 
 We hope that these extensions may also be of use in the preparation of your own
 notebooks and workflows. Future EPI2ME Labs releases will continue to further
