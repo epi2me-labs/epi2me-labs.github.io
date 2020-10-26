@@ -7,8 +7,9 @@ description: "Resources for running EPI2MELabs tutorials"
 # EPI2MELabs downloads and resources
 
 Below are listed all resources on which EPI2MELabs is built. We aim for all
-components of EPI2MELabs to be open source (including this website!) and
-availbe through our GitHub repository: https://github.com/epi2me-labs/tutorials.
+components of EPI2MELabs to be open source (including this website) and
+available through our GitHub repository:
+https://github.com/epi2me-labs/tutorials.
 
 If you find something is not available please contact support@nanoporetech.com
 
