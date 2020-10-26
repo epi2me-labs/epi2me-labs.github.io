@@ -7,7 +7,9 @@ description: "Resources for running EPI2MELabs tutorials"
 # EPI2MELabs downloads and resources
 
 Below are listed all resources on which EPI2MELabs is built. We aim for all
-components of EPI2MELabs to be open source (including this website!).
+components of EPI2MELabs to be open source (including this website!) and
+availbe through our GitHub repository: https://github.com/epi2me-labs/tutorials.
+
 If you find something is not available please contact support@nanoporetech.com
 
 
@@ -34,10 +36,20 @@ https://github.com/epi2me-labs/labslauncher.
 Index](/nbindex) page.*
 
 The notebooks used within EPI2MELabs are available in their source form from
-the GitHub repository: https://github.com/epi2me-labs/notebooks. These are
+the GitHub repository: https://github.com/epi2me-labs/tutorials. These are
 updated regularly with enhancements and fixes.
 
 ## Docker containers
 
 The docker container for the EPI2MELabs notebook server is hosted on dockerhub:
-https://hub.docker.com/r/ontresearch/nanolabs-notebook
+https://hub.docker.com/r/ontresearch/nanolabs-notebook, with the source code
+for the build process on Github: https://github.com/epi2me-labs/nanolabs.
+
+The notebook server is based on the
+[docker-stacks](https://github.com/jupyter)
+
+## Aplanat
+
+[Aplanat](https://github.com/epi2me-labs/aplanat) is a plotting library built
+on top of [bokeh](https://docs.bokeh.org/en/latest/). It allows graphs to be
+contructed and displayed in notebooks with minimal boiler plate.
