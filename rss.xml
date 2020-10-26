@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 16:41:43 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 20.10 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. With this update we are now supporting only the Jupyter interface to EPI2ME…]]></description><link>https://epi2me-labs.github.io/blog/release20.10/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/release20.10/</guid><pubDate>Mon, 26 Oct 2020 16:36:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 16:56:14 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 20.10 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. With this update we are now supporting only the Jupyter interface to EPI2ME…]]></description><link>https://epi2me-labs.github.io/blog/release20.10/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/release20.10/</guid><pubDate>Mon, 26 Oct 2020 16:36:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
 &lt;p&gt;With this update we are now supporting only the Jupyter interface to EPI2ME
 Labs. This Jupyter support has the consequence that users no longer require a
 Google account to run or save EPI2ME Labs tutorials and EPI2ME Labs is now
@@ -41,18 +41,21 @@ workflows that are packaged inside the accompanying docker container. As well
 as any recent documents of your own&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This release includes a number of extensions to the Jupyter software to support
 usability. These extensions include&lt;/p&gt;
-&lt;p&gt;Inclusion of autorun code cells that are automatically run when a notebook is
-opened. This functionality allows for the preparation of forms for data-entry
-and for the setting of contextual notebook variables.&lt;/p&gt;
-&lt;p&gt;The code cell collapser
+&lt;p&gt;Inclusion of &lt;a href=&quot;https://github.com/epi2me-labs/jupyterlab-autorun-cells&quot;&gt;autorun code
+cells&lt;/a&gt; that are
+automatically computed when a notebook is opened. This functionality allows for
+the preparation of forms for data-entry and for the setting of contextual
+notebook variables.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://github.com/epi2me-labs/jupyterlab-code-cell-collapser&quot;&gt;code cell
+collapser&lt;/a&gt;
 enables larger blocks of computer code to be hidden (or unhidden) within a
 workflow. This makes the more technical notebooks simpler to read by
 encouraging focus to results and the written texts.&lt;/p&gt;
-&lt;p&gt;The play button replicates
-the functionality of the Google Colaboratory button; a play icon is placed on
-the code cell that is to be run. This is simpler than the default Jupyter play
-button that may execute code that is elsewhere and outside of the visible
-screen.  &lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://github.com/epi2me-labs/jupyterlab-play-cell-button&quot;&gt;play button&lt;/a&gt;
+extension replicates the functionality of the Google Colaboratory button; a
+play icon is placed on the code cell that is to be run. This is simpler than
+the default Jupyter play button that may execute code that is elsewhere and
+outside of the visible screen.  &lt;/p&gt;
 &lt;p&gt;We hope that these extensions may also be of use in the preparation of your own
 notebooks and workflows. Future EPI2ME Labs releases will continue to further
 extend the Jupyter environment to simplify bioinformatics analyses and the
@@ -974,8 +977,9 @@ dive into the inner workings of Oxford Nanopore Technologies’ Medaka software&
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs downloads and resources]]></title><description><![CDATA[EPI2MELabs downloads and resources Below are listed all resources on which EPI2MELabs is built. We aim for all
 components of EPI2MELabs to…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2MELabs downloads and resources&lt;/h1&gt;
 &lt;p&gt;Below are listed all resources on which EPI2MELabs is built. We aim for all
-components of EPI2MELabs to be open source (including this website!).
-If you find something is not available please contact support@nanoporetech.com&lt;/p&gt;
+components of EPI2MELabs to be open source (including this website!) and
+availbe through our GitHub repository: &lt;a href=&quot;https://github.com/epi2me-labs/tutorials&quot;&gt;https://github.com/epi2me-labs/tutorials&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you find something is not available please contact support@nanoporetech.com&lt;/p&gt;
 &lt;h2&gt;EPI2MELabs Launcher&lt;/h2&gt;
 &lt;p&gt;The LabsLauncher is used to start, stop, and update the EPI2MELabs notebook
 server. We provide executables for Windows 10, macOS, and Linux.&lt;/p&gt;
@@ -1012,8 +1016,15 @@ sourcecode is available from GitHub:
 &lt;p&gt;&lt;em&gt;A listing of all available notebooks is available on the &lt;a href=&quot;/nbindex&quot;&gt;Notebook
 Index&lt;/a&gt; page.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;The notebooks used within EPI2MELabs are available in their source form from
-the GitHub repository: &lt;a href=&quot;https://github.com/epi2me-labs/notebooks&quot;&gt;https://github.com/epi2me-labs/notebooks&lt;/a&gt;. These are
+the GitHub repository: &lt;a href=&quot;https://github.com/epi2me-labs/tutorials&quot;&gt;https://github.com/epi2me-labs/tutorials&lt;/a&gt;. These are
 updated regularly with enhancements and fixes.&lt;/p&gt;
 &lt;h2&gt;Docker containers&lt;/h2&gt;
 &lt;p&gt;The docker container for the EPI2MELabs notebook server is hosted on dockerhub:
-&lt;a href=&quot;https://hub.docker.com/r/ontresearch/nanolabs-notebook&quot;&gt;https://hub.docker.com/r/ontresearch/nanolabs-notebook&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;a href=&quot;https://hub.docker.com/r/ontresearch/nanolabs-notebook&quot;&gt;https://hub.docker.com/r/ontresearch/nanolabs-notebook&lt;/a&gt;, with the source code
+for the build process on Github: &lt;a href=&quot;https://github.com/epi2me-labs/nanolabs&quot;&gt;https://github.com/epi2me-labs/nanolabs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The notebook server is based on the
+&lt;a href=&quot;https://github.com/jupyter&quot;&gt;docker-stacks&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Aplanat&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/epi2me-labs/aplanat&quot;&gt;Aplanat&lt;/a&gt; is a plotting library built
+on top of &lt;a href=&quot;https://docs.bokeh.org/en/latest/&quot;&gt;bokeh&lt;/a&gt;. It allows graphs to be
+contructed and displayed in notebooks with minimal boiler plate.&lt;/p&gt;</content:encoded></item></channel></rss>
