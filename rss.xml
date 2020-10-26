@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 14:38:13 GMT</lastBuildDate><item><title><![CDATA[EPI2MELabs moves to JupyterLab]]></title><description><![CDATA[When we released EPI2MELabs earlier this year we wanted to create an
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 16:41:43 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 20.10 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. With this update we are now supporting only the Jupyter interface to EPI2ME…]]></description><link>https://epi2me-labs.github.io/blog/release20.10/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/release20.10/</guid><pubDate>Mon, 26 Oct 2020 16:36:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
+&lt;p&gt;With this update we are now supporting only the Jupyter interface to EPI2ME
+Labs. This Jupyter support has the consequence that users no longer require a
+Google account to run or save EPI2ME Labs tutorials and EPI2ME Labs is now
+available to users regardless of their geographic location. Additional
+information on our reasons for the move to Jupyter are described in a
+separate &lt;a href=&quot;/jupytermove&quot;&gt;post&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/38f44625d571272ee09918549f36a5d2/0d6fe/notebooksplash.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.35135135135135%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAACPElEQVQoz12STU8TURSGpwiuMNGFC6PBlQpLExNM3LtzQYzxD/gD/BmS6EIWKq0aqYG2tAULRgMKRhKNYoDYCCS0QaDQVpiZTj+mnU6nfTzTAqne5Ml9z3lvTs7JPcr+nz00XUdVNYolE03V0Q40QSenGRh6vo3/4xa6mqNgFDCLJkqpWMQ0TSlWwtXJbJafe2k2jTzLW1t839hgMZlkMZHgS+J3SycTzbidH5Jf2dxE2d7exrZt7Hqdej7P3fkFlLEw3ZEYXYEInaKP6Jl6xanYOJ2BMF1teVd7RsfpicZQUqkUhmFg1Wo4eYOB9/MoL4Kc8EfwCB3+aBPP6yj3wvc589KPMjIpuZbnOfSVkQjnQ1Mou7u7FGXUWqNBvWBwe1oKPglw8rl05wvT4R1HGRbcezBI12CATm+46bm5jjZ9wX/YYaVSwWmAbegMTMyhPBpFGQrS/SzKzYlP9IdmuRqY4VpohhuRj9yKfaY/OMv10AfO+t6gPA4035/zTaKk02ksy6JWb+BIh3ci0uGDMU4PRen1TdPne0uvd7qpr8h9aXiKy96WdumTvPvW8zDExadS3P1h9zRkZKdm8yuVIfpthXdLcRbia8wtx4nvZFjPqKzu7bOaPmBN9PoxByztZPm6lZY7g+KOe3Qcx8GulKFawjZLVErFJpZQldipVsUzJc4fe07VgroD0kzDtlDK5fI/BQuyj5aRJZfLoQm6kJMtcPfUrFhUi6os/D6qnkPVNEoyoSMrVxbP1X8BYZeDsAMjvw8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Notebook launch&quot;
+        title=&quot;Launch a notebook&quot;
+        src=&quot;/static/38f44625d571272ee09918549f36a5d2/fcda8/notebooksplash.png&quot;
+        srcset=&quot;/static/38f44625d571272ee09918549f36a5d2/12f09/notebooksplash.png 148w,
+/static/38f44625d571272ee09918549f36a5d2/e4a3f/notebooksplash.png 295w,
+/static/38f44625d571272ee09918549f36a5d2/fcda8/notebooksplash.png 590w,
+/static/38f44625d571272ee09918549f36a5d2/efc66/notebooksplash.png 885w,
+/static/38f44625d571272ee09918549f36a5d2/0d6fe/notebooksplash.png 1115w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The EPI2ME Labs landing. This provides a link to the available tutorials and
+workflows that are packaged inside the accompanying docker container. As well
+as any recent documents of your own&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This release includes a number of extensions to the Jupyter software to support
+usability. These extensions include&lt;/p&gt;
+&lt;p&gt;Inclusion of autorun code cells that are automatically run when a notebook is
+opened. This functionality allows for the preparation of forms for data-entry
+and for the setting of contextual notebook variables.&lt;/p&gt;
+&lt;p&gt;The code cell collapser
+enables larger blocks of computer code to be hidden (or unhidden) within a
+workflow. This makes the more technical notebooks simpler to read by
+encouraging focus to results and the written texts.&lt;/p&gt;
+&lt;p&gt;The play button replicates
+the functionality of the Google Colaboratory button; a play icon is placed on
+the code cell that is to be run. This is simpler than the default Jupyter play
+button that may execute code that is elsewhere and outside of the visible
+screen.  &lt;/p&gt;
+&lt;p&gt;We hope that these extensions may also be of use in the preparation of your own
+notebooks and workflows. Future EPI2ME Labs releases will continue to further
+extend the Jupyter environment to simplify bioinformatics analyses and the
+presentation of results.&lt;/p&gt;
+&lt;p&gt;All of our EPI2ME Labs tutorials have been converted to the Jupyter flavour.
+See the &lt;a href=&quot;/quickstart&quot;&gt;Quick start guide&lt;/a&gt; guide for instructions of installing
+and launching the EPI2ME Labs software.&lt;/p&gt;
+&lt;p&gt;We look forwards to your feedback on this EPI2ME Labs update and we would
+welcome any recommendations for workflows that you would like to see in
+upcoming releases.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs moves to JupyterLab]]></title><description><![CDATA[When we released EPI2MELabs earlier this year we wanted to create an
 environment where “non-coders”, people with little to no experience of…]]></description><link>https://epi2me-labs.github.io/blog/jupytermove/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/jupytermove/</guid><pubDate>Fri, 23 Oct 2020 23:23:00 GMT</pubDate><content:encoded>&lt;p&gt;When we released EPI2MELabs earlier this year we wanted to create an
 environment where “non-coders”, people with little to no experience of writing
 computer code, could learn to analyse their nanopore sequencing data. To achieve this
