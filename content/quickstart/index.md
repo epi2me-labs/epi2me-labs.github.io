@@ -194,8 +194,6 @@ new server components will be downloaded:
 
 ### Run a tutorial
 
-####TODO: rewrite this section
-
 1. With the EPI2ME Labs notebook server running, click the Open EPI2MELabs link
 within the Launcher:
    ![Open EPI2MeLabs](./serverrunning.png "Open EPI2MeLabs")
