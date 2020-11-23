@@ -10,8 +10,6 @@ to pre-rendered versions of the notebooks to provide some illustrations of the
 capabilities of each notebook; these pages are not interactive.
 
 
-***The links will be populated in due course.***
-
 ### Basic Tasks
 
 * [Introduction to FASTQ](/notebooks/Introduction_to_fastq_file.html) - An introduction
