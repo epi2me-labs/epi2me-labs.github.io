@@ -5,28 +5,31 @@ description: "Listing and description of available notebooks."
 ---
 
 Below you will find a complete list of available notebooks with a short
-description of each. Listed also are notebooks in development.
+description of each. Listed also are notebooks in development. The links direct
+to pre-rendered versions of the notebooks to provide some illustrations of the
+capabilities of each notebook; these pages are not interactive.
+
 
 ***The links will be populated in due course.***
 
 ### Basic Tasks
 
-* [Introduction to FASTQ](/Introduction_to_fastq_file.ipynb) - An introduction
+* [Introduction to FASTQ](/notebooks/Introduction_to_fastq_file.html) - An introduction
   to the FASTQ format and simple file operations
 
-* [Introduction to VCF](/Introduction_to_Variant_Call_Format_(vcf)_files.ipynb)
+* [Introduction to VCF](/notebooks/Introduction_to_Variant_Call_Format_(vcf)_files.html)
   - An introduction to Variant Call Format files and their manipulation in
     Python and on the command line.
 
-* [Introduction to BAM](/Introduction_to_SAM_and_BAM_files.ipynb) - An
+* [Introduction to BAM](/notebooks/Introduction_to_SAM_and_BAM_files.html) - An
   introduction to the SAM and BAM formats for storing alignment data and their
 manipulation with `samtools`.
 
-* [Introduction to FAST5](/Introduction_to_Fast5_files.ipynb) - A guide to
+* [Introduction to FAST5](/notebooks/Introduction_to_Fast5_files.html) - A guide to
   handling raw sequencing data from Oxford Nanopore Technologies' sequencing
 devices.
 
-* [Basic QC](/Basic_QC_Tutorial.ipynb) - A simple workflow using the sequencing
+* [Basic QC](/notebooks/Basic_QC_Tutorial.html) - A simple workflow using the sequencing
   summary file, produced by MinKNOW and Guppy, to QC measures such as read
 length and quality.
 
@@ -34,13 +37,13 @@ length and quality.
   reference sequence, and and introduction to the world of `samtools` and
 `pysam`.
 
-* [Read Until Inputs](/Curating_Read_Until_input_files_for_MinKNOW.ipynb) - A
+* [Adaptive Sampling Inputs](/notebooks/Curating_Adaptive_Sampling_input_files_for_MinKNOW.html) - A
   short snippet to aid the creation of the necessary files required by MinKNOW
-for exome Read Until experiment
+for exome Adaptive Sampling experiment.
 
 ### Assembly
 
-* [Assembly tutorial](/Assembly_Tutorial.ipynb) - A workflow utilising Flye and
+* [Assembly tutorial](/notebooks/Assembly_Tutorial.html) - A workflow utilising Flye and
   Medaka to produce high quality assemblies of small to mid-sized genomes.
 
 * ***Assembly assessment*** (Planned) - An introduction and tips on assessing
@@ -50,10 +53,10 @@ methods.
 
 
 ### Metagenomics
-* [Metagnomic classification](/Metagenomic_classification_tutorial.ipynb) - An
+* [Metagnomic classification](/notebooks/Metagenomic_classification_tutorial.html) - An
   introduction to Centrifuge and Pavian for the classification of single
 molecule long-reads, and discovery of What's in my pot?
-* [Post-EPI2ME 16S Analysis](/Analysis_of_EPI2ME_16S_CSV_Output.ipynb) - A
+* [Post-EPI2ME 16S Analysis](/notebooks/Analysis_of_EPI2ME_16S_CSV_Output.html) - A
   quick demonstration of adding lineage information to EPI2ME 16S output, and
 grouping counts by rank.
 * ***Metagenomic assembly*** (Planned) - A guided approach to metagenomic
@@ -64,11 +67,11 @@ grouping counts by rank.
 
 ### cDNA and RNA
 
-* [QC of cDNA reads](/Introduction_to_Pychopper.ipynb) - A workflow using
+* [QC of cDNA reads](/notebooks/Introduction_to_Pychopper.html) - A workflow using
   pyChopper providing preliminary analysis and data filtering of ONT cDNA read
 datasets.
 
-* [Isoform detection](/Isoform_Tutorial.ipynb) - A tutorial guide for
+* [Isoform detection](/notebooks/Isoform_Tutorial.html) - A tutorial guide for
   identifying full length transcripts in your cDNA experiments and comparing
 them against a known annotation.
 
@@ -76,7 +79,7 @@ them against a known annotation.
   notebook above but using a de-novo, assembly-based method for contructing
 transcript consensus sequences.
 
-* [Differential Gene Expression](/Differential_gene_expression.ipynb) -
+* [Differential Gene Expression](/notebooks/Differential_gene_expression.html) -
   Pipeline for differential gene expression (DGE) and differential transcript
 usage (DTU) analysis using Nanopore long reads.
 
@@ -85,15 +88,15 @@ usage (DTU) analysis using Nanopore long reads.
 
 ### Variant calling
 
-* [Structural variant calling](/Structural_Variation_Tutorial.ipynb) - A
+* [Structural variant calling](/notebooks/Structural_Variation_Tutorial.html) - A
   notebook which walks through the steps of identifying and classifying
 structural variants from long-read datasets.
 
-* [Human small variant calling](/Human_Variant_Calling_with_Medaka.ipynb) - A
+* [Human small variant calling](/notebooks/Human_Variant_Calling_with_Medaka.html) - A
   workflow for calling small variants (both SNPs and Indels) from amplicon data
 using Medaka.
 
-* [Bacterial small variant calling](/Viral_and_Bacterial_Variant_Calling.ipynb)
+* [Bacterial small variant calling](/notebooks/Viral_and_Bacterial_Variant_Calling.html)
   - A guide to using Medaka to call small variants in haploid samples
 
 
@@ -101,21 +104,21 @@ using Medaka.
 
 ### Other
 
-* [Clone validation](/Clone_validation_tutorial.ipynb) - Validation of
+* [Clone validation](/notebooks/Clone_validation_tutorial.html) - Validation of
   synthetic biological constructs using Nanopore sequencing rather than Sanger
 sequencing.
 
-* [Cas9 Targeted Sequencing](/Cas9_Targeted_Sequencing_Tutorial.ipynb) - A
+* [Cas9 Targeted Sequencing](/notebooks/Cas9_Targeted_Sequencing_Tutorial.html) - A
   workflow to complement Cas9 targeted sequencing experiments using ONT
 devices.
 
-* [SARS-CoV-2 Analysis](/SARS_CoV_2_Analysis_Workflow.ipynb) - A notebook based
+* [SARS-CoV-2 Analysis](/notebooks/SARS_CoV_2_Analysis_Workflow.html) - A notebook based
   around the ARTIC pipeline for the analysis of SARS-Cov-2 multiplexed amplicon
 datasets.
 
-* [Modified bases](/Modified_Base_Tutorial.ipynb) - A demonstration of the use
+* [Modified bases](/notebooks/Modified_Base_Tutorial.html) - A demonstration of the use
   of Medaka to process and summarise the optional modified base output of
 Guppy.
 
-* [Medaka tech. demo](/Introduction_to_how_ONT's_medaka_works.ipynb) - A deep
+* [Medaka tech. demo](/notebooks/Introduction_to_how_ONT's_medaka_works.html) - A deep
   dive into the inner workings of Oxford Nanopore Technologies' Medaka software
