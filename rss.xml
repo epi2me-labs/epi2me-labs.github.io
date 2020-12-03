@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 25 Nov 2020 17:17:52 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 20.10 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. With this update we are now supporting only the Jupyter interface to EPI2ME…]]></description><link>https://epi2me-labs.github.io/blog/release20.10/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/release20.10/</guid><pubDate>Mon, 26 Oct 2020 16:36:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 03 Dec 2020 15:38:12 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 20.11 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. We are delighted to introduce new tutorials, updated functionality, and…]]></description><link>https://epi2me-labs.github.io/blog/release20.11/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/release20.11/</guid><pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
+&lt;p&gt;We are delighted to introduce new tutorials, updated functionality, and cleaner
+aesthetics with our 2020-11.01 release of EPI2ME Labs. This is available
+immediately, a new LabsLauncher is available on the &lt;a href=&quot;./downloads&quot;&gt;downloads&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;In this release we have include IGV.js. IGV is a leading track-based genome
+browser. Bringing interactive genome browsing into our notebooks enables
+clearer illustration of results and opens new possibilities for customer
+developed interactive applications. The JupyterLab &lt;a href=&quot;https://github.com/epi2me-labs/igv-jupyterlab&quot;&gt;IGV extension&lt;/a&gt;
+is available as a standalone component outside of EPI2MELabs.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/950ed75106953334d0d1016d3c6c2aac/d4e7f/igv-view.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.37837837837838%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJklEQVQoz02SfVPaQBDG8/0/h2Oro1ZAprUVRMOLjJ2WkgQYQUgCIW8X8p7ATKdP9y5K+8dvbnez2Wf3biXf98EJgoDYgTEmbJ9wgxB+GIkYY4GgygsQxzHyPEeWZSjLEod9iaIoILmuC8/zCB+u6wm4gOczOCykojuyuSg7wvMrAYYwDJEkCeIkFafEg5VagjSLKBiSYobDocB+T+c+JzsnO3+L5UjTiP7ZwTCWsG2bOmaw/RCMOpeSOBVqs4mHqRZAGTuYqB7hYzyyKeZDU1wovxy8zAKo9F1Tqtz5CxNjc+KYRKIIkmiZ7iEugH35hzoAdVXB7bz459MVIXvz6cqo0G8kaSru8X18ibf84+cII03DdDaFNlGhKApUtUIhNE3FhOJjivNv3NYof7FY0PgpFc7EQ0W8Q2umo3/yFb0PxHkHg/M2nj62MDhr4/myje7JHXqn3/B01qKclvD7p3cYUGx8OxQFeYe8Oz66ZM5DdC7WePyko3tlQL5eo9+00b+xMfziotuw0K1bkGt0NmzIdaK2xcPlBt9b9rFgFMXV2ujzAJ36BvfXr7i/eMVDjQp/tvDYMCETvdst5OYG8g35TYuEaKKrKYb1OZSOjizNREGxOrQtku84cA0D/nojcA0T2yWtw0qHZ5oCh2KusNcIt1vE9haZ56AMd8dXfl9yaaXrWK5WMNYmdNPAxrJgk8j/OLT8u6jahpRDP3OEn1YLXT1Ojr8OlSTNIDQ+WgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;IGV Webviewer&quot;
+        title=&quot;Viewing alignments with the IGV extension&quot;
+        src=&quot;/static/950ed75106953334d0d1016d3c6c2aac/fcda8/igv-view.png&quot;
+        srcset=&quot;/static/950ed75106953334d0d1016d3c6c2aac/12f09/igv-view.png 148w,
+/static/950ed75106953334d0d1016d3c6c2aac/e4a3f/igv-view.png 295w,
+/static/950ed75106953334d0d1016d3c6c2aac/fcda8/igv-view.png 590w,
+/static/950ed75106953334d0d1016d3c6c2aac/efc66/igv-view.png 885w,
+/static/950ed75106953334d0d1016d3c6c2aac/c83ae/igv-view.png 1180w,
+/static/950ed75106953334d0d1016d3c6c2aac/d4e7f/igv-view.png 1416w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; Representation of the SNP benchmark tutorial that shows an IGV view
+of the genome and the variants contained within. Bringing this popular genome
+viewer into notebooks makes data interpretation more intuitive.&lt;/p&gt;
+&lt;p&gt;The 2020-11.01 update integrates also new benchmarking tutorials with our recent
+&lt;a href=&quot;https://nanoporetech.github.io/ont-open-datasets/&quot;&gt;s3://ont-open-data&lt;/a&gt;
+releases. These benchmark tutorials help users
+replicate our performance metrics and demystify the steps involved in
+benchmarking SNP and SV detection performance.&lt;/p&gt;
+&lt;p&gt;A benchmarking analysis of human structural variants is illustrated using SVs
+called from our GM24385 dataset using the updated &lt;a href=&quot;https://github.com/nanoporetech/pipeline-structural-variation&quot;&gt;pipeline-structural-variation&lt;/a&gt;
+v2.0.2 software. This tutorial introduces the
+SV truth sets maintained by the Genome in a Bottle consortium and demonstrates
+a workflow for measuring performance and visually assessing apparent
+false-positive SVs.&lt;/p&gt;
+&lt;p&gt;The same GM24385 dataset is also used for benchmarking our
+performance in identifying human single nucleotide variants with a workflow
+based on Medaka and DeepVariant. Further analysis of the called
+variants illustrates the challenges of identifying SNVs in various genomic
+contexts.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 463px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b54b33ae77907a93946568a95fd36d66/71ce0/precrec.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.21621621621621%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACRklEQVQ4y42TC0/aUBiG+///xTK8oLIZl03mBkPqDV1dQASh46IySoHeoAWllGfnNBGZZstO8qbpOe3T9/u+t4rruhhdA9M06Xa7WJZFFEW8XIvF4r+ktH7VKf/UuNI1SvXv1O/KOI6FNRhiGAb9fh/f9+OH/7ZWzxQJUbWvnJdVCsU858Vj+gJ4J1xLt537e2zbXr44mUwIgmCpVw6rzSJa5YTL61PUyj6HtRTd0ww9TcMSICnXcZYuptNpDJKupV4upaxfUiip5BopvlkJTu0kbnqDcDPBIP0BU5Q9Go3ivkp3Eiivs3AWA1YdyzOl1iqTq+yRGybIC1jB3cb+nCTa3YGdNW4zB5i2I+uNHY3H4/gDj9NH5vN5fB9r5BP4AUpFL5FrpsiPEmStt6jDNdyPa0w23gq9wfq0h+W4MfCp7HAxoztrCWBEOA/jPTc0cWemcNgsc6jvonrr5K0kx4MkD9kUj++2mWwnsLJfcMZiyqJkz3MZuWOGfo9bPcciXGA7NpPggdtBnXtLR7lplchrB2Ta6xwFm5zZWzjpTaKtdYLdLVrXZYZyyisOvVDEqqrCLFr28rKd48o4FlNuFflRPeOimier75BrbdDPvMdM79PRa3iiL54I/xNMYJcTlT2Ukms8cfGnHkqxdkHh6hDt+gT1IsuRlqHZbmAOLXoi1GavJ4L+HJvnzEWx61fBvus1aHSqtA2dishko3ODK3vleSISQRxqOcXXwD9hy2DHUwvnIhKyNA9fDCAMw3/+Xi8hq3u/AR33zGNXN1cvAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Precision and Recall&quot;
+        title=&quot;Our benchmark notebooks detail the concepts and processes involved.&quot;
+        src=&quot;/static/b54b33ae77907a93946568a95fd36d66/71ce0/precrec.png&quot;
+        srcset=&quot;/static/b54b33ae77907a93946568a95fd36d66/12f09/precrec.png 148w,
+/static/b54b33ae77907a93946568a95fd36d66/e4a3f/precrec.png 295w,
+/static/b54b33ae77907a93946568a95fd36d66/71ce0/precrec.png 463w&quot;
+        sizes=&quot;(max-width: 463px) 100vw, 463px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; The benchmarking tutorials included in this release use known and
+validated datasets to assess the performance of methods used to identify SNPs
+and SVs. The tutorials introduce the scoring of true positives, false positives
+and false negatives. The tutorials demonstrate the calculation of precision and
+recall using appropriate software packages.&lt;/p&gt;
+&lt;p&gt;Bug fixes and improvements to the core EPI2ME Labs environment include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Numerous minor fixes and amendments to notebooks.&lt;/li&gt;
+&lt;li&gt;Fixed the export of graphs
+produced in notebooks running on macOS.&lt;/li&gt;
+&lt;li&gt;Improvements to the handling of the Pavian webservice used in our metagenomics notebook.&lt;/li&gt;
+&lt;li&gt;Updates to the caching and storage of notebooks allows for simpler .ipynb support.&lt;/li&gt;
+&lt;li&gt;Aesthetic changes to make the Jupyter server experience a little less orange.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We hope that you find these updates useful. The EPI2ME Labs team would love to
+collaborate in the development of new workflows that showcase your software and
+we would welcome recommendations for new tutorials and notebooks.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs 20.10 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. With this update we are now supporting only the Jupyter interface to EPI2ME…]]></description><link>https://epi2me-labs.github.io/blog/release20.10/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/release20.10/</guid><pubDate>Mon, 26 Oct 2020 16:36:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
 &lt;p&gt;With this update we are now supporting only the Jupyter interface to EPI2ME
 Labs. This Jupyter support has the consequence that users no longer require a
 Google account to run or save EPI2ME Labs tutorials and EPI2ME Labs is now
