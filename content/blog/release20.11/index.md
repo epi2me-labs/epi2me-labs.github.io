@@ -10,7 +10,7 @@ We are pleased to introduce a new release of our EPI2ME Labs.
 
 We are delighted to introduce new tutorials, updated functionality, and cleaner
 aesthetics with our 2020-11.01 release of EPI2ME Labs. This is available
-immediately, a new LabsLauncher is available on the [downloads](./downloads) page.
+immediately, a new LabsLauncher is available on the [downloads](/downloads) page.
 
 
 In this release we have include IGV.js. IGV is a leading track-based genome
