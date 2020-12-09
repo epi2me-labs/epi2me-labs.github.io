@@ -1,90 +1,41 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import {rhythm} from "../utils/typography";
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes.filter(post => post.fields.slug !== "/");
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <SEO title="EPI2MELabs" />
-        <Bio />
-        <p>No blog posts found. Add markdown posts to "content/blog" (or the directory you specified for the "gatsby-source-filesystem" plugin in gatsby-config.js).</p>
-      </Layout>
-    )
-  }
+const HomePage = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title;
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="EPI2MELabs" />
+      <SEO title="Home" />
+      <section
+        dangerouslySetInnerHTML={{ __html: data.markdownRemark?.html }}
+        itemProp="articleBody"
+      />
+      <hr
+        style={{
+          marginBottom: rhythm(1),
+        }}
+      />
       <Bio />
-      {posts.map((post) => {
-        const title = post.frontmatter.title || post.fields.slug
-        return (
-          <article
-            key={post.fields.slug}
-            itemScope
-            itemType="http://schema.org/Article"
-          >
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link
-                  style={{ boxShadow: `none` }}
-                  to={post.fields.slug}
-                  itemProp="url"
-                >
-                  <span itemProp="headline">{title}</span>
-                </Link>
-              </h3>
-              <small>{post.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: post.frontmatter.description || post.excerpt,
-                }}
-                itemProp="description"
-              />
-            </section>
-          </article>
-        )
-      })}
     </Layout>
   )
-}
+};
 
-export default BlogIndex
+export default HomePage
 
 export const pageQuery = graphql`
-  query {
+  query HomePageQuery {
+    markdownRemark(fileAbsolutePath: { regex: "/about/" }) {
+      html
+    }
     site {
       siteMetadata {
         title
-      }
-    }
-    allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/blog/"}}
-      sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
       }
     }
   }

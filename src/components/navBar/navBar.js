@@ -43,6 +43,16 @@ const NavBar = () => {
       <div className={styles.navBarLinks}>
         <ul>
           <li>
+            <Link to="/blog/">
+              Blog
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div className={styles.navBarLinks}>
+        <ul>
+          <li>
             <Link to="/downloads/">
               Downloads
             </Link>
