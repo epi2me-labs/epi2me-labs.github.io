@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 import NavBar from "./navBar/navBar";
 
 import { rhythm, scale } from "../utils/typography"
+import CookieConsent from 'react-cookie-consent';
+
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
@@ -68,6 +70,15 @@ const Layout = ({ location, title, children }) => {
           </footer>
         </div>
     </React.Fragment>
+    //<CookieConsent
+    //  location="bottom"
+    //  buttonText="Accept"
+    //  declineButtonText="Decline"
+    //  cookieName="gatsby-gdpr-google-analytics"
+    //  style={{ background: "#115571" }}
+    //  buttonStyle={{ background: "#7CBAB7" }}>
+    //This website uses cookies to enhance the user experience.
+    //</CookieConsent>
   )
 }
 
