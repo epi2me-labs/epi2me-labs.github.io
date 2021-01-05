@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://epi2me-labs.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 05 Jan 2021 15:28:18 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 20.11 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. We are delighted to introduce new tutorials, updated functionality, and…]]></description><link>https://epi2me-labs.github.io/blog/release20.11/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/release20.11/</guid><pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 05 Jan 2021 16:07:46 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 20.11 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. We are delighted to introduce new tutorials, updated functionality, and…]]></description><link>https://labs.epi2me.io/release20.11/</link><guid isPermaLink="false">https://labs.epi2me.io/release20.11/</guid><pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
 &lt;p&gt;We are delighted to introduce new tutorials, updated functionality, and cleaner
 aesthetics with our 2020-11.01 release of EPI2ME Labs. This is available
 immediately, a new LabsLauncher is available on the &lt;a href=&quot;/downloads&quot;&gt;downloads&lt;/a&gt; page.&lt;/p&gt;
@@ -103,7 +103,7 @@ produced in notebooks running on macOS.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;We hope that you find these updates useful. The EPI2ME Labs team would love to
 collaborate in the development of new workflows that showcase your software and
-we would welcome recommendations for new tutorials and notebooks.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs 20.10 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. With this update we are now supporting only the Jupyter interface to EPI2ME…]]></description><link>https://epi2me-labs.github.io/blog/release20.10/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/release20.10/</guid><pubDate>Mon, 26 Oct 2020 16:36:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
+we would welcome recommendations for new tutorials and notebooks.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs 20.10 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. With this update we are now supporting only the Jupyter interface to EPI2ME…]]></description><link>https://labs.epi2me.io/release20.10/</link><guid isPermaLink="false">https://labs.epi2me.io/release20.10/</guid><pubDate>Mon, 26 Oct 2020 16:36:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
 &lt;p&gt;With this update we are now supporting only the Jupyter interface to EPI2ME
 Labs. This Jupyter support has the consequence that users no longer require a
 Google account to run or save EPI2ME Labs tutorials and EPI2ME Labs is now
@@ -171,7 +171,7 @@ and launching the EPI2ME Labs software.&lt;/p&gt;
 &lt;p&gt;We look forwards to your feedback on this EPI2ME Labs update and we would
 welcome any recommendations for workflows that you would like to see in
 upcoming releases.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs moves to JupyterLab]]></title><description><![CDATA[When we released EPI2MELabs earlier this year we wanted to create an
-environment where “non-coders”, people with little to no experience of…]]></description><link>https://epi2me-labs.github.io/blog/jupytermove/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/jupytermove/</guid><pubDate>Fri, 23 Oct 2020 23:23:00 GMT</pubDate><content:encoded>&lt;p&gt;When we released EPI2MELabs earlier this year we wanted to create an
+environment where “non-coders”, people with little to no experience of…]]></description><link>https://labs.epi2me.io/jupytermove/</link><guid isPermaLink="false">https://labs.epi2me.io/jupytermove/</guid><pubDate>Fri, 23 Oct 2020 23:23:00 GMT</pubDate><content:encoded>&lt;p&gt;When we released EPI2MELabs earlier this year we wanted to create an
 environment where “non-coders”, people with little to no experience of writing
 computer code, could learn to analyse their nanopore sequencing data. To achieve this
 we needed a slick, minimal, welcoming presentation of the data analysis. We
@@ -209,12 +209,12 @@ saved
 notebooks can also be reopened from the launch page providing a convenient
 location to start new analyses, or resume old ones.&lt;/p&gt;
 &lt;p&gt;The work to improve our notebooks for use with the JupyterLab interface has not finished.  We intend to further enhance the visual display of code within Jupyterlab to provide a more enticing experience for all users.  Going forward, we plan to contribute what we develop here back to the wider Jupyter community - so watch this space!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs Blog Launch]]></title><description><![CDATA[Welcome! On this site we hope to bring additional information regarding the EPI2MELabs notebook
-environment. We will present user guides…]]></description><link>https://epi2me-labs.github.io/blog/launch/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/launch/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome!&lt;/p&gt;
+environment. We will present user guides…]]></description><link>https://labs.epi2me.io/launch/</link><guid isPermaLink="false">https://labs.epi2me.io/launch/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome!&lt;/p&gt;
 &lt;p&gt;On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides, help pages and demonstrations of the available
 notebooks. All in an an open setting.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[About]]></title><description><![CDATA[EPI2ME Labs maintains a collection of example bioinformatics notebooks for
 running analysis in your web browser. Our
-GitHub repository…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;EPI2ME Labs&lt;/strong&gt; maintains a collection of example bioinformatics notebooks for
+GitHub repository…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;EPI2ME Labs&lt;/strong&gt; maintains a collection of example bioinformatics notebooks for
 running analysis in your web browser. Our
 &lt;a href=&quot;https://github.com/epi2me-labs/tutorials&quot;&gt;GitHub&lt;/a&gt; repository contains a
 growing collection of notebooks on a range of topics from basic quality control
@@ -241,7 +241,7 @@ descriptions.&lt;/p&gt;
 get you started.&lt;/p&gt;
 &lt;p&gt;To learn more about the Jupyter project, see
 &lt;a href=&quot;https://www.jupyter.org/&quot;&gt;jupyter.org&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs Quick Start Guide]]></title><description><![CDATA[EPI2MELabs Quick Start Guide The following guide illustrates installation and use of the EPI2ME Labs
-notebook server.  EPI2ME Labs can also…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2MELabs Quick Start Guide&lt;/h1&gt;
+notebook server.  EPI2ME Labs can also…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2MELabs Quick Start Guide&lt;/h1&gt;
 &lt;p&gt;The following guide illustrates installation and use of the EPI2ME Labs
 notebook server. &lt;/p&gt;
 &lt;p&gt;EPI2ME Labs can also be run on Windows 10, macOS and Linux. For Windows and
@@ -983,7 +983,7 @@ in the notebook.&lt;/p&gt;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Index of Notebooks and Tutorials]]></title><description><![CDATA[Below you will find a complete list of available notebooks with a short
-description of each. Listed also are notebooks in development. The…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Below you will find a complete list of available notebooks with a short
+description of each. Listed also are notebooks in development. The…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Below you will find a complete list of available notebooks with a short
 description of each. Listed also are notebooks in development. The links direct
 to pre-rendered versions of the notebooks to provide some illustrations of the
 capabilities of each notebook; these pages are not interactive.&lt;/p&gt;
@@ -1080,7 +1080,7 @@ Guppy.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/notebooks/Introduction_to_how_ONT&amp;#x27;s_medaka_works.html&quot;&gt;Medaka tech. demo&lt;/a&gt; - A deep
 dive into the inner workings of Oxford Nanopore Technologies’ Medaka software&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[EPI2MELabs downloads and resources]]></title><description><![CDATA[EPI2MELabs downloads and resources Below are listed all resources on which EPI2MELabs is built. We aim for all
-components of EPI2MELabs to…]]></description><link>https://epi2me-labs.github.io/blog/</link><guid isPermaLink="false">https://epi2me-labs.github.io/blog/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2MELabs downloads and resources&lt;/h1&gt;
+components of EPI2MELabs to…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2MELabs downloads and resources&lt;/h1&gt;
 &lt;p&gt;Below are listed all resources on which EPI2MELabs is built. We aim for all
 components of EPI2MELabs to be open source (including this website) and
 available through our GitHub repository:
