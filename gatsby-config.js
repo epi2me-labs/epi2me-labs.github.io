@@ -7,12 +7,13 @@ module.exports = {
       summary: `Providing open bioinformatics resources for nanopore sequencing. Research use only.`,
     },
     description: `Tutorials and workflows for nanopore sequencing.`,
-    siteUrl: `https://epi2me-labs.github.io/blog`,
+    siteUrl: `https://labs.epi2me.io/`,
     social: {
       twitter: `nanopore`,
     },
   },
   plugins: [
+    `gatsby-plugin-cname`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
