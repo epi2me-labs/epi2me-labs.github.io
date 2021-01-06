@@ -1,12 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
+import {Helmet} from "react-helmet";
 import NavBar from "./navBar/navBar";
-
 import { rhythm, scale } from "../utils/typography"
 import CookieConsent from 'react-cookie-consent';
 
+const HEAP_APPID = '38910241'
+
 
 const Layout = ({ location, title, children }) => {
+
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
 
@@ -52,6 +55,12 @@ const Layout = ({ location, title, children }) => {
   }
   return (
     <React.Fragment>
+        <Helmet>
+          <script type="text/javascript">{`
+            window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};   
+          `}</script>
+        </Helmet>
+
         <NavBar />
         <div
           style={{
@@ -69,16 +78,20 @@ const Layout = ({ location, title, children }) => {
             <a href="https://nanoporetech.com">Oxford Nanopore Technologies</a>
           </footer>
         </div>
+        <CookieConsent
+          location="bottom"
+          buttonText="Accept"
+          enableDeclineButton={true}
+          declineButtonText="Decline"
+          style={{ background: "#115571" }}
+          buttonStyle={{ background: "#7CBAB7" }}
+          onAccept={() => {
+            window.heap.load(HEAP_APPID)
+          }}
+        >
+          This website uses cookies to enhance the user experience.
+        </CookieConsent>
     </React.Fragment>
-    //<CookieConsent
-    //  location="bottom"
-    //  buttonText="Accept"
-    //  declineButtonText="Decline"
-    //  cookieName="gatsby-gdpr-google-analytics"
-    //  style={{ background: "#115571" }}
-    //  buttonStyle={{ background: "#7CBAB7" }}>
-    //This website uses cookies to enhance the user experience.
-    //</CookieConsent>
   )
 }
 
