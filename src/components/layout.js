@@ -1,17 +1,18 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import {Helmet} from "react-helmet";
 import NavBar from "./navBar/navBar";
 import { rhythm, scale } from "../utils/typography"
-import CookieConsent from 'react-cookie-consent';
+import CookieConsent, { getCookieConsentValue } from 'react-cookie-consent';
 
-const HEAP_APPID = '3572316639'
+const HEAP_APPID = '2162541267'
 
 
 const Layout = ({ location, title, children }) => {
 
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
+
 
   if (location.pathname === rootPath) {
     header = (
@@ -53,6 +54,15 @@ const Layout = ({ location, title, children }) => {
       </h3>
     )
   }
+
+  // loading heap, simple react effect which will fire on page load as well as when state updated
+  const [loadHeap, setLoadHeap] = useState(0);
+  useEffect(() => {
+      if (getCookieConsentValue() && window.heap !== undefined && window.heap.userId === undefined) {
+        window.heap.load(HEAP_APPID);
+      }
+  });
+
   return (
     <React.Fragment>
         <Helmet>
@@ -81,15 +91,15 @@ const Layout = ({ location, title, children }) => {
         <CookieConsent
           location="bottom"
           buttonText="Accept"
-          enableDeclineButton={true}
+          enableDeclineButton={false}
           declineButtonText="Decline"
           style={{ background: "#115571" }}
           buttonStyle={{ background: "#7CBAB7" }}
           onAccept={() => {
-            window.heap.load(HEAP_APPID)
+            setLoadHeap(loadHeap + 1);
           }}
         >
-          This website uses cookies to enhance the user experience.
+          This website uses cookies to track user interactions and improve user experience.
         </CookieConsent>
     </React.Fragment>
   )

@@ -100,18 +100,5 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    //{
-    //  resolve: `gatsby-plugin-gdpr-cookies`,
-    //  options: {
-    //    googleAnalytics: {
-    //      trackingId: `UA-185327373-1`,
-    //      anonymize: true
-    //    },
-    //    environments: ['production']
-    //  },
-    //},
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
