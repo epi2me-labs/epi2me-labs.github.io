@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Feb 2021 15:00:55 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs Launcher Command-line interface]]></title><description><![CDATA[Feedback from EPI2ME Labs users revealed the desired for people to be able to control the
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Feb 2021 15:13:17 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs Launcher Command-line interface]]></title><description><![CDATA[Feedback from EPI2ME Labs users revealed the desired for people to be able to control the
 running of the EPI2ME Labs notebook server from…]]></description><link>https://labs.epi2me.io/launcher_cli/</link><guid isPermaLink="false">https://labs.epi2me.io/launcher_cli/</guid><pubDate>Wed, 10 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Feedback from EPI2ME Labs users revealed the desired for people to be able to control the
 running of the EPI2ME Labs notebook server from the command-line without opening a
 graphical user interface. Such users are typically running the server on a different,
@@ -30,7 +30,8 @@ updates to the Launcher application users should continue to download these
 from the &lt;a href=&quot;/downloads&quot;&gt;downloads&lt;/a&gt; page. (Users on Oxford Nanopore Technologies
 sequencing devices can also upgrade the Launcher through &lt;code class=&quot;language-text&quot;&gt;apt&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;When starting an EPI2ME Labs notebook server the full array of options
-available in the graphical application are available to be set; running &lt;code class=&quot;language-text&quot;&gt;the&lt;/code&gt;—help` command will display these. In contrast to the graphical interface,
+available in the graphical application are available to be set; running the
+&lt;code class=&quot;language-text&quot;&gt;--help&lt;/code&gt; command will display these. In contrast to the graphical interface,
 when using the command-line options are not stored in the applications settings
 for subsequent use: users wishing to override the default value of options must
 supply these options every time the program is run. This provides a more
