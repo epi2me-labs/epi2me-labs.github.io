@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 09 Feb 2021 20:06:41 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 20.11 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. We are delighted to introduce new tutorials, updated functionality, and…]]></description><link>https://labs.epi2me.io/release20.11/</link><guid isPermaLink="false">https://labs.epi2me.io/release20.11/</guid><pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Feb 2021 15:00:55 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs Launcher Command-line interface]]></title><description><![CDATA[Feedback from EPI2ME Labs users revealed the desired for people to be able to control the
+running of the EPI2ME Labs notebook server from…]]></description><link>https://labs.epi2me.io/launcher_cli/</link><guid isPermaLink="false">https://labs.epi2me.io/launcher_cli/</guid><pubDate>Wed, 10 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Feedback from EPI2ME Labs users revealed the desired for people to be able to control the
+running of the EPI2ME Labs notebook server from the command-line without opening a
+graphical user interface. Such users are typically running the server on a different,
+and more computationall capable, computer from where they are using the notebook
+web interface.&lt;/p&gt;
+&lt;p&gt;With the &lt;a href=&quot;/downloads&quot;&gt;v1.0.8 release&lt;/a&gt; of the launcher we have introduced the ability
+to start, stop, and check the status of the EPI2ME Labs notebook server from the
+command-line. The application is install to&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/usr/local/bin/EPI2ME-Labs-Launcher/EPI2ME-Labs-Launcher&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;on Linux systems. On Ubuntu systems this is aliased as two commands, &lt;code class=&quot;language-text&quot;&gt;labslauncher&lt;/code&gt; and
+&lt;code class=&quot;language-text&quot;&gt;labsmanager&lt;/code&gt;, installed to:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/usr/local/bin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;which is typically listed in the &lt;code class=&quot;language-text&quot;&gt;PATH&lt;/code&gt; environment variable.&lt;/p&gt;
+&lt;p&gt;Running the &lt;code class=&quot;language-text&quot;&gt;EPI2ME-Labs-Launcher&lt;/code&gt; (or &lt;code class=&quot;language-text&quot;&gt;labslauncher&lt;/code&gt; shortcut) will run the standard
+EPI2ME Labs Launcher with a graphic interface, and with logging to the terminal. However
+running:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/usr/local/bin/EPI2ME-Labs-Launcher/EPI2ME-Labs-Launcher manager --help&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;(or simply &lt;code class=&quot;language-text&quot;&gt;labsmanager --help&lt;/code&gt; on Ubuntu) will initiate a simple command-line interface.
+The interface has the following commands:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  --start      Start the server.
+  --restart    Restart the server.
+  --stop       Stop a running server and cleanup resources.
+  --status     Report server status.
+  --update     Update server.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;all of which should be fairly self-explanatory. The program will alert users if
+updates are available for the server or for the program itself. The last
+command in the above can be used to update the notebook server component. For
+updates to the Launcher application users should continue to download these
+from the &lt;a href=&quot;/downloads&quot;&gt;downloads&lt;/a&gt; page. (Users on Oxford Nanopore Technologies
+sequencing devices can also upgrade the Launcher through &lt;code class=&quot;language-text&quot;&gt;apt&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;When starting an EPI2ME Labs notebook server the full array of options
+available in the graphical application are available to be set; running &lt;code class=&quot;language-text&quot;&gt;the&lt;/code&gt;—help` command will display these. In contrast to the graphical interface,
+when using the command-line options are not stored in the applications settings
+for subsequent use: users wishing to override the default value of options must
+supply these options every time the program is run. This provides a more
+natural command-line interface.&lt;/p&gt;
+&lt;p&gt;We hope that users will find the new command-line interface useful and look
+forward to feedback.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs 20.11 Release]]></title><description><![CDATA[We are pleased to introduce a new release of our EPI2ME Labs. We are delighted to introduce new tutorials, updated functionality, and…]]></description><link>https://labs.epi2me.io/release20.11/</link><guid isPermaLink="false">https://labs.epi2me.io/release20.11/</guid><pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are pleased to introduce a new release of our EPI2ME Labs.&lt;/p&gt;
 &lt;p&gt;We are delighted to introduce new tutorials, updated functionality, and cleaner
 aesthetics with our 2020-11.01 release of EPI2ME Labs. This is available
 immediately, a new LabsLauncher is available on the &lt;a href=&quot;/downloads&quot;&gt;downloads&lt;/a&gt; page.&lt;/p&gt;
