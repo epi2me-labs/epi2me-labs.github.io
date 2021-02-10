@@ -50,7 +50,7 @@ from the [downloads](/downloads) page. (Users on Oxford Nanopore Technologies
 sequencing devices can also upgrade the Launcher through `apt`).
 
 When starting an EPI2ME Labs notebook server the full array of options
-available in the graphical application are available to be set; running `the
+available in the graphical application are available to be set; running the
 `--help` command will display these. In contrast to the graphical interface,
 when using the command-line options are not stored in the applications settings
 for subsequent use: users wishing to override the default value of options must
