@@ -1,4 +1,126 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Feb 2021 15:13:17 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs Launcher Command-line interface]]></title><description><![CDATA[Feedback from EPI2ME Labs users revealed the desired for people to be able to control the
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 11 Feb 2021 10:22:21 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 21.02 Release]]></title><description><![CDATA[We are delighted to release this month’s update to EPI2ME Labs. The 2021-02.01
+release addresses some Community feedback and introduces new…]]></description><link>https://labs.epi2me.io/release21.02/</link><guid isPermaLink="false">https://labs.epi2me.io/release21.02/</guid><pubDate>Wed, 10 Feb 2021 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are delighted to release this month’s update to EPI2ME Labs. The 2021-02.01
+release addresses some Community feedback and introduces new and updated
+tutorials.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ERCC spike-in quantification&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A new tutorial to assess performance of a transcriptomics study through the use
+of spike-in controls.&lt;/p&gt;
+&lt;p&gt;Our ERCC tutorial introduces the synthetic sequencing controls developed by the
+External RNA Controls Consortium (ERCC). These spike-in control sequences are
+explored within an expression profiling study and demonstrate how the
+performance of a transcriptomics study may be benchmarked.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/034554f09f9791080460df9b372200c1/7ca1f/ercc_screenshot.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81.08108108108108%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAAC1UlEQVQ4y41US08TURTuzp2/wD/l1pi4NSa+oolGF2z5EUaCj4WJQY0g8pK2lEoLLX0h0ADtvDrvmc50ptMH8nnuLdOCuHDx9dx75vabc873zU3Uj08gNJtotVrQNB1SS4UgSpBprxsmDMOgvHYFqqpeAvu/LMtIFEQDvwd92LbDEwqBRXagXCohn8+jXC5jd3eXx0qlglqtBkmSOLGu61AUhccgCJDYiQkdhx8SRRGCIHBStm40GuNckzphYPu4ojheIjzt99DpBIii6Ap6vd4/891uFyEDrRUa06/9A046qpAIfSLsdDr/DZ/QCwNgEGEYtNFt2/B9P64wgsoEoZbZPOQLc1QUgqrBaTtcoKYgoslEo7OFwwa+lEUs1BSs7CvQLBOJomSi63sQ6QB7A68giCvx4bseHNOGSYozEvRYVV3QD2a2TpB4MI/E4wVce7mEI0kjQtlC4LXJKuKIkIFIfLsNz3TRcSi6LlzXwcHRCR5/ruDeXBXP5vdw/1MViSeLRPiNCJfRaBlkG6pwEIWQFQ2mZsKi9hSB2UclWxhcfdOyEFLVMu3vvN/GzVebuPUmh+mlKu5+2MHt2SwezZWg2+5ElCAIuewMlm0RicmrYnvWPoshE+E0orY71HGIyHdxFgU4DT2gT4qH4cSHhmlyEWLnx18Dy3meNyZu00g8ip4/UrpN0SOHdAOWc0ct9+nNMqnrUHsun9dljMU6t4vvT+DRsyGNbDZ3jOyBMBElVjmu5IrvzknZLFk1zINszRRfJctcn1rFYlWc2EYi3zH3//01XNwHtLc86sb2Udfa+FHXMbVcx43pNBJPv2NtTxzN8Gw44LYpFov8AmAo0cUQg10MFcptF4pI5wr4mtrCx7WfeL2YwfO3y3g4s4QX71ZwKKmMUCflhpxwfX0dqVRqjHQ6zWMymTx/lkRmI41MOoVsJo3c5gaKWxmU81mKm7DJGX8AnbOJTJU14KoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ERCC Notebook&quot;
+        title=&quot;Evaluating observed counts of spike-in control samples.&quot;
+        src=&quot;/static/034554f09f9791080460df9b372200c1/fcda8/ercc_screenshot.png&quot;
+        srcset=&quot;/static/034554f09f9791080460df9b372200c1/12f09/ercc_screenshot.png 148w,
+/static/034554f09f9791080460df9b372200c1/e4a3f/ercc_screenshot.png 295w,
+/static/034554f09f9791080460df9b372200c1/fcda8/ercc_screenshot.png 590w,
+/static/034554f09f9791080460df9b372200c1/efc66/ercc_screenshot.png 885w,
+/static/034554f09f9791080460df9b372200c1/c83ae/ercc_screenshot.png 1180w,
+/static/034554f09f9791080460df9b372200c1/7ca1f/ercc_screenshot.png 1890w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; The ERCC tutorial introduces a workflow that looks for the
+presence of synthetic RNA transcripts and considers their observed abundance.
+The correlation between the observations of each ERCC with its expected counts
+can be used to assess study performance. The figure above shows some basic
+count measurements that are presented during the analysis.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SARS-CoV-2 ARTIC update&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The SARS-CoV-2 tutorial introduces the &lt;a href=&quot;https://github.com/artic-network/fieldbioinformatics&quot;&gt;ARTIC
+FieldBioinformatics&lt;/a&gt;
+workflow for the assembly and polishing of SARS-CoV-2 genomes.  The workflow
+has been updated to demultiplex sequence collections using an expanded range of
+both native and rapid barcoding kits - the workflow has been tested with the
+“Eco” version of the PCR tiling of SARS-CoV-2 virus protocol. We appreciate
+that some users may prefer to perform demultiplexing during sequencing in
+MinKNOW; the tutorial now optionally processes FASTQ sequences that have
+already been demuliplexed. The tutorial includes a new and more interesting set
+of example data that have been picked from project PRJNA650037 at the &lt;a href=&quot;https://www.ebi.ac.uk/ena/browser/view/PRJNA650037&quot;&gt;European
+Nucleotide Archive&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f8b4e68959cbaee32eefa6fd45ad2ce5/32056/sars_cov_bcs.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjElEQVQ4y5VUS28TVxSeX1GxoF20QFEMhUakm/6M/o+qrYAW8pLSsuiyq1ZVN20lSgMEHGKiEkDFeaEoShq/xvHYHsdvj+dx5+GJHRBfz7nOAKqySBefzr3fuXPud89jlDAMYds2MpkM0uk02SxSqR0UixqCIPjfUIQQqNfrqNVqaLc7tK5hb69G1kSv54P9vu/D8zxp38ZRnOK6rgzITlYb+C70Shc76QFxJiktS/6oj4+Couu6DOg4DikK0e22sP48j+TaS1LXxvb2Dvr9/vEDlstltFotGZCVWGYLyeUcEo9ewRVNbGxsYjAYgF9yrID5fB7NZlPmipMahgLprInfbg3w4sBGtdog5b3jK+Ri8JNZQRD0SI2HTE7gh58OgFeC1BsyYPRBVM3/7iNO4cMckFvHdT3shw42tyx8/s0BfM9Crd58XVEGXxzhqL3CkdvtNhWjC8uyIBwLuwUD8USDglmUjqFP1ysyNdE5znulUoFpmpJj8GuVSCoXhfPoOIJuoooHJlkXhmGgVCpB0zSUqIB71ao8FynmF0Z4rZBvTNOEqLsF5NQ8sgQ1ryGbU5FKZySXU3dRKhZRKRVQ0gowSZFPOReUJkaUT4VbRTg2hNGCZ3bgWREMmB3KH60ZfddEmSZoaVNFpqCj0eoAL/vAwT7wYv+tSREO/lGLmImn8EuyiJvrZcxu6Ihv7WFlt4Vbz3X8/EyT/OXZbYxM/4VPv3+Kz35cxc21En5fLeLXZQ2uxwq5yp7A31sqTnw5hzPXF3Diq3sYmVjA2fEFnJtM4My1BzhNeOeLOcRoz9z5qYRcnzr0vXc1jo5pU1e4lENXIEkBY9fmcGn6AU5dHdqLk3GcG7+PjyfnMXbIj07NS+7CRFz6h3YeI9fvo9powqZakEIXye08YlOLGLvxBKfHF/HJjccY/XYJF2eWpB2jPfOXyF6YeSS50e/e+GOUBsf1qYd7UAZhgJWUhve/juP89CLevTKPj8iOTD7E2YkE2YTcn7xCiqce4sPxhPTFIj/hA3q2YTn0p6K2CXsBajRes8sZzK2p+ONZGndWsri3nsdt4u4Sx/s/l7O4u5qT5+6sZuXZ2yuHHNlavUHtZ0LhUg/o9yS6bQQ0JdwugtqnH7jShtTkbD3bgO+YcGndc20JPhsIS/KNRkMOhxI1ZNe0YNE8mxbDgk0TM7SOtIyhn60j8Yaz5QjyPP8LpntzKD1e9V8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ARTIC Notebook&quot;
+        title=&quot;QC of demultiplexed ARTIC amplicon data.&quot;
+        src=&quot;/static/f8b4e68959cbaee32eefa6fd45ad2ce5/fcda8/sars_cov_bcs.png&quot;
+        srcset=&quot;/static/f8b4e68959cbaee32eefa6fd45ad2ce5/12f09/sars_cov_bcs.png 148w,
+/static/f8b4e68959cbaee32eefa6fd45ad2ce5/e4a3f/sars_cov_bcs.png 295w,
+/static/f8b4e68959cbaee32eefa6fd45ad2ce5/fcda8/sars_cov_bcs.png 590w,
+/static/f8b4e68959cbaee32eefa6fd45ad2ce5/32056/sars_cov_bcs.png 602w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 2.&lt;/strong&gt; The SARS-CoV-2 ARTIC notebook walks users through the assessment
+of their ARTIC amplicon data to assess multiplexing efficiency. The final output
+of the workflow is a single FASTA formatted file containing a consensus sequence
+for each sample suitable for upload to &lt;a href=&quot;https://www.gisaid.org/&quot;&gt;GISAID&lt;/a&gt;
+or inspection with &lt;a href=&quot;https://clades.nextstrain.org/&quot;&gt;NextClade&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;EPI2ME Labs Launcher support on more computer platforms&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In addition to our previously packaged installations, we are now also packaging
+the EPI2ME Labs Launcher for Centos 7, Centos 8 and Ubuntu 20.04. The complete
+set of EPI2ME Labs Launcher software can be found at
+&lt;a href=&quot;https://labs.epi2me.io/downloads/&quot;&gt;https://labs.epi2me.io/downloads/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Command-line interface (CLI) to Labs Launcher&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;EPI2ME Labs has been installed on a variety of computer platforms. User
+feedback has revealed that there is interest in the installation of the EPI2ME
+Labs container on headless servers that offer greater memory and CPU resources.
+To support the installation of EPI2ME Labs on these more powerful computer
+systems, the EPI2ME Labs Launcher has been updated to include CLI functionality
+to start, stop, and update the appropriate services. More information on the
+CLI interface to the EPI2ME Labs Launcher can be found in a &lt;a href=&quot;/launcher_cli&quot;&gt;separate blog
+post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Maintenance, updates and utility&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The software environment in the epi2melabs-notebook has been updated to use
+Python version 3.8 (from Python 3.6). Housekeeping during the preparation of
+the docker container has considerably reduced the size of the container
+download - the download is now only approximately 1.3G in size. To increase the
+legibility of the functional code within the EPI2ME Labs tutorials and
+notebooks, we are introducing new software packages to simplify and structure
+analyses. &lt;a href=&quot;https://github.com/epi2me-labs/aplanat&quot;&gt;aplanat&lt;/a&gt;
+has been used in earlier tutorials to simplify the
+preparation of figures - in this release we are introducing
+&lt;a href=&quot;&amp;#x27;https://github.com/epi2me-labs/mapula&amp;#x27;&quot;&gt;mapula&lt;/a&gt; to simplify the mathematics
+of processing read statistics and count information from BAM alignment files.&lt;/p&gt;
+&lt;p&gt;We look forwards to your feedback. We would welcome suggestions for future
+tutorials and we would gratefully review Community contributions.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs Launcher Command-line interface]]></title><description><![CDATA[Feedback from EPI2ME Labs users revealed the desired for people to be able to control the
 running of the EPI2ME Labs notebook server from…]]></description><link>https://labs.epi2me.io/launcher_cli/</link><guid isPermaLink="false">https://labs.epi2me.io/launcher_cli/</guid><pubDate>Wed, 10 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Feedback from EPI2ME Labs users revealed the desired for people to be able to control the
 running of the EPI2ME Labs notebook server from the command-line without opening a
 graphical user interface. Such users are typically running the server on a different,
