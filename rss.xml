@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 09 Mar 2021 14:09:24 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Mon, 07 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2ME Labs Workflows Quick Start Guide&lt;/h1&gt;</content:encoded></item><item><title><![CDATA[Index of Nextflow Workflows]]></title><description><![CDATA[Below you will find a complete list of available workflows with a short
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 09 Mar 2021 14:33:11 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Mon, 07 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2ME Labs Workflows Quick Start Guide&lt;/h1&gt;</content:encoded></item><item><title><![CDATA[Index of Nextflow Workflows]]></title><description><![CDATA[Below you will find a complete list of available workflows with a short
 description of each. Each description is accompanied by a link to…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Tue, 09 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Below you will find a complete list of available workflows with a short
 description of each. Each description is accompanied by a link to the
 Github repository hosting the workflow and a sample workflow report.&lt;/p&gt;
@@ -1275,7 +1275,7 @@ components of EPI2MELabs to be open source (including this website) and
 available through our GitHub repository:
 &lt;a href=&quot;https://github.com/epi2me-labs/tutorials&quot;&gt;https://github.com/epi2me-labs/tutorials&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If you find something is not available please contact support@nanoporetech.com&lt;/p&gt;
-&lt;h2&gt;EPI2MELabs Launcher&lt;/h2&gt;
+&lt;h3&gt;EPI2MELabs Launcher&lt;/h3&gt;
 &lt;p&gt;The LabsLauncher is used to start, stop, and update the EPI2MELabs notebook
 server. We provide executables for Windows 10, macOS, and Linux.&lt;/p&gt;
 &lt;table&gt;
@@ -1319,19 +1319,37 @@ server. We provide executables for Windows 10, macOS, and Linux.&lt;/p&gt;
 &lt;p&gt;The launcher is written in Python with &lt;a href=&quot;https://www.qt.io/&quot;&gt;Qt&lt;/a&gt; and the
 sourcecode is available from GitHub:
 &lt;a href=&quot;https://github.com/epi2me-labs/labslauncher&quot;&gt;https://github.com/epi2me-labs/labslauncher&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Notebook files&lt;/h2&gt;
+&lt;h3&gt;Notebook files&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;A listing of all available notebooks is available on the &lt;a href=&quot;/nbindex&quot;&gt;Notebook
 Index&lt;/a&gt; page.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;The notebooks used within EPI2MELabs are available in their source form from
 the GitHub repository: &lt;a href=&quot;https://github.com/epi2me-labs/tutorials&quot;&gt;https://github.com/epi2me-labs/tutorials&lt;/a&gt;. These are
 updated regularly with enhancements and fixes.&lt;/p&gt;
-&lt;h2&gt;Docker containers&lt;/h2&gt;
+&lt;h3&gt;Docker containers&lt;/h3&gt;
 &lt;p&gt;The docker container for the EPI2MELabs notebook server is hosted on dockerhub:
 &lt;a href=&quot;https://hub.docker.com/r/ontresearch/nanolabs-notebook&quot;&gt;https://hub.docker.com/r/ontresearch/nanolabs-notebook&lt;/a&gt;, with the source code
 for the build process on Github: &lt;a href=&quot;https://github.com/epi2me-labs/nanolabs&quot;&gt;https://github.com/epi2me-labs/nanolabs&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The notebook server is based on the
 &lt;a href=&quot;https://github.com/jupyter&quot;&gt;docker-stacks&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Nextflow workflows&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;A listing of all available notebooks is available on the &lt;a href=&quot;/wfindex&quot;&gt;Workflows
+Index&lt;/a&gt; page.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;All EPI2ME Labs workflows are available open-source through our
+&lt;a href=&quot;https://github.com/epi2me-labs/&quot;&gt;Github space&lt;/a&gt;; workflow projects
+are named with a &lt;code class=&quot;language-text&quot;&gt;wf-artic&lt;/code&gt; prefix.&lt;/p&gt;
+&lt;p&gt;The workflows can be run easily using nextflow without explicitely
+downloading anything from Github, for example:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;nextflow run epi2me-labs/wf-artic --help&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Will download our SARS-CoV-2 ARTIC sequencing workflow and display
+its help text. See the &lt;a href=&quot;/wfquickstart&quot;&gt;Workflow Quick Start&lt;/a&gt; for
+further information.&lt;/p&gt;
 &lt;h2&gt;Aplanat&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/epi2me-labs/aplanat&quot;&gt;Aplanat&lt;/a&gt; is a plotting library built
 on top of &lt;a href=&quot;https://docs.bokeh.org/en/latest/&quot;&gt;bokeh&lt;/a&gt;. It allows graphs to be
-contructed and displayed in notebooks with minimal boiler plate.&lt;/p&gt;</content:encoded></item></channel></rss>
+contructed and displayed in notebooks with minimal boiler plate. Aplanat
+also provides functionality to generate static HTML report documents, as used
+in the EPI2ME Labs Nextflow workflows.&lt;/p&gt;
+&lt;h2&gt;Mapula&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/epi2me-labs/mapula&quot;&gt;Mapula&lt;/a&gt; is an alignment statistics
+package designed to work on streaming data; it can be inlined in a typical
+&lt;a href=&quot;http://www.htslib.org/&quot;&gt;samtools&lt;/a&gt; pipeline to calculate statistic on-the-fly.&lt;/p&gt;</content:encoded></item></channel></rss>
