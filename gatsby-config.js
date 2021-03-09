@@ -45,8 +45,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/wfquickstart`,
+        name: `wfquickstart`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/content/nbindex`,
         name: `nbindex`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/wfindex`,
+        name: `wfindex`,
       },
     },
     {
