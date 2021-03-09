@@ -12,7 +12,7 @@ For more information on running workflows see our [Workflow Quick Start Guide](/
 
 ### Variant Calling
 
-* [wf-hap-snps](https://www.github.com/epi2me-labs/wf-haps-snps): a workflow for
+* [wf-hap-snps](https://www.github.com/epi2me-labs/wf-hap-snps): a workflow for
   running small variant calling and annotation in haploid samples.
   ([Sample report](/workflows/wf-hap-snps.html))
 
