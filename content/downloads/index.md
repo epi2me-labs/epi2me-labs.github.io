@@ -14,7 +14,7 @@ https://github.com/epi2me-labs/tutorials.
 If you find something is not available please contact support@nanoporetech.com
 
 
-## EPI2MELabs Launcher
+### EPI2MELabs Launcher
 
 The LabsLauncher is used to start, stop, and update the EPI2MELabs notebook
 server. We provide executables for Windows 10, macOS, and Linux.
@@ -34,7 +34,7 @@ sourcecode is available from GitHub:
 https://github.com/epi2me-labs/labslauncher.
 
 
-## Notebook files
+### Notebook files
 
 *A listing of all available notebooks is available on the [Notebook
 Index](/nbindex) page.*
@@ -43,7 +43,7 @@ The notebooks used within EPI2MELabs are available in their source form from
 the GitHub repository: https://github.com/epi2me-labs/tutorials. These are
 updated regularly with enhancements and fixes.
 
-## Docker containers
+### Docker containers
 
 The docker container for the EPI2MELabs notebook server is hosted on dockerhub:
 https://hub.docker.com/r/ontresearch/nanolabs-notebook, with the source code
@@ -52,8 +52,36 @@ for the build process on Github: https://github.com/epi2me-labs/nanolabs.
 The notebook server is based on the
 [docker-stacks](https://github.com/jupyter)
 
+## Nextflow workflows
+
+*A listing of all available notebooks is available on the [Workflows
+Index](/wfindex) page.*
+
+All EPI2ME Labs workflows are available open-source through our
+[Github space](https://github.com/epi2me-labs/); workflow projects
+are named with a `wf-artic` prefix.
+
+The workflows can be run easily using nextflow without explicitely
+downloading anything from Github, for example:
+
+```
+nextflow run epi2me-labs/wf-artic --help
+```
+
+Will download our SARS-CoV-2 ARTIC sequencing workflow and display
+its help text. See the [Workflow Quick Start](/wfquickstart) for
+further information.
+
 ## Aplanat
 
 [Aplanat](https://github.com/epi2me-labs/aplanat) is a plotting library built
 on top of [bokeh](https://docs.bokeh.org/en/latest/). It allows graphs to be
-contructed and displayed in notebooks with minimal boiler plate.
+contructed and displayed in notebooks with minimal boiler plate. Aplanat
+also provides functionality to generate static HTML report documents, as used
+in the EPI2ME Labs Nextflow workflows.
+
+## Mapula
+[Mapula](https://github.com/epi2me-labs/mapula) is an alignment statistics
+package designed to work on streaming data; it can be inlined in a typical
+[samtools](http://www.htslib.org/) pipeline to calculate statistic on-the-fly.
+
