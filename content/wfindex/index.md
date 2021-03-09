@@ -10,4 +10,8 @@ Github repository hosting the workflow and a sample workflow report.
 
 For more information on running workflows see our [Workflow Quick Start Guide](/wfquickstart).
 
+### Miscellaneous
 
+* [wf-artic](https://www.github.com/epi2me-labs/wf-artic): a nextflow workflow for
+  running the ARTIC SARS-CoV-2 workflow on multiplexed MinION, GridION, and
+  PromethION runs. ([Sample report](/workflows/wf-artic.html))

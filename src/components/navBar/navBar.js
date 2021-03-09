@@ -69,6 +69,16 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
+      
+      <div className={styles.navBarLinks}>
+        <ul>
+          <li>
+            <Link to="/quickstart/">
+              Notebooks Quick Start
+            </Link>
+          </li>
+        </ul>
+      </div>
 
       <div className={styles.navBarLinks}>
         <ul>
@@ -83,18 +93,8 @@ const NavBar = () => {
       <div className={styles.navBarLinks}>
         <ul>
           <li>
-            <Link to="/quickstart/">
-              Labs Quick Start
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      <div className={styles.navBarLinks}>
-        <ul>
-          <li>
             <Link to="/wfquickstart/">
-              Workflow Quick Start
+              Workflows Quick Start
             </Link>
           </li>
         </ul>
