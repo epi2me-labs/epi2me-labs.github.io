@@ -40,7 +40,14 @@ repositories.
 The Nextflow workflows all prepare reports that include summary statistics,
 tabular data and figures to describe the sequences processed and to highlight
 important features of the results obtained. Example reports for each of the
-workflows are available from the [Notebook Index](/nbindex)
+workflows are available from the [Notebook Index](/nbindex).
+
+We support the installation and usage of these workflows on our GridION
+sequencing devices; the workflows have also been tested on a variety of Linux
+platforms.
+
+We look forwards to feedback and would [welcome requests](https://github.com/epi2me-labs/epi2me-labs.github.io/discussions/) for workflows and
+tutorials to be included in future updates.
 
 
 ![ARTIC Workflow Report](./fig1.png "Extract of the wf-artic workflow report")
@@ -52,9 +59,3 @@ analysis. Additional data and their provenance are shown to further summarise
 the data and SARS-CoV-2 variants contained within. The dataset summarised in
 this sample report is from sequencing study [PRJNA650037](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA650037).
 
-We support the installation and usage of these workflows on our GridION
-sequencing devices; the workflows have also been tested on a variety of Linux
-platforms.
-
-We look forwards to feedback and would [welcome requests](https://github.com/epi2me-labs/epi2me-labs.github.io/discussions/) for workflows and
-tutorials to be included in future updates.
