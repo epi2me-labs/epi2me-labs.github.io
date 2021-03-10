@@ -1,8 +1,29 @@
 ---
-title: Index of Notebooks and Tutorials
+title: EPI2ME Labs Notebooks
 date: "2020-10-22T00:00:00.000Z"
-description: "Listing and description of available notebooks."
+description: "Getting started with EPI2ME Labs tutorials and what they can offer."
 ---
+
+# EPI2ME Labs Notebooks
+
+EPI2ME Labs maintains a collection of example bioinformatics notebooks for
+running analysis in your web browser. Our Python notebook tutorials walk
+through various topics suitable for bioinfomatics beginners to virtuosos.
+
+## Getting Started - Installation
+
+EPI2ME Labs extends the JupyterLab notebook framework with a pre-configured
+analysis server. The notebooks contain Python code needed to run data analysis,
+however zero configuration of the code is required. The notebooks can be used
+both by students and researchers new to nanopore sequence data analysis, and
+more experienced bioinformaticians who are comfortable working with Python.
+
+See the [Notebooks Quickstart](/quickstart) page for a walkthrough to guide
+install the EPI2ME Labs Launcher application which can be used to manage the
+notebook server environment.
+
+
+## Available notebooks
 
 Below you will find a complete list of available notebooks with a short
 description of each. Listed also are notebooks in development. The links direct

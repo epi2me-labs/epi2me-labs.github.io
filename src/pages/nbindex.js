@@ -10,9 +10,8 @@ const NBIndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <SEO title="Notebook index" />
-      <h1>Index of Available Notebooks and Tutorials</h1>
       <section
         dangerouslySetInnerHTML={{ __html: data.markdownRemark?.html }}
         itemProp="articleBody"

@@ -10,9 +10,8 @@ const WFIndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <SEO title="Workflow index" />
-      <h1>Index of Available Workflows</h1>
       <section
         dangerouslySetInnerHTML={{ __html: data.markdownRemark?.html }}
         itemProp="articleBody"

@@ -10,7 +10,7 @@ const WFQuickStartPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <SEO title="Workflow Quick Start" />
       <section
         dangerouslySetInnerHTML={{ __html: data.markdownRemark?.html }}

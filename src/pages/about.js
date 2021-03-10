@@ -10,7 +10,7 @@ const AboutPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <SEO title="About" />
       <section
         dangerouslySetInnerHTML={{ __html: data.markdownRemark?.html }}
