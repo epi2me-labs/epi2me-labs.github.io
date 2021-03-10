@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Mar 2021 14:47:45 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Mar 2021 15:03:24 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
 framework: Nextflow enables scalable and…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Mon, 07 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2ME Labs Workflows Quick Start Guide&lt;/h1&gt;
 &lt;p&gt;EPI2ME Labs workflow are built using the &lt;a href=&quot;https://www.nextflow.io/&quot;&gt;nextflow&lt;/a&gt; workflow
 framework:&lt;/p&gt;
@@ -193,7 +193,12 @@ repositories.&lt;/p&gt;
 &lt;p&gt;The Nextflow workflows all prepare reports that include summary statistics,
 tabular data and figures to describe the sequences processed and to highlight
 important features of the results obtained. Example reports for each of the
-workflows are available from the &lt;a href=&quot;/nbindex&quot;&gt;Notebook Index&lt;/a&gt;&lt;/p&gt;
+workflows are available from the &lt;a href=&quot;/nbindex&quot;&gt;Notebook Index&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We support the installation and usage of these workflows on our GridION
+sequencing devices; the workflows have also been tested on a variety of Linux
+platforms.&lt;/p&gt;
+&lt;p&gt;We look forwards to feedback and would &lt;a href=&quot;https://github.com/epi2me-labs/epi2me-labs.github.io/discussions/&quot;&gt;welcome requests&lt;/a&gt; for workflows and
+tutorials to be included in future updates.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
@@ -231,12 +236,7 @@ plots can be used to assess depth-of-coverage across the sequenced primer sets
 and to identify primers and amplicons that may have dropped out of the
 analysis. Additional data and their provenance are shown to further summarise
 the data and SARS-CoV-2 variants contained within. The dataset summarised in
-this sample report is from sequencing study &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA650037&quot;&gt;PRJNA650037&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;We support the installation and usage of these workflows on our GridION
-sequencing devices; the workflows have also been tested on a variety of Linux
-platforms.&lt;/p&gt;
-&lt;p&gt;We look forwards to feedback and would &lt;a href=&quot;https://github.com/epi2me-labs/epi2me-labs.github.io/discussions/&quot;&gt;welcome requests&lt;/a&gt; for workflows and
-tutorials to be included in future updates.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs Nextflow Workflows]]></title><description><![CDATA[EPI2ME Labs Workflows EPI2ME Labs maintains a collection of Nextflow bioinformatics
+this sample report is from sequencing study &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA650037&quot;&gt;PRJNA650037&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs Nextflow Workflows]]></title><description><![CDATA[EPI2ME Labs Workflows EPI2ME Labs maintains a collection of Nextflow bioinformatics
 workflows tailored to Oxford Nanopore Technologies long…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Tue, 09 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2ME Labs Workflows&lt;/h1&gt;
 &lt;p&gt;EPI2ME Labs maintains a collection of &lt;a href=&quot;https://www.nextflow.io/&quot;&gt;Nextflow&lt;/a&gt; bioinformatics
 workflows tailored to Oxford Nanopore Technologies long-read sequencing data. They
@@ -258,11 +258,24 @@ environment.&lt;/p&gt;
 description of each. Each description is accompanied by a link to the
 Github repository hosting the workflow and a sample workflow report.&lt;/p&gt;
 &lt;p&gt;For more information on running workflows see our &lt;a href=&quot;/wfquickstart&quot;&gt;Workflow Quick Start Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Basic Tasks&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/epi2me-labs/wf-alignment&quot;&gt;wf-alignment&lt;/a&gt; packages the &lt;a href=&quot;https://github.com/lh3/minimap2&quot;&gt;minimap2&lt;/a&gt; software and streamlines the
+process of mapping sequence reads to a reference genome and preparing summary
+statistics. It can also analyse the abundance of known molarity control
+experiments and use this information to derive the abundances of other species
+present in the sample. (&lt;a href=&quot;/workflows/wf-alignment.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;Variant Calling&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.github.com/epi2me-labs/wf-hap-snps&quot;&gt;wf-hap-snps&lt;/a&gt;: a workflow for
-running small variant calling and annotation in haploid samples.
-(&lt;a href=&quot;/workflows/wf-hap-snps.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
+running small variant calling and annotation in haploid samples. (&lt;a href=&quot;/workflows/wf-hap-snps.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Metagenomics&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/epi2me-labs/wf-metagenomics&quot;&gt;wf-metagenomics&lt;/a&gt; includes the &lt;a href=&quot;https://ccb.jhu.edu/software/centrifuge/&quot;&gt;Centrifuge&lt;/a&gt; software and appropriate
+indexes to facilitate the taxonomic classification of sequence reads from
+metagenome samples. (&lt;a href=&quot;/workflows/wf-metagenomics.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Miscellaneous&lt;/h3&gt;
 &lt;ul&gt;
