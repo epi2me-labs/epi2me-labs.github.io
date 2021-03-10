@@ -33,11 +33,24 @@ Github repository hosting the workflow and a sample workflow report.
 
 For more information on running workflows see our [Workflow Quick Start Guide](/wfquickstart).
 
+### Basic Tasks
+
+* [wf-alignment](https://github.com/epi2me-labs/wf-alignment) packages the [minimap2](https://github.com/lh3/minimap2) software and streamlines the
+  process of mapping sequence reads to a reference genome and preparing summary
+  statistics. It can also analyse the abundance of known molarity control
+  experiments and use this information to derive the abundances of other species
+  present in the sample. ([Sample report](/workflows/wf-alignment.html))
+
 ### Variant Calling
 
 * [wf-hap-snps](https://www.github.com/epi2me-labs/wf-hap-snps): a workflow for
-  running small variant calling and annotation in haploid samples.
-  ([Sample report](/workflows/wf-hap-snps.html))
+  running small variant calling and annotation in haploid samples. ([Sample report](/workflows/wf-hap-snps.html))
+
+### Metagenomics
+
+* [wf-metagenomics](https://github.com/epi2me-labs/wf-metagenomics) includes the [Centrifuge](https://ccb.jhu.edu/software/centrifuge/) software and appropriate
+  indexes to facilitate the taxonomic classification of sequence reads from
+  metagenome samples. ([Sample report](/workflows/wf-metagenomics.html))
 
 ### Miscellaneous
 
