@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Mar 2021 12:36:45 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Mar 2021 14:47:45 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
 framework: Nextflow enables scalable and…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Mon, 07 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2ME Labs Workflows Quick Start Guide&lt;/h1&gt;
 &lt;p&gt;EPI2ME Labs workflow are built using the &lt;a href=&quot;https://www.nextflow.io/&quot;&gt;nextflow&lt;/a&gt; workflow
 framework:&lt;/p&gt;
@@ -160,7 +160,83 @@ docker build \
 &lt;li&gt;&lt;a href=&quot;https://www.nextflow.io/&quot;&gt;nextflow&lt;/a&gt; The workflow management system used by EPI2ME Labs workflows.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.docker.com/products/docker-desktop&quot;&gt;docker&lt;/a&gt; A software container platform that can be optionally used by EPI2ME Labs.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://docs.conda.io/en/latest/miniconda.html&quot;&gt;conda&lt;/a&gt; A software package manager that can be optionally used by workflows.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs Nextflow Workflows]]></title><description><![CDATA[EPI2ME Labs Workflows EPI2ME Labs maintains a collection of Nextflow bioinformatics
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs Embraces Nextflow]]></title><description><![CDATA[We are excited to launch a new bioinformatics offering using the Nextflow
+reactive workflow framework. Nextflow has been selected as a…]]></description><link>https://labs.epi2me.io/nextflow/</link><guid isPermaLink="false">https://labs.epi2me.io/nextflow/</guid><pubDate>Wed, 10 Mar 2021 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are excited to launch a new bioinformatics offering using the &lt;a href=&quot;https&quot;&gt;Nextflow&lt;/a&gt;
+reactive workflow framework. Nextflow has been selected as a preferred
+framework because of its integration with container technologies, software
+package managers and its scalability to cluster- and cloud-scale installations.
+Nextflow also has growing user adoption through projects such as nf-core. These
+advantages will help us deliver varied workflows with minimal requirements for
+the installation of additional software.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/epi2me-labs/wf-artic&quot;&gt;wf-artic&lt;/a&gt; packages the &lt;a href=&quot;https://github.com/artic-network/fieldbioinformatics&quot;&gt;ARTIC
+Fieldbioinformatics&lt;/a&gt;
+software in a convenient containerised package that can be used to locally
+process multiplexed SARS-CoV-2 sequence data in a more automated manner.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/epi2me-labs/wf-hap-snps&quot;&gt;wf-hap-snps&lt;/a&gt; is a workflow designed to perform haploid SNP calling from
+whole genome sequencing of haploid samples.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/epi2me-labs/wf-alignment&quot;&gt;wf-alignment&lt;/a&gt; packages the &lt;a href=&quot;https://github.com/lh3/minimap2&quot;&gt;minimap2&lt;/a&gt; software and streamlines the
+process of mapping sequence reads to a reference genome and preparing summary
+statistics. It can also analyse the abundance of known molarity control
+experiments and use this information to derive the abundances of other species
+present in the sample.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/epi2me-labs/wf-metagenomics&quot;&gt;wf-metagenomics&lt;/a&gt; includes the &lt;a href=&quot;https://ccb.jhu.edu/software/centrifuge/&quot;&gt;Centrifuge&lt;/a&gt; software and appropriate
+indexes to facilitate the taxonomic classification of sequence reads from
+metagenome samples.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Our Nextflow workflows are intended to build upon the best-practice workflows
+demonstrated in our &lt;a href=&quot;/nbindex&quot;&gt;EPI2ME Labs tutorials&lt;/a&gt;. The workflows use the same
+methods demonstrated in the tutorials but should be more appropriate and
+scalable for larger and/or multiplexed datasets. The Nextflow workflows are
+distributed via GitHub and we hope that users will fork and customise the
+repositories.&lt;/p&gt;
+&lt;p&gt;The Nextflow workflows all prepare reports that include summary statistics,
+tabular data and figures to describe the sequences processed and to highlight
+important features of the results obtained. Example reports for each of the
+workflows are available from the &lt;a href=&quot;/nbindex&quot;&gt;Notebook Index&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9a54f5af9592e6dcafa2ae71534b28ea/1d499/fig1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81.75675675675677%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAACKElEQVQ4y4VTiW6rMBDk/z8vlRLlUEiBigA+sDmSkMB0x4V3VLw+S4tPxrMz62iaJpRlCaM1vHfwzkFrhVr61zhiac/nE9frFdZouNpK1CHatv115j48ETVNg3N8Qd32qJsWru1gXAMtcTU1cl3DynpVVbikGZJSIy1KfGiHqvb4qDSSQiHOS2TKIuIN70mK0lgUBFAG2rcB1As4gQmoJYOLnKtkXs5Apa3n/Q6qdmi6DhGpKjlshT7TZG+thZEoRIprUYBZvF4vlMJSGwMjoZQKl/BfpTQqmZNcAByGIRxgWjwQXy7I8xz3+x193wf92EbR9CZrt3mdmvKy2+2GTubcj/ghCyu3Nt6j71p0bRMOPIXVKKaxTXP/vxbRWZqSG4fCOtFFQrSsRJNcWzHGIasMhpklgZf4PmdEvQj5niSwvoESkQmmRHTjPJyYUQtruj99Y7oGHBjyQ5Ep6pfAoqWqRE8VTKAxTsxaA1xNedmg8DRnkOIkKMXm2uPxCGL/2X7SMzqfz9hsNojjGLvdDqfTCfv9Hm9vbzgej79TE9CvmP6ZbgDksyNYlmUoxG0G6yv0wpT16EXbUXuMymH0/Y9sI6ZHUNbV0pgmC3mRgeNeaq2RwmVtdmIkY5Uh2aRpGhixmOv5wS9BLXkZjfHiOOccs1+0/QuQAImUDUEZvICVTxAGmSw9mS97HK8y5PPZbrc4HA7BDLJcUiJDsuKYfXhiMl6e2xrDT6mY0gErT0IdAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ARTIC Workflow Report&quot;
+        title=&quot;Extract of the wf-artic workflow report&quot;
+        src=&quot;/static/9a54f5af9592e6dcafa2ae71534b28ea/fcda8/fig1.png&quot;
+        srcset=&quot;/static/9a54f5af9592e6dcafa2ae71534b28ea/12f09/fig1.png 148w,
+/static/9a54f5af9592e6dcafa2ae71534b28ea/e4a3f/fig1.png 295w,
+/static/9a54f5af9592e6dcafa2ae71534b28ea/fcda8/fig1.png 590w,
+/static/9a54f5af9592e6dcafa2ae71534b28ea/efc66/fig1.png 885w,
+/static/9a54f5af9592e6dcafa2ae71534b28ea/c83ae/fig1.png 1180w,
+/static/9a54f5af9592e6dcafa2ae71534b28ea/1d499/fig1.png 1632w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Figure 1.&lt;/strong&gt; An excerpt from the wf-artic report; the information shown in the
+plots can be used to assess depth-of-coverage across the sequenced primer sets
+and to identify primers and amplicons that may have dropped out of the
+analysis. Additional data and their provenance are shown to further summarise
+the data and SARS-CoV-2 variants contained within. The dataset summarised in
+this sample report is from sequencing study &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA650037&quot;&gt;PRJNA650037&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We support the installation and usage of these workflows on our GridION
+sequencing devices; the workflows have also been tested on a variety of Linux
+platforms.&lt;/p&gt;
+&lt;p&gt;We look forwards to feedback and would &lt;a href=&quot;https://github.com/epi2me-labs/epi2me-labs.github.io/discussions/&quot;&gt;welcome requests&lt;/a&gt; for workflows and
+tutorials to be included in future updates.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs Nextflow Workflows]]></title><description><![CDATA[EPI2ME Labs Workflows EPI2ME Labs maintains a collection of Nextflow bioinformatics
 workflows tailored to Oxford Nanopore Technologies long…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Tue, 09 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2ME Labs Workflows&lt;/h1&gt;
 &lt;p&gt;EPI2ME Labs maintains a collection of &lt;a href=&quot;https://www.nextflow.io/&quot;&gt;Nextflow&lt;/a&gt; bioinformatics
 workflows tailored to Oxford Nanopore Technologies long-read sequencing data. They
