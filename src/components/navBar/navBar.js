@@ -63,6 +63,16 @@ const NavBar = () => {
       <div className={styles.navBarLinks}>
         <ul>
           <li>
+            <Link to="/quickstart/">
+              Quickstart
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div className={styles.navBarLinks}>
+        <ul>
+          <li>
             <Link to="/wfindex/">
               Workflows
             </Link>
