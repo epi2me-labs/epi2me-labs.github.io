@@ -9,10 +9,10 @@
 
 
 <style type="text/css">
-    pre { line-height: 125%; margin: 0; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
@@ -14350,6 +14350,27 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Install-additional-software">Install additional software<a class="anchor-link" href="#Install-additional-software">&#182;</a></h3><p>This tutorial uses a couple of software packages that are not included in the default <strong>EPI2ME Labs</strong> server. Below we will install software packages that include <code>last</code> and <code>diamond</code> using the <code>conda</code> package manager.</p>
+<p><em>Please note that the software installed is not persistent and this step will need to be re-run if you stop and restart the EPI2ME Labs server</em></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mamba create -n centrifuge centrifuge --quiet --yes
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Sample-Data">Sample Data<a class="anchor-link" href="#Sample-Data">&#182;</a></h3><p>To demonstrate the workflow below a sample dataset is included with this tutorial. The data comprise an extract of a MinION run using the <a href="https://www.zymoresearch.com/collections/zymobiomics-microbial-community-standards">ZymoBIOMICS</a> microbial mock community.</p>
 <p>To download the sample dataset we run the <code>linux</code> command <code>wget</code>. To execute the command click on the cell and then press Command/Ctrl-Enter, or click the Play symbol to the left-hand side.</p>
 
@@ -14401,7 +14422,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#@markdown **Select sequencing inputs:**</span>
@@ -14429,7 +14450,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
     <span class="o">!</span>rationalize_fastq -i <span class="s2">&quot;</span><span class="nv">$input_data</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$input_file</span><span class="s2">&quot;</span>
     
 <span class="n">input_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;input_data&#39;</span><span class="p">,</span> <span class="s1">&#39;Input fastq&#39;</span><span class="p">,</span> <span class="s1">&#39;/epi2melabs/pychopper_tutorial/sample_data.fastq&#39;</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;input_data&#39;</span><span class="p">,</span> <span class="s1">&#39;Input fastq&#39;</span><span class="p">,</span> <span class="s1">&#39;/epi2melabs/metagenome_tutorial/sample_data.fastq&#39;</span><span class="p">),</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;output_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Output folder&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">),</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;threads&#39;</span><span class="p">,</span> <span class="s1">&#39;Processing threads&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())))</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
@@ -14457,12 +14478,12 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
-<div id="0be01877-a132-46d0-b7ef-408992e99b69" class="jupyter-widgets jp-OutputArea-output ">
+<div id="7770ae2f-ce2d-436c-8194-845b62849cf5" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('0be01877-a132-46d0-b7ef-408992e99b69');
+var element = document.getElementById('7770ae2f-ce2d-436c-8194-845b62849cf5');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "218473332f14498fa1ba5204c59395ed", "version_major": 2, "version_minor": 0}
+{"model_id": "c67a84fa5a864dae8ac52120d05c3fed", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14481,7 +14502,7 @@ var element = document.getElementById('0be01877-a132-46d0-b7ef-408992e99b69');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">indices</span> <span class="o">=</span> <span class="p">{</span>
@@ -14556,12 +14577,12 @@ var element = document.getElementById('0be01877-a132-46d0-b7ef-408992e99b69');
 
 
 
-<div id="27537c00-7d59-4bb0-a351-210d8f581c8c" class="jupyter-widgets jp-OutputArea-output ">
+<div id="e5cf8dae-21a4-411e-806b-0e8f0c832189" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('27537c00-7d59-4bb0-a351-210d8f581c8c');
+var element = document.getElementById('e5cf8dae-21a4-411e-806b-0e8f0c832189');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "710da6ed9e4a4515a9a5be6966301eb2", "version_major": 2, "version_minor": 0}
+{"model_id": "1d3ed17a8f11426e8c1cf60a2115275e", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14580,49 +14601,6 @@ var element = document.getElementById('27537c00-7d59-4bb0-a351-210d8f581c8c');
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Inspecting-the-index">Inspecting the index<a class="anchor-link" href="#Inspecting-the-index">&#182;</a></h3><p>The centrifuge suite comes with a program to inspect a metagenomic index and summarize the data is contains. Here we will run the program to extract the total number of sequences in the selected database:</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span><span class="nb">echo</span> <span class="s2">&quot;Number of sequences in index: &quot;</span>
-<span class="o">!</span>centrifuge-inspect -n <span class="s2">&quot;</span><span class="nv">$dbpath</span><span class="s2">&quot;</span> <span class="p">|</span> wc -l
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Number of sequences in index: 
-12268
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Metagenomic-classification">Metagenomic classification<a class="anchor-link" href="#Metagenomic-classification">&#182;</a></h2><p>In order to perform metagenomic classification of reads, the section below will use the <code>centrifuge</code> program together with the index selected or created above. We will then view the results of the classification using the <code>pavian</code> viewer.</p>
 
 </div>
@@ -14635,10 +14613,10 @@ var element = document.getElementById('27537c00-7d59-4bb0-a351-210d8f581c8c');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>centrifuge -p <span class="nv">$threads</span> --met <span class="m">5</span> --time --ignore-quals <span class="err">\</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>run centrifuge -p <span class="nv">$threads</span> --met <span class="m">5</span> --time --ignore-quals <span class="err">\</span>
     <span class="o">-</span><span class="n">S</span> <span class="n">analysis</span><span class="o">/</span><span class="n">read_classifications</span><span class="o">.</span><span class="n">tsv</span> <span class="o">--</span><span class="n">report</span><span class="o">-</span><span class="n">file</span> <span class="n">analysis</span><span class="o">/</span><span class="n">centrifuge_report</span><span class="o">.</span><span class="n">tsv</span> \
     <span class="o">-</span><span class="n">x</span> <span class="err">$</span><span class="n">dbpath</span> <span class="o">-</span><span class="n">U</span> <span class="err">$</span><span class="n">input_file</span>
 </pre></div>
@@ -14660,15 +14638,15 @@ var element = document.getElementById('27537c00-7d59-4bb0-a351-210d8f581c8c');
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Time loading forward index: 00:00:52
+<pre>Time loading forward index: 00:00:34
 Time loading reference: 00:00:00
-Multiseed full-index search: 00:00:08
-Time searching: 00:00:08
+Multiseed full-index search: 00:00:13
+Time searching: 00:00:13
 report file analysis/centrifuge_report.tsv
 Number of iterations in EM algorithm: 0
 Probability diff. (P - P_prev) in the last iteration: 0
 Calculating abundance: 00:00:00
-Overall time: 00:01:41
+Overall time: 00:02:22
 </pre>
 </div>
 </div>
@@ -14691,7 +14669,7 @@ Overall time: 00:01:41
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Counting genera present (press play)</span>
@@ -14728,7 +14706,7 @@ Overall time: 00:01:41
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1 genera identified with &gt;1000 reads.
+<pre>10 genera identified with &gt;1000 reads.
 </pre>
 </div>
 </div>
@@ -14766,43 +14744,43 @@ Overall time: 00:01:41
   <tbody>
     <tr>
       <th>0</th>
-      <td>Homo</td>
-      <td>11969</td>
+      <td>Bacillus</td>
+      <td>57204</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Escherichia</td>
-      <td>545</td>
+      <td>Staphylococcus</td>
+      <td>25309</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Acanthamoeba</td>
-      <td>4</td>
+      <td>Enterococcus</td>
+      <td>21647</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>MT188341.1</td>
-      <td>3</td>
+      <td>Listeria</td>
+      <td>19076</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Shigella</td>
-      <td>3</td>
+      <td>Salmonella</td>
+      <td>18712</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Campylobacter</td>
-      <td>2</td>
+      <td>Escherichia</td>
+      <td>15102</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Invertebrate</td>
-      <td>2</td>
+      <td>Lactobacillus</td>
+      <td>8455</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>MT121215.1</td>
-      <td>2</td>
+      <td>Pseudomonas</td>
+      <td>6376</td>
     </tr>
   </tbody>
 </table>
@@ -14825,10 +14803,10 @@ Overall time: 00:01:41
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>centrifuge-kreport -x <span class="nv">$dbpath</span> analysis/read_classifications.tsv <span class="err">\</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>run centrifuge-kreport -x <span class="nv">$dbpath</span> analysis/read_classifications.tsv <span class="err">\</span>
     <span class="o">&gt;</span> <span class="n">analysis</span><span class="o">/</span><span class="n">read_classifications</span><span class="o">.</span><span class="n">tsv</span><span class="o">.</span><span class="n">kraken</span>
 </pre></div>
 
@@ -14869,7 +14847,7 @@ Loading nodes file ...
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
@@ -14901,12 +14879,12 @@ Loading nodes file ...
 
 
 
-<div id="11e2385d-309c-4f23-9010-ef2feeb71b7f" class="jupyter-widgets jp-OutputArea-output ">
+<div id="dcf46153-72ec-4b5d-92dc-4ea1202fd0fe" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('11e2385d-309c-4f23-9010-ef2feeb71b7f');
+var element = document.getElementById('dcf46153-72ec-4b5d-92dc-4ea1202fd0fe');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "84dfe41decaa4b93ab86f72dd546168d", "version_major": 2, "version_minor": 0}
+{"model_id": "6e27972e549146e5bbac07423e2f02c8", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 

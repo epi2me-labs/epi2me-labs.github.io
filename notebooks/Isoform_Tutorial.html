@@ -9,10 +9,10 @@
 
 
 <style type="text/css">
-    pre { line-height: 125%; margin: 0; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
@@ -14310,7 +14310,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a work directory and move into it</span>
@@ -14378,10 +14378,10 @@ a.anchor-link {
 <p>The form below will download the sample data, reference sequence and annotations. To start the download click on the cell and then press Command/Ctrl-Enter, or click the Play symbol to the left-hand side.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Download sample data (click play)</span>
@@ -14409,32 +14409,6 @@ a.anchor-link {
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Downloading sample data
-<span class="ansi-green-intense-fg ansi-bold">✔ Downloaded</span>
-Downloading reference sequence:
-<span class="ansi-green-intense-fg ansi-bold">✔ Downloaded</span>
-Downloading annotation file
-<span class="ansi-green-intense-fg ansi-bold">✔ Downloaded</span>
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14471,9 +14445,8 @@ Downloading annotation file
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define reference genome and sample parameters</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="kn">from</span> <span class="nn">epi2melabs.notebook</span> <span class="kn">import</span> <span class="n">InputForm</span><span class="p">,</span> <span class="n">InputSpec</span>
 
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
@@ -14558,17 +14531,14 @@ Downloading annotation file
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Linking input_fastq to processed reads dir.&quot;</span><span class="p">)</span>
     <span class="n">input_fastq</span> <span class="o">=</span> <span class="n">input_dict</span><span class="p">[</span><span class="s2">&quot;fastq&quot;</span><span class="p">]</span>
     <span class="o">!</span>ln -s <span class="sb">`</span>realpath <span class="nv">$input_fastq</span><span class="sb">`</span> <span class="nv">$processed_reads_dir</span>/input_reads.fq <span class="m">2</span>&gt; /dev/null
-
-    
-    
     
 <span class="n">inputs</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;read_type&quot;</span><span class="p">,</span> <span class="s1">&#39;Type of read&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;cDNA&quot;</span><span class="p">,</span> <span class="s2">&quot;dRNA&quot;</span><span class="p">]),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;fastq&quot;</span><span class="p">,</span> <span class="s2">&quot;Fastq dataset&quot;</span><span class="p">,</span> <span class="n">fastq</span><span class="p">,</span> <span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;reference&quot;</span><span class="p">,</span> <span class="s2">&quot;Reference fasta&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;annotations&quot;</span><span class="p">,</span> <span class="s2">&quot;Annotation gtf&quot;</span><span class="p">,</span> <span class="n">annotations</span><span class="p">,</span> <span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;analysis_folder&quot;</span><span class="p">,</span> <span class="s2">&quot;Analysis folder name&quot;</span><span class="p">,</span> <span class="n">analysis_folder</span><span class="p">,</span> <span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;threads&quot;</span><span class="p">,</span> <span class="s2">&quot;Number of threads&quot;</span><span class="p">,</span> <span class="n">threads</span><span class="p">,</span> <span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;fastq&quot;</span><span class="p">,</span> <span class="s2">&quot;Fastq dataset&quot;</span><span class="p">,</span> <span class="n">fastq</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;reference&quot;</span><span class="p">,</span> <span class="s2">&quot;Reference fasta&quot;</span><span class="p">,</span> <span class="n">reference</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;annotations&quot;</span><span class="p">,</span> <span class="s2">&quot;Annotation gtf&quot;</span><span class="p">,</span> <span class="n">annotations</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;analysis_folder&quot;</span><span class="p">,</span> <span class="s2">&quot;Analysis folder name&quot;</span><span class="p">,</span> <span class="n">analysis_folder</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;threads&quot;</span><span class="p">,</span> <span class="s2">&quot;Number of threads&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)),</span>
 <span class="p">)</span>
 <span class="n">inputs</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
 
@@ -14596,12 +14566,12 @@ Downloading annotation file
 
 
 
-<div id="822033b1-073d-4cfd-8288-9655026f5f3c" class="jupyter-widgets jp-OutputArea-output ">
+<div id="8ed8aa44-bed2-4f1f-baad-dcf70a8f72e4" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('822033b1-073d-4cfd-8288-9655026f5f3c');
+var element = document.getElementById('8ed8aa44-bed2-4f1f-baad-dcf70a8f72e4');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "6d677742abb04fa5b506dae6a1049ad5", "version_major": 2, "version_minor": 0}
+{"model_id": "740cf209855a47a5b2b723c91e558917", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14615,7 +14585,7 @@ var element = document.getElementById('822033b1-073d-4cfd-8288-9655026f5f3c');
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Sequence-data-quality-control-and-pre-processing">Sequence data quality control and pre-processing<a class="anchor-link" href="#Sequence-data-quality-control-and-pre-processing">&#182;</a></h3><p>Before we begin the analysis it is important to take an overview of the data with which we will be working.</p>
-<blockquote><p>For more detail please see the <a href="../tutorials/fastq_introduction.ipynb#scrollTo=7XgSmykutHVY">Introduction to fastq</a> epi2me-labs tutorial.</p>
+<blockquote><p>For more detail please see the <a href="https://colab.research.google.com/github/epi2me-labs/tutorials/blob/master/fastq_introduction.ipynb#scrollTo=7XgSmykutHVY">Introduction to fastq</a> epi2me-labs tutorial.</p>
 </blockquote>
 <p>The below code-block will perform a simple summary of the input single-molecule reads and display graphs depicting the read and base quality and their lengths. Read qualities are expected to be &gt;10; read lengths will be dependent on your experiments but should mostly correspond to the expected transcript length distribution.</p>
 
@@ -14626,7 +14596,7 @@ var element = document.getElementById('822033b1-073d-4cfd-8288-9655026f5f3c');
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># **Basic read QC graphs**  *(click to show)*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Basic read QC graphs  *(click play)*</span>
 <span class="kn">import</span> <span class="nn">aplanat</span>
 <span class="kn">from</span> <span class="nn">aplanat.hist</span> <span class="kn">import</span> <span class="n">histogram</span>
 <span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="kn">import</span> <span class="n">gridplot</span>
@@ -14664,7 +14634,7 @@ var element = document.getElementById('822033b1-073d-4cfd-8288-9655026f5f3c');
     <span class="p">[</span><span class="n">lengths</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Read lengths&quot;</span><span class="p">,</span>
     <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;read length / bases&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">((</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">((</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14685,9 +14655,9 @@ var element = document.getElementById('822033b1-073d-4cfd-8288-9655026f5f3c');
 
 
 
-<div id="5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="66bff05a-427d-4d6b-9d5c-fcd6924bb852" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
+var element = document.getElementById('66bff05a-427d-4d6b-9d5c-fcd6924bb852');
 
 (function(root) {
   function now() {
@@ -14914,7 +14884,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
       document.body.appendChild(element);
     }
 
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js": "kLr4fYcqcSpbuI95brIH3vnnYCquzzSxHPU6XGQCIkQRGJwhg0StNbj1eegrHs12", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js": "xIGPmVtaOm+z0BqfSOMn4lOR6ciex448GIKG4eE61LsAvmGj48XcMQZtKcE/UXZe", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js": "Dc9u1wF/0zApGIWoBbH77iWEHtdmkuYWG839Uzmv8y8yBLXebjO9ZnERsde5Ln/P", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js": "cT9JaBz7GiRXdENrJLZNSC6eMNF3nh3fa5fTF51Svp+ukxPdwcU5kGXGPBgDCa2j"};
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js": "T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js": "98GDGJ0kOMCUMUePhksaQ/GYgB3+NH9h996V88sh3aOiUNX3N+fLXAtry6xctSZ6", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js": "89bArO+nlbP3sgakeHjCo1JYxYR5wufVgA3IbUvDY+K7w4zyxJqssu7wVnfeKCq8"};
 
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
@@ -14939,7 +14909,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
   }
 
   
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js"];
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js"];
   var css_urls = [];
   
 
@@ -15001,7 +14971,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 
 
 
-  <div class="bk-root" id="3dfa0ea4-020e-46cb-8db9-1aef3a4ff384" data-root-id="1151"></div>
+  <div class="bk-root" id="78f1d3b7-d2f8-45a5-af22-cb0c9bfdb5c8" data-root-id="1151"></div>
 
 </div>
 
@@ -15015,14 +14985,14 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 
 
 
-<div id="5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="66bff05a-427d-4d6b-9d5c-fcd6924bb852" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
+var element = document.getElementById('66bff05a-427d-4d6b-9d5c-fcd6924bb852');
 (function(root) {
   function embed_document(root) {
     
-  var docs_json = {"c0fd36a2-a17f-476d-8553-da386c0aea37":{"roots":{"references":[{"attributes":{"children":[{"id":"1150"},{"id":"1148"}]},"id":"1151","type":"Column"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1100"},{"id":"1101"},{"id":"1102"},{"id":"1103"},{"id":"1104"},{"id":"1105"}]},"id":"1107","type":"Toolbar"},{"attributes":{},"id":"1057","type":"BasicTicker"},{"attributes":{"bounds":[7.000037236297279,11.146441093147818],"end":11.146441093147818,"start":7.000037236297279},"id":"1039","type":"Range1d"},{"attributes":{"axis":{"id":"1056"},"dimension":1,"ticker":null},"id":"1059","type":"Grid"},{"attributes":{},"id":"1133","type":"BasicTickFormatter"},{"attributes":{"data":{"left":{"__ndarray__":"AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAABhAAAAAAAAAHEAAAAAAAAAgQAAAAAAAACJAAAAAAAAAJEAAAAAAAAAmQAAAAAAAAChAAAAAAAAAKkAAAAAAAAAsQAAAAAAAAC5AAAAAAAAAMEAAAAAAAAAxQAAAAAAAADJAAAAAAAAAM0AAAAAAAAA0QAAAAAAAADVAAAAAAAAANkAAAAAAAAA3QAAAAAAAADhAAAAAAAAAOUAAAAAAAAA6QAAAAAAAADtAAAAAAAAAPEAAAAAAAAA9QA==","dtype":"float64","order":"little","shape":[29]},"right":{"__ndarray__":"AAAAAAAAAEAAAAAAAAAIQAAAAAAAABBAAAAAAAAAFEAAAAAAAAAYQAAAAAAAABxAAAAAAAAAIEAAAAAAAAAiQAAAAAAAACRAAAAAAAAAJkAAAAAAAAAoQAAAAAAAACpAAAAAAAAALEAAAAAAAAAuQAAAAAAAADBAAAAAAAAAMUAAAAAAAAAyQAAAAAAAADNAAAAAAAAANEAAAAAAAAA1QAAAAAAAADZAAAAAAAAAN0AAAAAAAAA4QAAAAAAAADlAAAAAAAAAOkAAAAAAAAA7QAAAAAAAADxAAAAAAAAAPUAAAAAAAAA+QA==","dtype":"float64","order":"little","shape":[29]},"top":[537727,511228,598089,653015,699990,742555,772835,799353,816724,826840,827623,808278,780141,746786,699142,644282,589379,543844,503025,469767,445896,425697,410100,395813,376335,350451,308935,255993,162261]},"selected":{"id":"1136"},"selection_policy":{"id":"1137"}},"id":"1074","type":"ColumnDataSource"},{"attributes":{"text":"Read lengths"},"id":"1082","type":"Title"},{"attributes":{"data":{"left":{"__ndarray__":"AAAAAABAW0As9zTCct9wQFjuaYTl7npAwnJPIyx/gkBY7mmE5YaHQO5phOWejoxAwnJPIyzLkECNsNzTCE+TQFjuaYTl0pVAIyz3NMJWmEDuaYTlntqaQLmnEZZ7Xp1AhOWeRljin0CoEZZ7GjOhQI2w3NMIdaJAck8jLPe2o0BY7mmE5fikQD6NsNzTOqZAIyz3NMJ8p0AIyz2NsL6oQO5phOWeAKpA1AjLPY1Cq0C5pxGWe4SsQJ5GWO5pxq1AhOWeRlgIr0A1wnJPIyWwQKgRlnsaxrBAGmG5pxFnsUCNsNzTCAiyQA==","dtype":"float64","order":"little","shape":[29]},"right":{"__ndarray__":"LPc0wnLfcEBY7mmE5e56QMJyTyMsf4JAWO5phOWGh0DuaYTlno6MQMJyTyMsy5BAjbDc0whPk0BY7mmE5dKVQCMs9zTCVphA7mmE5Z7amkC5pxGWe16dQITlnkZY4p9AqBGWexozoUCNsNzTCHWiQHJPIyz3tqNAWO5phOX4pEA+jbDc0zqmQCMs9zTCfKdACMs9jbC+qEDuaYTlngCqQNQIyz2NQqtAuacRlnuErECeRljuacatQITlnkZYCK9ANcJyTyMlsECoEZZ7GsawQBphuacRZ7FAjbDc0wgIskAAAAAAAKmyQA==","dtype":"float64","order":"little","shape":[29]},"top":[130,1145,1739,1147,2206,1817,1447,1087,960,1289,1108,408,181,47,94,49,64,62,44,8,6,7,13,4,2,5,3,2,2]},"selected":{"id":"1145"},"selection_policy":{"id":"1146"}},"id":"1114","type":"ColumnDataSource"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1066","type":"BoxAnnotation"},{"attributes":{},"id":"1060","type":"PanTool"},{"attributes":{},"id":"1061","type":"WheelZoomTool"},{"attributes":{},"id":"1136","type":"Selection"},{"attributes":{"overlay":{"id":"1066"}},"id":"1062","type":"BoxZoomTool"},{"attributes":{},"id":"1131","type":"BasicTickFormatter"},{"attributes":{},"id":"1063","type":"SaveTool"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1106","type":"BoxAnnotation"},{"attributes":{},"id":"1064","type":"ResetTool"},{"attributes":{"source":{"id":"1114"}},"id":"1118","type":"CDSView"},{"attributes":{},"id":"1065","type":"HelpTool"},{"attributes":{},"id":"1127","type":"Selection"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1060"},{"id":"1061"},{"id":"1062"},{"id":"1063"},{"id":"1064"},{"id":"1065"}]},"id":"1067","type":"Toolbar"},{"attributes":{"data_source":{"id":"1114"},"glyph":{"id":"1115"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1116"},"selection_glyph":null,"view":{"id":"1118"}},"id":"1117","type":"GlyphRenderer"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1116","type":"Quad"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1115","type":"Quad"},{"attributes":{"source":{"id":"1074"}},"id":"1078","type":"CDSView"},{"attributes":{"data_source":{"id":"1074"},"glyph":{"id":"1075"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1076"},"selection_glyph":null,"view":{"id":"1078"}},"id":"1077","type":"GlyphRenderer"},{"attributes":{},"id":"1137","type":"UnionRenderers"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1076","type":"Quad"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1075","type":"Quad"},{"attributes":{},"id":"1140","type":"BasicTickFormatter"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1035","type":"Quad"},{"attributes":{},"id":"1142","type":"BasicTickFormatter"},{"attributes":{},"id":"1122","type":"BasicTickFormatter"},{"attributes":{},"id":"1145","type":"Selection"},{"attributes":{},"id":"1124","type":"BasicTickFormatter"},{"attributes":{},"id":"1146","type":"UnionRenderers"},{"attributes":{},"id":"1088","type":"LinearScale"},{"attributes":{"toolbars":[{"id":"1027"},{"id":"1067"},{"id":"1107"}],"tools":[{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"},{"id":"1060"},{"id":"1061"},{"id":"1062"},{"id":"1063"},{"id":"1064"},{"id":"1065"},{"id":"1100"},{"id":"1101"},{"id":"1102"},{"id":"1103"},{"id":"1104"},{"id":"1105"}]},"id":"1149","type":"ProxyToolbar"},{"attributes":{},"id":"1090","type":"LinearScale"},{"attributes":{"toolbar":{"id":"1149"},"toolbar_location":"above"},"id":"1150","type":"ToolbarBox"},{"attributes":{"axis_label":"read length / bases","formatter":{"id":"1142"},"ticker":{"id":"1093"}},"id":"1092","type":"LinearAxis"},{"attributes":{},"id":"1093","type":"BasicTicker"},{"attributes":{"axis":{"id":"1092"},"ticker":null},"id":"1095","type":"Grid"},{"attributes":{"axis_label":"count","formatter":{"id":"1140"},"ticker":{"id":"1097"}},"id":"1096","type":"LinearAxis"},{"attributes":{},"id":"1097","type":"BasicTicker"},{"attributes":{"children":[[{"id":"1001"},0,0],[{"id":"1041"},0,1],[{"id":"1081"},0,2]]},"id":"1148","type":"GridBox"},{"attributes":{"axis":{"id":"1096"},"dimension":1,"ticker":null},"id":"1099","type":"Grid"},{"attributes":{"bounds":[2,2206],"end":2206,"start":2},"id":"1120","type":"Range1d"},{"attributes":{"bounds":[109,4777],"end":4777,"start":109},"id":"1119","type":"Range1d"},{"attributes":{},"id":"1100","type":"PanTool"},{"attributes":{},"id":"1101","type":"WheelZoomTool"},{"attributes":{"overlay":{"id":"1106"}},"id":"1102","type":"BoxZoomTool"},{"attributes":{"below":[{"id":"1052"}],"center":[{"id":"1055"},{"id":"1059"}],"left":[{"id":"1056"}],"output_backend":"webgl","plot_height":250,"plot_width":300,"renderers":[{"id":"1077"}],"title":{"id":"1042"},"toolbar":{"id":"1067"},"toolbar_location":null,"x_range":{"id":"1079"},"x_scale":{"id":"1048"},"y_range":{"id":"1080"},"y_scale":{"id":"1050"}},"id":"1041","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1103","type":"SaveTool"},{"attributes":{},"id":"1104","type":"ResetTool"},{"attributes":{},"id":"1105","type":"HelpTool"},{"attributes":{},"id":"1128","type":"UnionRenderers"},{"attributes":{"text":"Base quality scores"},"id":"1042","type":"Title"},{"attributes":{"axis_label":"quality","formatter":{"id":"1124"},"ticker":{"id":"1013"}},"id":"1012","type":"LinearAxis"},{"attributes":{},"id":"1013","type":"BasicTicker"},{"attributes":{"axis":{"id":"1012"},"ticker":null},"id":"1015","type":"Grid"},{"attributes":{"axis_label":"count","formatter":{"id":"1122"},"ticker":{"id":"1017"}},"id":"1016","type":"LinearAxis"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{"axis":{"id":"1016"},"dimension":1,"ticker":null},"id":"1019","type":"Grid"},{"attributes":{"data":{"left":{"__ndarray__":"VrfiwgkAHED7Suf2cpIcQKDe6yrcJB1ARXLwXkW3HUDqBfWSrkkeQI6Z+cYX3B5ANC3++oBuH0BsYIEXdQAgQD+qg7GpSSBAEfSFS96SIEDkPYjlEtwgQLaHin9HJSFAiNGMGXxuIUBbG4+zsLchQC1lkU3lACJAAK+T5xlKIkDS+JWBTpMiQKVCmBuD3CJAd4yatbclI0BK1pxP7G4jQBwgn+kguCNA7mmhg1UBJEDBs6MdikokQJT9pbe+kyRAZkeoUfPcJEA4karrJyYlQAvbrIVcbyVA3SSvH5G4JUCwbrG5xQEmQA==","dtype":"float64","order":"little","shape":[29]},"right":{"__ndarray__":"+0rn9nKSHECg3usq3CQdQEVy8F5Ftx1A6gX1kq5JHkCOmfnGF9weQDQt/vqAbh9AbGCBF3UAIEA/qoOxqUkgQBH0hUvekiBA5D2I5RLcIEC2h4p/RyUhQIjRjBl8biFAWxuPs7C3IUAtZZFN5QAiQACvk+cZSiJA0viVgU6TIkClQpgbg9wiQHeMmrW3JSNAStacT+xuI0AcIJ/pILgjQO5poYNVASRAwbOjHYpKJECU/aW3vpMkQGZHqFHz3CRAOJGq6ycmJUAL26yFXG8lQN0krx+RuCVAsG6xucUBJkCCuLNT+komQA==","dtype":"float64","order":"little","shape":[29]},"top":[590,664,755,796,800,908,1015,941,1004,1017,1028,913,856,800,644,577,436,365,315,210,141,110,83,40,35,11,9,8,5]},"selected":{"id":"1127"},"selection_policy":{"id":"1128"}},"id":"1034","type":"ColumnDataSource"},{"attributes":{"bounds":[162261,827623],"end":827623,"start":162261},"id":"1080","type":"Range1d"},{"attributes":{},"id":"1020","type":"PanTool"},{"attributes":{},"id":"1021","type":"WheelZoomTool"},{"attributes":{"overlay":{"id":"1026"}},"id":"1022","type":"BoxZoomTool"},{"attributes":{"bounds":[5,1028],"end":1028,"start":5},"id":"1040","type":"Range1d"},{"attributes":{},"id":"1023","type":"SaveTool"},{"attributes":{"below":[{"id":"1012"}],"center":[{"id":"1015"},{"id":"1019"}],"left":[{"id":"1016"}],"output_backend":"webgl","plot_height":250,"plot_width":300,"renderers":[{"id":"1037"}],"title":{"id":"1002"},"toolbar":{"id":"1027"},"toolbar_location":null,"x_range":{"id":"1039"},"x_scale":{"id":"1008"},"y_range":{"id":"1040"},"y_scale":{"id":"1010"}},"id":"1001","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1024","type":"ResetTool"},{"attributes":{},"id":"1025","type":"HelpTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"}]},"id":"1027","type":"Toolbar"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1026","type":"BoxAnnotation"},{"attributes":{"source":{"id":"1034"}},"id":"1038","type":"CDSView"},{"attributes":{"data_source":{"id":"1034"},"glyph":{"id":"1035"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1036"},"selection_glyph":null,"view":{"id":"1038"}},"id":"1037","type":"GlyphRenderer"},{"attributes":{"text":"Read quality scores"},"id":"1002","type":"Title"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1036","type":"Quad"},{"attributes":{"below":[{"id":"1092"}],"center":[{"id":"1095"},{"id":"1099"}],"left":[{"id":"1096"}],"output_backend":"webgl","plot_height":250,"plot_width":300,"renderers":[{"id":"1117"}],"title":{"id":"1082"},"toolbar":{"id":"1107"},"toolbar_location":null,"x_range":{"id":"1119"},"x_scale":{"id":"1088"},"y_range":{"id":"1120"},"y_scale":{"id":"1090"}},"id":"1081","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1048","type":"LinearScale"},{"attributes":{},"id":"1050","type":"LinearScale"},{"attributes":{"axis_label":"quality","formatter":{"id":"1133"},"ticker":{"id":"1053"}},"id":"1052","type":"LinearAxis"},{"attributes":{},"id":"1053","type":"BasicTicker"},{"attributes":{"bounds":[1,30],"end":30,"start":1},"id":"1079","type":"Range1d"},{"attributes":{"axis":{"id":"1052"},"ticker":null},"id":"1055","type":"Grid"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{"axis_label":"count","formatter":{"id":"1131"},"ticker":{"id":"1057"}},"id":"1056","type":"LinearAxis"},{"attributes":{},"id":"1010","type":"LinearScale"}],"root_ids":["1151"]},"title":"Bokeh Application","version":"2.1.1"}};
-  var render_items = [{"docid":"c0fd36a2-a17f-476d-8553-da386c0aea37","root_ids":["1151"],"roots":{"1151":"3dfa0ea4-020e-46cb-8db9-1aef3a4ff384"}}];
+  var docs_json = {"fe2a0ca5-a4c8-4ad0-be3c-334b00b42d92":{"roots":{"references":[{"attributes":{"children":[{"id":"1150"},{"id":"1148"}]},"id":"1151","type":"Column"},{"attributes":{"axis_label":"read length / bases","formatter":{"id":"1141"},"ticker":{"id":"1093"}},"id":"1092","type":"LinearAxis"},{"attributes":{},"id":"1093","type":"BasicTicker"},{"attributes":{},"id":"1088","type":"LinearScale"},{"attributes":{"axis":{"id":"1092"},"ticker":null},"id":"1095","type":"Grid"},{"attributes":{},"id":"1101","type":"WheelZoomTool"},{"attributes":{},"id":"1090","type":"LinearScale"},{"attributes":{"source":{"id":"1074"}},"id":"1078","type":"CDSView"},{"attributes":{"data_source":{"id":"1074"},"glyph":{"id":"1075"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1076"},"selection_glyph":null,"view":{"id":"1078"}},"id":"1077","type":"GlyphRenderer"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1115","type":"Quad"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1116","type":"Quad"},{"attributes":{"data":{"left":{"__ndarray__":"AAAAAABAW0As9zTCct9wQFjuaYTl7npAwnJPIyx/gkBY7mmE5YaHQO5phOWejoxAwnJPIyzLkECNsNzTCE+TQFjuaYTl0pVAIyz3NMJWmEDuaYTlntqaQLmnEZZ7Xp1AhOWeRljin0CoEZZ7GjOhQI2w3NMIdaJAck8jLPe2o0BY7mmE5fikQD6NsNzTOqZAIyz3NMJ8p0AIyz2NsL6oQO5phOWeAKpA1AjLPY1Cq0C5pxGWe4SsQJ5GWO5pxq1AhOWeRlgIr0A1wnJPIyWwQKgRlnsaxrBAGmG5pxFnsUCNsNzTCAiyQA==","dtype":"float64","order":"little","shape":[29]},"right":{"__ndarray__":"LPc0wnLfcEBY7mmE5e56QMJyTyMsf4JAWO5phOWGh0DuaYTlno6MQMJyTyMsy5BAjbDc0whPk0BY7mmE5dKVQCMs9zTCVphA7mmE5Z7amkC5pxGWe16dQITlnkZY4p9AqBGWexozoUCNsNzTCHWiQHJPIyz3tqNAWO5phOX4pEA+jbDc0zqmQCMs9zTCfKdACMs9jbC+qEDuaYTlngCqQNQIyz2NQqtAuacRlnuErECeRljuacatQITlnkZYCK9ANcJyTyMlsECoEZZ7GsawQBphuacRZ7FAjbDc0wgIskAAAAAAAKmyQA==","dtype":"float64","order":"little","shape":[29]},"top":[130,1145,1739,1147,2206,1817,1447,1087,960,1289,1108,408,181,47,94,49,64,62,44,8,6,7,13,4,2,5,3,2,2]},"selected":{"id":"1145"},"selection_policy":{"id":"1146"}},"id":"1114","type":"ColumnDataSource"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1066","type":"BoxAnnotation"},{"attributes":{"source":{"id":"1114"}},"id":"1118","type":"CDSView"},{"attributes":{"data_source":{"id":"1114"},"glyph":{"id":"1115"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1116"},"selection_glyph":null,"view":{"id":"1118"}},"id":"1117","type":"GlyphRenderer"},{"attributes":{"bounds":[7.000037236297279,11.146441093147818],"end":11.146441093147818,"start":7.000037236297279},"id":"1039","type":"Range1d"},{"attributes":{},"id":"1105","type":"HelpTool"},{"attributes":{"background_fill_color":"#f4f4f4","below":[{"id":"1012"}],"border_fill_color":"#f4f4f4","center":[{"id":"1015"},{"id":"1019"}],"left":[{"id":"1016"}],"output_backend":"webgl","plot_height":250,"plot_width":300,"renderers":[{"id":"1037"}],"title":{"id":"1002"},"toolbar":{"id":"1027"},"toolbar_location":null,"x_range":{"id":"1039"},"x_scale":{"id":"1008"},"y_range":{"id":"1040"},"y_scale":{"id":"1010"}},"id":"1001","subtype":"Figure","type":"Plot"},{"attributes":{"bounds":[1,30],"end":30,"start":1},"id":"1079","type":"Range1d"},{"attributes":{},"id":"1123","type":"BasicTickFormatter"},{"attributes":{"data":{"left":{"__ndarray__":"AAAAAAAA8D8AAAAAAAAAQAAAAAAAAAhAAAAAAAAAEEAAAAAAAAAUQAAAAAAAABhAAAAAAAAAHEAAAAAAAAAgQAAAAAAAACJAAAAAAAAAJEAAAAAAAAAmQAAAAAAAAChAAAAAAAAAKkAAAAAAAAAsQAAAAAAAAC5AAAAAAAAAMEAAAAAAAAAxQAAAAAAAADJAAAAAAAAAM0AAAAAAAAA0QAAAAAAAADVAAAAAAAAANkAAAAAAAAA3QAAAAAAAADhAAAAAAAAAOUAAAAAAAAA6QAAAAAAAADtAAAAAAAAAPEAAAAAAAAA9QA==","dtype":"float64","order":"little","shape":[29]},"right":{"__ndarray__":"AAAAAAAAAEAAAAAAAAAIQAAAAAAAABBAAAAAAAAAFEAAAAAAAAAYQAAAAAAAABxAAAAAAAAAIEAAAAAAAAAiQAAAAAAAACRAAAAAAAAAJkAAAAAAAAAoQAAAAAAAACpAAAAAAAAALEAAAAAAAAAuQAAAAAAAADBAAAAAAAAAMUAAAAAAAAAyQAAAAAAAADNAAAAAAAAANEAAAAAAAAA1QAAAAAAAADZAAAAAAAAAN0AAAAAAAAA4QAAAAAAAADlAAAAAAAAAOkAAAAAAAAA7QAAAAAAAADxAAAAAAAAAPUAAAAAAAAA+QA==","dtype":"float64","order":"little","shape":[29]},"top":[537727,511228,598089,653015,699990,742555,772835,799353,816724,826840,827623,808278,780141,746786,699142,644282,589379,543844,503025,469767,445896,425697,410100,395813,376335,350451,308935,255993,162261]},"selected":{"id":"1136"},"selection_policy":{"id":"1137"}},"id":"1074","type":"ColumnDataSource"},{"attributes":{},"id":"1125","type":"BasicTickFormatter"},{"attributes":{"axis_label":"count","formatter":{"id":"1143"},"ticker":{"id":"1097"}},"id":"1096","type":"LinearAxis"},{"attributes":{"axis":{"id":"1096"},"dimension":1,"ticker":null},"id":"1099","type":"Grid"},{"attributes":{},"id":"1097","type":"BasicTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1100"},{"id":"1101"},{"id":"1102"},{"id":"1103"},{"id":"1104"},{"id":"1105"}]},"id":"1107","type":"Toolbar"},{"attributes":{"bounds":[5,1028],"end":1028,"start":5},"id":"1040","type":"Range1d"},{"attributes":{},"id":"1100","type":"PanTool"},{"attributes":{"overlay":{"id":"1106"}},"id":"1102","type":"BoxZoomTool"},{"attributes":{},"id":"1103","type":"SaveTool"},{"attributes":{},"id":"1104","type":"ResetTool"},{"attributes":{},"id":"1132","type":"BasicTickFormatter"},{"attributes":{},"id":"1127","type":"Selection"},{"attributes":{},"id":"1128","type":"UnionRenderers"},{"attributes":{"background_fill_color":"#f4f4f4","below":[{"id":"1052"}],"border_fill_color":"#f4f4f4","center":[{"id":"1055"},{"id":"1059"}],"left":[{"id":"1056"}],"output_backend":"webgl","plot_height":250,"plot_width":300,"renderers":[{"id":"1077"}],"title":{"id":"1042"},"toolbar":{"id":"1067"},"toolbar_location":null,"x_range":{"id":"1079"},"x_scale":{"id":"1048"},"y_range":{"id":"1080"},"y_scale":{"id":"1050"}},"id":"1041","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1064","type":"ResetTool"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1106","type":"BoxAnnotation"},{"attributes":{},"id":"1134","type":"BasicTickFormatter"},{"attributes":{"axis_label":"quality","formatter":{"id":"1123"},"ticker":{"id":"1013"}},"id":"1012","type":"LinearAxis"},{"attributes":{},"id":"1013","type":"BasicTicker"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{"text":"Base quality scores"},"id":"1042","type":"Title"},{"attributes":{"axis":{"id":"1012"},"ticker":null},"id":"1015","type":"Grid"},{"attributes":{},"id":"1021","type":"WheelZoomTool"},{"attributes":{"text":"Read quality scores"},"id":"1002","type":"Title"},{"attributes":{"axis_label":"count","formatter":{"id":"1125"},"ticker":{"id":"1017"}},"id":"1016","type":"LinearAxis"},{"attributes":{"axis":{"id":"1016"},"dimension":1,"ticker":null},"id":"1019","type":"Grid"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{},"id":"1025","type":"HelpTool"},{"attributes":{},"id":"1136","type":"Selection"},{"attributes":{},"id":"1020","type":"PanTool"},{"attributes":{},"id":"1137","type":"UnionRenderers"},{"attributes":{"overlay":{"id":"1026"}},"id":"1022","type":"BoxZoomTool"},{"attributes":{},"id":"1023","type":"SaveTool"},{"attributes":{},"id":"1024","type":"ResetTool"},{"attributes":{},"id":"1050","type":"LinearScale"},{"attributes":{},"id":"1053","type":"BasicTicker"},{"attributes":{"bounds":[109,4777],"end":4777,"start":109},"id":"1119","type":"Range1d"},{"attributes":{"source":{"id":"1034"}},"id":"1038","type":"CDSView"},{"attributes":{"axis_label":"quality","formatter":{"id":"1132"},"ticker":{"id":"1053"}},"id":"1052","type":"LinearAxis"},{"attributes":{"text":"Read lengths"},"id":"1082","type":"Title"},{"attributes":{"data_source":{"id":"1034"},"glyph":{"id":"1035"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1036"},"selection_glyph":null,"view":{"id":"1038"}},"id":"1037","type":"GlyphRenderer"},{"attributes":{"background_fill_color":"#f4f4f4","below":[{"id":"1092"}],"border_fill_color":"#f4f4f4","center":[{"id":"1095"},{"id":"1099"}],"left":[{"id":"1096"}],"output_backend":"webgl","plot_height":250,"plot_width":300,"renderers":[{"id":"1117"}],"title":{"id":"1082"},"toolbar":{"id":"1107"},"toolbar_location":null,"x_range":{"id":"1119"},"x_scale":{"id":"1088"},"y_range":{"id":"1120"},"y_scale":{"id":"1090"}},"id":"1081","subtype":"Figure","type":"Plot"},{"attributes":{"data":{"left":{"__ndarray__":"VrfiwgkAHED7Suf2cpIcQKDe6yrcJB1ARXLwXkW3HUDqBfWSrkkeQI6Z+cYX3B5ANC3++oBuH0BsYIEXdQAgQD+qg7GpSSBAEfSFS96SIEDkPYjlEtwgQLaHin9HJSFAiNGMGXxuIUBbG4+zsLchQC1lkU3lACJAAK+T5xlKIkDS+JWBTpMiQKVCmBuD3CJAd4yatbclI0BK1pxP7G4jQBwgn+kguCNA7mmhg1UBJEDBs6MdikokQJT9pbe+kyRAZkeoUfPcJEA4karrJyYlQAvbrIVcbyVA3SSvH5G4JUCwbrG5xQEmQA==","dtype":"float64","order":"little","shape":[29]},"right":{"__ndarray__":"+0rn9nKSHECg3usq3CQdQEVy8F5Ftx1A6gX1kq5JHkCOmfnGF9weQDQt/vqAbh9AbGCBF3UAIEA/qoOxqUkgQBH0hUvekiBA5D2I5RLcIEC2h4p/RyUhQIjRjBl8biFAWxuPs7C3IUAtZZFN5QAiQACvk+cZSiJA0viVgU6TIkClQpgbg9wiQHeMmrW3JSNAStacT+xuI0AcIJ/pILgjQO5poYNVASRAwbOjHYpKJECU/aW3vpMkQGZHqFHz3CRAOJGq6ycmJUAL26yFXG8lQN0krx+RuCVAsG6xucUBJkCCuLNT+komQA==","dtype":"float64","order":"little","shape":[29]},"top":[590,664,755,796,800,908,1015,941,1004,1017,1028,913,856,800,644,577,436,365,315,210,141,110,83,40,35,11,9,8,5]},"selected":{"id":"1127"},"selection_policy":{"id":"1128"}},"id":"1034","type":"ColumnDataSource"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1035","type":"Quad"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1036","type":"Quad"},{"attributes":{},"id":"1048","type":"LinearScale"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1076","type":"Quad"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1026","type":"BoxAnnotation"},{"attributes":{},"id":"1141","type":"BasicTickFormatter"},{"attributes":{"toolbars":[{"id":"1027"},{"id":"1067"},{"id":"1107"}],"tools":[{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"},{"id":"1060"},{"id":"1061"},{"id":"1062"},{"id":"1063"},{"id":"1064"},{"id":"1065"},{"id":"1100"},{"id":"1101"},{"id":"1102"},{"id":"1103"},{"id":"1104"},{"id":"1105"}]},"id":"1149","type":"ProxyToolbar"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"}]},"id":"1027","type":"Toolbar"},{"attributes":{},"id":"1143","type":"BasicTickFormatter"},{"attributes":{"toolbar":{"id":"1149"},"toolbar_location":"above"},"id":"1150","type":"ToolbarBox"},{"attributes":{"axis":{"id":"1052"},"ticker":null},"id":"1055","type":"Grid"},{"attributes":{},"id":"1061","type":"WheelZoomTool"},{"attributes":{"bounds":[2,2206],"end":2206,"start":2},"id":"1120","type":"Range1d"},{"attributes":{"axis_label":"count","formatter":{"id":"1134"},"ticker":{"id":"1057"}},"id":"1056","type":"LinearAxis"},{"attributes":{"axis":{"id":"1056"},"dimension":1,"ticker":null},"id":"1059","type":"Grid"},{"attributes":{},"id":"1057","type":"BasicTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1060"},{"id":"1061"},{"id":"1062"},{"id":"1063"},{"id":"1064"},{"id":"1065"}]},"id":"1067","type":"Toolbar"},{"attributes":{},"id":"1065","type":"HelpTool"},{"attributes":{},"id":"1060","type":"PanTool"},{"attributes":{},"id":"1145","type":"Selection"},{"attributes":{"overlay":{"id":"1066"}},"id":"1062","type":"BoxZoomTool"},{"attributes":{"children":[[{"id":"1001"},0,0],[{"id":"1041"},0,1],[{"id":"1081"},0,2]]},"id":"1148","type":"GridBox"},{"attributes":{},"id":"1146","type":"UnionRenderers"},{"attributes":{},"id":"1063","type":"SaveTool"},{"attributes":{"bounds":[162261,827623],"end":827623,"start":162261},"id":"1080","type":"Range1d"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1075","type":"Quad"}],"root_ids":["1151"]},"title":"Bokeh Application","version":"2.2.3"}};
+  var render_items = [{"docid":"fe2a0ca5-a4c8-4ad0-be3c-334b00b42d92","root_ids":["1151"],"roots":{"1151":"78f1d3b7-d2f8-45a5-af22-cb0c9bfdb5c8"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
@@ -15067,7 +15037,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># **Running pychopper** *(click to show)*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Running pychopper *(click play)*</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">aplanat</span>
@@ -15097,7 +15067,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
       <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Cut off parameter selection curve&quot;</span><span class="p">,</span>
       <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;Filter cut off&#39;</span><span class="p">,</span>
       <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;Selected reads&#39;</span><span class="p">)</span>
-  <span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+  <span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
   <span class="o">!</span>ln -s <span class="sb">`</span>realpath <span class="nv">$processed_reads_dir</span>/input_reads.fq<span class="sb">`</span> <span class="nv">$full_length_reads</span> <span class="m">2</span>&gt; /dev/null
   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping: Running pychopper&quot;</span><span class="p">)</span>
@@ -15124,19 +15094,19 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 Configurations to consider: &#34;+:SSP,-VNP|-:VNP,-SSP&#34;
 Counting fastq records in input file: input_reads.fq
 Total fastq records in input file: 15076
-Tuning the cutoff parameter (q) on 9892 sampled reads (66.3%) passing quality filters (Q &gt;= 7.0).
+Tuning the cutoff parameter (q) on 9974 sampled reads (66.3%) passing quality filters (Q &gt;= 7.0).
 Optimizing over 30 cutoff values.
-100%|███████████████████████████████████████████| 30/30 [06:22&lt;00:00, 12.74s/it]
-Best cutoff (q) value is 0.3448 with 81% of the reads classified.
-Processing the whole dataset using a batch size of 3769:
-100%|████████████████████████████████████| 15076/15076 [00:24&lt;00:00, 610.45it/s]
+100%|███████████████████████████████████████████| 30/30 [04:17&lt;00:00,  8.58s/it]
+Best cutoff (q) value is 0.5173 with 81% of the reads classified.
+Processing the whole dataset using a batch size of 376:
+100%|███████████████████████████████████| 15076/15076 [00:08&lt;00:00, 1788.65it/s]
 Finished processing file: input_reads.fq
 Input reads failing mean quality filter (Q &lt; 7.0): 0 (0.00%)
 Output fragments failing length filter (length &lt; 50): 0
 -----------------------------------
-Reads with two primers:	80.10%
-Rescued reads:		2.05%
-Unusable reads:		17.85%
+Reads with two primers:	80.32%
+Rescued reads:		2.13%
+Unusable reads:		17.55%
 -----------------------------------
 </pre>
 </div>
@@ -15176,17 +15146,17 @@ Unusable reads:		17.85%
     <tr>
       <th>0</th>
       <td>Primers_found</td>
-      <td>80.098457</td>
+      <td>80.322813</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Rescue</td>
-      <td>2.047916</td>
+      <td>2.125845</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Unusable</td>
-      <td>17.853627</td>
+      <td>17.551342</td>
     </tr>
   </tbody>
 </table>
@@ -15203,9 +15173,9 @@ Unusable reads:		17.85%
 
 
 
-<div id="5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="66bff05a-427d-4d6b-9d5c-fcd6924bb852" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
+var element = document.getElementById('66bff05a-427d-4d6b-9d5c-fcd6924bb852');
 
 (function(root) {
   function now() {
@@ -15432,7 +15402,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
       document.body.appendChild(element);
     }
 
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js": "kLr4fYcqcSpbuI95brIH3vnnYCquzzSxHPU6XGQCIkQRGJwhg0StNbj1eegrHs12", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js": "xIGPmVtaOm+z0BqfSOMn4lOR6ciex448GIKG4eE61LsAvmGj48XcMQZtKcE/UXZe", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js": "Dc9u1wF/0zApGIWoBbH77iWEHtdmkuYWG839Uzmv8y8yBLXebjO9ZnERsde5Ln/P", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js": "cT9JaBz7GiRXdENrJLZNSC6eMNF3nh3fa5fTF51Svp+ukxPdwcU5kGXGPBgDCa2j"};
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js": "T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js": "98GDGJ0kOMCUMUePhksaQ/GYgB3+NH9h996V88sh3aOiUNX3N+fLXAtry6xctSZ6", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js": "89bArO+nlbP3sgakeHjCo1JYxYR5wufVgA3IbUvDY+K7w4zyxJqssu7wVnfeKCq8"};
 
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
@@ -15457,7 +15427,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
   }
 
   
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js"];
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js"];
   var css_urls = [];
   
 
@@ -15519,7 +15489,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 
 
 
-  <div class="bk-root" id="1a5c2e01-f5a7-469f-b1d1-84f0a40f378d" data-root-id="1320"></div>
+  <div class="bk-root" id="99ded322-4cfd-47fc-9400-0176d436ab39" data-root-id="1296"></div>
 
 </div>
 
@@ -15533,14 +15503,14 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 
 
 
-<div id="5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="66bff05a-427d-4d6b-9d5c-fcd6924bb852" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
+var element = document.getElementById('66bff05a-427d-4d6b-9d5c-fcd6924bb852');
 (function(root) {
   function embed_document(root) {
     
-  var docs_json = {"e6cde161-5eb2-4052-9957-9a71ec4c456a":{"roots":{"references":[{"attributes":{"below":[{"id":"1331"}],"center":[{"id":"1334"},{"id":"1338"}],"left":[{"id":"1335"}],"output_backend":"webgl","plot_height":300,"renderers":[{"id":"1356"}],"title":{"id":"1321"},"toolbar":{"id":"1346"},"x_range":{"id":"1358"},"x_scale":{"id":"1327"},"y_range":{"id":"1359"},"y_scale":{"id":"1329"}},"id":"1320","subtype":"Figure","type":"Plot"},{"attributes":{"axis_label":"Filter cut off","formatter":{"id":"1387"},"ticker":{"id":"1332"}},"id":"1331","type":"LinearAxis"},{"attributes":{},"id":"1332","type":"BasicTicker"},{"attributes":{"axis":{"id":"1331"},"ticker":null},"id":"1334","type":"Grid"},{"attributes":{"source":{"id":"1353"}},"id":"1357","type":"CDSView"},{"attributes":{"axis_label":"Selected reads","formatter":{"id":"1385"},"ticker":{"id":"1336"}},"id":"1335","type":"LinearAxis"},{"attributes":{"line_alpha":0.1,"line_color":"blue","line_width":1.5,"x":{"field":"x"},"y":{"field":"y"}},"id":"1355","type":"Line"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1345","type":"BoxAnnotation"},{"attributes":{},"id":"1336","type":"BasicTicker"},{"attributes":{"axis":{"id":"1335"},"dimension":1,"ticker":null},"id":"1338","type":"Grid"},{"attributes":{"bounds":[1e-05,5.0],"end":5.0,"start":1e-05},"id":"1358","type":"Range1d"},{"attributes":{"data_source":{"id":"1353"},"glyph":{"id":"1354"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1355"},"selection_glyph":null,"view":{"id":"1357"}},"id":"1356","type":"GlyphRenderer"},{"attributes":{},"id":"1390","type":"Selection"},{"attributes":{},"id":"1385","type":"BasicTickFormatter"},{"attributes":{},"id":"1391","type":"UnionRenderers"},{"attributes":{},"id":"1339","type":"PanTool"},{"attributes":{},"id":"1340","type":"WheelZoomTool"},{"attributes":{"text":"Cut off parameter selection curve"},"id":"1321","type":"Title"},{"attributes":{"data":{"x":{"__ndarray__":"8WjjiLX45D6kRbS3+BHGP90zScbOEdY/cyJcmFCN4D/5qpPNuRHmP38zywIjlus/Al4BHEaN8D9FIp22ek/zP4jmOFGvEfY/y6rU6+PT+D8Ob3CGGJb7P1AzDCFNWP4/yfvT3UCNAEDr3SErW+4BQAzAb3h1TwNALqK9xY+wBEBPhAsTqhEGQHBmWWDEcgdAkkinrd7TCECzKvX6+DQKQNUMQ0gTlgtA9u6QlS33DEAX0d7iR1gOQDmzLDBiuQ9ArEq9Pj6NEEC9O2Rlyz0RQM4sC4xY7hFA3x2ysuWeEkDvDlnZck8TQAAAAAAAABRA","dtype":"float64","order":"little","shape":[30]},"y":{"__ndarray__":"AAAAAACQnUAAAAAAANa+QAAAAAAAa79AAAAAAAB6v0AAAAAAAGm/QAAAAAAAW79AAAAAAABMv0AAAAAAACW/QAAAAAAA6b5AAAAAAACGvkAAAAAAADO+QAAAAAAA4b1AAAAAAAB1vUAAAAAAAA+9QAAAAAAAjrxAAAAAAABNvEAAAAAAAPu7QAAAAAAAaLtAAAAAAAAKu0AAAAAAAKG6QAAAAAAANbpAAAAAAADYuUAAAAAAAJK5QAAAAAAAJrlAAAAAAADruEAAAAAAAJi4QAAAAAAAcLhAAAAAAAAjuEAAAAAAAOe3QAAAAAAAobdA","dtype":"float64","order":"little","shape":[30]}},"selected":{"id":"1390"},"selection_policy":{"id":"1391"}},"id":"1353","type":"ColumnDataSource"},{"attributes":{"overlay":{"id":"1345"}},"id":"1341","type":"BoxZoomTool"},{"attributes":{},"id":"1342","type":"SaveTool"},{"attributes":{"bounds":[1892.0,8058.0],"end":8058.0,"start":1892.0},"id":"1359","type":"Range1d"},{"attributes":{},"id":"1343","type":"ResetTool"},{"attributes":{},"id":"1344","type":"HelpTool"},{"attributes":{"line_color":"blue","line_width":1.5,"x":{"field":"x"},"y":{"field":"y"}},"id":"1354","type":"Line"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1339"},{"id":"1340"},{"id":"1341"},{"id":"1342"},{"id":"1343"},{"id":"1344"}]},"id":"1346","type":"Toolbar"},{"attributes":{},"id":"1387","type":"BasicTickFormatter"},{"attributes":{},"id":"1327","type":"LinearScale"},{"attributes":{},"id":"1329","type":"LinearScale"}],"root_ids":["1320"]},"title":"Bokeh Application","version":"2.1.1"}};
-  var render_items = [{"docid":"e6cde161-5eb2-4052-9957-9a71ec4c456a","root_ids":["1320"],"roots":{"1320":"1a5c2e01-f5a7-469f-b1d1-84f0a40f378d"}}];
+  var docs_json = {"15555adf-022d-4da5-b203-db34a748ebf6":{"roots":{"references":[{"attributes":{"background_fill_color":"#f4f4f4","below":[{"id":"1307"}],"border_fill_color":"#f4f4f4","center":[{"id":"1310"},{"id":"1314"}],"left":[{"id":"1311"}],"output_backend":"webgl","plot_height":300,"renderers":[{"id":"1332"}],"title":{"id":"1297"},"toolbar":{"id":"1322"},"x_range":{"id":"1334"},"x_scale":{"id":"1303"},"y_range":{"id":"1335"},"y_scale":{"id":"1305"}},"id":"1296","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1316","type":"WheelZoomTool"},{"attributes":{},"id":"1320","type":"HelpTool"},{"attributes":{},"id":"1315","type":"PanTool"},{"attributes":{},"id":"1366","type":"Selection"},{"attributes":{"overlay":{"id":"1321"}},"id":"1317","type":"BoxZoomTool"},{"attributes":{},"id":"1367","type":"UnionRenderers"},{"attributes":{},"id":"1318","type":"SaveTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1315"},{"id":"1316"},{"id":"1317"},{"id":"1318"},{"id":"1319"},{"id":"1320"}]},"id":"1322","type":"Toolbar"},{"attributes":{},"id":"1319","type":"ResetTool"},{"attributes":{"data_source":{"id":"1329"},"glyph":{"id":"1330"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1331"},"selection_glyph":null,"view":{"id":"1333"}},"id":"1332","type":"GlyphRenderer"},{"attributes":{"data":{"x":{"__ndarray__":"8WjjiLX45D6kRbS3+BHGP90zScbOEdY/cyJcmFCN4D/5qpPNuRHmP38zywIjlus/Al4BHEaN8D9FIp22ek/zP4jmOFGvEfY/y6rU6+PT+D8Ob3CGGJb7P1AzDCFNWP4/yfvT3UCNAEDr3SErW+4BQAzAb3h1TwNALqK9xY+wBEBPhAsTqhEGQHBmWWDEcgdAkkinrd7TCECzKvX6+DQKQNUMQ0gTlgtA9u6QlS33DEAX0d7iR1gOQDmzLDBiuQ9ArEq9Pj6NEEC9O2Rlyz0RQM4sC4xY7hFA3x2ysuWeEkDvDlnZck8TQAAAAAAAABRA","dtype":"float64","order":"little","shape":[30]},"y":{"__ndarray__":"AAAAAAAYn0AAAAAAAN6+QAAAAAAAb79AAAAAAACUv0AAAAAAAIy/QAAAAAAAhr9AAAAAAABmv0AAAAAAAEK/QAAAAAAA+r5AAAAAAACMvkAAAAAAAD++QAAAAAAA871AAAAAAACOvUAAAAAAAC29QAAAAAAAqbxAAAAAAABdvEAAAAAAAPC7QAAAAAAAY7tAAAAAAAAHu0AAAAAAALa6QAAAAAAAU7pAAAAAAAD5uUAAAAAAALG5QAAAAAAARblAAAAAAAD+uEAAAAAAAJy4QAAAAAAAa7hAAAAAAAAYuEAAAAAAANK3QAAAAAAAj7dA","dtype":"float64","order":"little","shape":[30]}},"selected":{"id":"1366"},"selection_policy":{"id":"1367"}},"id":"1329","type":"ColumnDataSource"},{"attributes":{"line_color":"blue","line_width":1.5,"x":{"field":"x"},"y":{"field":"y"}},"id":"1330","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"blue","line_width":1.5,"x":{"field":"x"},"y":{"field":"y"}},"id":"1331","type":"Line"},{"attributes":{"axis_label":"Filter cut off","formatter":{"id":"1362"},"ticker":{"id":"1308"}},"id":"1307","type":"LinearAxis"},{"attributes":{"source":{"id":"1329"}},"id":"1333","type":"CDSView"},{"attributes":{"bounds":[1e-05,5.0],"end":5.0,"start":1e-05},"id":"1334","type":"Range1d"},{"attributes":{"text":"Cut off parameter selection curve"},"id":"1297","type":"Title"},{"attributes":{},"id":"1362","type":"BasicTickFormatter"},{"attributes":{"bounds":[1990.0,8084.0],"end":8084.0,"start":1990.0},"id":"1335","type":"Range1d"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1321","type":"BoxAnnotation"},{"attributes":{},"id":"1303","type":"LinearScale"},{"attributes":{},"id":"1308","type":"BasicTicker"},{"attributes":{"axis_label":"Selected reads","formatter":{"id":"1364"},"ticker":{"id":"1312"}},"id":"1311","type":"LinearAxis"},{"attributes":{},"id":"1312","type":"BasicTicker"},{"attributes":{},"id":"1305","type":"LinearScale"},{"attributes":{},"id":"1364","type":"BasicTickFormatter"},{"attributes":{"axis":{"id":"1307"},"ticker":null},"id":"1310","type":"Grid"},{"attributes":{"axis":{"id":"1311"},"dimension":1,"ticker":null},"id":"1314","type":"Grid"}],"root_ids":["1296"]},"title":"Bokeh Application","version":"2.2.3"}};
+  var render_items = [{"docid":"15555adf-022d-4da5-b203-db34a748ebf6","root_ids":["1296"],"roots":{"1296":"99ded322-4cfd-47fc-9400-0176d436ab39"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
@@ -15594,10 +15564,10 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># **Alignment and filtering with `minimap2`** *(click to show)*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Alignment and filtering with `minimap2` *(click play)*</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 <span class="n">min_mapping_quality</span> <span class="o">=</span> <span class="mi">40</span> 
 
@@ -15662,17 +15632,27 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>* Skipping building minimap index
-[WARNING]<span class="ansi-red-intense-fg ansi-bold"> Indexing parameters (-k, -w or -H) overridden by parameters used in the prebuilt index.</span>
-[M::main::0.981*0.99] loaded/built the index for 1870 target sequence(s)
-[M::mm_mapopt_update::1.268*0.99] mid_occ = 133
+<pre>* Building minimap index...
+[M::mm_idx_gen::3.063*1.33] collected minimizers
+[M::mm_idx_gen::3.895*3.66] sorted minimizers
+[M::main::4.584*3.26] loaded/built the index for 1870 target sequence(s)
 [M::mm_idx_stat] kmer size: 14; skip: 10; is_hpc: 0; #seq: 1870
-[M::mm_idx_stat::1.446*0.99] distinct minimizers: 13579029 (67.42% are singletons); average occurrences: 1.953; average spacing: 5.419
-[M::worker_pipeline::3.717*2.19] mapped 12203 sequences
+[M::mm_idx_stat::4.775*3.17] distinct minimizers: 13579029 (67.42% are singletons); average occurrences: 1.953; average spacing: 5.419
 [M::main] Version: 2.17-r941
-[M::main] CMD: minimap2 -t 4 -ax splice -uf analysis/index/genome_index.mmi processed_reads/full_length_reads.fq
-[M::main] Real time: 3.735 sec; CPU: 8.140 sec; Peak RSS: 0.807 GB
-[bam_sort_core] merging from 0 files and 4 in-memory blocks...
+[M::main] CMD: minimap2 -t 40 -k14 -I 1000G -d analysis/index/genome_index.mmi Drosophila_melanogaster.BDGP6.dna.toplevel.fa
+[M::main] Real time: 4.809 sec; CPU: 15.171 sec; Peak RSS: 1.175 GB
+✓ Built index!
+[WARNING]<span class="ansi-red-intense-fg ansi-bold"> Indexing parameters (-k, -w or -H) overridden by parameters used in the prebuilt index.</span>
+[M::main::1.012*1.00] loaded/built the index for 1870 target sequence(s)
+[M::mm_mapopt_update::1.295*1.00] mid_occ = 133
+[M::mm_idx_stat] kmer size: 14; skip: 10; is_hpc: 0; #seq: 1870
+[M::mm_idx_stat::1.470*1.00] distinct minimizers: 13579029 (67.42% are singletons); average occurrences: 1.953; average spacing: 5.419
+[INFO] create FASTA index for Drosophila_melanogaster.BDGP6.dna.toplevel.fa
+[M::worker_pipeline::2.659*4.47] mapped 12242 sequences
+[M::main] Version: 2.17-r941
+[M::main] CMD: minimap2 -t 40 -ax splice -uf analysis/index/genome_index.mmi processed_reads/full_length_reads.fq
+[M::main] Real time: 2.681 sec; CPU: 11.907 sec; Peak RSS: 0.998 GB
+[bam_sort_core] merging from 0 files and 40 in-memory blocks...
 </pre>
 </div>
 </div>
@@ -15691,10 +15671,10 @@ contained within the alignment <code>.bam</code> file and check some basic stati
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># **Read summary plot code** *(click to show)*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Read summary plot code *(click play)*</span>
 <span class="c1"># calculate some basic statistics from the alignments</span>
 <span class="o">!</span>stats_from_bam -o <span class="nv">$minimap_out_bam</span><span class="s1">&#39;.tsv&#39;</span> <span class="nv">$minimap_out_bam</span>
 <span class="c1">#2&gt; /dev/null</span>
@@ -15711,7 +15691,7 @@ contained within the alignment <code>.bam</code> file and check some basic stati
     <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f read contained in alignment&#39;</span><span class="p">,</span>
     <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;read count&#39;</span><span class="p">)</span>
 
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">([[</span><span class="n">p1</span><span class="p">],</span> <span class="p">[</span><span class="n">p2</span><span class="p">]]))</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">([[</span><span class="n">p1</span><span class="p">],</span> <span class="p">[</span><span class="n">p2</span><span class="p">]]),</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15731,7 +15711,7 @@ contained within the alignment <code>.bam</code> file and check some basic stati
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Mapped/Unmapped/Short/Masked: 12057/0/0/0
+<pre>Mapped/Unmapped/Short/Masked/Skipped(all matches masked): 12084/0/0/0/0
 </pre>
 </div>
 </div>
@@ -15744,9 +15724,9 @@ contained within the alignment <code>.bam</code> file and check some basic stati
 
 
 
-<div id="5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="66bff05a-427d-4d6b-9d5c-fcd6924bb852" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
+var element = document.getElementById('66bff05a-427d-4d6b-9d5c-fcd6924bb852');
 
 (function(root) {
   function now() {
@@ -15973,7 +15953,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
       document.body.appendChild(element);
     }
 
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js": "kLr4fYcqcSpbuI95brIH3vnnYCquzzSxHPU6XGQCIkQRGJwhg0StNbj1eegrHs12", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js": "xIGPmVtaOm+z0BqfSOMn4lOR6ciex448GIKG4eE61LsAvmGj48XcMQZtKcE/UXZe", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js": "Dc9u1wF/0zApGIWoBbH77iWEHtdmkuYWG839Uzmv8y8yBLXebjO9ZnERsde5Ln/P", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js": "cT9JaBz7GiRXdENrJLZNSC6eMNF3nh3fa5fTF51Svp+ukxPdwcU5kGXGPBgDCa2j"};
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js": "T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js": "98GDGJ0kOMCUMUePhksaQ/GYgB3+NH9h996V88sh3aOiUNX3N+fLXAtry6xctSZ6", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js": "89bArO+nlbP3sgakeHjCo1JYxYR5wufVgA3IbUvDY+K7w4zyxJqssu7wVnfeKCq8"};
 
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
@@ -15998,7 +15978,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
   }
 
   
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js"];
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js"];
   var css_urls = [];
   
 
@@ -16060,7 +16040,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 
 
 
-  <div class="bk-root" id="955a4073-ca7a-4516-a153-0c26b29c0fd6" data-root-id="1539"></div>
+  <div class="bk-root" id="91e936c7-65fe-4097-8654-c9a151674ef0" data-root-id="1507"></div>
 
 </div>
 
@@ -16074,14 +16054,14 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 
 
 
-<div id="5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="66bff05a-427d-4d6b-9d5c-fcd6924bb852" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
+var element = document.getElementById('66bff05a-427d-4d6b-9d5c-fcd6924bb852');
 (function(root) {
   function embed_document(root) {
     
-  var docs_json = {"69bf0e4d-74d3-4612-8018-95ea7600952f":{"roots":{"references":[{"attributes":{"children":[{"id":"1538"},{"id":"1536"}]},"id":"1539","type":"Column"},{"attributes":{"overlay":{"id":"1501"}},"id":"1497","type":"BoxZoomTool"},{"attributes":{"axis":{"id":"1449"},"ticker":null},"id":"1452","type":"Grid"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1472","type":"Quad"},{"attributes":{},"id":"1528","type":"BasicTickFormatter"},{"attributes":{"bounds":[0,1716],"end":1716},"id":"1515","type":"Range1d"},{"attributes":{},"id":"1450","type":"BasicTicker"},{"attributes":{},"id":"1496","type":"WheelZoomTool"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1463","type":"BoxAnnotation"},{"attributes":{"axis_label":"read accuracy","formatter":{"id":"1520"},"ticker":{"id":"1450"}},"id":"1449","type":"LinearAxis"},{"attributes":{},"id":"1495","type":"PanTool"},{"attributes":{},"id":"1447","type":"LinearScale"},{"attributes":{},"id":"1518","type":"BasicTickFormatter"},{"attributes":{},"id":"1445","type":"LinearScale"},{"attributes":{"data":{"left":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[239]},"right":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[239]},"top":[2,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,1,0,2,0,0,1,0,0,0,0,1,0,0,2,0,0,1,3,2,3,0,1,2,1,1,0,1,0,2,2,0,1,3,1,2,4,1,0,0,0,4,1,1,4,2,4,2,5,4,4,4,3,6,1,7,4,6,5,5,5,4,13,10,7,10,9,16,12,9,14,8,12,16,22,22,27,21,25,38,42,60,73,65,81,66,74,63,81,84,77,105,91,143,147,175,207,256,304,371,414,538,589,627,798,1061,1331,1716,1126]},"selected":{"id":"1533"},"selection_policy":{"id":"1534"}},"id":"1509","type":"ColumnDataSource"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1495"},{"id":"1496"},{"id":"1497"},{"id":"1498"},{"id":"1499"},{"id":"1500"}]},"id":"1502","type":"Toolbar"},{"attributes":{},"id":"1523","type":"Selection"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1510","type":"Quad"},{"attributes":{"below":[{"id":"1487"}],"center":[{"id":"1490"},{"id":"1494"}],"left":[{"id":"1491"}],"output_backend":"webgl","plot_height":200,"renderers":[{"id":"1512"}],"title":{"id":"1527"},"toolbar":{"id":"1502"},"toolbar_location":null,"x_range":{"id":"1514"},"x_scale":{"id":"1483"},"y_range":{"id":"1515"},"y_scale":{"id":"1485"}},"id":"1478","subtype":"Figure","type":"Plot"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1457"},{"id":"1458"},{"id":"1459"},{"id":"1460"},{"id":"1461"},{"id":"1462"}]},"id":"1464","type":"Toolbar"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1501","type":"BoxAnnotation"},{"attributes":{"axis":{"id":"1491"},"dimension":1,"ticker":null},"id":"1494","type":"Grid"},{"attributes":{"data":{"left":{"__ndarray__":"SpIkSZIkRkBKkiRJkmRGQEqSJEmSpEZASpIkSZLkRkBKkiRJkiRHQEqSJEmSZEdASpIkSZKkR0BKkiRJkuRHQEqSJEmSJEhASpIkSZJkSEBKkiRJkqRIQEqSJEmS5EhASpIkSZIkSUBKkiRJkmRJQEqSJEmSpElASpIkSZLkSUBKkiRJkiRKQEqSJEmSZEpASpIkSZKkSkBKkiRJkuRKQEqSJEmSJEtASpIkSZJkS0BKkiRJkqRLQEqSJEmS5EtASpIkSZIkTEBKkiRJkmRMQEqSJEmSpExASpIkSZLkTEBKkiRJkiRNQEqSJEmSZE1ASpIkSZKkTUBKkiRJkuRNQEqSJEmSJE5ASpIkSZJkTkBKkiRJkqROQEqSJEmS5E5ASpIkSZIkT0BKkiRJkmRPQEqSJEmSpE9ASpIkSZLkT0AlSZIkSRJQQCVJkiRJMlBAJUmSJElSUEAlSZIkSXJQQCVJkiRJklBAJUmSJEmyUEAlSZIkSdJQQCVJkiRJ8lBAJUmSJEkSUUAlSZIkSTJRQCVJkiRJUlFAJUmSJElyUUAlSZIkSZJRQCVJkiRJslFAJUmSJEnSUUAlSZIkSfJRQCVJkiRJElJAJUmSJEkyUkAlSZIkSVJSQCVJkiRJclJAJUmSJEmSUkAlSZIkSbJSQCVJkiRJ0lJAJUmSJEnyUkAlSZIkSRJTQCVJkiRJMlNAJUmSJElSU0AlSZIkSXJTQCVJkiRJklNAJUmSJEmyU0AlSZIkSdJTQCVJkiRJ8lNAJUmSJEkSVEAlSZIkSTJUQCVJkiRJUlRAJUmSJElyVEAlSZIkSZJUQCVJkiRJslRAJUmSJEnSVEAlSZIkSfJUQCVJkiRJElVAJUmSJEkyVUAlSZIkSVJVQCVJkiRJclVAJUmSJEmSVUAlSZIkSbJVQCVJkiRJ0lVAJUmSJEnyVUAlSZIkSRJWQCVJkiRJMlZAJUmSJElSVkAlSZIkSXJWQCVJkiRJklZAJUmSJEmyVkAlSZIkSdJWQCVJkiRJ8lZAJUmSJEkSV0AlSZIkSTJXQCVJkiRJUldAJUmSJElyV0AlSZIkSZJXQCVJkiRJsldAJUmSJEnSV0AlSZIkSfJXQCVJkiRJElhAJUmSJEkyWEAlSZIkSVJYQCVJkiRJclhAJUmSJEmSWEA=","dtype":"float64","order":"little","shape":[109]},"right":{"__ndarray__":"SpIkSZJkRkBKkiRJkqRGQEqSJEmS5EZASpIkSZIkR0BKkiRJkmRHQEqSJEmSpEdASpIkSZLkR0BKkiRJkiRIQEqSJEmSZEhASpIkSZKkSEBKkiRJkuRIQEqSJEmSJElASpIkSZJkSUBKkiRJkqRJQEqSJEmS5ElASpIkSZIkSkBKkiRJkmRKQEqSJEmSpEpASpIkSZLkSkBKkiRJkiRLQEqSJEmSZEtASpIkSZKkS0BKkiRJkuRLQEqSJEmSJExASpIkSZJkTEBKkiRJkqRMQEqSJEmS5ExASpIkSZIkTUBKkiRJkmRNQEqSJEmSpE1ASpIkSZLkTUBKkiRJkiROQEqSJEmSZE5ASpIkSZKkTkBKkiRJkuROQEqSJEmSJE9ASpIkSZJkT0BKkiRJkqRPQEqSJEmS5E9AJUmSJEkSUEAlSZIkSTJQQCVJkiRJUlBAJUmSJElyUEAlSZIkSZJQQCVJkiRJslBAJUmSJEnSUEAlSZIkSfJQQCVJkiRJElFAJUmSJEkyUUAlSZIkSVJRQCVJkiRJclFAJUmSJEmSUUAlSZIkSbJRQCVJkiRJ0lFAJUmSJEnyUUAlSZIkSRJSQCVJkiRJMlJAJUmSJElSUkAlSZIkSXJSQCVJkiRJklJAJUmSJEmyUkAlSZIkSdJSQCVJkiRJ8lJAJUmSJEkSU0AlSZIkSTJTQCVJkiRJUlNAJUmSJElyU0AlSZIkSZJTQCVJkiRJslNAJUmSJEnSU0AlSZIkSfJTQCVJkiRJElRAJUmSJEkyVEAlSZIkSVJUQCVJkiRJclRAJUmSJEmSVEAlSZIkSbJUQCVJkiRJ0lRAJUmSJEnyVEAlSZIkSRJVQCVJkiRJMlVAJUmSJElSVUAlSZIkSXJVQCVJkiRJklVAJUmSJEmyVUAlSZIkSdJVQCVJkiRJ8lVAJUmSJEkSVkAlSZIkSTJWQCVJkiRJUlZAJUmSJElyVkAlSZIkSZJWQCVJkiRJslZAJUmSJEnSVkAlSZIkSfJWQCVJkiRJEldAJUmSJEkyV0AlSZIkSVJXQCVJkiRJcldAJUmSJEmSV0AlSZIkSbJXQCVJkiRJ0ldAJUmSJEnyV0AlSZIkSRJYQCVJkiRJMlhAJUmSJElSWEAlSZIkSXJYQCVJkiRJklhAJUmSJEmyWEA=","dtype":"float64","order":"little","shape":[109]},"top":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,1,1,2,0,3,2,1,9,6,7,11,14,27,26,45,44,92,108,146,229,253,364,421,503,605,711,809,874,986,959,990,935,738,636,492,357,260,146,102,56,29,25,11,7,3,2,1]},"selected":{"id":"1523"},"selection_policy":{"id":"1524"}},"id":"1471","type":"ColumnDataSource"},{"attributes":{},"id":"1524","type":"UnionRenderers"},{"attributes":{},"id":"1462","type":"HelpTool"},{"attributes":{},"id":"1492","type":"BasicTicker"},{"attributes":{},"id":"1530","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"1471"}},"id":"1475","type":"CDSView"},{"attributes":{},"id":"1461","type":"ResetTool"},{"attributes":{"toolbar":{"id":"1537"},"toolbar_location":"above"},"id":"1538","type":"ToolbarBox"},{"attributes":{"below":[{"id":"1449"}],"center":[{"id":"1452"},{"id":"1456"}],"left":[{"id":"1453"}],"output_backend":"webgl","plot_height":200,"renderers":[{"id":"1474"}],"title":{"id":"1517"},"toolbar":{"id":"1464"},"toolbar_location":null,"x_range":{"id":"1476"},"x_scale":{"id":"1445"},"y_range":{"id":"1477"},"y_scale":{"id":"1447"}},"id":"1440","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1488","type":"BasicTicker"},{"attributes":{},"id":"1460","type":"SaveTool"},{"attributes":{"axis_label":"read count","formatter":{"id":"1528"},"ticker":{"id":"1492"}},"id":"1491","type":"LinearAxis"},{"attributes":{},"id":"1533","type":"Selection"},{"attributes":{},"id":"1520","type":"BasicTickFormatter"},{"attributes":{"children":[[{"id":"1440"},0,0],[{"id":"1478"},1,0]]},"id":"1536","type":"GridBox"},{"attributes":{"overlay":{"id":"1463"}},"id":"1459","type":"BoxZoomTool"},{"attributes":{"axis":{"id":"1487"},"ticker":null},"id":"1490","type":"Grid"},{"attributes":{},"id":"1458","type":"WheelZoomTool"},{"attributes":{"data_source":{"id":"1509"},"glyph":{"id":"1510"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1511"},"selection_glyph":null,"view":{"id":"1513"}},"id":"1512","type":"GlyphRenderer"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1511","type":"Quad"},{"attributes":{},"id":"1457","type":"PanTool"},{"attributes":{"axis_label":"% of read contained in alignment","formatter":{"id":"1530"},"ticker":{"id":"1488"}},"id":"1487","type":"LinearAxis"},{"attributes":{"bounds":[70,101],"end":101,"start":70},"id":"1476","type":"Range1d"},{"attributes":{},"id":"1485","type":"LinearScale"},{"attributes":{"source":{"id":"1509"}},"id":"1513","type":"CDSView"},{"attributes":{"text":""},"id":"1527","type":"Title"},{"attributes":{},"id":"1483","type":"LinearScale"},{"attributes":{"bounds":[0,990],"end":990},"id":"1477","type":"Range1d"},{"attributes":{"bounds":[90,101],"end":101,"start":90},"id":"1514","type":"Range1d"},{"attributes":{"text":""},"id":"1517","type":"Title"},{"attributes":{},"id":"1500","type":"HelpTool"},{"attributes":{"axis":{"id":"1453"},"dimension":1,"ticker":null},"id":"1456","type":"Grid"},{"attributes":{},"id":"1534","type":"UnionRenderers"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1473","type":"Quad"},{"attributes":{},"id":"1499","type":"ResetTool"},{"attributes":{},"id":"1454","type":"BasicTicker"},{"attributes":{"toolbars":[{"id":"1464"},{"id":"1502"}],"tools":[{"id":"1457"},{"id":"1458"},{"id":"1459"},{"id":"1460"},{"id":"1461"},{"id":"1462"},{"id":"1495"},{"id":"1496"},{"id":"1497"},{"id":"1498"},{"id":"1499"},{"id":"1500"}]},"id":"1537","type":"ProxyToolbar"},{"attributes":{"axis_label":"read count","formatter":{"id":"1518"},"ticker":{"id":"1454"}},"id":"1453","type":"LinearAxis"},{"attributes":{"data_source":{"id":"1471"},"glyph":{"id":"1472"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1473"},"selection_glyph":null,"view":{"id":"1475"}},"id":"1474","type":"GlyphRenderer"},{"attributes":{},"id":"1498","type":"SaveTool"}],"root_ids":["1539"]},"title":"Bokeh Application","version":"2.1.1"}};
-  var render_items = [{"docid":"69bf0e4d-74d3-4612-8018-95ea7600952f","root_ids":["1539"],"roots":{"1539":"955a4073-ca7a-4516-a153-0c26b29c0fd6"}}];
+  var docs_json = {"d907ba55-4237-4c23-bac5-c6024771f12c":{"roots":{"references":[{"attributes":{"children":[{"id":"1506"},{"id":"1504"}]},"id":"1507","type":"Column"},{"attributes":{},"id":"1492","type":"UnionRenderers"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1479","type":"Quad"},{"attributes":{"bounds":[0,1722],"end":1722},"id":"1483","type":"Range1d"},{"attributes":{"text":""},"id":"1495","type":"Title"},{"attributes":{},"id":"1418","type":"BasicTicker"},{"attributes":{"source":{"id":"1477"}},"id":"1481","type":"CDSView"},{"attributes":{"data":{"left":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[239]},"right":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[239]},"top":[1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,2,0,0,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,1,0,2,0,0,1,0,0,0,0,1,0,0,2,0,0,1,3,2,4,0,1,2,2,1,0,1,0,2,2,0,1,3,1,2,4,1,0,0,0,3,1,1,4,2,3,2,5,4,4,4,3,6,1,7,4,6,5,5,4,5,12,8,7,11,9,17,12,10,14,8,12,16,21,25,28,21,23,37,42,59,75,64,81,70,76,62,80,87,80,105,92,140,145,180,206,252,308,370,423,539,585,635,790,1068,1345,1722,1111]},"selected":{"id":"1501"},"selection_policy":{"id":"1502"}},"id":"1477","type":"ColumnDataSource"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1463"},{"id":"1464"},{"id":"1465"},{"id":"1466"},{"id":"1467"},{"id":"1468"}]},"id":"1470","type":"Toolbar"},{"attributes":{"data":{"left":{"__ndarray__":"SZIkSZIkRkBJkiRJkmRGQEmSJEmSpEZASZIkSZLkRkBJkiRJkiRHQEmSJEmSZEdASZIkSZKkR0BJkiRJkuRHQEmSJEmSJEhASZIkSZJkSEBJkiRJkqRIQEmSJEmS5EhASZIkSZIkSUBJkiRJkmRJQEmSJEmSpElASZIkSZLkSUBJkiRJkiRKQEmSJEmSZEpASZIkSZKkSkBJkiRJkuRKQEmSJEmSJEtASZIkSZJkS0BJkiRJkqRLQEmSJEmS5EtASZIkSZIkTEBJkiRJkmRMQEmSJEmSpExASZIkSZLkTEBJkiRJkiRNQEmSJEmSZE1ASZIkSZKkTUBJkiRJkuRNQEmSJEmSJE5ASZIkSZJkTkBJkiRJkqROQEmSJEmS5E5ASZIkSZIkT0BJkiRJkmRPQEmSJEmSpE9ASZIkSZLkT0AkSZIkSRJQQCRJkiRJMlBAJEmSJElSUEAkSZIkSXJQQCRJkiRJklBAJEmSJEmyUEAkSZIkSdJQQCRJkiRJ8lBAJEmSJEkSUUAkSZIkSTJRQCRJkiRJUlFAJEmSJElyUUAkSZIkSZJRQCRJkiRJslFAJEmSJEnSUUAkSZIkSfJRQCRJkiRJElJAJEmSJEkyUkAkSZIkSVJSQCRJkiRJclJAJEmSJEmSUkAkSZIkSbJSQCRJkiRJ0lJAJEmSJEnyUkAkSZIkSRJTQCRJkiRJMlNAJEmSJElSU0AkSZIkSXJTQCRJkiRJklNAJEmSJEmyU0AkSZIkSdJTQCRJkiRJ8lNAJEmSJEkSVEAkSZIkSTJUQCRJkiRJUlRAJEmSJElyVEAkSZIkSZJUQCRJkiRJslRAJEmSJEnSVEAkSZIkSfJUQCRJkiRJElVAJEmSJEkyVUAkSZIkSVJVQCRJkiRJclVAJEmSJEmSVUAkSZIkSbJVQCRJkiRJ0lVAJEmSJEnyVUAkSZIkSRJWQCRJkiRJMlZAJEmSJElSVkAkSZIkSXJWQCRJkiRJklZAJEmSJEmyVkAkSZIkSdJWQCRJkiRJ8lZAJEmSJEkSV0AkSZIkSTJXQCRJkiRJUldAJEmSJElyV0AkSZIkSZJXQCRJkiRJsldAJEmSJEnSV0AkSZIkSfJXQCRJkiRJElhAJEmSJEkyWEAkSZIkSVJYQCRJkiRJclhAJEmSJEmSWEA=","dtype":"float64","order":"little","shape":[109]},"right":{"__ndarray__":"SZIkSZJkRkBJkiRJkqRGQEmSJEmS5EZASZIkSZIkR0BJkiRJkmRHQEmSJEmSpEdASZIkSZLkR0BJkiRJkiRIQEmSJEmSZEhASZIkSZKkSEBJkiRJkuRIQEmSJEmSJElASZIkSZJkSUBJkiRJkqRJQEmSJEmS5ElASZIkSZIkSkBJkiRJkmRKQEmSJEmSpEpASZIkSZLkSkBJkiRJkiRLQEmSJEmSZEtASZIkSZKkS0BJkiRJkuRLQEmSJEmSJExASZIkSZJkTEBJkiRJkqRMQEmSJEmS5ExASZIkSZIkTUBJkiRJkmRNQEmSJEmSpE1ASZIkSZLkTUBJkiRJkiROQEmSJEmSZE5ASZIkSZKkTkBJkiRJkuROQEmSJEmSJE9ASZIkSZJkT0BJkiRJkqRPQEmSJEmS5E9AJEmSJEkSUEAkSZIkSTJQQCRJkiRJUlBAJEmSJElyUEAkSZIkSZJQQCRJkiRJslBAJEmSJEnSUEAkSZIkSfJQQCRJkiRJElFAJEmSJEkyUUAkSZIkSVJRQCRJkiRJclFAJEmSJEmSUUAkSZIkSbJRQCRJkiRJ0lFAJEmSJEnyUUAkSZIkSRJSQCRJkiRJMlJAJEmSJElSUkAkSZIkSXJSQCRJkiRJklJAJEmSJEmyUkAkSZIkSdJSQCRJkiRJ8lJAJEmSJEkSU0AkSZIkSTJTQCRJkiRJUlNAJEmSJElyU0AkSZIkSZJTQCRJkiRJslNAJEmSJEnSU0AkSZIkSfJTQCRJkiRJElRAJEmSJEkyVEAkSZIkSVJUQCRJkiRJclRAJEmSJEmSVEAkSZIkSbJUQCRJkiRJ0lRAJEmSJEnyVEAkSZIkSRJVQCRJkiRJMlVAJEmSJElSVUAkSZIkSXJVQCRJkiRJklVAJEmSJEmyVUAkSZIkSdJVQCRJkiRJ8lVAJEmSJEkSVkAkSZIkSTJWQCRJkiRJUlZAJEmSJElyVkAkSZIkSZJWQCRJkiRJslZAJEmSJEnSVkAkSZIkSfJWQCRJkiRJEldAJEmSJEkyV0AkSZIkSVJXQCRJkiRJcldAJEmSJEmSV0AkSZIkSbJXQCRJkiRJ0ldAJEmSJEnyV0AkSZIkSRJYQCRJkiRJMlhAJEmSJElSWEAkSZIkSXJYQCRJkiRJklhAJEmSJEmyWEA=","dtype":"float64","order":"little","shape":[109]},"top":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,1,1,2,0,3,2,0,9,6,8,8,15,27,26,46,46,93,111,146,230,254,355,421,505,602,720,809,886,993,970,981,930,740,631,492,356,265,148,100,58,29,26,12,7,3,2,1]},"selected":{"id":"1491"},"selection_policy":{"id":"1492"}},"id":"1439","type":"ColumnDataSource"},{"attributes":{},"id":"1425","type":"PanTool"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1441","type":"Quad"},{"attributes":{"axis":{"id":"1455"},"ticker":null},"id":"1458","type":"Grid"},{"attributes":{},"id":"1468","type":"HelpTool"},{"attributes":{},"id":"1467","type":"ResetTool"},{"attributes":{"toolbar":{"id":"1505"},"toolbar_location":"above"},"id":"1506","type":"ToolbarBox"},{"attributes":{"data_source":{"id":"1477"},"glyph":{"id":"1478"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1479"},"selection_glyph":null,"view":{"id":"1481"}},"id":"1480","type":"GlyphRenderer"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1469","type":"BoxAnnotation"},{"attributes":{"axis_label":"% of read contained in alignment","formatter":{"id":"1497"},"ticker":{"id":"1456"}},"id":"1455","type":"LinearAxis"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1431","type":"BoxAnnotation"},{"attributes":{},"id":"1413","type":"LinearScale"},{"attributes":{"background_fill_color":"#f4f4f4","below":[{"id":"1455"}],"border_fill_color":"#f4f4f4","center":[{"id":"1458"},{"id":"1462"}],"left":[{"id":"1459"}],"output_backend":"webgl","plot_height":200,"renderers":[{"id":"1480"}],"title":{"id":"1495"},"toolbar":{"id":"1470"},"toolbar_location":null,"x_range":{"id":"1482"},"x_scale":{"id":"1451"},"y_range":{"id":"1483"},"y_scale":{"id":"1453"}},"id":"1446","subtype":"Figure","type":"Plot"},{"attributes":{"data_source":{"id":"1439"},"glyph":{"id":"1440"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1441"},"selection_glyph":null,"view":{"id":"1443"}},"id":"1442","type":"GlyphRenderer"},{"attributes":{},"id":"1463","type":"PanTool"},{"attributes":{},"id":"1429","type":"ResetTool"},{"attributes":{"bounds":[70,101],"end":101,"start":70},"id":"1444","type":"Range1d"},{"attributes":{},"id":"1487","type":"BasicTickFormatter"},{"attributes":{},"id":"1499","type":"BasicTickFormatter"},{"attributes":{},"id":"1491","type":"Selection"},{"attributes":{},"id":"1466","type":"SaveTool"},{"attributes":{"bounds":[0,993],"end":993},"id":"1445","type":"Range1d"},{"attributes":{"text":""},"id":"1485","type":"Title"},{"attributes":{"background_fill_color":"#f4f4f4","below":[{"id":"1417"}],"border_fill_color":"#f4f4f4","center":[{"id":"1420"},{"id":"1424"}],"left":[{"id":"1421"}],"output_backend":"webgl","plot_height":200,"renderers":[{"id":"1442"}],"title":{"id":"1485"},"toolbar":{"id":"1432"},"toolbar_location":null,"x_range":{"id":"1444"},"x_scale":{"id":"1413"},"y_range":{"id":"1445"},"y_scale":{"id":"1415"}},"id":"1408","subtype":"Figure","type":"Plot"},{"attributes":{"overlay":{"id":"1431"}},"id":"1427","type":"BoxZoomTool"},{"attributes":{"axis_label":"read count","formatter":{"id":"1499"},"ticker":{"id":"1460"}},"id":"1459","type":"LinearAxis"},{"attributes":{},"id":"1430","type":"HelpTool"},{"attributes":{"source":{"id":"1439"}},"id":"1443","type":"CDSView"},{"attributes":{},"id":"1456","type":"BasicTicker"},{"attributes":{},"id":"1428","type":"SaveTool"},{"attributes":{"axis":{"id":"1417"},"ticker":null},"id":"1420","type":"Grid"},{"attributes":{},"id":"1453","type":"LinearScale"},{"attributes":{},"id":"1489","type":"BasicTickFormatter"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1425"},{"id":"1426"},{"id":"1427"},{"id":"1428"},{"id":"1429"},{"id":"1430"}]},"id":"1432","type":"Toolbar"},{"attributes":{},"id":"1464","type":"WheelZoomTool"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1478","type":"Quad"},{"attributes":{"children":[[{"id":"1408"},0,0],[{"id":"1446"},1,0]]},"id":"1504","type":"GridBox"},{"attributes":{"bounds":[90,101],"end":101,"start":90},"id":"1482","type":"Range1d"},{"attributes":{},"id":"1501","type":"Selection"},{"attributes":{"axis":{"id":"1459"},"dimension":1,"ticker":null},"id":"1462","type":"Grid"},{"attributes":{},"id":"1502","type":"UnionRenderers"},{"attributes":{},"id":"1451","type":"LinearScale"},{"attributes":{},"id":"1426","type":"WheelZoomTool"},{"attributes":{"axis_label":"read count","formatter":{"id":"1489"},"ticker":{"id":"1422"}},"id":"1421","type":"LinearAxis"},{"attributes":{},"id":"1460","type":"BasicTicker"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"1440","type":"Quad"},{"attributes":{"toolbars":[{"id":"1432"},{"id":"1470"}],"tools":[{"id":"1425"},{"id":"1426"},{"id":"1427"},{"id":"1428"},{"id":"1429"},{"id":"1430"},{"id":"1463"},{"id":"1464"},{"id":"1465"},{"id":"1466"},{"id":"1467"},{"id":"1468"}]},"id":"1505","type":"ProxyToolbar"},{"attributes":{},"id":"1422","type":"BasicTicker"},{"attributes":{"overlay":{"id":"1469"}},"id":"1465","type":"BoxZoomTool"},{"attributes":{"axis":{"id":"1421"},"dimension":1,"ticker":null},"id":"1424","type":"Grid"},{"attributes":{},"id":"1497","type":"BasicTickFormatter"},{"attributes":{"axis_label":"read accuracy","formatter":{"id":"1487"},"ticker":{"id":"1418"}},"id":"1417","type":"LinearAxis"},{"attributes":{},"id":"1415","type":"LinearScale"}],"root_ids":["1507"]},"title":"Bokeh Application","version":"2.2.3"}};
+  var render_items = [{"docid":"d907ba55-4237-4c23-bac5-c6024771f12c","root_ids":["1507"],"roots":{"1507":"91e936c7-65fe-4097-8654-c9a151674ef0"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
@@ -16127,7 +16107,7 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># **Assemble transcripts with StringTie** *(click to show)*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Assemble transcripts with StringTie *(click play)*</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 
 <span class="n">bam_bundle_dir</span> <span class="o">=</span> <span class="s2">&quot;bam_bundles&quot;</span>
@@ -16191,10 +16171,10 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># **Annotating assembled transcripts**  *(click to show)*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Annotating assembled transcripts  *(click play)*</span>
 
 <span class="n">annotations</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">input_dict</span><span class="p">[</span><span class="s2">&quot;annotations&quot;</span><span class="p">])</span>
 <span class="n">gff_compare_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="s2">&quot;gffcompare&quot;</span><span class="p">)</span>
@@ -16259,10 +16239,10 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># **Classification summary** *(click to show)*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Classification summary *(click play)*</span>
 
 <span class="n">write_empty_tsvs</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">tracking_headings</span> <span class="o">=</span> <span class="p">[</span>
@@ -16344,13 +16324,13 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
     <tr>
       <th>0</th>
       <td>=</td>
-      <td>51</td>
+      <td>52</td>
       <td>complete</td>
     </tr>
     <tr>
       <th>1</th>
       <td>c</td>
-      <td>34</td>
+      <td>33</td>
       <td>contained</td>
     </tr>
     <tr>
@@ -16361,33 +16341,33 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
     </tr>
     <tr>
       <th>3</th>
-      <td>e</td>
-      <td>2</td>
-      <td>single</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>u</td>
-      <td>2</td>
-      <td>unknown</td>
-    </tr>
-    <tr>
-      <th>5</th>
       <td>o</td>
       <td>2</td>
       <td>overlap</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>4</th>
       <td>n</td>
       <td>2</td>
       <td>retained (partial)</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>5</th>
+      <td>u</td>
+      <td>2</td>
+      <td>unknown</td>
+    </tr>
+    <tr>
+      <th>6</th>
       <td>s</td>
       <td>2</td>
       <td>opposite</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>e</td>
+      <td>2</td>
+      <td>single</td>
     </tr>
     <tr>
       <th>8</th>
@@ -16427,10 +16407,10 @@ var element = document.getElementById('5a806dca-bb1f-4bcf-84c9-fb8fdbd291bd');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># **Create transcriptome** *(Click to show)*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create transcriptome *(click play)*</span>
 <span class="n">stringtie_transcriptome</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="s2">&quot;stringtie_transcriptome.fas&quot;</span><span class="p">)</span>
 
 <span class="n">ref</span> <span class="o">=</span> <span class="n">input_dict</span><span class="p">[</span><span class="s1">&#39;reference&#39;</span><span class="p">]</span>
