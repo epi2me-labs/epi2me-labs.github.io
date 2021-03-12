@@ -9,11 +9,11 @@
 
 
 <style type="text/css">
-    pre { line-height: 125%; margin: 0; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
 .highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
@@ -14277,7 +14277,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Data-preparation">Data preparation<a class="anchor-link" href="#Data-preparation">&#182;</a></h2><p>To start analysing our experiment we must first collate our data. The workflow below expects to be given a single <code>.fastq</code> file containing all the sequencing data which is to be assembled. If you have multiple <code>.fastq</code> files which need to first be aggregated, see our <a href="../tutorials/fastq_introduction.ipynb">Introduction to <code>.fastq</code></a> notebook.</p>
+<h2 id="Data-preparation">Data preparation<a class="anchor-link" href="#Data-preparation">&#182;</a></h2><p>To start analysing our experiment we must first collate our data. The workflow below expects to be given a single <code>.fastq</code> file containing all the sequencing data which is to be assembled. If you have multiple <code>.fastq</code> files which need to first be aggregated, see our <strong><em>Introduction to .fastq</em></strong> notebook.</p>
 
 </div>
 </div>
@@ -14343,7 +14343,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -14397,12 +14397,12 @@ a.anchor-link {
 
 
 
-<div id="ab92ba3c-47cb-4354-8b46-a629fc16faa9" class="jupyter-widgets jp-OutputArea-output ">
+<div id="08cf53f5-981b-4d10-8884-b70c34964753" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('ab92ba3c-47cb-4354-8b46-a629fc16faa9');
+var element = document.getElementById('08cf53f5-981b-4d10-8884-b70c34964753');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "526cc2aa86c34804a87ce48682aa0c9e", "version_major": 2, "version_minor": 0}
+{"model_id": "b7259788a94c466b83b590cd3c766f18", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14498,7 +14498,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_folder</span> <span class="o">=</span> <span class="kc">None</span>
@@ -14541,12 +14541,12 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
-<div id="33010cf8-0c47-41af-b133-cd0465c46461" class="jupyter-widgets jp-OutputArea-output ">
+<div id="f139d3d8-8be3-4321-9040-388872d09a54" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('33010cf8-0c47-41af-b133-cd0465c46461');
+var element = document.getElementById('f139d3d8-8be3-4321-9040-388872d09a54');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "0aa9d843112d41b786d4c4126132766c", "version_major": 2, "version_minor": 0}
+{"model_id": "247924ff7be342219076d74a7b935a2b", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 

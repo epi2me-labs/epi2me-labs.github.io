@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Curating_Adaptive_Sampling_input_files_for_MinKNOW</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Benchmarking_GM24385_Structural_Variant_Calling</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14259,120 +14259,94 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1>Curating Adaptive Sampling input files for MinKNOW</h1><p>The following short workflow will prepare and download the necessary files to perform an Adaptive Sampling sequence experiment selecting for reads that span genes, transcripts, exons, etc. stored within <a href="https://www.ensembl.org/">ensembl</a>.</p>
-<p>To begin to prepare the files, simply select a species from the dropdown below.</p>
+<h1>Structural Variant Calling Validation Tutorial</h1><p>In this tutorial we will demonstrate how Oxford Nanopore Technologies performs benchmarking of structural variant calls in the case of human samples. The methods presented are derived from those used in the Genome in a Bottle project.</p>
+<p>The notebook will demonstrate the extent to which structural variant calling can be achieved using recommended variant calling tools from Oxford Nanopore Technologies and third parties. We will examine the outputs of these workflows and show how to compare results to independently provided truth sets. The present notebook does not itself explore in detail the process of calling structural variants.</p>
+<p>Computational requirements for this tutorial include:</p>
+<ul>
+<li>Computer running the <strong>EPI2ME Labs</strong> notebook Server</li>
+<li>At least 16Gb RAM</li>
+</ul>
+<blockquote><p>⚠️ <strong>Warning:</strong> This notebook has been saved with its outputs for demonstration purposed. It is recommeded to select <code>Edit &gt; Clear all outputs</code> before using the notebook to analyse your own data.</p>
+</blockquote>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Structural-Variation-calling-with-lra-and-cuteSV">Structural Variation calling with lra and cuteSV<a class="anchor-link" href="#Structural-Variation-calling-with-lra-and-cuteSV">&#182;</a></h2><blockquote><p><strong><em>The code snippets in this section are illustrate the variant calling process, they are not intended to be executed from the notebook environment.</em></strong></p>
+</blockquote>
+<p>Before discussing the benchmarking of structural variation calling, we will outline briefly how the variant calls used within the benchmarking demonstration below
+we calculated. The dataset is publicly available and was sequenced from a library prepared from the GM24385 cell line. This genetic reference information was also
+used by the GIAB consortium in their preparation of reference information. More information about this dataset can be found at:
+<a href="https://nanoporetech.github.io/ont-open-datasets/gm24385_2020.11/">November 2020 GM24385 Dataset Release</a>.</p>
+<p>The structural variants calculated from this sequence collection have been prepared using version 2.0 of the <a href="https://github.com/nanoporetech/pipeline-structural-variation">pipeline-structural-variation</a> workflow. This workflow performs,</p>
+<ul>
+<li>read to reference alignment using <a href="https://github.com/ChaissonLab/LRA">LRA</a></li>
+<li>variant calling using <a href="https://github.com/tjiangHIT/cuteSV">cuteSV</a></li>
+<li>filtering based on minimum read support and SV size.</li>
+</ul>
+<p>The pipeline was run using its default settings as follows:</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<pre><code># activate the conda environment containing the pipeline code (see code repository for more information)
+cd pipeline-structural-variation-v2
+conda activate pipeline-structural-variation-v2
+
+# download and decompress reference file
+wget http://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference/human_g1k_v37.fasta.gz
+gunzip human_g1k_v37.fasta.gz
+
+# download the basecalls from a single PromethION flowcell
+wget ...need https link for s3://ont-open-data/gm24385_2020.11/analysis/r9.4.1/20201026_1644_2-E5-H5_PAG07162_d7f262d5/guppy_v4.0.11_r9.4.1_hac_prom/basecalls.fastq.gz .
+
+# run the pipeline
+snakemake call --config input_fastq=basecalls.fastq.gz reference_fasta=human_g1k_v37.fasta threads=76 sample_name=PAG07162-hg37</code></pre>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The useful output for our purposes is a single <a href="https://en.wikipedia.org/wiki/Variant_Call_Format">Variant Call Format</a> file containing the called variants.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Benchmarking-Structural-Variation-Calling">Benchmarking Structural Variation Calling<a class="anchor-link" href="#Benchmarking-Structural-Variation-Calling">&#182;</a></h2><p>Benchmarking is the process of empirically comparing and contrasting results from different analysis methologies that analyse the same dataset and compare the results against a reference standard.</p>
+<h3 id="What-is-a-truth-set?">What is a truth set?<a class="anchor-link" href="#What-is-a-truth-set?">&#182;</a></h3><p>A truth set is a canonical "answer" against which experimental results should be compared against. In this case we are using a truth set generated by the Genome in a Bottle consortium (GIAB). The objective of GIAB was to prepare a establish a reference view of the "true" variation in the human genome. This was achieved by measuring genetic variation using a variety of contemporary methods and the results were curated to establish a reference resource describing the measured variation between the reference human genome (GRCh37) and the GM24385 data. These results were presented in <a href="https://rdcu.be/b4UMa">A robust benchmark for detection of germline large deletions and insertions</a>. Structural variation is an emerging field in the study of genetic variation.</p>
+<p>There are some important caveats to consider with the GIAB truth set. The first is that SV calls are biased towards the regions of the genome that are simpler to sequence, align and call. For this reason we are constraining this analysis to these high confidence calls. These regions are specified in a BED-format file which we will be downloading as part of this analysis. The next is that the truth set concerns only indels so there are no inversions or translocations in the truth set. Consequentially this benchmark will only be comparing insertion and deletion calls. Duplications are included in this analysis but are labelled as insertions in the truth set.</p>
+<h3 id="Challenges-of-SV-comparisons">Challenges of SV comparisons<a class="anchor-link" href="#Challenges-of-SV-comparisons">&#182;</a></h3><p>One of the major challenges of SV benchmarking is that the changes are less atomic than for SNP comparisons. When comparing SNP variation the question is "simply" whether the same allelic difference is observed. In SV calling there is a need to consider whether the size, repeat number, and the position of a variant matches e.g. is a 90 base deletion at a given locus correctly identified if the truth set describes a deletion of 100 bases? How should we assess performance if the size of a measured deletion is the same but the truth set variation is located at a position that is shifted by a few nucleotides. Structural variants also tend to overlap the repetitive regions of the genome. This means that anchoring a variant to precise coordinates can be complicated by the overarching structures of nested insertions/ deletions within the repetive region.</p>
+<p>Another challenge for comparing SV calling performance is the dearth of reference information. While it is acknowledged that SVs have an important role in disease and development the statistical methods and technologies for their identification are still emerging and it is likely that real SVs are missing from the currently available truth sets - we are constrained by the catalogues of known and validated variants.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Getting-Started">Getting Started<a class="anchor-link" href="#Getting-Started">&#182;</a></h3><blockquote><p><strong><em>The remainder of the notebook contains executable code snippets to be run within the notebook</em></strong></p>
+</blockquote>
+<p>To get started benchmarking a structural variant callset, we will create a working directory:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Code installation</span>
-<span class="kn">from</span> <span class="nn">ftplib</span> <span class="kn">import</span> <span class="n">FTP</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">pyranges</span> <span class="k">as</span> <span class="nn">pr</span>
-<span class="kn">import</span> <span class="nn">pysam</span>
-<span class="kn">import</span> <span class="nn">requests</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
+<span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;sv_benchmarking&#39;</span><span class="p">)</span>
 
-
-<span class="k">class</span> <span class="nc">EnsemblRestClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="o">=</span><span class="s1">&#39;http://rest.ensembl.org&#39;</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="s1">&#39;http://rest.ensembl.org&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">=</span> <span class="s1">&#39;ftp.ensembl.org&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span> <span class="o">=</span> <span class="s1">&#39;/pub/release-100/fasta/</span><span class="si">{}</span><span class="s1">/dna/&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_suff</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;primary&#39;</span><span class="p">:</span><span class="s1">&#39;dna.primary_assembly.fa.gz&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;toplevel&#39;</span><span class="p">:</span><span class="s1">&#39;dna.toplevel.fa.gz&#39;</span><span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span> <span class="o">=</span> <span class="s1">&#39;/pub/release-100/gtf/</span><span class="si">{}</span><span class="s1">/&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_suff</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;gtf&#39;</span><span class="p">:</span><span class="s2">&quot;100.gtf.gz&quot;</span><span class="p">}</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">dna_template</span> <span class="o">=</span> \
-            <span class="s2">&quot;ftp://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span> <span class="o">+</span> <span class="s2">&quot;/</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gtf_template</span> <span class="o">=</span> \
-            <span class="s2">&quot;ftp://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span> <span class="o">+</span> \
-            <span class="s2">&quot;/</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_suff</span><span class="p">[</span><span class="s1">&#39;gtf&#39;</span><span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s1">&#39;json&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;json&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">+</span> <span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s1">&#39;Retry-After&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
-                    <span class="n">retry</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Retry-After&#39;</span><span class="p">]</span>
-                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">retry</span><span class="p">))</span>
-                    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">+</span> <span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - Request failed for </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">endpoint</span><span class="p">))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span> 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-            <span class="k">if</span> <span class="s2">&quot;error&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - ERROR:</span><span class="se">\n</span><span class="s2">   </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]))</span>
-        <span class="k">return</span> <span class="n">data</span>
-
-    <span class="k">def</span> <span class="nf">species_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/info/species&quot;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">assembly_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
-        <span class="c1">#assembly = self.get(&#39;/info/assembly/{}&#39;.format(species))</span>
-        <span class="c1">#if &#39;assembly_name&#39; in assembly:</span>
-        <span class="c1">#    return assembly[&#39;assembly_name&#39;]</span>
-        <span class="c1"># this is a bit circular...</span>
-        <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ftp_list</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_suff</span><span class="p">)</span>
-        <span class="n">stem</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s2">&quot;toplevel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">assm</span> <span class="o">=</span> <span class="n">stem</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_suff</span><span class="p">[</span><span class="s2">&quot;toplevel&quot;</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">assm</span>
-
-    <span class="k">def</span> <span class="nf">_ftp_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">filt</span><span class="p">):</span>
-        <span class="n">ftpdata</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-        <span class="k">with</span> <span class="n">FTP</span><span class="p">(</span><span class="s1">&#39;ftp.ensembl.org&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ftp</span><span class="p">:</span>
-            <span class="n">ftp</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
-            <span class="k">def</span> <span class="nf">grab</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-                <span class="n">fname</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-                <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">filt</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                    <span class="k">if</span> <span class="n">fname</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-                        <span class="n">ftpdata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">fname</span>
-            <span class="n">ftp</span><span class="o">.</span><span class="n">dir</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">grab</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ftpdata</span>
-
-    <span class="k">def</span> <span class="nf">dna_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">toplevel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">assembly_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="c1">#if assembly_name is None:</span>
-        <span class="c1">#    assembly_name = client.assembly_name(species)</span>
-        <span class="c1">#return self.dna_template.format(</span>
-        <span class="c1">#    species, species.capitalize(), assembly_name)</span>
-        <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ftp_list</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_suff</span><span class="p">)</span>
-        <span class="n">fname</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;toplevel&#39;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="s1">&#39;primary&#39;</span> <span class="ow">in</span> <span class="n">paths</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">fname</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;primary&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="s2">&quot;ftp://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">+</span> <span class="n">fname</span>
-        
-    <span class="k">def</span> <span class="nf">gtf_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">assembly_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="c1">#if assembly_name is None:</span>
-        <span class="c1">#    assembly_name = client.assembly_name(species)</span>
-        <span class="c1">#return self.gtf_template.format(</span>
-        <span class="c1">#    species, species.capitalize(), assembly_name)</span>
-        <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ftp_list</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_suff</span><span class="p">)</span>
-        <span class="n">fname</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;gtf&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="s2">&quot;ftp://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">+</span> <span class="n">fname</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Querying ensembl species&quot;</span><span class="p">)</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">EnsemblRestClient</span><span class="p">()</span>
-<span class="n">species_list</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">species_list</span><span class="p">()</span>
-<span class="n">species_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">species_list</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Found </span><span class="si">{}</span><span class="s2"> species&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">species_list</span><span class="p">)))</span>
-<span class="n">species_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
-<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="c1"># create a work directory and move into it</span>
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;sv_benchmarking&quot;</span>
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s2">&quot;/epi2melabs/</span><span class="si">{}</span><span class="s2">/&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
+<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
 </pre></div>
 
      </div>
@@ -14392,8 +14366,7 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre> * Querying ensembl species
- - Found 310 species
+<pre>/epi2melabs/sv_benchmarking
 </pre>
 </div>
 </div>
@@ -14405,86 +14378,1286 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>To produce efficiently reasonable target regions please provide an average read length. This should be an arithmetic mean not an N50 length. After pressing play here you will be given the opportunity to select your genome of interest from a drop-down box.</p>
+<p>To demonstrate the benchmarking process for small variant calls we will use a VCF created through the process outlined
+above. This can be downloaded by running the following:</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cecho ok <span class="s2">&quot;Downloading SV calls&quot;</span> 
+<span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;.vcf.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;.vcf.gz.tbi&quot;</span><span class="p">):</span>
+    <span class="o">!</span>wget --no-clobber -O PAG07162-hg37_cutesv_filtered<span class="nv">$ext</span> https://ont-open-data.s3.amazonaws.com/gm24385_2020.11/extra_analyses/sv_calling/PAG07162-hg37/sv_calls/PAG07162-hg37_cutesv_filtered<span class="nv">$ext</span>
+
+<span class="o">!</span>cecho ok <span class="s2">&quot;Downloading reference&quot;</span>
+<span class="o">!</span>wget --no-clobber -q -O human_g1k_v37.fasta.gz http://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference/human_g1k_v37.fasta.gz
+
+<span class="o">!</span>cecho ok <span class="s2">&quot;Unzipping reference&quot;</span>
+<span class="o">!</span>gunzip -n -f human_g1k_v37.fasta.gz
+<span class="o">!</span>cecho ok <span class="s2">&quot;Done!&quot;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We require also to download the GIAB truth set, which we can acquire from the GIAB resource in the NIST repository:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">species_change</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">urls</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Finding files, please wait...&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="n">assm</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assembly_name</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
-    <span class="n">dna_url</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">dna_url</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">assembly_name</span><span class="o">=</span><span class="n">assm</span><span class="p">)</span>
-    <span class="n">gtf_url</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">gtf_url</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">assembly_name</span><span class="o">=</span><span class="n">assm</span><span class="p">)</span>
-    <span class="n">urls</span> <span class="o">=</span> <span class="p">(</span><span class="n">dna_url</span><span class="p">,</span> <span class="n">gtf_url</span><span class="p">)</span>
-    
-    
-    <span class="k">try</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Retrieving files...&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dna_url</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gtf_url</span><span class="p">))</span>
-        <span class="n">dna_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">dna_url</span><span class="p">)</span>
-        <span class="n">gtf_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">gtf_url</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">dna_path</span><span class="p">):</span>
-            <span class="o">!</span>wget <span class="nv">$dna_url</span> <span class="o">||</span> <span class="nb">printf</span> <span class="s2">&quot;\n * Failed to download assembly\n&quot;</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">dna_path</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s1">&#39; - Assembly could not be downloaded.&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Skipping genome download&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">gtf_path</span><span class="p">):</span>
-            <span class="o">!</span>wget <span class="nv">$gtf_url</span> <span class="o">||</span> <span class="nb">printf</span> <span class="s2">&quot;\n * Failed to download gtf\n&quot;</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">gtf_path</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s1">&#39; - GTF could not be downloaded.&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Skipping gtf download&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Failed to retrieve files&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Finished download&quot;</span><span class="p">)</span>
-        <span class="c1">#print(&quot; * Calculating total assembly length&quot;)</span>
-        <span class="c1">#glength = 0</span>
-        <span class="c1">#with pysam.FastxFile(dna_path) as fh:</span>
-        <span class="c1">#    for r in fh:</span>
-        <span class="c1">#        glength += len(r.sequence)</span>
-        <span class="c1">#    print(&quot; - Assembly length: {}&quot;.format(glength))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Reading gtf&quot;</span><span class="p">)</span>
-        <span class="n">ranges</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">read_gtf</span><span class="p">(</span><span class="n">gtf_path</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Merging and expanding intervals (this may take a while)...&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-        <span class="n">merged</span> <span class="o">=</span> <span class="n">ranges</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">strand</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">sloppy</span> <span class="o">=</span> <span class="n">merged</span><span class="o">.</span><span class="n">slack</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">read_length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">strand</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-            <span class="s1">&#39;Source GTF&#39;</span><span class="p">:[</span><span class="nb">len</span><span class="p">(</span><span class="n">ranges</span><span class="p">)],</span>
-            <span class="s1">&#39;Filtered&#39;</span><span class="p">:[</span><span class="nb">len</span><span class="p">(</span><span class="n">merged</span><span class="p">)],</span>
-            <span class="s1">&#39;Padded&#39;</span><span class="p">:[</span><span class="nb">len</span><span class="p">(</span><span class="n">sloppy</span><span class="p">)]},</span>
-            <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Intervals&#39;</span><span class="p">])</span>
-        <span class="n">bed_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.read_until.bed&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dna_path</span><span class="p">)</span>
-        <span class="n">sloppy</span><span class="o">.</span><span class="n">to_bed</span><span class="p">(</span><span class="n">bed_path</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">truth_name</span> <span class="o">=</span> <span class="s2">&quot;HG002_SVs_Tier1_v0.6&quot;</span>
+<span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;.vcf.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;.vcf.gz.tbi&quot;</span><span class="p">,</span> <span class="s2">&quot;.bed&quot;</span><span class="p">):</span>
+    <span class="o">!</span>wget --no-clobber -q -O <span class="nv">$truth_name$ext</span> https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_SVs_Integration_v0.6/<span class="nv">$truth_name$ext</span>
+</pre></div>
 
-        <span class="nb">print</span><span class="p">()</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Input files:&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - Genome: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dna_url</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - GTF   : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gtf_url</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Output files:&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - Genome: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">dna_path</span><span class="p">)))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - GTF   : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">gtf_path</span><span class="p">)))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - BED   : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">bed_path</span><span class="p">)))</span>
-    
+     </div>
+</div>
+</div>
+</div>
 
-<span class="kn">from</span> <span class="nn">epi2melabs.notebook</span> <span class="kn">import</span> <span class="n">InputForm</span><span class="p">,</span> <span class="n">InputSpec</span>
-<span class="n">species_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span><span class="o">=</span><span class="n">species_list</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;species:&#39;</span><span class="p">)</span>
-<span class="n">input_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;read_length&#39;</span><span class="p">,</span> <span class="s1">&#39;Read length&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="n">species_dropdown</span><span class="p">))</span>
-<span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">species_change</span><span class="p">)</span>
-<span class="n">input_form</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The above command will have download both the well validated truth variants and the specification of the high confidence regions.
+As described in <a href="https://rdcu.be/b4UMa">A robust benchmark for detection of germline large deletions and insertions</a> we consider
+only the so-called "Tier 1" calls, the most accurate calls from the GIAB study. We note however that the GIAB project states:</p>
+<blockquote><p><em>We recommend using these calls critically, since they may contain false positives, false negatives, and inaccurate breakpoints and sequence predictions</em></p>
+</blockquote>
+<p>i.e. that these calls should not be implicitely trusted as a definitive truth, but that they represent the current best approximation
+to such a truth.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Analysis-with-Truvari">Analysis with Truvari<a class="anchor-link" href="#Analysis-with-Truvari">&#182;</a></h3><p>The recommended method for analysing structural variant calls with respect to a truthset is through the use of
+<a href="https://github.com/spiralgenetics/truvari">truvari</a>. Comparison of a set of variant calls to a truthset would seem at first to be a rather
+trivial affair: one must simply determined is a called variant is present or absent in the truth set, and vice-versa.
+However as discussed above and in the GIAB paper, there are very many complicating factors and edge cases that must
+be considered. It is for this reason that Oxford Nanopore Technologies' uses the same truvari toolset as recommended
+by the GIAB project.</p>
+<p>We will install <code>truvari</code> (together with a few other tools) into the EPI2MELabs notebook environment using the <code>pip</code> package manager</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install -q <span class="s2">&quot;Truvari==2.0.0.dev0&quot;</span> pytabix setproctitle scikit-allel
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The first step of our benchmarking analysis is to normalise the VCF file output by the calling pipeline. The calling pipeline is capable
+of generating duplication variants (<code>DUP</code>s); the GIAB truth set however does not make a distinction between duplication events and insertion
+events (<code>INS</code>s). For this reason we will relabel all <code>DUP</code> variants in the SV calls as <code>INS</code> variants</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vcf</span> <span class="o">=</span> <span class="s2">&quot;PAG07162-hg37_cutesv_filtered.vcf.gz&quot;</span>
+<span class="n">vcf_dupins</span> <span class="o">=</span> <span class="s2">&quot;PAG07162-hg37_cutesv_filtered_dup2ins.vcf.gz&quot;</span>
+<span class="o">!</span>cecho ok <span class="s2">&quot;Relabelling VCF&quot;</span>
+<span class="o">!</span>zcat <span class="s2">&quot;</span><span class="nv">$vcf</span><span class="s2">&quot;</span> <span class="err">\</span>
+    <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/SVTYPE=DUP/SVTYPE=INS/g&#39;</span> \
+    <span class="o">|</span> <span class="n">bcftools</span> <span class="n">view</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;(SVTYPE = &quot;INS&quot; || SVTYPE = &quot;DEL&quot;)&#39;</span> \
+    <span class="o">|</span> <span class="n">bgzip</span> <span class="o">&gt;</span> <span class="s2">&quot;$vcf_dupins&quot;</span>
+<span class="o">!</span>cecho ok <span class="s2">&quot;Indexing VCF&quot;</span>
+<span class="o">!</span>tabix -f <span class="s2">&quot;</span><span class="nv">$vcf_dupins</span><span class="s2">&quot;</span>
+
+<span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">working_dir</span><span class="p">,</span> <span class="n">vcf_dupins</span><span class="p">)),</span> <span class="sa">f</span><span class="s2">&quot;Missing processed VCF: </span><span class="si">{</span><span class="n">vcf_dupins</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="o">!</span>cecho ok <span class="s2">&quot;VCF pre-processing successful!&quot;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>With this minor inconvenience removed, we can now straighforwardly run truvari:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># run truvari (expand to show code)</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;truvari&quot;</span>
+<span class="n">input_vcf</span> <span class="o">=</span> <span class="n">vcf_dupins</span>
+<span class="n">truth_vcf</span> <span class="o">=</span> <span class="n">truth_name</span> <span class="o">+</span> <span class="s2">&quot;.vcf.gz&quot;</span>
+<span class="n">truth_bed</span> <span class="o">=</span> <span class="n">truth_name</span> <span class="o">+</span> <span class="s2">&quot;.bed&quot;</span>
+<span class="n">reference</span> <span class="o">=</span> <span class="s2">&quot;human_g1k_v37.fasta&quot;</span>
+<span class="o">!</span>rm -rf <span class="nv">$output_dir</span>
+<span class="o">!</span>cecho ok <span class="s2">&quot;Running truvari&quot;</span>
+<span class="o">!</span>truvari bench --passonly -b <span class="nv">$truth_vcf</span> --includebed <span class="nv">$truth_bed</span> --pctsim <span class="m">0</span> -c <span class="nv">$input_vcf</span> -f <span class="nv">$reference</span> -o <span class="nv">$output_dir</span>
+<span class="o">!</span>cp <span class="nv">$output_dir</span>/tp-call.vcf <span class="nv">$output_dir</span>/tp.vcf
+<span class="o">!</span>cecho ok <span class="s2">&quot;Truvari run complete&quot;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>At the end of its execution <code>truvari</code> will have printed summary statistics concerning its comparison. These results are also available
+within a text file formatted as <a href="">JSON</a>, and can be read with the <code>pandas</code> library:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;summary.txt&quot;</span><span class="p">)))</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">k</span><span class="p">:[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">summary</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+<span class="n">display</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TP-base</th>
+      <th>TP-call</th>
+      <th>FP</th>
+      <th>FN</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1</th>
+      <th>base cnt</th>
+      <th>call cnt</th>
+      <th>TP-call_TP-gt</th>
+      <th>TP-call_FP-gt</th>
+      <th>TP-base_TP-gt</th>
+      <th>TP-base_FP-gt</th>
+      <th>gt_precision</th>
+      <th>gt_recall</th>
+      <th>gt_f1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>9415</td>
+      <td>9415</td>
+      <td>463</td>
+      <td>226</td>
+      <td>0.953128</td>
+      <td>0.976558</td>
+      <td>0.964701</td>
+      <td>9641</td>
+      <td>9878</td>
+      <td>9309</td>
+      <td>106</td>
+      <td>9309</td>
+      <td>106</td>
+      <td>0.942397</td>
+      <td>0.976298</td>
+      <td>0.959048</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The full description of these fields is given in the <a href="https://github.com/spiralgenetics/truvari/wiki/bench">truvari documentation</a>, here we will focus
+on just a few.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Interpretation-of-the-results">Interpretation of the results<a class="anchor-link" href="#Interpretation-of-the-results">&#182;</a></h4><p>With respect to a truth set the calling of variants in a genomic sample can be seen as a binary classification task: we have two classes of data, variants and non-variants. A standard method for summarizing this classification task is the measurement of the two quantities <em>precision</em> and <em>recall</em>, as summarized by the following <a href="https://en.wikipedia.org/wiki/Precision_and_recall">diagram</a>:</p>
+<p><img src="data:image/png;base64,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" alt="image.png"></p>
+<p>For our purposes the "relevant elements" are the variant loci and identities, while the remaining elements are locations in the genomic sample that contain the same sequence as the reference sequence. It is useful to note that neither <em>recall</em> nor <em>precision</em> take into account true negatives. This is the situation where a variant caller has correctly identified that the sample under consideration contains the same sequence as the reference. The metrics <em>recall</em> and <em>precision</em> thereby are sensitive only to loci identified as variants by the caller, and loci which are variant in the truthset. The vast majority of sequence within the GM24385 sample under consideration is structurally identical to that of the human reference sequence. Therefore values of precision and recall of e.g. 90% do not mean that there the error rate of the sequencing process and variant calling is on the order of 10%. Far from it in fact, even modestly high recall and precision numbers imply rather high sequencing quality.</p>
+<p>With these considerations out of the way, let us focus on <em>precision</em> and <em>recall</em> from the above table. Truvari calculates this numbers from counts of variants classed as True Positive (TP), False Positive (TP), and False Negative (FN). It stores variants of these classes in three separate files, which we can read and aggregate into a single table:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Aggregating truvari VCF files (click play)</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">allel</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="k">def</span> <span class="nf">parse_truvari</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">classification</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">allel</span><span class="o">.</span><span class="n">vcf_to_dataframe</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">alt_number</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">classification</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">dfs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">classification</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;tp&quot;</span><span class="p">,</span> <span class="s2">&quot;fp&quot;</span><span class="p">,</span> <span class="s2">&quot;fn&quot;</span><span class="p">):</span>
+    <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">parse_truvari</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.vcf&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">classification</span><span class="p">)),</span>
+            <span class="n">classification</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+<span class="n">truvari</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">truvari</span><span class="p">[[</span><span class="s1">&#39;CHROM&#39;</span><span class="p">,</span> <span class="s1">&#39;POS&#39;</span><span class="p">,</span> <span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;classification&#39;</span><span class="p">,</span> <span class="s1">&#39;REF&#39;</span><span class="p">,</span> <span class="s1">&#39;ALT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CHROM</th>
+      <th>POS</th>
+      <th>ID</th>
+      <th>classification</th>
+      <th>REF</th>
+      <th>ALT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>9370182</td>
+      <td>cuteSV.DEL.482</td>
+      <td>TP</td>
+      <td>GGCCATCTGTGATGATGCCTCTGCACCTGCCGTGGGAAGGCCACAG...</td>
+      <td>G</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>102123452</td>
+      <td>cuteSV.DEL.3028</td>
+      <td>TP</td>
+      <td>TCTTCTTCTTCTTCTTCTTCTTCTTCTTCTTCTTCTTCTTCTTCTT...</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>205439856</td>
+      <td>cuteSV.DEL.5905</td>
+      <td>TP</td>
+      <td>TAAAATTTGAAAAATAATGCATGTTTAAATCTGTAAAATGGGCCAG...</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>9342574</td>
+      <td>cuteSV.INS.451</td>
+      <td>TP</td>
+      <td>C</td>
+      <td>CTCCTCCTTGTCTCCTCCTCCCTCTCCCCTTCCCCCTCCCCCTCCC...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>93810422</td>
+      <td>cuteSV.INS.1241</td>
+      <td>TP</td>
+      <td>T</td>
+      <td>TTATATTATATATATATAAATATATATTATATATATATAATATATA...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The above code block will have displayed select columns from the combined <code>truvari</code> output to give a sense of the full table. From this data with a
+little manipulation we can derive the same statistics for precision and recall as <code>truvari</code>'s JSON summary:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Recapilulating truvari summary from full output (click play)</span>
+
+<span class="k">def</span> <span class="nf">add_statistics</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c1"># Adds recall, precision and f1 to a dataframe with TP, FP, and FN counts</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;TP&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;TP&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;FP&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;TP&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;TP&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;FN&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">truvari</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;SVTYPE&#39;</span><span class="p">])</span>
+<span class="n">types</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">df</span><span class="p">:</span>
+    <span class="n">types</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">types</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;All&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_statistics</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TP</th>
+      <th>FP</th>
+      <th>FN</th>
+      <th>recall</th>
+      <th>precision</th>
+      <th>f1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>DEL</th>
+      <td>4154</td>
+      <td>143</td>
+      <td>45</td>
+      <td>96.672097</td>
+      <td>98.928316</td>
+      <td>97.787194</td>
+    </tr>
+    <tr>
+      <th>INS</th>
+      <td>5261</td>
+      <td>320</td>
+      <td>181</td>
+      <td>94.266261</td>
+      <td>96.674017</td>
+      <td>95.454958</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>9415</td>
+      <td>463</td>
+      <td>226</td>
+      <td>95.312816</td>
+      <td>97.655845</td>
+      <td>96.470106</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Here we have additionally split the classification counts by insertion and deletion counts, something the <code>truvari</code> summary does not.
+In addition to <code>precision</code> and <code>recall</code> we have calculated the <a href="https://en.wikipedia.org/wiki/F-score"><code>f1</code></a> statistic: the harmonic
+mean of <code>precision</code> and <code>recall</code>. This statistic balances the recovery of true positive variants with the suppression of false
+positives: maximising either one of <code>recall</code> or <code>precision</code> is possible at the expense of the other.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Analysis-as-a-function-of-SV-length">Analysis as a function of SV length<a class="anchor-link" href="#Analysis-as-a-function-of-SV-length">&#182;</a></h4><p>One of the key benefits of Nanopore sequencing over other sequencing methods is the obtained read length. Structural variants
+can span hundreds (and thousands) of bases: nanopore sequencing is ideally suited for the accurate calling of these longer
+variants.</p>
+<p>With a little further manipulation of the <code>truvari</code> data table we can obtain the following:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculating statistics as a function of length (click play)</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="n">bin_borders</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span>
+    <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">7500</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">250</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+    <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">7501</span><span class="p">,</span> <span class="mi">250</span><span class="p">)))</span>
+
+<span class="c1"># Prepare SV size bins</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">truvari</span><span class="p">[</span><span class="s1">&#39;SVLEN&#39;</span><span class="p">],</span> <span class="n">bin_borders</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">truvari</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;SVTYPE&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="p">],</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">types</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">df</span><span class="p">:</span>
+    <span class="n">types</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span>
+    <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">types</span><span class="p">)),</span> <span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;SVTYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;LEN&#39;</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;TP&#39;</span><span class="p">,</span> <span class="s1">&#39;FP&#39;</span><span class="p">,</span> <span class="s1">&#39;FN&#39;</span><span class="p">):</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;TP&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;FN&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_statistics</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+<span class="o">!</span>cecho ok <span class="s2">&quot;Display shorter INS and DEL variants&quot;</span>
+<span class="n">nrow</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">nrow</span><span class="o">//</span><span class="mi">2</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="n">nrow</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre><span class="ansi-blue-intense-fg ansi-bold">Display shorter INS and DEL variants</span>
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SVTYPE</th>
+      <th>LEN</th>
+      <th>TP</th>
+      <th>FP</th>
+      <th>FN</th>
+      <th>count</th>
+      <th>recall</th>
+      <th>precision</th>
+      <th>f1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>41</th>
+      <td>DEL</td>
+      <td>(-250, -200]</td>
+      <td>129</td>
+      <td>4</td>
+      <td>2</td>
+      <td>131</td>
+      <td>96.99</td>
+      <td>98.47</td>
+      <td>97.73</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>DEL</td>
+      <td>(-200, -150]</td>
+      <td>238</td>
+      <td>12</td>
+      <td>3</td>
+      <td>241</td>
+      <td>95.20</td>
+      <td>98.76</td>
+      <td>96.95</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>DEL</td>
+      <td>(-150, -100]</td>
+      <td>440</td>
+      <td>14</td>
+      <td>8</td>
+      <td>448</td>
+      <td>96.92</td>
+      <td>98.21</td>
+      <td>97.56</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>DEL</td>
+      <td>(-100, -50]</td>
+      <td>1380</td>
+      <td>88</td>
+      <td>20</td>
+      <td>1400</td>
+      <td>94.01</td>
+      <td>98.57</td>
+      <td>96.23</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>DEL</td>
+      <td>(-50, 0]</td>
+      <td>57</td>
+      <td>0</td>
+      <td>0</td>
+      <td>57</td>
+      <td>100.00</td>
+      <td>100.00</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>INS</td>
+      <td>(0, 50]</td>
+      <td>250</td>
+      <td>8</td>
+      <td>0</td>
+      <td>250</td>
+      <td>96.90</td>
+      <td>100.00</td>
+      <td>98.43</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>INS</td>
+      <td>(50, 100]</td>
+      <td>1296</td>
+      <td>125</td>
+      <td>35</td>
+      <td>1331</td>
+      <td>91.20</td>
+      <td>97.37</td>
+      <td>94.19</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>INS</td>
+      <td>(100, 150]</td>
+      <td>556</td>
+      <td>32</td>
+      <td>12</td>
+      <td>568</td>
+      <td>94.56</td>
+      <td>97.89</td>
+      <td>96.19</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>INS</td>
+      <td>(150, 200]</td>
+      <td>313</td>
+      <td>13</td>
+      <td>11</td>
+      <td>324</td>
+      <td>96.01</td>
+      <td>96.60</td>
+      <td>96.31</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>INS</td>
+      <td>(200, 250]</td>
+      <td>184</td>
+      <td>11</td>
+      <td>2</td>
+      <td>186</td>
+      <td>94.36</td>
+      <td>98.92</td>
+      <td>96.59</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As this data table is fairly large a plot is worthwhile as this point:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plotting a summary of results (click play)</span>
+<span class="kn">import</span> <span class="nn">aplanat</span>
+<span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">lines</span>
+
+<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">Range1d</span><span class="p">,</span> <span class="n">LinearAxis</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">aplanat.util</span> <span class="kn">import</span> <span class="n">Limiter</span>
+
+<span class="n">counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>
+<span class="n">widths</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;LEN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">right</span><span class="p">)</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;LEN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">widths</span> <span class="o">*</span> <span class="nb">min</span><span class="p">(</span><span class="n">widths</span><span class="p">)</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;LEN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">left</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;LEN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">right</span><span class="p">),</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mids</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;LEN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">left</span> <span class="o">+</span> <span class="n">x</span><span class="o">.</span><span class="n">right</span><span class="p">))</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">output_backend</span><span class="o">=</span><span class="s1">&#39;webgl&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;SV length / nucleotides&#39;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Count true SVs&#39;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">extra_y_ranges</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;prcrec&quot;</span><span class="p">:</span> <span class="n">Range1d</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">1</span><span class="p">)}</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_layout</span><span class="p">(</span><span class="n">LinearAxis</span><span class="p">(</span><span class="n">y_range_name</span><span class="o">=</span><span class="s2">&quot;prcrec&quot;</span><span class="p">,</span> <span class="n">axis_label</span><span class="o">=</span><span class="s1">&#39;f1-score&#39;</span><span class="p">),</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">mids</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">y_range_name</span><span class="o">=</span><span class="s1">&#39;prcrec&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span>
+    <span class="n">top</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">right</span><span class="o">=</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="n">x_lim</span> <span class="o">=</span> <span class="n">Limiter</span><span class="p">((</span><span class="n">edges</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">edges</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">y_lim</span> <span class="o">=</span> <span class="n">Limiter</span><span class="p">()</span>
+<span class="n">y_lim</span><span class="o">.</span><span class="n">fix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">y_lim</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">x_range</span> <span class="o">=</span> <span class="n">Range1d</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="n">x_lim</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">x_lim</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="n">x_lim</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">x_lim</span><span class="o">.</span><span class="n">max</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">y_range</span> <span class="o">=</span> <span class="n">Range1d</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="n">y_lim</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">y_lim</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="n">y_lim</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">y_lim</span><span class="o">.</span><span class="n">max</span><span class="p">))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span> <span class="n">angle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Deletions&#39;</span><span class="p">,</span> <span class="s1">&#39;Insertions&#39;</span><span class="p">],</span> <span class="n">text_align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div id="74599fe6-d163-4f83-b9b2-9fd3a8cf43ac" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<script type="text/javascript">
+var element = document.getElementById('74599fe6-d163-4f83-b9b2-9fd3a8cf43ac');
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById(null);
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js": "T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js": "98GDGJ0kOMCUMUePhksaQ/GYgB3+NH9h996V88sh3aOiUNX3N+fLXAtry6xctSZ6", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js": "89bArO+nlbP3sgakeHjCo1JYxYR5wufVgA3IbUvDY+K7w4zyxJqssu7wVnfeKCq8"};
+
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js"];
+  var css_urls = [];
+  
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById(null)).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+</script>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+
+
+
+
+
+
+  <div class="bk-root" id="dca0091f-a7f7-4765-bd85-218bd3c33e96" data-root-id="1001"></div>
+
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div id="74599fe6-d163-4f83-b9b2-9fd3a8cf43ac" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<script type="text/javascript">
+var element = document.getElementById('74599fe6-d163-4f83-b9b2-9fd3a8cf43ac');
+(function(root) {
+  function embed_document(root) {
+    
+  var docs_json = {"334f7e51-389b-4dac-9292-0997b96e0e8d": {"roots": {"references": [{"attributes": {"background_fill_color": "#F4F4F4", "below": [{"id": "1010"}], "border_fill_color": "#F4F4F4", "center": [{"id": "1013"}, {"id": "1017"}], "extra_y_ranges": {"prcrec": {"id": "1032"}}, "left": [{"id": "1014"}], "output_backend": "webgl", "plot_height": 300, "renderers": [{"id": "1037"}, {"id": "1042"}, {"id": "1049"}], "right": [{"id": "1033"}], "title": {"id": "1051"}, "toolbar": {"id": "1025"}, "x_range": {"id": "1044"}, "x_scale": {"id": "1006"}, "y_range": {"id": "1045"}, "y_scale": {"id": "1008"}}, "id": "1001", "subtype": "Figure", "type": "Plot"}, {"attributes": {}, "id": "1061", "type": "UnionRenderers"}, {"attributes": {"data_source": {"id": "1046"}, "glyph": {"id": "1047"}, "hover_glyph": null, "muted_glyph": null, "nonselection_glyph": {"id": "1048"}, "selection_glyph": null, "view": {"id": "1050"}}, "id": "1049", "type": "GlyphRenderer"}, {"attributes": {"bottom_units": "screen", "fill_alpha": 0.5, "fill_color": "lightgrey", "left_units": "screen", "level": "overlay", "line_alpha": 1.0, "line_color": "black", "line_dash": [4, 4], "line_width": 2, "right_units": "screen", "top_units": "screen"}, "id": "1024", "type": "BoxAnnotation"}, {"attributes": {}, "id": "1059", "type": "UnionRenderers"}, {"attributes": {}, "id": "1055", "type": "BasicTickFormatter"}, {"attributes": {}, "id": "1064", "type": "Selection"}, {"attributes": {"data": {"text": ["Deletions", "Insertions"], "x": [-4000, 4000], "y": [800, 800]}, "selected": {"id": "1064"}, "selection_policy": {"id": "1063"}}, "id": "1046", "type": "ColumnDataSource"}, {"attributes": {}, "id": "1060", "type": "Selection"}, {"attributes": {"axis_label": "Count true SVs", "formatter": {"id": "1053"}, "ticker": {"id": "1015"}}, "id": "1014", "type": "LinearAxis"}, {"attributes": {"bounds": [-7500, 7500], "end": 7500, "start": -7500}, "id": "1044", "type": "Range1d"}, {"attributes": {"data_source": {"id": "1039"}, "glyph": {"id": "1040"}, "hover_glyph": null, "muted_glyph": null, "nonselection_glyph": {"id": "1041"}, "selection_glyph": null, "view": {"id": "1043"}}, "id": "1042", "type": "GlyphRenderer"}, {"attributes": {"text_align": "center", "text_alpha": {"value": 0.1}, "text_color": {"value": "black"}}, "id": "1048", "type": "Text"}, {"attributes": {"active_drag": "auto", "active_inspect": "auto", "active_multi": null, "active_scroll": "auto", "active_tap": "auto", "tools": [{"id": "1018"}, {"id": "1019"}, {"id": "1020"}, {"id": "1021"}, {"id": "1022"}, {"id": "1023"}]}, "id": "1025", "type": "Toolbar"}, {"attributes": {"bottom": {"value": 0}, "fill_alpha": {"value": 0.6}, "fill_color": {"value": "#1f77b4"}, "left": {"field": "left"}, "line_alpha": {"value": 0.6}, "line_color": {"value": "#1f77b4"}, "right": {"field": "right"}, "top": {"field": "top"}}, "id": "1040", "type": "Quad"}, {"attributes": {"line_alpha": 0.1, "line_color": "red", "line_width": 1.5}, "id": "1036", "type": "Line"}, {"attributes": {"source": {"id": "1046"}}, "id": "1050", "type": "CDSView"}, {"attributes": {"text_align": "center", "text_color": {"value": "black"}}, "id": "1047", "type": "Text"}, {"attributes": {}, "id": "1018", "type": "PanTool"}, {"attributes": {"text": ""}, "id": "1051", "type": "Title"}, {"attributes": {"data": {"left": [-7500, -7250, -7000, -6750, -6500, -6250, -6000, -5750, -5500, -5250, -5000, -4750, -4500, -4250, -4000, -3750, -3500, -3250, -3000, -2750, -2500, -2250, -2000, -1750, -1500, -1250, -1000, -950, -900, -850, -800, -750, -700, -650, -600, -550, -500, -450, -400, -350, -300, -250, -200, -150, -100, -50, 0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3250, 3500, 3750, 4000, 4250, 4500, 4750, 5000, 5250, 5500, 5750, 6000, 6250, 6500, 6750, 7000, 7250], "right": [-7250, -7000, -6750, -6500, -6250, -6000, -5750, -5500, -5250, -5000, -4750, -4500, -4250, -4000, -3750, -3500, -3250, -3000, -2750, -2500, -2250, -2000, -1750, -1500, -1250, -1000, -950, -900, -850, -800, -750, -700, -650, -600, -550, -500, -450, -400, -350, -300, -250, -200, -150, -100, -50, 0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3250, 3500, 3750, 4000, 4250, 4500, 4750, 5000, 5250, 5500, 5750, 6000, 6250, 6500, 6750, 7000, 7250, 7500], "top": {"__ndarray__": "mpmZmZmZyT+amZmZmZnJP5qZmZmZmek/MzMzMzMz4z+amZmZmZnpPzMzMzMzMyNAAAAAAAAA8D+amZmZmZnpP8zMzMzMzPw/MzMzMzMzA0AzMzMzMzPzP8zMzMzMzPw/mpmZmZmZ6T/MzMzMzMz8PzMzMzMzMwNAMzMzMzMz8z/MzMzMzMwMQGZmZmZmZhJAmZmZmZmZEUCamZmZmZkVQAAAAAAAABhANDMzMzMzF0BmZmZmZmYeQDMzMzMzMyFAmpmZmZmZJUAzMzMzMzMpQAAAAAAAADNAAAAAAAAAMUAAAAAAAAAqQAAAAAAAADdAAAAAAAAAM0AAAAAAAAA7QAAAAAAAADJAAAAAAAAANkAAAAAAAAA6QAAAAAAAADNAAAAAAAAAREAAAAAAAABBQAAAAAAAQFBA//////83jEAAAAAAAMBiQAAAAAAAYGBAAAAAAAAgbkABAAAAAAB8QAAAAAAA4JVA//////9/TEAAAAAAAEBvQAAAAAAAzJRAAAAAAADAgUAAAAAAAEB0QAAAAAAAQGdAAAAAAADAb0ABAAAAAPCPQAEAAAAAAFxAAAAAAAAAWEAAAAAAAEBSQAAAAAAAQFFAAAAAAACATkAAAAAAAIBNQAAAAAAAwFBAAAAAAAAAUEAAAAAAAABGQAAAAAAAgEJAAQAAAAAAPEAAAAAAAABBQAAAAAAAADtAAAAAAAAAOECamZmZmZkwQDQzMzMzMytAZmZmZmZmJEDNzMzMzMwiQDMzMzMzMyNAAAAAAAAAIEA0MzMzMzMXQGdmZmZmZhZAzczMzMzMEEBnZmZmZmYGQDQzMzMzMwtAZmZmZmZmDkBnZmZmZmYGQGdmZmZmZvY/MzMzMzMz4z9nZmZmZmb2PzMzMzMzM+M/MzMzMzMz4z+amZmZmZkZQGZmZmZmZg5AAAAAAAAA8D+amZmZmZnpP5qZmZmZmek/AAAAAAAA8D+amZmZmZnpPw==", "dtype": "float64", "order": "little", "shape": [92]}}, "selected": {"id": "1062"}, "selection_policy": {"id": "1061"}}, "id": "1039", "type": "ColumnDataSource"}, {"attributes": {"axis": {"id": "1014"}, "dimension": 1, "ticker": null}, "id": "1017", "type": "Grid"}, {"attributes": {}, "id": "1015", "type": "BasicTicker"}, {"attributes": {}, "id": "1008", "type": "LinearScale"}, {"attributes": {"source": {"id": "1034"}}, "id": "1038", "type": "CDSView"}, {"attributes": {}, "id": "1058", "type": "BasicTicker"}, {"attributes": {}, "id": "1023", "type": "HelpTool"}, {"attributes": {"data_source": {"id": "1034"}, "glyph": {"id": "1035"}, "hover_glyph": null, "muted_glyph": null, "nonselection_glyph": {"id": "1036"}, "selection_glyph": null, "view": {"id": "1038"}, "y_range_name": "prcrec"}, "id": "1037", "type": "GlyphRenderer"}, {"attributes": {"source": {"id": "1039"}}, "id": "1043", "type": "CDSView"}, {"attributes": {}, "id": "1022", "type": "ResetTool"}, {"attributes": {}, "id": "1053", "type": "BasicTickFormatter"}, {"attributes": {"data": {"x": {"__ndarray__": "AAAAAADPvMAAAAAAANW7wAAAAAAA27rAAAAAAADhucAAAAAAAOe4wAAAAAAA7bfAAAAAAADztsAAAAAAAPm1wAAAAAAA/7TAAAAAAAAFtMAAAAAAAAuzwAAAAAAAEbLAAAAAAAAXscAAAAAAAB2wwAAAAAAARq7AAAAAAABSrMAAAAAAAF6qwAAAAAAAaqjAAAAAAAB2psAAAAAAAIKkwAAAAAAAjqLAAAAAAACaoMAAAAAAAEydwAAAAAAAZJnAAAAAAAB8lcAAAAAAAJSRwAAAAAAAeI7AAAAAAADojMAAAAAAAFiLwAAAAAAAyInAAAAAAAA4iMAAAAAAAKiGwAAAAAAAGIXAAAAAAACIg8AAAAAAAPiBwAAAAAAAaIDAAAAAAACwfcAAAAAAAJB6wAAAAAAAcHfAAAAAAABQdMAAAAAAADBxwAAAAAAAIGzAAAAAAADgZcAAAAAAAEBfwAAAAAAAwFLAAAAAAAAAOcAAAAAAAAA5QAAAAAAAwFJAAAAAAABAX0AAAAAAAOBlQAAAAAAAIGxAAAAAAAAwcUAAAAAAAFB0QAAAAAAAcHdAAAAAAACQekAAAAAAALB9QAAAAAAAaIBAAAAAAAD4gUAAAAAAAIiDQAAAAAAAGIVAAAAAAACohkAAAAAAADiIQAAAAAAAyIlAAAAAAABYi0AAAAAAAOiMQAAAAAAAeI5AAAAAAACUkUAAAAAAAHyVQAAAAAAAZJlAAAAAAABMnUAAAAAAAJqgQAAAAAAAjqJAAAAAAACCpEAAAAAAAHamQAAAAAAAaqhAAAAAAABeqkAAAAAAAFKsQAAAAAAARq5AAAAAAAAdsEAAAAAAABexQAAAAAAAEbJAAAAAAAALs0AAAAAAAAW0QAAAAAAA/7RAAAAAAAD5tUAAAAAAAPO2QAAAAAAA7bdAAAAAAADnuEAAAAAAAOG5QAAAAAAA27pAAAAAAADVu0AAAAAAAM+8QA==", "dtype": "float64", "order": "little", "shape": [92]}, "y": {"__ndarray__": "AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPx90VOCLq+8/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/tx6F61G47j8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D/v9/v9fr/vP9/yLd/yLe8/AAAAAAAA8D+3HoXrUbjuP+lNb3rTm+4/AAAAAAAA8D86pCYYb2XvPynyWTeYIu8/0hf0BX1B7z9fX19fX1/vP2ZmZmZmZu4/AAAAAAAA8D/4GSV+RonvPwrtJbSX0O4/Ejwo3DLX7z/8Tf4mf5PvP0YXXXTRRe8/IUBPOLwF7z84H4PzMTjvP5xyu7+Dy+4/AAAAAAAA8D/g7/f7/X7vP4k74o64I+4/120EmzHI7j/muQSyhtHuP7qH7qF76O4/wB/wB/wB7z8AAAAAAMDvP2SIDvdn5+0/f9BRgS+u7j8EnTbQaQPtP+QMCy6V7e0/eOkmMQis7D8bymsor6HsP3TlAck6V+4/f9/3fd/37T+86U1vetPrP8+6wRT5rOs/1AjLPY2w7D8WXXTRRRftPwAAAAAAAPA/mJ9FMU657T8YUM9UrjvuP6WlpaWlpe0/DYl5O0Ni7j9fXP2gowLvP0jasQJhpO0/uzU/LFIG7j9XBA0ndV/uPxdddNFFF+0/ZmZmZmZm7j8K7SW0l9DuP3zWDabIZ+0/KfJZN5gi7z8AAAAAAADwPwAAAAAAAPA/VlVVVVVV5T8AAAAAAADwP9u2bdu2bes/AAAAAAAA8D8AAAAAAADwP9/yLd/yLe8/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8cx3Ecx3HsPw==", "dtype": "float64", "order": "little", "shape": [92]}}, "selected": {"id": "1060"}, "selection_policy": {"id": "1059"}}, "id": "1034", "type": "ColumnDataSource"}, {"attributes": {}, "id": "1057", "type": "BasicTickFormatter"}, {"attributes": {}, "id": "1032", "type": "Range1d"}, {"attributes": {}, "id": "1021", "type": "SaveTool"}, {"attributes": {}, "id": "1006", "type": "LinearScale"}, {"attributes": {"line_alpha": 0.4, "line_color": "red", "line_width": 1.5}, "id": "1035", "type": "Line"}, {"attributes": {"overlay": {"id": "1024"}}, "id": "1020", "type": "BoxZoomTool"}, {"attributes": {"axis_label": "SV length / nucleotides", "formatter": {"id": "1055"}, "ticker": {"id": "1011"}}, "id": "1010", "type": "LinearAxis"}, {"attributes": {}, "id": "1019", "type": "WheelZoomTool"}, {"attributes": {}, "id": "1063", "type": "UnionRenderers"}, {"attributes": {"axis_label": "f1-score", "formatter": {"id": "1057"}, "ticker": {"id": "1058"}, "y_range_name": "prcrec"}, "id": "1033", "type": "LinearAxis"}, {"attributes": {"bounds": [0, 1400.0], "end": 1400.0}, "id": "1045", "type": "Range1d"}, {"attributes": {}, "id": "1062", "type": "Selection"}, {"attributes": {}, "id": "1011", "type": "BasicTicker"}, {"attributes": {"axis": {"id": "1010"}, "ticker": null}, "id": "1013", "type": "Grid"}, {"attributes": {"bottom": {"value": 0}, "fill_alpha": {"value": 0.1}, "fill_color": {"value": "#1f77b4"}, "left": {"field": "left"}, "line_alpha": {"value": 0.1}, "line_color": {"value": "#1f77b4"}, "right": {"field": "right"}, "top": {"field": "top"}}, "id": "1041", "type": "Quad"}], "root_ids": ["1001"]}, "title": "Bokeh Application", "version": "2.2.3"}};
+  var render_items = [{"docid":"334f7e51-389b-4dac-9292-0997b96e0e8d","root_ids":["1001"],"roots":{"1001":"dca0091f-a7f7-4765-bd85-218bd3c33e96"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+</script>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The plot depicts a histogram of the lengths of SVs within the truth set for both deletions (negative lengths) and insertions (positive lengths).
+We plot also the f1-score (red line, right-hand scale) across the length range. At longer lengths the f1-score trace becomes appreciably noisy for
+insertion calls. A factor in this is the low number of variant calls within both the truthset and the callset: any discrepancy between the two
+datasets can lead to a large deviation from f1-score equaling unity. We might ask ourselves whether this indicates that the callset contains
+errors at longer read lengths? To answer this question, we should keep in mind the recommendation from the GIAB project:</p>
+<blockquote><p><em>We recommend using these calls critically, since they may contain false positives, false negatives, and inaccurate breakpoints and sequence predictions</em></p>
+</blockquote>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="SV-Visualisation">SV Visualisation<a class="anchor-link" href="#SV-Visualisation">&#182;</a></h2><p>We will now look at some examplar individual variants using a genome viewer. For convenience we have created small subsets of the alignments to save downloading the full alignment file (~77GB). The EPI2MELabs environment notebook environment has the power to access the popular <a href="https://github.com/igvteam/igv.js">Integrative Genomics Viewer</a> for viewing genomics data.</p>
+<p>Let us first download the focussed alignment data:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># These alignments were generated with:</span>
+<span class="c1">#      samtools view -hb &lt;alignment&gt; &gt; &lt;sample_alignment&gt;.bam &amp;&amp; samtools index &lt;sample_alignment&gt;.bam</span>
+<span class="n">bucket_url</span> <span class="o">=</span> <span class="s2">&quot;https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com/sv_benchmarking/&quot;</span>
+
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;PAG07162-hg37_lra-del-1_152544151-152602785.bam&quot;</span><span class="p">,</span> <span class="s2">&quot;PAG07162-hg37_lra-small_del-5_1481729-1483822.bam&quot;</span><span class="p">]:</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bucket_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">working_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="o">!</span>wget --no-clobber -O <span class="s2">&quot;</span><span class="nv">$path</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span>
+    <span class="o">!</span>wget --no-clobber -O <span class="s2">&quot;</span><span class="nv">$path</span><span class="s2">&quot;</span>.bai <span class="s2">&quot;</span><span class="nv">$url</span><span class="s2">&quot;</span>.bai
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The code cell below will initialise the genome viewer loading the variant calls and truth set.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create and display the genome viewer</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">igv_jupyterlab</span> <span class="kn">import</span> <span class="n">IGV</span>
+
+<span class="n">genome</span> <span class="o">=</span> <span class="n">IGV</span><span class="o">.</span><span class="n">create_genome</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Human (GRCh37)&quot;</span><span class="p">,</span>
+    <span class="n">fasta_url</span><span class="o">=</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/human_g1k_v37.fasta&quot;</span><span class="p">,</span>
+    <span class="n">index_url</span><span class="o">=</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/human_g1k_v37.fasta.fai&quot;</span><span class="p">)</span>
+
+<span class="n">vcf_track</span> <span class="o">=</span> <span class="n">IGV</span><span class="o">.</span><span class="n">create_track</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Called variants&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;vcf&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;variant&quot;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/PAG07162-hg37_cutesv_filtered_dup2ins.vcf.gz&quot;</span><span class="p">,</span>
+    <span class="n">index_url</span><span class="o">=</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/PAG07162-hg37_cutesv_filtered_dup2ins.vcf.gz.tbi&quot;</span><span class="p">,</span>
+    <span class="n">autoHeight</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">minHeight</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">maxHeight</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="n">truth_track</span> <span class="o">=</span> <span class="n">IGV</span><span class="o">.</span><span class="n">create_track</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;HG002 SV Tier1 variants&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;vcf&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;variant&quot;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/HG002_SVs_Tier1_v0.6.vcf.gz&quot;</span><span class="p">,</span>
+    <span class="n">index_url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/HG002_SVs_Tier1_v0.6.vcf.gz.tbi&quot;</span><span class="p">,</span>
+    <span class="n">autoHeight</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">minHeight</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">maxHeight</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="n">bed_track</span> <span class="o">=</span> <span class="n">IGV</span><span class="o">.</span><span class="n">create_track</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Confidence region&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;bed&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;annotation&quot;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/HG002_SVs_Tier1_v0.6.bed&quot;</span><span class="p">,</span>
+    <span class="n">displayMode</span><span class="o">=</span><span class="s1">&#39;EXPANDED&#39;</span><span class="p">,</span> <span class="n">autoHeight</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">minHeight</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">maxHeight</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">igv</span> <span class="o">=</span> <span class="n">IGV</span><span class="p">(</span><span class="n">genome</span><span class="o">=</span><span class="n">genome</span><span class="p">,</span> <span class="n">tracks</span><span class="o">=</span><span class="p">[</span><span class="n">bed_track</span><span class="p">,</span> <span class="n">vcf_track</span><span class="p">,</span> <span class="n">truth_track</span><span class="p">])</span>
+<span class="n">igv</span>
 </pre></div>
 
      </div>
@@ -14508,12 +15681,12 @@ a.anchor-link {
 
 
 
-<div id="ef8d9d9a-b5f3-4fe4-811e-6cc562a755ec" class="jupyter-widgets jp-OutputArea-output ">
+<div id="01416ef0-e9f6-40d5-a744-79609f5c3884" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('ef8d9d9a-b5f3-4fe4-811e-6cc562a755ec');
+var element = document.getElementById('01416ef0-e9f6-40d5-a744-79609f5c3884');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "7c6a46ad490346c9b244134a4374a95a", "version_major": 2, "version_minor": 0}
+{"model_id": "3feafa40eb03456eb06d1a724a44b421", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14526,14 +15699,84 @@ var element = document.getElementById('ef8d9d9a-b5f3-4fe4-811e-6cc562a755ec');
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>When the above code has finished executing a table will be displayed detailing the number of regions of interest.</p>
-<p>Also shown are paths to the output files:</p>
-<ol>
-<li>A reference genome (to provide to MinKNOW)</li>
-<li>The source <code>.gtf</code> file from which target regions were produced.</li>
-<li>A <code>.bed</code> file containing target regions to provide to MinKNOW.</li>
-</ol>
-<p>These can be downloaded through your web browser by using the filebrowser to the left-hand side of this page.</p>
+<h4 id="Case-study-1:-a-heterozygous-deletion-variant">Case study 1: a heterozygous deletion variant<a class="anchor-link" href="#Case-study-1:-a-heterozygous-deletion-variant">&#182;</a></h4><p>Running the code cell below will cause the genome browser above to display the region around a heterozygous deletion variant of the truthset:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Move IGV to large deletion example (click play)</span>
+<span class="n">igv</span><span class="o">.</span><span class="n">remove_track</span><span class="p">(</span><span class="s2">&quot;fp_example&quot;</span><span class="p">)</span>
+<span class="n">igv</span><span class="o">.</span><span class="n">remove_track</span><span class="p">(</span><span class="s2">&quot;del_example&quot;</span><span class="p">)</span>
+<span class="n">del_bam_track</span> <span class="o">=</span> <span class="n">IGV</span><span class="o">.</span><span class="n">create_track</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;del_example&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;bam&quot;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/PAG07162-hg37_lra-del-1_152544151-152602785.bam&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;alignment&quot;</span><span class="p">,</span>
+    <span class="n">index_url</span><span class="o">=</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/PAG07162-hg37_lra-del-1_152544151-152602785.bam.bai&quot;</span><span class="p">,</span>
+    <span class="n">colorBy</span><span class="o">=</span><span class="s1">&#39;strand&#39;</span><span class="p">,</span>
+    <span class="n">showMismatches</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">insertionColor</span><span class="o">=</span><span class="s2">&quot;lilac&quot;</span><span class="p">)</span>
+
+<span class="n">igv</span><span class="o">.</span><span class="n">locus</span> <span class="o">=</span> <span class="s2">&quot;1:152,549,084-152,566,584&quot;</span>
+<span class="n">igv</span><span class="o">.</span><span class="n">load_track</span><span class="p">(</span><span class="n">del_bam_track</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>That the variant is called correctly by the calling pipeline is evidenced by the <code>Called variants</code> and <code>HG002 SV Tier1 variants</code> (the truth set) tracks: blue bars are show in each track. The dark blue bar indicates the presence of a variant while the lighter blue indicate that the genotype as being heterozygous.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Case-study-2:-a-true-variant-missing-from-the-truth-set">Case study 2: a true variant missing from the truth set<a class="anchor-link" href="#Case-study-2:-a-true-variant-missing-from-the-truth-set">&#182;</a></h4><p>The previous discussion regarding the truth set elucidated how the set might be fallible. The code cell below will move the genome browser to
+a region around a variant call made my the pipeline which truvari has labelled as a false positive: a variant which is not present in the truth set. The alledged false positive call is a 76 pair deletion. This deletion was investigated independently and has been validated via orthogonal methods and found to be similarly present. That is to say in this case the truth set is incorrectly missing this variant.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Move IGV to variant missing from truth set (click play)</span>
+<span class="n">igv</span><span class="o">.</span><span class="n">remove_track</span><span class="p">(</span><span class="s2">&quot;fp_example&quot;</span><span class="p">)</span>
+<span class="n">igv</span><span class="o">.</span><span class="n">remove_track</span><span class="p">(</span><span class="s2">&quot;del_example&quot;</span><span class="p">)</span>
+<span class="n">fp_example_bam_track</span> <span class="o">=</span> <span class="n">IGV</span><span class="o">.</span><span class="n">create_track</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;fp_example&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;bam&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;alignment&quot;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/PAG07162-hg37_lra-small_del-5_1481729-1483822.bam&quot;</span><span class="p">,</span>
+    <span class="n">index_url</span><span class="o">=</span><span class="s2">&quot;/files/epi2melabs/sv_benchmarking/PAG07162-hg37_lra-small_del-5_1481729-1483822.bam.bai&quot;</span><span class="p">,</span>
+    <span class="n">colorBy</span><span class="o">=</span><span class="s1">&#39;strand&#39;</span><span class="p">,</span>
+    <span class="n">showMismatches</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">insertionColor</span><span class="o">=</span><span class="s2">&quot;lilac&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">igv</span><span class="o">.</span><span class="n">load_track</span><span class="p">(</span><span class="n">fp_example_bam_track</span><span class="p">)</span>
+<span class="n">igv</span><span class="o">.</span><span class="n">locus</span> <span class="o">=</span> <span class="s2">&quot;5:1482400-1483000&quot;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>In this tutorial we have demonstrated how Oxford Nanopore Technologies performs benchmarking of structural variant calling. The methods presented
+follow those outlined by the Genome in a Bottle project. The tutorial is provided as an accompaniment to the
+<a href="https://nanoporetech.github.io/ont-open-datasets/gm24385_2020.11/">November 2020 GM24385 Dataset Release</a> of the
+Oxford Nanopore Technologies Open Data website.</p>
+<p>We have shown the tools used by Oxford Nanopore Technologies to assess the veracity of variant callers and to aid the development of new and improved methodologies.</p>
 
 </div>
 </div>
