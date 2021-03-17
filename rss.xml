@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 12 Mar 2021 18:14:42 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 17 Mar 2021 19:03:35 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
 framework: Nextflow enables scalable and…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Mon, 07 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2ME Labs Workflows Quick Start Guide&lt;/h1&gt;
 &lt;p&gt;EPI2ME Labs workflow are built using the &lt;a href=&quot;https://www.nextflow.io/&quot;&gt;nextflow&lt;/a&gt; workflow
 framework:&lt;/p&gt;
@@ -160,7 +160,64 @@ docker build \
 &lt;li&gt;&lt;a href=&quot;https://www.nextflow.io/&quot;&gt;nextflow&lt;/a&gt; The workflow management system used by EPI2ME Labs workflows.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.docker.com/products/docker-desktop&quot;&gt;docker&lt;/a&gt; A software container platform that can be optionally used by EPI2ME Labs.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://docs.conda.io/en/latest/miniconda.html&quot;&gt;conda&lt;/a&gt; A software package manager that can be optionally used by workflows.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs Embraces Nextflow]]></title><description><![CDATA[We are excited to launch a new bioinformatics offering using the Nextflow
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Running epi2me labs on remote computers]]></title><description><![CDATA[Introduction to running things remotely This blog post is a short introduction to running epi2me labs on a remote machine that you have…]]></description><link>https://labs.epi2me.io/ssh/</link><guid isPermaLink="false">https://labs.epi2me.io/ssh/</guid><pubDate>Wed, 17 Mar 2021 18:37:00 GMT</pubDate><content:encoded>&lt;h3&gt;Introduction to running things remotely&lt;/h3&gt;
+&lt;p&gt;This blog post is a short introduction to running epi2me labs on a remote machine that you have access to.&lt;br&gt;
+This means you can still use the straight forward graphical interface for running the applications while utilising the
+greater compute power available on these remote servers.&lt;br&gt;
+This is useful for those who have a separate computer that is more powerful than the one they’re currently operating.
+This is a common setup in research institutions where you may have a less powerful work laptop and access to a much more
+powerful server for running more intensive software. (It is also possible to use this to bypass more stringent network controls!)&lt;/p&gt;
+&lt;p&gt;To do this we will be using &lt;code class=&quot;language-text&quot;&gt;ssh&lt;/code&gt;.  SSH (Secure Shell) is a method that enables you to run commands on a remote machine from your local machine safely.
+This can be achieved using an ssh client -  a program that can establish this kind of connection. UNIX-style systems e.g.
+OSX/ubuntu etc can create an SSH tunnel via the command ssh. 
+If you habitually run software on a separate server then you will already be familiar with this command to connect to a terminal on your server:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# ssh &amp;lt;server&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; myserver&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With some additional arguments you can set this up so that information that is exposed on a particular port is presented on your host
+machine as if it were your remote machine. &lt;/p&gt;
+&lt;h3&gt;Setting up an SSH Tunnel for EPI2ME Labs&lt;/h3&gt;
+&lt;p&gt;It is important that the port that you provide is not currently being used by something else.
+This means that if you are running the EPI2MELabs Launcher on your local machine then you will need to change some of the configuration
+if you want to run the remote version at the same time.  This will be discussed below.&lt;/p&gt;
+&lt;p&gt;EPI2MELabs Launcher by default uses two ports, 8888 and 8889. 
+This can be customised in the GUI version of the launcher in the settings/preferences dialogue. 
+We build on the first ssh command by adding a couple of command line args and port information. 
+This:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-X&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;-Y&lt;/code&gt;: Tells your remote machine that you want the application displays from your remote machine on your local machine (X11 forwarding).  Please note that -X is more secure but might render things slower, -Y is faster but less secure, you should only use this on servers that you trust as much as your local machine.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-L&lt;/code&gt; Connect specific ports e.g.  so that when you look at 8888 in your browser you are actually looking at what 8888 is displaying -on your remote machine. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# -X Enables X11 forwarding&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# -L Which port/sockets to on the local (client) host are to be forwarded to the remote machine&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# destination &lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; -X -L &lt;span class=&quot;token number&quot;&gt;8888&lt;/span&gt;:localhost:8888 -L &lt;span class=&quot;token number&quot;&gt;8889&lt;/span&gt;:localhost:8889 myserver&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Troubleshooting (skip this step if launcher window loads correctly)&lt;/h3&gt;
+&lt;p&gt;If you run this command and the launcher window does not appear on your host machine and you get the error message:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Error: Can&apos;t &lt;span class=&quot;token function&quot;&gt;open&lt;/span&gt; display: &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This means that is isn’t sure where to display the GUI window.&lt;br&gt;
+One way to achieve this is to tell the terminal that you want your GUI to display on your monitor. 
+We do this by assigning a value to the environment variable DISPLAY. 
+Because we only want this value to change while running this command and not change the environment
+variable on your host machine in general we don’t export the variable but prepend the assignment
+to the ssh command (see example below).&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# &amp;lt;VARIABLE&amp;gt;=&amp;lt;VALUE&amp;gt; &amp;lt;COMMAND&amp;gt;
+DISPLAY=:0 ssh...
+So the final command will be:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE:&lt;/em&gt;&lt;/strong&gt; Remember to replace myserver with your server address!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;DISPLAY=:0 ssh -Y -L 8888:localhost:8888 -L 8889:localhost:8889 myserver&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If this doesn’t work please contact your local IT department as there may be custom configurations peculiar to your setup to be made.&lt;/p&gt;
+&lt;h3&gt;Navigating to the EPI2ME Labs landing page&lt;/h3&gt;
+&lt;p&gt;Then once you are on the remote machine, run the launcher as you would do normally. You can run the headless or GUI version of the launcher and connect to it like you would normally in your browser.&lt;/p&gt;
+&lt;p&gt;Open your web browser and go to:&lt;/p&gt;
+&lt;p&gt;(&lt;a href=&quot;https://localhost:8888&quot;&gt;https://localhost:8888&lt;/a&gt;)[https://localhost:8888]&lt;/p&gt;
+&lt;p&gt;If your launcher is running you should be now faced with the jupyter login page.  You need to enter the token for your launcher.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE:&lt;/em&gt;&lt;/strong&gt; The default token is “EPI2MELabs” however we recommend that you change this when appropriate.&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs Embraces Nextflow]]></title><description><![CDATA[We are excited to launch a new bioinformatics offering using the Nextflow
 reactive workflow framework. Nextflow has been selected as a…]]></description><link>https://labs.epi2me.io/nextflow/</link><guid isPermaLink="false">https://labs.epi2me.io/nextflow/</guid><pubDate>Wed, 10 Mar 2021 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are excited to launch a new bioinformatics offering using the &lt;a href=&quot;https&quot;&gt;Nextflow&lt;/a&gt;
 reactive workflow framework. Nextflow has been selected as a preferred
 framework because of its integration with container technologies, software
