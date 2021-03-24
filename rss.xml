@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 23 Mar 2021 16:52:04 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 24 Mar 2021 10:06:56 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
 framework: Nextflow enables scalable and…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Mon, 07 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2ME Labs Workflows Quick Start Guide&lt;/h1&gt;
 &lt;p&gt;EPI2ME Labs workflow are built using the &lt;a href=&quot;https://www.nextflow.io/&quot;&gt;nextflow&lt;/a&gt; workflow
 framework:&lt;/p&gt;
@@ -321,24 +321,30 @@ Github repository hosting the workflow and a sample workflow report.&lt;/p&gt;
 process of mapping sequence reads to a reference genome and preparing summary
 statistics. It can also analyse the abundance of known molarity control
 experiments and use this information to derive the abundances of other species
-present in the sample. (&lt;a href=&quot;/workflows/wf-alignment.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
+present in the sample. (&lt;a href=&quot;/workflows/wf-alignment-report.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Variant Calling&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.github.com/epi2me-labs/wf-hap-snps&quot;&gt;wf-hap-snps&lt;/a&gt;: a workflow for
-running small variant calling and annotation in haploid samples. (&lt;a href=&quot;/workflows/wf-hap-snps.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
+running small variant calling and annotation in haploid samples. (&lt;a href=&quot;/workflows/wf-hap-snps-report.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Assembly&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.github.com/epi2me-labs/wf-hap-snps&quot;&gt;wf-plasmid&lt;/a&gt;: assembly
+of small plasmid sequences, for verifying the results of molecular
+cloning experiments. (&lt;a href=&quot;/workflows/wf-plasmid-report.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Metagenomics&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/epi2me-labs/wf-metagenomics&quot;&gt;wf-metagenomics&lt;/a&gt; includes the &lt;a href=&quot;https://ccb.jhu.edu/software/centrifuge/&quot;&gt;Centrifuge&lt;/a&gt; software and appropriate
 indexes to facilitate the taxonomic classification of sequence reads from
-metagenome samples. (&lt;a href=&quot;/workflows/wf-metagenomics.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
+metagenome samples. (&lt;a href=&quot;/workflows/wf-metagenomics-report.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Miscellaneous&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.github.com/epi2me-labs/wf-artic&quot;&gt;wf-artic&lt;/a&gt;: a nextflow workflow for
 running the ARTIC SARS-CoV-2 workflow on multiplexed MinION, GridION, and
-PromethION runs. (&lt;a href=&quot;/workflows/wf-artic.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
+PromethION runs. (&lt;a href=&quot;/workflows/wf-artic-report.html&quot;&gt;Sample report&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs 21.02 Release]]></title><description><![CDATA[We are delighted to release this month’s update to EPI2ME Labs. The 2021-02.01
 release addresses some Community feedback and introduces new…]]></description><link>https://labs.epi2me.io/release21.02/</link><guid isPermaLink="false">https://labs.epi2me.io/release21.02/</guid><pubDate>Wed, 10 Feb 2021 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;We are delighted to release this month’s update to EPI2ME Labs. The 2021-02.01
 release addresses some Community feedback and introduces new and updated
