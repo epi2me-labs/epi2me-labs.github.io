@@ -39,21 +39,27 @@ For more information on running workflows see our [Workflow Quick Start Guide](/
   process of mapping sequence reads to a reference genome and preparing summary
   statistics. It can also analyse the abundance of known molarity control
   experiments and use this information to derive the abundances of other species
-  present in the sample. ([Sample report](/workflows/wf-alignment.html))
+  present in the sample. ([Sample report](/workflows/wf-alignment-report.html))
 
 ### Variant Calling
 
 * [wf-hap-snps](https://www.github.com/epi2me-labs/wf-hap-snps): a workflow for
-  running small variant calling and annotation in haploid samples. ([Sample report](/workflows/wf-hap-snps.html))
+  running small variant calling and annotation in haploid samples. ([Sample report](/workflows/wf-hap-snps-report.html))
+
+### Assembly
+
+* [wf-plasmid](https://www.github.com/epi2me-labs/wf-hap-snps): assembly
+  of small plasmid sequences, for verifying the results of molecular
+  cloning experiments. ([Sample report](/workflows/wf-plasmid-report.html))
 
 ### Metagenomics
 
 * [wf-metagenomics](https://github.com/epi2me-labs/wf-metagenomics) includes the [Centrifuge](https://ccb.jhu.edu/software/centrifuge/) software and appropriate
   indexes to facilitate the taxonomic classification of sequence reads from
-  metagenome samples. ([Sample report](/workflows/wf-metagenomics.html))
+  metagenome samples. ([Sample report](/workflows/wf-metagenomics-report.html))
 
 ### Miscellaneous
 
 * [wf-artic](https://www.github.com/epi2me-labs/wf-artic): a nextflow workflow for
   running the ARTIC SARS-CoV-2 workflow on multiplexed MinION, GridION, and
-  PromethION runs. ([Sample report](/workflows/wf-artic.html))
+  PromethION runs. ([Sample report](/workflows/wf-artic-report.html))
