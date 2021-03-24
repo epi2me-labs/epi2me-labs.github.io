@@ -48,9 +48,9 @@ For more information on running workflows see our [Workflow Quick Start Guide](/
 
 ### Assembly
 
-* [wf-plasmid](https://www.github.com/epi2me-labs/wf-hap-snps): assembly
+* [wf-clone-validation](https://www.github.com/epi2me-labs/wf-clone-validation): assembly
   of small plasmid sequences, for verifying the results of molecular
-  cloning experiments. ([Sample report](/workflows/wf-plasmid-report.html))
+  cloning experiments. ([Sample report](/workflows/wf-clone-validation.html))
 
 ### Metagenomics
 
