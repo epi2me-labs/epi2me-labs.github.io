@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 08 Apr 2021 10:17:31 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2MELabs]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 19 Apr 2021 15:11:57 GMT</lastBuildDate><item><title><![CDATA[Workflow Quick Start Guide]]></title><description><![CDATA[EPI2ME Labs Workflows Quick Start Guide EPI2ME Labs workflow are built using the nextflow workflow
 framework: Nextflow enables scalable and…]]></description><link>https://labs.epi2me.io/</link><guid isPermaLink="false">https://labs.epi2me.io/</guid><pubDate>Mon, 07 Mar 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;EPI2ME Labs Workflows Quick Start Guide&lt;/h1&gt;
 &lt;p&gt;EPI2ME Labs workflow are built using the &lt;a href=&quot;https://www.nextflow.io/&quot;&gt;nextflow&lt;/a&gt; workflow
 framework:&lt;/p&gt;
@@ -1639,31 +1639,31 @@ server. We provide executables for Windows 10, macOS, and Linux.&lt;/p&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Windows 10&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-installer-v1.0.8-win10.exe&quot;&gt;ont-epi2melabs-installer-v1.0.8-win10.exe&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-installer-v1.0.9-win10.exe&quot;&gt;ont-epi2melabs-installer-v1.0.9-win10.exe&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;macOS&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-v1.0.8-macos.dmg&quot;&gt;ont-epi2melabs-launcher-v1.0.8-macos.dmg&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-v1.0.9-macos.dmg&quot;&gt;ont-epi2melabs-launcher-v1.0.9-macos.dmg&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Ubuntu 16.04&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-0.xenial.deb&quot;&gt;ont-epi2melabs-launcher-1.0.8-0.xenial.deb&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-0.xenial.deb&quot;&gt;ont-epi2melabs-launcher-1.0.9-0.xenial.deb&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Ubuntu 18.04&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-0.bionic.deb&quot;&gt;ont-epi2melabs-launcher-1.0.8-0.bionic.deb&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-0.bionic.deb&quot;&gt;ont-epi2melabs-launcher-1.0.9-0.bionic.deb&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Ubuntu 20.04&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-0.focal.deb&quot;&gt;ont-epi2melabs-launcher-1.0.8-0.focal.deb&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-0.focal.deb&quot;&gt;ont-epi2melabs-launcher-1.0.9-0.focal.deb&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;CentOS 7&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-1.el7.x86_64.rpm&quot;&gt;ont-epi2melabs-launcher-1.0.8-1.el7.x86_64.rpm&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-1.el7.x86_64.rpm&quot;&gt;ont-epi2melabs-launcher-1.0.9-1.el7.x86_64.rpm&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;CentOS 8&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-1.el8.x86_64.rpm&quot;&gt;ont-epi2melabs-launcher-1.0.8-1.el8.x86_64.rpm&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-1.el8.x86_64.rpm&quot;&gt;ont-epi2melabs-launcher-1.0.9-1.el8.x86_64.rpm&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
