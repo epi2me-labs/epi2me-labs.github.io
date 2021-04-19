@@ -21,13 +21,13 @@ server. We provide executables for Windows 10, macOS, and Linux.
 
 | Platform     | Download                                                                                                                                                              |
 |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Windows 10   | [ont-epi2melabs-installer-v1.0.8-win10.exe](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-installer-v1.0.8-win10.exe)           |
-| macOS        | [ont-epi2melabs-launcher-v1.0.8-macos.dmg](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-v1.0.8-macos.dmg)             |
-| Ubuntu 16.04 | [ont-epi2melabs-launcher-1.0.8-0.xenial.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-0.xenial.deb)         |
-| Ubuntu 18.04 | [ont-epi2melabs-launcher-1.0.8-0.bionic.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-0.bionic.deb)         |
-| Ubuntu 20.04 | [ont-epi2melabs-launcher-1.0.8-0.focal.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-0.focal.deb)           |
-| CentOS 7     | [ont-epi2melabs-launcher-1.0.8-1.el7.x86_64.rpm](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-1.el7.x86_64.rpm) |
-| CentOS 8     | [ont-epi2melabs-launcher-1.0.8-1.el8.x86_64.rpm](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.8/ont-epi2melabs-launcher-1.0.8-1.el8.x86_64.rpm) |
+| Windows 10   | [ont-epi2melabs-installer-v1.0.9-win10.exe](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-installer-v1.0.9-win10.exe)           |
+| macOS        | [ont-epi2melabs-launcher-v1.0.9-macos.dmg](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-v1.0.9-macos.dmg)             |
+| Ubuntu 16.04 | [ont-epi2melabs-launcher-1.0.9-0.xenial.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-0.xenial.deb)         |
+| Ubuntu 18.04 | [ont-epi2melabs-launcher-1.0.9-0.bionic.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-0.bionic.deb)         |
+| Ubuntu 20.04 | [ont-epi2melabs-launcher-1.0.9-0.focal.deb](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-0.focal.deb)           |
+| CentOS 7     | [ont-epi2melabs-launcher-1.0.9-1.el7.x86_64.rpm](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-1.el7.x86_64.rpm) |
+| CentOS 8     | [ont-epi2melabs-launcher-1.0.9-1.el8.x86_64.rpm](https://github.com/epi2me-labs/labslauncher/releases/download/v1.0.9/ont-epi2melabs-launcher-1.0.9-1.el8.x86_64.rpm) |
 
 The launcher is written in Python with [Qt](https://www.qt.io/) and the
 sourcecode is available from GitHub:
