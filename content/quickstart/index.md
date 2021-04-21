@@ -122,7 +122,25 @@ The EPI2MELabs Launcher is most easily installed:
    ```
 2. Click on the Search your computer icon, and search for "EPI2ME". Then click
    on the **EPI2ME-Labs Server Control** icon. This will start the launcher.
+   
+#### Reinstallation of the Launcher on GridION and PromethION
 
+In the event you wish to reinstall the Launcher on GridION and PromethION it is 
+vital to run purge to remove the original version of the Launcher and its associated 
+configuration files.
+
+1. Copy and paste the following into the terminal window and press **Enter**:
+   ```
+   sudo apt purge ont-epi2melabs-launcher
+   sudo apt autoremove
+   ```
+2. Copy and paste the following into the terminal window and press **Enter**:
+   ```
+   sudo apt update
+   sudo apt install ont-epi2melabs-launcher
+   ```
+The first step removes the Launcher and any associated configuration files and dependencies 
+that are only required by the Launcher. The second step reinstalls the labslauncher.
 
 ### Installing the Launcher on Windows 10 and macOS
 
