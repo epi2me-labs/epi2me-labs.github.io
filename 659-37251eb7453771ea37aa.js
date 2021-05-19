@@ -1,2 +1,0 @@
-(self.webpackChunk_elegantstack_gatsby_starter_flexiblog_minimal_epi2melabs=self.webpackChunk_elegantstack_gatsby_starter_flexiblog_minimal_epi2melabs||[]).push([[659],{5659:function(e,t,a){"use strict";a.r(t);var l=a(7378),n=a(6495);t.default=function(){return(0,n.tZ)(l.Fragment,null)}}}]);
-//# sourceMappingURL=659-37251eb7453771ea37aa.js.map
