@@ -14551,11 +14551,11 @@ run the program several times it is useful to perform the conversion once ahead 
 
 <span class="o">!</span>cecho ok <span class="s2">&quot;Running hap.py with </span><span class="nv">$threads</span><span class="s2"> threads&quot;</span>
 <span class="o">!</span>run hap.py <span class="err">\</span>
-    <span class="n">HG002_GRCh38_1_22_v4</span><span class="o">.</span><span class="mi">1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span> \
+    <span class="n">HG002_GRCh38_1_22_v4</span><span class="mf">.1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span> \
     <span class="n">deepvariant</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span> \
-    <span class="o">-</span><span class="n">f</span> <span class="n">HG002_GRCh38_1_22_v4</span><span class="o">.</span><span class="mi">1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">bed</span> \
-    <span class="o">-</span><span class="n">r</span> <span class="n">GCA_000001405</span><span class="o">.</span><span class="mi">15</span><span class="n">_GRCh38_no_alt_analysis_set</span><span class="o">.</span><span class="n">fasta</span> \
-    <span class="o">--</span><span class="n">engine</span><span class="o">-</span><span class="n">vcfeval</span><span class="o">-</span><span class="n">template</span> <span class="n">GCA_000001405</span><span class="o">.</span><span class="mi">15</span><span class="n">_GRCh38_no_alt_analysis_set</span><span class="o">.</span><span class="n">fasta</span><span class="o">.</span><span class="n">sdf</span> \
+    <span class="o">-</span><span class="n">f</span> <span class="n">HG002_GRCh38_1_22_v4</span><span class="mf">.1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">bed</span> \
+    <span class="o">-</span><span class="n">r</span> <span class="n">GCA_000001405</span><span class="mf">.15</span><span class="n">_GRCh38_no_alt_analysis_set</span><span class="o">.</span><span class="n">fasta</span> \
+    <span class="o">--</span><span class="n">engine</span><span class="o">-</span><span class="n">vcfeval</span><span class="o">-</span><span class="n">template</span> <span class="n">GCA_000001405</span><span class="mf">.15</span><span class="n">_GRCh38_no_alt_analysis_set</span><span class="o">.</span><span class="n">fasta</span><span class="o">.</span><span class="n">sdf</span> \
     <span class="o">-</span><span class="n">o</span> <span class="n">happy_out</span> \
     <span class="o">--</span><span class="k">pass</span><span class="o">-</span><span class="n">only</span> <span class="o">-</span><span class="n">l</span> <span class="n">chr20</span> <span class="o">--</span><span class="n">engine</span><span class="o">=</span><span class="n">vcfeval</span> \
     <span class="o">--</span><span class="n">threads</span><span class="o">=</span><span class="err">$</span><span class="n">threads</span>
@@ -14981,7 +14981,7 @@ confound post-calling analysis.</p>
     <span class="o">!</span>gunzip -f <span class="nv">$basename</span>
     <span class="o">!</span>cecho ok <span class="s2">&quot;Running bedtools intersect&quot;</span>
     <span class="o">!</span>bedtools intersect <span class="err">\</span>
-        <span class="o">-</span><span class="n">a</span> <span class="n">HG002_GRCh38_1_22_v4</span><span class="o">.</span><span class="mi">1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">bed</span> \
+        <span class="o">-</span><span class="n">a</span> <span class="n">HG002_GRCh38_1_22_v4</span><span class="mf">.1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">bed</span> \
         <span class="o">-</span><span class="n">b</span> <span class="err">$</span><span class="n">unzipped</span> \
         <span class="o">&gt;</span> <span class="err">$</span><span class="n">outfile</span>
     <span class="o">!</span>cecho ok <span class="s2">&quot;Bedtools finished&quot;</span>
@@ -15039,17 +15039,17 @@ be defined as those considered to be regions of "<em>low mappability</em>". Agai
 
 <span class="o">!</span>cecho ok <span class="s2">&quot;Running hap.py with </span><span class="nv">$threads</span><span class="s2"> threads&quot;</span>
 <span class="o">!</span>run hap.py <span class="err">\</span>
-    <span class="n">HG002_GRCh38_1_22_v4</span><span class="o">.</span><span class="mi">1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span> \
+    <span class="n">HG002_GRCh38_1_22_v4</span><span class="mf">.1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span> \
     <span class="n">deepvariant</span><span class="o">.</span><span class="n">vcf</span><span class="o">.</span><span class="n">gz</span> \
-    <span class="o">-</span><span class="n">f</span> <span class="n">HG002_GRCh38_1_22_v4</span><span class="o">.</span><span class="mi">1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">bed</span> \
-    <span class="o">-</span><span class="n">r</span> <span class="n">GCA_000001405</span><span class="o">.</span><span class="mi">15</span><span class="n">_GRCh38_no_alt_analysis_set</span><span class="o">.</span><span class="n">fasta</span> \
-    <span class="o">--</span><span class="n">engine</span><span class="o">-</span><span class="n">vcfeval</span><span class="o">-</span><span class="n">template</span> <span class="n">GCA_000001405</span><span class="o">.</span><span class="mi">15</span><span class="n">_GRCh38_no_alt_analysis_set</span><span class="o">.</span><span class="n">fasta</span><span class="o">.</span><span class="n">sdf</span> \
+    <span class="o">-</span><span class="n">f</span> <span class="n">HG002_GRCh38_1_22_v4</span><span class="mf">.1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">bed</span> \
+    <span class="o">-</span><span class="n">r</span> <span class="n">GCA_000001405</span><span class="mf">.15</span><span class="n">_GRCh38_no_alt_analysis_set</span><span class="o">.</span><span class="n">fasta</span> \
+    <span class="o">--</span><span class="n">engine</span><span class="o">-</span><span class="n">vcfeval</span><span class="o">-</span><span class="n">template</span> <span class="n">GCA_000001405</span><span class="mf">.15</span><span class="n">_GRCh38_no_alt_analysis_set</span><span class="o">.</span><span class="n">fasta</span><span class="o">.</span><span class="n">sdf</span> \
     <span class="o">-</span><span class="n">o</span> <span class="n">happy_out</span><span class="o">.</span><span class="n">strats</span> \
     <span class="o">--</span><span class="k">pass</span><span class="o">-</span><span class="n">only</span> <span class="o">-</span><span class="n">l</span> <span class="n">chr20</span> <span class="o">--</span><span class="n">engine</span><span class="o">=</span><span class="n">vcfeval</span> \
     <span class="o">--</span><span class="n">threads</span><span class="o">=</span><span class="err">$</span><span class="n">threads</span> \
-    <span class="o">--</span><span class="n">stratification</span><span class="o">-</span><span class="n">region</span> <span class="n">low_complex</span><span class="p">:</span><span class="n">HG002_GRCh38_1_22_v4</span><span class="o">.</span><span class="mi">1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">norepeat</span><span class="o">.</span><span class="n">bed</span> \
-    <span class="o">--</span><span class="n">stratification</span><span class="o">-</span><span class="n">region</span> <span class="n">seq_dups</span><span class="p">:</span><span class="n">HG002_GRCh38_1_22_v4</span><span class="o">.</span><span class="mi">1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">segdups</span><span class="o">.</span><span class="n">bed</span> \
-    <span class="o">--</span><span class="n">stratification</span><span class="o">-</span><span class="n">region</span> <span class="n">low_map</span><span class="p">:</span><span class="n">HG002_GRCh38_1_22_v4</span><span class="o">.</span><span class="mi">1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">lowmap</span><span class="o">.</span><span class="n">bed</span>
+    <span class="o">--</span><span class="n">stratification</span><span class="o">-</span><span class="n">region</span> <span class="n">low_complex</span><span class="p">:</span><span class="n">HG002_GRCh38_1_22_v4</span><span class="mf">.1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">norepeat</span><span class="o">.</span><span class="n">bed</span> \
+    <span class="o">--</span><span class="n">stratification</span><span class="o">-</span><span class="n">region</span> <span class="n">seq_dups</span><span class="p">:</span><span class="n">HG002_GRCh38_1_22_v4</span><span class="mf">.1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">segdups</span><span class="o">.</span><span class="n">bed</span> \
+    <span class="o">--</span><span class="n">stratification</span><span class="o">-</span><span class="n">region</span> <span class="n">low_map</span><span class="p">:</span><span class="n">HG002_GRCh38_1_22_v4</span><span class="mf">.1</span><span class="n">_draft_benchmark</span><span class="o">.</span><span class="n">lowmap</span><span class="o">.</span><span class="n">bed</span>
 <span class="o">!</span>cecho ok <span class="s2">&quot;hap.py execution finished&quot;</span>
 </pre></div>
 

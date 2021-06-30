@@ -14307,7 +14307,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
@@ -14354,10 +14354,10 @@ a.anchor-link {
 <p><em>Please note that the software installed is not persistent and this step will need to be re-run if you stop and restart the EPI2ME Labs server</em></p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mamba create -n centrifuge centrifuge --quiet --yes
@@ -14368,6 +14368,229 @@ a.anchor-link {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>  Package              Version  Build                  Channel                    Size
+────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+────────────────────────────────────────────────────────────────────────────────────────
+
+<span class="ansi-green-fg">  _libgcc_mutex   </span>         0.1  conda_forge            conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  _openmp_mutex   </span>         4.5  1_gnu                  conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  ca-certificates </span>   2020.12.5  ha878542_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  centrifuge      </span>  1.0.4_beta  h9a82719_6             bioconda/linux-64   <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  certifi         </span>  2019.11.28  py27h8c360ce_1         conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  gettext         </span>    0.19.8.1  hf34092f_1004          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  ld_impl_linux-64</span>      2.35.1  hea4e1c9_2             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  libffi          </span>       3.2.1  he1b5a44_1007          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  libgcc-ng       </span>       9.3.0  h2828fa1_19            conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  libgomp         </span>       9.3.0  h2828fa1_19            conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  libiconv        </span>        1.16  h516909a_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  libidn2         </span>       2.3.0  h516909a_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  libstdcxx-ng    </span>       9.3.0  h6de172a_19            conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  libunistring    </span>      0.9.10  h14c3975_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  ncurses         </span>         6.2  h58526e2_4             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  openssl         </span>      1.1.1k  h7f98852_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  perl            </span>      5.32.0  h36c2ea0_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  pip             </span>      20.1.1  pyh9f0ad1d_0           conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  python          </span>      2.7.15  h5a48372_1011_cpython  conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  python_abi      </span>         2.7  1_cp27mu               conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  readline        </span>         8.1  h46c0cb4_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  setuptools      </span>      44.0.0  py27_0                 conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  sqlite          </span>      3.35.5  h74cdb3f_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  tar             </span>        1.34  ha1f6473_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  tk              </span>      8.6.10  hed695b0_1             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  wget            </span>      1.20.1  h22169c7_0             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  wheel           </span>      0.36.2  pyhd3deb0d_0           conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
+<span class="ansi-green-fg">  zlib            </span>      1.2.11  h516909a_1010          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
+
+  Summary:
+
+  Install: 28 packages
+
+  Total download: 0  B
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We will also use a Python package for translating taxonomic data. This also includes an up to date database of the NCBI taxonomic records. Downloading the database takes a few minutes.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[62]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mamba install -c epi2melabs <span class="nv">ncbitaxonomy</span><span class="o">==</span><span class="m">3</span>.1.2 --quiet --yes
+<span class="kn">import</span> <span class="nn">ncbitaxonomy</span>
+<span class="n">NCBI</span> <span class="o">=</span> <span class="n">ncbitaxonomy</span><span class="o">.</span><span class="n">NCBITaxa</span><span class="p">(</span><span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">NCBI</span><span class="o">.</span><span class="n">update_taxonomy_database</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>Updating taxdump.tar.gz from NCBI FTP site (via HTTP)...
+Done. Parsing...
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Loading node names...
+2326238 names loaded.
+245520 synonyms loaded.
+Loading nodes...
+2326238 nodes loaded.
+Linking nodes...
+Tree is loaded.
+Updating database: /home/jovyan/.etetoolkit/taxa.sqlite ...
+ 2326000 generating entries... generating entries... 
+Uploading to /home/jovyan/.etetoolkit/taxa.sqlite
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>Inserting synonyms:      25000 </pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>Inserting taxid merges:  60000  </pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>Inserting taxids:       25000 </pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>Inserting taxids:       2325000 </pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14375,22 +14598,53 @@ a.anchor-link {
 <p>To download the sample dataset we run the <code>linux</code> command <code>wget</code>. To execute the command click on the cell and then press Command/Ctrl-Enter, or click the Play symbol to the left-hand side.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[66]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
 <span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
 <span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
 
-<span class="o">!</span>wget -O sample.fastq.gz <span class="s2">&quot;</span><span class="nv">$site</span><span class="s2">/metagenomic_tutorial/sample.fastq.gz&quot;</span>
+<span class="o">!</span>wget -O small_sample.fastq.gz <span class="s2">&quot;</span><span class="nv">$site</span><span class="s2">/metagenomic_tutorial/small_sample.fastq.gz&quot;</span> 
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>--2021-05-07 15:49:45--  https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com/metagenomic_tutorial/small_sample.fastq.gz
+Resolving ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com (ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com)... 52.218.56.232
+Connecting to ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com (ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com)|52.218.56.232|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1300075 (1.2M) [binary/octet-stream]
+Saving to: ‘small_sample.fastq.gz’
+
+small_sample.fastq. 100%[===================&gt;]   1.24M  --.-KB/s    in 0.1s    
+
+2021-05-07 15:49:45 (10.8 MB/s) - ‘small_sample.fastq.gz’ saved [1300075/1300075]
+
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -14422,7 +14676,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[63]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#@markdown **Select sequencing inputs:**</span>
@@ -14450,7 +14704,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
     <span class="o">!</span>rationalize_fastq -i <span class="s2">&quot;</span><span class="nv">$input_data</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$input_file</span><span class="s2">&quot;</span>
     
 <span class="n">input_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;input_data&#39;</span><span class="p">,</span> <span class="s1">&#39;Input fastq&#39;</span><span class="p">,</span> <span class="s1">&#39;/epi2melabs/metagenome_tutorial/sample_data.fastq&#39;</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;input_data&#39;</span><span class="p">,</span> <span class="s1">&#39;Input fastq&#39;</span><span class="p">,</span> <span class="s1">&#39;/epi2melabs/metagenome_tutorial/small_sample.fastq.gz&#39;</span><span class="p">),</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;output_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Output folder&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">),</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;threads&#39;</span><span class="p">,</span> <span class="s1">&#39;Processing threads&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())))</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
@@ -14478,12 +14732,12 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
-<div id="5ec9c991-1bec-4586-b2dc-47daec0d0cfc" class="jupyter-widgets jp-OutputArea-output ">
+<div id="e75efba5-454e-4a41-8970-b8462921bdf8" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('5ec9c991-1bec-4586-b2dc-47daec0d0cfc');
+var element = document.getElementById('e75efba5-454e-4a41-8970-b8462921bdf8');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "c67a84fa5a864dae8ac52120d05c3fed", "version_major": 2, "version_minor": 0}
+{"model_id": "708d074af51e4c3298f6169e0139e56b", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14502,12 +14756,15 @@ var element = document.getElementById('5ec9c991-1bec-4586-b2dc-47daec0d0cfc');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">indices</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Zymo&quot;</span> <span class="p">:</span> <span class="s2">&quot;zymo&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Human+viruses+prokaryotes (inc. SARS-CoV-2)&quot;</span><span class="p">:</span> <span class="s2">&quot;hpvc&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Human+viruses (inc. SARS-CoV-2)&quot;</span><span class="p">:</span> <span class="s2">&quot;hvc&quot;</span><span class="p">}</span>
+    <span class="s2">&quot;Human+viruses (inc. SARS-CoV-2)&quot;</span><span class="p">:</span> <span class="s2">&quot;hvc&quot;</span><span class="p">,</span>
+    
+<span class="p">}</span>
 <span class="n">dbpath</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="k">def</span> <span class="nf">process_db_form</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
@@ -14577,12 +14834,12 @@ var element = document.getElementById('5ec9c991-1bec-4586-b2dc-47daec0d0cfc');
 
 
 
-<div id="32a83cc7-0f26-4cf9-8096-bab941d6a287" class="jupyter-widgets jp-OutputArea-output ">
+<div id="7fe13c46-95a8-460c-9c2f-691061b950e1" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('32a83cc7-0f26-4cf9-8096-bab941d6a287');
+var element = document.getElementById('7fe13c46-95a8-460c-9c2f-691061b950e1');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "1d3ed17a8f11426e8c1cf60a2115275e", "version_major": 2, "version_minor": 0}
+{"model_id": "8a65b72b997541d1b896cb50cc670fe3", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14613,7 +14870,7 @@ var element = document.getElementById('32a83cc7-0f26-4cf9-8096-bab941d6a287');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>run centrifuge -p <span class="nv">$threads</span> --met <span class="m">5</span> --time --ignore-quals <span class="err">\</span>
@@ -14638,15 +14895,15 @@ var element = document.getElementById('32a83cc7-0f26-4cf9-8096-bab941d6a287');
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Time loading forward index: 00:00:34
+<pre>Time loading forward index: 00:00:00
 Time loading reference: 00:00:00
-Multiseed full-index search: 00:00:13
-Time searching: 00:00:13
+Multiseed full-index search: 00:00:09
+Time searching: 00:00:09
 report file analysis/centrifuge_report.tsv
 Number of iterations in EM algorithm: 0
 Probability diff. (P - P_prev) in the last iteration: 0
 Calculating abundance: 00:00:00
-Overall time: 00:02:22
+Overall time: 00:00:09
 </pre>
 </div>
 </div>
@@ -14669,16 +14926,25 @@ Overall time: 00:02:22
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[75]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Counting genera present (press play)</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">ncbi2</span> <span class="o">=</span> <span class="n">ncbi_taxonomy</span><span class="o">.</span><span class="n">ncbiquery2</span><span class="o">.</span><span class="n">NCBITaxa</span><span class="p">()</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;analysis&quot;</span><span class="p">,</span> <span class="s2">&quot;centrifuge_report.tsv&quot;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">details</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">details</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;genus&#39;</span><span class="p">,</span> <span class="s1">&#39;epithet&#39;</span><span class="p">]</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">d</span><span class="p">,</span> <span class="n">details</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">taxIDs</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;taxID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">genus</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">taxIDs</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">allranks</span> <span class="o">=</span> <span class="n">ncbi2</span><span class="o">.</span><span class="n">get_ranked_lineage</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">lineageGenus</span> <span class="o">=</span> <span class="n">allranks</span><span class="p">[</span><span class="s1">&#39;genus&#39;</span><span class="p">]</span>
+        <span class="n">genusName</span> <span class="o">=</span> <span class="n">NCBI</span><span class="o">.</span><span class="n">translate_to_names</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">lineageGenus</span><span class="p">)])</span>
+        <span class="n">genus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">genusName</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">genus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;NA&#39;</span><span class="p">)</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;genus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">genus</span>
 <span class="n">genus_id</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;genus&#39;</span><span class="p">)</span> \
     <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">numReads</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;numReads&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">))</span> \
     <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;numReads&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> \
@@ -14745,42 +15011,42 @@ Overall time: 00:02:22
     <tr>
       <th>0</th>
       <td>Bacillus</td>
-      <td>57204</td>
+      <td>14663</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Staphylococcus</td>
-      <td>25309</td>
+      <td>Listeria</td>
+      <td>14074</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Enterococcus</td>
-      <td>21647</td>
+      <td>13469</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Listeria</td>
-      <td>19076</td>
+      <td>Staphylococcus</td>
+      <td>13420</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Salmonella</td>
-      <td>18712</td>
+      <td>12735</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Escherichia</td>
-      <td>15102</td>
+      <td>12620</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Lactobacillus</td>
-      <td>8455</td>
+      <td>Limosilactobacillus</td>
+      <td>5602</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Pseudomonas</td>
-      <td>6376</td>
+      <td>4305</td>
     </tr>
   </tbody>
 </table>
@@ -14803,7 +15069,7 @@ Overall time: 00:02:22
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>run centrifuge-kreport -x <span class="nv">$dbpath</span> analysis/read_classifications.tsv <span class="err">\</span>
@@ -14847,7 +15113,7 @@ Loading nodes file ...
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[76]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
@@ -14879,12 +15145,12 @@ Loading nodes file ...
 
 
 
-<div id="2ac881a5-0d55-4561-a692-1f336d0d6dfb" class="jupyter-widgets jp-OutputArea-output ">
+<div id="668381fb-43f8-42f9-8668-a51371804206" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('2ac881a5-0d55-4561-a692-1f336d0d6dfb');
+var element = document.getElementById('668381fb-43f8-42f9-8668-a51371804206');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "6e27972e549146e5bbac07423e2f02c8", "version_major": 2, "version_minor": 0}
+{"model_id": "a35d3c0a1bea4af6a5fd772bc2c27a2f", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14900,7 +15166,7 @@ var element = document.getElementById('2ac881a5-0d55-4561-a692-1f336d0d6dfb');
 <p>and then running the code cell below:</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
@@ -14926,6 +15192,52 @@ var element = document.getElementById('2ac881a5-0d55-4561-a692-1f336d0d6dfb');
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Checking pavian install...
+Done.
+Running pavian...
+
+R version 4.0.3 (2020-10-10) -- &#34;Bunny-Wunnies Freak Out&#34;
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-conda-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type &#39;license()&#39; or &#39;licence()&#39; for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type &#39;contributors()&#39; for more information and
+&#39;citation()&#39; on how to cite R or R packages in publications.
+
+Type &#39;demo()&#39; for some demos, &#39;help()&#39; for on-line help, or
+&#39;help.start()&#39; for an HTML browser interface to help.
+Type &#39;q()&#39; to quit R.
+
+&gt; pavian::runApp(host=&#39;0.0.0.0&#39;, port=8833)
+Loading required package: shiny
+
+Listening on http://0.0.0.0:8833
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>

@@ -14259,12 +14259,13 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1>Assembly of small genomes</h1><p>This tutorial aims to demonstrate how to assemble and correct small genomes, up to ~100Mb, using Oxford Nanopore Technologies' sequencing data.</p>
+<p><h1>Assembly of small genomes</h1></p>
+<h4>Expected duration: 10 minutes</h4><p>This tutorial aims to demonstrate how to assemble and correct small genomes, up to ~100Mb, using Oxford Nanopore Technologies' sequencing data. Assembly is the task of taking a number of shorter sequences and putting them back together to create a representation of the original genomic sequence.</p>
 <p>Included with the tutorial is an example Escherichia coli dataset, the workflow can be used to:</p>
 <ul>
-<li>Assemble sequencing data in a <code>.fastq</code> file into a genomic sequence using the <a href="https://github.com/fenderglass/Flye"><code>flye</code></a> assembler</li>
-<li>Correct the genome assembly using the <a href="https://github.com/nanoporetech/medaka"><code>medaka</code></a> software</li>
-<li>Perform a basic summary of the assembled genome</li>
+<li>Assemble sequencing data in a <code>.fastq</code> file into a genomic sequence using the <a href="https://github.com/fenderglass/Flye"><code>flye</code></a> assembler.</li>
+<li>Correct the genome assembly using the <a href="https://github.com/nanoporetech/medaka"><code>medaka</code></a> software.</li>
+<li>Perform a basic summary of the assembled genome using <a href="https://github.com/nanoporetech/pomoxis"><code>pomoxis</code></a>.</li>
 </ul>
 <p>Computational requirements for this tutorial include:</p>
 <ul>
@@ -14289,7 +14290,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a work directory and move into it</span>
@@ -14343,7 +14344,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -14397,12 +14398,12 @@ a.anchor-link {
 
 
 
-<div id="9aee7cd4-80b6-49d1-964c-5023e848db2c" class="jupyter-widgets jp-OutputArea-output ">
+<div id="e84d4bee-1c12-4973-90b8-bdbc7381f096" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('9aee7cd4-80b6-49d1-964c-5023e848db2c');
+var element = document.getElementById('e84d4bee-1c12-4973-90b8-bdbc7381f096');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "b7259788a94c466b83b590cd3c766f18", "version_major": 2, "version_minor": 0}
+{"model_id": "ff12142e13174e939c049b43ecd16aed", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14418,10 +14419,10 @@ var element = document.getElementById('9aee7cd4-80b6-49d1-964c-5023e848db2c');
 <p>To view the outcome of the download we can use the <code>tree</code> command to show the contents of the working directory:</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree .
@@ -14430,31 +14431,6 @@ var element = document.getElementById('9aee7cd4-80b6-49d1-964c-5023e848db2c');
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>.
-├── analysis
-└── sample_data.fastq.gz
-
-1 directory, 1 file
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14498,7 +14474,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_folder</span> <span class="o">=</span> <span class="kc">None</span>
@@ -14541,12 +14517,12 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
-<div id="f73c7ac8-3b97-4b4d-b018-bb335d8953b4" class="jupyter-widgets jp-OutputArea-output ">
+<div id="3c9f20f7-e420-4c30-8bff-17a373f5bc24" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('f73c7ac8-3b97-4b4d-b018-bb335d8953b4');
+var element = document.getElementById('3c9f20f7-e420-4c30-8bff-17a373f5bc24');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "247924ff7be342219076d74a7b935a2b", "version_major": 2, "version_minor": 0}
+{"model_id": "bb916da36a9f42049ed90eba236ba76b", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 

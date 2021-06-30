@@ -14259,50 +14259,29 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1>How medaka works</h1><p><a href="https://colab.research.google.com/github/epi2me-labs/tutorials/blob/master/Introduction_to_how_ONT's_medaka_works.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<p>The following is a relatively short document describing how Oxford Nanopore Technologies' program for consensus calling of sequencing data, <code>medaka</code>, functions internally. We will demonstrate the core functionality required to process alignment data, how it is presented to a recurrent neural network, and how a consensus sequence is formed.</p>
-<p>The document you are reading is not a static web page, but an interactive environment called a Colab notebook that lets you write and execute code. You can inspect, modify, and run any of the code on this page.</p>
-<blockquote><p><strong>This notebook has been designed to work natively on Google Colab. It will likely not function correctly within the EPI2MELabs environments.</strong></p>
-</blockquote>
+<h1>How medaka works</h1><p>The following is a relatively short document describing how Oxford Nanopore Technologies' program for consensus calling of sequencing data, <code>medaka</code>, functions internally. We will demonstrate the core functionality required to process alignment data, how it is presented to a recurrent neural network, and how a consensus sequence is formed.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h2><p>Before getting started with how <code>medaka</code> works, we will install it into the Colab environment. This will enable us to both inspect and run the code. To install the <code>medaka</code> run the code cell below by clicking the "play" icon to the left or pressing on the cell and typing <code>&lt;shift&gt;-&lt;enter&gt;</code></p>
+<h2 id="Getting-started">Getting started<a class="anchor-link" href="#Getting-started">&#182;</a></h2><p>Before anything else we will create and set a working directory:</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># setup some prerequisites - medaka model files are stored in git-lfs, which</span>
-<span class="c1"># we need to install</span>
-<span class="o">%</span><span class="k">cd</span> /content
-<span class="o">!</span>wget https://github.com/git-lfs/git-lfs/releases/download/v2.10.0/git-lfs-linux-amd64-v2.10.0.tar.gz
-<span class="o">!</span>tar -xzvf git-lfs-linux-amd64-v2.10.0.tar.gz
-<span class="o">!</span>mv git-lfs /bin/
-<span class="o">!</span>git lfs install
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;medaka_walkthrough&quot;</span>
+<span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
 
-<span class="c1"># install medaka - we&#39;ll do this from source so we can make a couple of</span>
-<span class="c1"># modifications and use some extra bits later on</span>
-<span class="o">!</span>apt-get install file
-<span class="o">!</span>rm -rf /content/medaka
-<span class="o">!</span>git clone https://github.com/nanoporetech/medaka.git
-<span class="o">%</span><span class="k">cd</span> /content/medaka
-<span class="o">!</span>sed -i <span class="s1">&#39;s/tensorflow==/tensorflow-gpu==/&#39;</span> requirements.txt
-<span class="o">!</span>pip install -r requirements.txt
-<span class="o">!</span>make scripts/mini_align
-<span class="o">!</span>python setup.py install
-<span class="o">%</span><span class="k">cd</span> /content
-
-<span class="c1"># install minimap2 and pomoxis for later</span>
-<span class="o">!</span>git clone https://github.com/lh3/minimap2
-<span class="o">!</span><span class="nb">cd</span> minimap2 <span class="o">&amp;&amp;</span> make <span class="o">&amp;&amp;</span> cp minimap2 /bin
-<span class="o">!</span>pip install git+https://github.com/rrwick/Porechop
-<span class="o">!</span>pip install pomoxis
+<span class="c1"># create a work directory and move into it</span>
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
+<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
 </pre></div>
 
      </div>
@@ -14310,25 +14289,25 @@ a.anchor-link {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>/epi2melabs/medaka_walkthrough
+</pre>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>After running the above, it is necessary to select <code>Runtime&gt;Restart runtime...</code> from the menu at the top of the page, after which we should be able to import medaka</p>
+</div>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">medaka</span>
-<span class="n">help</span><span class="p">(</span><span class="n">medaka</span><span class="p">)</span>
-</pre></div>
 
-     </div>
-</div>
-</div>
 </div>
 
 </div>
@@ -14344,8 +14323,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mkdir -p /content/data <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /content/data/ <span class="err">\</span>
-    <span class="o">&amp;&amp;</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ont</span><span class="o">-</span><span class="n">research</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">eu</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mf">1.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">datasets</span><span class="o">/</span><span class="n">r941_zymo</span><span class="o">/</span><span class="n">references</span><span class="o">.</span><span class="n">fasta</span> \
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget https://ont-research.s3-eu-west-1.amazonaws.com/datasets/r941_zymo/references.fasta <span class="err">\</span>
     <span class="o">&amp;&amp;</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ont</span><span class="o">-</span><span class="n">research</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">eu</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mf">1.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">labs_resources</span><span class="o">/</span><span class="n">misc</span><span class="o">/</span><span class="n">saureus</span><span class="o">.</span><span class="n">bam</span> \
     <span class="o">&amp;&amp;</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ont</span><span class="o">-</span><span class="n">research</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">eu</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mf">1.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">labs_resources</span><span class="o">/</span><span class="n">misc</span><span class="o">/</span><span class="n">saureus</span><span class="o">.</span><span class="n">bam</span><span class="o">.</span><span class="n">bai</span> \
     <span class="o">&amp;&amp;</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ont</span><span class="o">-</span><span class="n">research</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">eu</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mf">1.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">labs_resources</span><span class="o">/</span><span class="n">misc</span><span class="o">/</span><span class="n">saureus_canu</span><span class="o">.</span><span class="n">fasta</span>
@@ -14378,7 +14356,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">medaka.features</span> <span class="kn">import</span> <span class="n">pileup_counts</span>
@@ -14404,7 +14382,7 @@ a.anchor-link {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Help on function pileup_counts in module medaka.features:
 
-pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, tag_name=None, tag_value=None, keep_missing=False, num_qstrat=1, weibull_summation=False)
+pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, tag_name=None, tag_value=None, keep_missing=False, num_qstrat=1, weibull_summation=False, read_group=None)
     Create pileup counts feature array for region.
     
     :param region: `medaka.common.Region` object
@@ -14412,6 +14390,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
     :param dtype_prefixes: prefixes for query names which to separate counts.
         If `None` (or of length 1), counts are not split.
     :param region_split: largest region to process in single thread.
+        Regions are processed in parallel and stitched before being returned.
     :param workers: worker threads for calculating pileup.
     :param tag_name: two letter tag name by which to filter reads.
     :param tag_value: integer value of tag for reads to keep.
@@ -14420,7 +14399,10 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
     :param weibull_summation: use a Weibull partial-counts approach,
         requires &#39;WL&#39; and &#39;WK&#39; float-array tags.
     
-    :returns: pileup counts array, reference positions, insertion postions
+    :returns: iterator of tuples
+        (pileup counts array, reference positions, insertion positions)
+        Multiple chunks are returned if there are discontinuities in
+        positions caused e.g. by gaps in coverage.
 
 </pre>
 </div>
@@ -14439,7 +14421,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">now</span>
@@ -14447,7 +14429,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 <span class="n">t0</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
 <span class="n">region</span> <span class="o">=</span> <span class="n">Region</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;tig00000061:0-1499707&#39;</span><span class="p">)</span>
-<span class="n">bam_file</span> <span class="o">=</span> <span class="s1">&#39;/content/data/saureus.bam&#39;</span>
+<span class="n">bam_file</span> <span class="o">=</span> <span class="s1">&#39;saureus.bam&#39;</span>
 <span class="n">pileup_data</span> <span class="o">=</span> <span class="n">pileup_counts</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">bam_file</span><span class="p">)</span>
 <span class="n">pileup_data</span> <span class="o">=</span> <span class="n">pileup_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># implementation detail that need not trouble us</span>
 <span class="n">counts</span><span class="p">,</span> <span class="n">positions</span> <span class="o">=</span> <span class="n">pileup_data</span>
@@ -14472,7 +14454,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>10.62s to form pileup counts.
+<pre>38.92s to form pileup counts.
 </pre>
 </div>
 </div>
@@ -14490,7 +14472,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span>
@@ -14536,7 +14518,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -14600,7 +14582,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">medaka.features</span> <span class="kn">import</span> <span class="n">libmedaka</span>
@@ -14647,155 +14629,6 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="An-aside-on-performance">An aside on performance<a class="anchor-link" href="#An-aside-on-performance">&#182;</a></h3><p>Although medaka is mainly written in python, this first calculation is performed in C for speed; <code>pileup_counts</code> defers to a <code>C</code> implementation of the base counting which makes use of the pileup API from <a href="https://github.com/samtools/htslib"><code>htslib</code></a>. This <code>C</code> function is 1-2 orders of magnitude faster than a previous python implementation, using <a href="https://github.com/pysam-developers/pysam"><code>pysam</code></a>. Nevertheless this seemingly trivial step is often the performance bottleneck in <code>medaka</code>, particularly when using GPUs to run the neural network calculations. Further it is within the <code>htslib</code> function <a href="https://github.com/samtools/htslib/blob/9279d76e1186d7155ceea9db9db8c9298f6139bd/sam.c#L3956"><code>resolve_cigar2</code></a> that the code is bogged down:</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/medaka/
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compiling standalone pileup counts program.&quot;</span><span class="p">)</span>
-<span class="o">!</span>rm -rf pileup
-<span class="o">!</span>sed -i <span class="s2">&quot;s/gcc -pthread/gcc -pg -pthread/&quot;</span> Makefile
-<span class="o">!</span>make pileup
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Running pileup...&quot;</span><span class="p">)</span>
-<span class="o">!</span><span class="nb">time</span> ./pileup /content/data/saureus.bam tig00000061:1-1499707 <span class="m">2</span>&gt;/dev/null &gt; pileup.txt
-<span class="o">!</span>gprof pileup gmon.out <span class="p">|</span> head -n <span class="m">17</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>/content/medaka
-Compiling standalone pileup counts program.
-gcc -pg -pthread  -g -Wall -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIC -std=c99 -msse3 -O3 \
-	-Isrc -Isubmodules/samtools-1.9/htslib-1.9 \
-	src/medaka_common.c src/medaka_counts.c src/medaka_bamiter.c libhts.a \
-	-lm -lz -llzma -lbz2 -lpthread -lcurl -lcrypto \
-	-o pileup -std=c99 -msse3 -O3
-
-Running pileup...
-
-real	0m28.472s
-user	0m26.345s
-sys	0m1.940s
-Flat profile:
-
-Each sample counts as 0.01 seconds.
-  %   cumulative   self              self     total           
- time   seconds   seconds    calls  Ts/call  Ts/call  name    
- 49.58      5.85     5.85                             resolve_cigar2
- 27.97      9.15     3.30                             calculate_pileup
- 16.02     11.04     1.89                             bam_plp_next
-  2.88     11.38     0.34                             print_pileup_data
-  1.10     11.51     0.13                             bam_cigar2rqlens
-  1.10     11.64     0.13                             bam_cigar2rlen
-  0.59     11.71     0.07                             bam_mplp_auto
-  0.25     11.74     0.03                             bam_plp_auto
-  0.25     11.77     0.03                             kh_init_olap_hash
-  0.25     11.80     0.03                             mp_free
-  0.00     11.80     0.00    58568     0.00     0.00  read_bam
-  0.00     11.80     0.00        7     0.00     0.00  xalloc
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Because of this <code>medaka</code> uses multiple worker threads to perform the base counting: the calculation is split into 1 Mbase shards and then further subdivided into 100kbase chunks with the chunks being reassembled for each shard. In conclusion, note the time taken for the simple pure <code>C</code> program <code>pileup</code> above and that for running the full <code>medaka consensus</code> program below:</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm -rf /content/data/saureus.hdf
-<span class="o">!</span><span class="nb">time</span> medaka consensus /content/data/saureus.bam /content/data/saureus.hdf --region tig00000061 --batch_size <span class="m">50</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[23:06:01 - Predict] Processing region(s): tig00000061:0-1499707
-[23:06:01 - Predict] Setting tensorflow threads to 1.
-[23:06:01 - Predict] Found a GPU.
-[23:06:01 - Predict] If cuDNN errors are observed, try setting the environment variable `TF_FORCE_GPU_ALLOW_GROWTH=true`. To explicitely disable use of cuDNN use the commandline option `--disable_cudnn. If OOM (out of memory) errors are found please reduce batch size.
-[23:06:01 - Predict] Processing 2 long region(s) with batching.
-[23:06:01 - Predict] Using model: /usr/local/lib/python3.6/dist-packages/medaka-0.11.5-py3.6-linux-x86_64.egg/medaka/data/r941_min_high_g344_model.hdf5.
-[23:06:01 - ModelLoad] Building model with cudnn optimization: True
-[23:06:02 - DLoader] Initializing data loader
-[23:06:02 - PWorker] Running inference for 1.5M draft bases.
-[23:06:02 - Sampler] Initializing sampler for consensus of region tig00000061:0-1000000.
-[23:06:02 - Sampler] Initializing sampler for consensus of region tig00000061:999000-1499707.
-[23:06:12 - Feature] Processed tig00000061:999000.0-1499706.0 (median depth 150.0)
-[23:06:12 - Sampler] Took 9.58s to make features.
-[23:06:12 - PWorker] Samples in cache: 81.
-[23:06:14 - Feature] Processed tig00000061:0.0-999999.3 (median depth 150.0)
-[23:06:14 - Sampler] Took 11.76s to make features.
-[23:06:15 - PWorker] 12.8% Done (0.2/1.5 Mbases) in 12.7s
-[23:06:17 - PWorker] Samples in cache: 150.
-[23:06:23 - PWorker] Samples in cache: 0.
-[23:06:24 - PWorker] All done, 0 remainder regions.
-[23:06:24 - Predict] Finished processing all regions.
-
-real	0m25.525s
-user	0m34.076s
-sys	0m3.456s
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>On the standard Colab environment with two CPU cores and an NVIDIA P4 GPU, we see that wallclock time for <code>medaka consensus</code> is less that the single-threaded <code>pileup</code> program. That this speed can be achieved is down to the asynchronous multi-threaded queuing that <code>medaka</code> implements for the generation of the counts matrices and the raw power of GPUs to process the data.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Normalization">Normalization<a class="anchor-link" href="#Normalization">&#182;</a></h2><p>After obtained the base-counts matrix produced in the section above <code>medaka</code> performs a normalization of the counts. Across the pileup columns, all count vectors with equal corresponding <code>major</code> position index are normalized by the total count for the column with <code>minor=0</code> (the reference position). This choice of normalization accounts for the lack of symmetry described above, and that whilst consensus insertions are typically rare, isolated insertions may still occur within any one read spanning two reference positions. There are on average up to three pileup columns for every input reference position.</p>
 <p>Ordinarily this normalization is performed in a <a href="https://github.com/nanoporetech/medaka/blob/d195b9cc1ee7681a121be9fe4fb016a00744ef47/medaka/features.py#L372">post-processing</a> method of the <code>CountsFeatureEncoder</code> class, for the purposes of exposition the operation under normal behaviour is:</p>
 
@@ -14803,7 +14636,7 @@ sys	0m3.456s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14862,10 +14695,10 @@ sys	0m3.456s
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#@markdown ***Plot feature array*** *(click to show code)*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot feature array (click play)</span>
 
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
 <span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">Range1d</span>
@@ -14928,9 +14761,9 @@ sys	0m3.456s
 
 
 
-<div id="04763f98-0648-4a9a-8209-0355d21b5a7c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="369c4937-376f-4ddd-8e43-0693bf7e5c04" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
+var element = document.getElementById('369c4937-376f-4ddd-8e43-0693bf7e5c04');
 
 (function(root) {
   function now() {
@@ -15016,6 +14849,7 @@ var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
       var script_attrs = bk_div.children[0].attributes;
       for (var i = 0; i < script_attrs.length; i++) {
         toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
       }
       // store reference to server id on output_area
       output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
@@ -15156,6 +14990,8 @@ var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
       document.body.appendChild(element);
     }
 
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js": "T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js": "98GDGJ0kOMCUMUePhksaQ/GYgB3+NH9h996V88sh3aOiUNX3N+fLXAtry6xctSZ6", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js": "89bArO+nlbP3sgakeHjCo1JYxYR5wufVgA3IbUvDY+K7w4zyxJqssu7wVnfeKCq8"};
+
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
       var element = document.createElement('script');
@@ -15163,6 +14999,10 @@ var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
       element.onerror = on_error;
       element.async = false;
       element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
       console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
       document.head.appendChild(element);
     }
@@ -15175,7 +15015,7 @@ var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
   }
 
   
-  var js_urls = ["https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-tables-1.4.0.min.js", "https://cdn.pydata.org/bokeh/release/bokeh-gl-1.4.0.min.js"];
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js"];
   var css_urls = [];
   
 
@@ -15237,7 +15077,7 @@ var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
 
 
 
-  <div class="bk-root" id="7fe1f8f3-5c78-43aa-9344-53f8312344ce" data-root-id="1001"></div>
+  <div class="bk-root" id="d21544d2-7d12-4740-8b99-cbca12345104" data-root-id="1080"></div>
 
 </div>
 
@@ -15251,14 +15091,14 @@ var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
 
 
 
-<div id="04763f98-0648-4a9a-8209-0355d21b5a7c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="369c4937-376f-4ddd-8e43-0693bf7e5c04" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
+var element = document.getElementById('369c4937-376f-4ddd-8e43-0693bf7e5c04');
 (function(root) {
   function embed_document(root) {
     
-  var docs_json = {"d6396d6f-7dfe-4144-80f0-09095cf34615":{"roots":{"references":[{"attributes":{"below":[{"id":"1012","type":"LinearAxis"}],"center":[{"id":"1016","type":"Grid"},{"id":"1021","type":"Grid"}],"left":[{"id":"1017","type":"LinearAxis"}],"plot_height":300,"plot_width":800,"renderers":[{"id":"1038","type":"GlyphRenderer"}],"title":{"id":"1002","type":"Title"},"toolbar":{"id":"1028","type":"Toolbar"},"x_range":{"id":"1004","type":"DataRange1d"},"x_scale":{"id":"1008","type":"LinearScale"},"y_range":{"id":"1042","type":"Range1d"},"y_scale":{"id":"1010","type":"LinearScale"}},"id":"1001","subtype":"Figure","type":"Plot"},{"attributes":{"formatter":{"id":"1046","type":"BasicTickFormatter"},"major_label_overrides":{"0.5":"D","1.5":"d","2.5":"T","3.5":"G","4.5":"C","5.5":"A","6.5":"t","7.5":"g","8.5":"c","9.5":"a"},"ticker":{"id":"1040","type":"FixedTicker"}},"id":"1017","type":"LinearAxis"},{"attributes":{},"id":"1018","type":"BasicTicker"},{"attributes":{"dh":{"units":"data","value":10},"dw":{"units":"data","value":50},"image":{"field":"image"},"x":{"value":0},"y":{"value":0}},"id":"1036","type":"ImageRGBA"},{"attributes":{"dimension":1,"ticker":{"id":"1018","type":"BasicTicker"}},"id":"1021","type":"Grid"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1022","type":"PanTool"},{"id":"1023","type":"WheelZoomTool"},{"id":"1024","type":"BoxZoomTool"},{"id":"1025","type":"SaveTool"},{"id":"1026","type":"ResetTool"},{"id":"1027","type":"HelpTool"}]},"id":"1028","type":"Toolbar"},{"attributes":{"ticks":[0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5]},"id":"1040","type":"FixedTicker"},{"attributes":{"source":{"id":"1035","type":"ColumnDataSource"}},"id":"1039","type":"CDSView"},{"attributes":{},"id":"1022","type":"PanTool"},{"attributes":{},"id":"1023","type":"WheelZoomTool"},{"attributes":{"dh":{"units":"data","value":10},"dw":{"units":"data","value":50},"image":{"field":"image"},"x":{"value":0},"y":{"value":0}},"id":"1037","type":"ImageRGBA"},{"attributes":{"overlay":{"id":"1048","type":"BoxAnnotation"}},"id":"1024","type":"BoxZoomTool"},{"attributes":{},"id":"1025","type":"SaveTool"},{"attributes":{},"id":"1047","type":"BasicTickFormatter"},{"attributes":{},"id":"1026","type":"ResetTool"},{"attributes":{"callback":null,"data":{"image":[{"__ndarray__":"///////////////////////////Ly8v//////////////////////////////////////+7u7v///////////////////////////////////////////7a2tv/////////////////d3d3////////////////////////////////////////////////////////////d3d3/////////////////7u7u/+7u7v//////3d3d/7q6uv/u7u7//////////////////////+7u7v///////////7q6uv/////////////////Ly8v/////////////////7u7u//////+pqan//////+7u7v/u7u7/////////////////Tk5O/////////////////8vLy//u7u7/7u7u/+7u7v/////////////////u7u7//////8vLy////////////////////////////+7u7v+Xl5f/hoaG////////////7u7u/////////////////////////////v////7///////////////7////+/////v////7///////////////////////////////////////////////n///////////////////////////////////////////////////////////////7//////////v///3z//////////////////////////v////f////+////ev////////////////////z/////////fP////7///////////////////9/f/////////////////////////////////////////f3///8/P////////Pz////////g4P///////99ff///////////////////////////////////v7///7+///+/v////////////////////////////////////////z8//99ff///////3x8////////////////////////iIj///7+////////gYH///z8/////////Pz///7+//////////////7//v/+//7//////4H/gf////////////////99/33///////////////////////////////////////7//v+B/4H////////////////////////////////////////////////////////////////////////////+//7//////////////////////////////////v/+////////////f/9///////////////////////////////////////////////7+/////////v7///7+///////////////////+/v///v7///r6///+/v//iIj////////39////v7///7+////////9fX///r6///+/v//m5v///7+/////////////39///96ev//enr//3p6/////////v7///////////////////z8///+/v///v7//39////////////////////z8////v7///z8////////hIT//////////////Pz////////////////////////////8/////v//////////////9/////////////////////7////+/////P///////////////P////////////////////7//////////////////////////v////7//////////v//////////////iP////////////////////7///////////////////+I//////////////////////////////+I///////////////+/v///////4qK///////////////////////////////////+/v//////////////////+vr///r6//+Skv///////4qK//////////////////////////////////////////////7+///+/v////////7+/////////v7//////////////////4uL////////iIj///////////////////////+QkP////////7+//+Ghv/////////////8/P////////7//v/+//7/////////////////kP+Q/////////////////5b/lv///////////////////////////////////////v/+/43/jf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+S/5L//////////////////////////////////////////////v7///////////////////////////////////////////////////////+Pj/////////////////////////7+///6+v////////////+zs///////////////////jY3//4uL//+Kiv//ior/////////////////////////////////////////////hob///////////////////////////////////////+IiP///v7////////8/P8=","dtype":"uint8","shape":[10,50,4]}]},"selected":{"id":"1050","type":"Selection"},"selection_policy":{"id":"1049","type":"UnionRenderers"}},"id":"1035","type":"ColumnDataSource"},{"attributes":{},"id":"1027","type":"HelpTool"},{"attributes":{},"id":"1049","type":"UnionRenderers"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1048","type":"BoxAnnotation"},{"attributes":{"data_source":{"id":"1035","type":"ColumnDataSource"},"glyph":{"id":"1036","type":"ImageRGBA"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1037","type":"ImageRGBA"},"selection_glyph":null,"view":{"id":"1039","type":"CDSView"}},"id":"1038","type":"GlyphRenderer"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{},"id":"1046","type":"BasicTickFormatter"},{"attributes":{},"id":"1050","type":"Selection"},{"attributes":{"text":"Base counts"},"id":"1002","type":"Title"},{"attributes":{"formatter":{"id":"1047","type":"BasicTickFormatter"},"major_label_orientation":1.57,"major_label_overrides":{"0.5":"4918.2","1.5":"4918.3","10.5":"4921.1","11.5":"4921.2","12.5":"4921.3","13.5":"4922.0","14.5":"4922.1","15.5":"4923.0","16.5":"4923.1","17.5":"4924.0","18.5":"4925.0","19.5":"4925.1","2.5":"4919.0","20.5":"4925.2","21.5":"4925.3","22.5":"4926.0","23.5":"4926.1","24.5":"4926.2","25.5":"4926.3","26.5":"4927.0","27.5":"4928.0","28.5":"4929.0","29.5":"4930.0","3.5":"4919.1","30.5":"4930.1","31.5":"4930.2","32.5":"4930.3","33.5":"4931.0","34.5":"4931.1","35.5":"4932.0","36.5":"4932.1","37.5":"4933.0","38.5":"4934.0","39.5":"4934.1","4.5":"4919.2","40.5":"4934.2","41.5":"4935.0","42.5":"4936.0","43.5":"4937.0","44.5":"4937.1","45.5":"4938.0","46.5":"4939.0","47.5":"4940.0","48.5":"4940.1","49.5":"4940.2","5.5":"4920.0","6.5":"4920.1","7.5":"4920.2","8.5":"4920.3","9.5":"4921.0"},"ticker":{"id":"1043","type":"FixedTicker"}},"id":"1012","type":"LinearAxis"},{"attributes":{"bounds":[0,10],"callback":null,"end":10},"id":"1042","type":"Range1d"},{"attributes":{},"id":"1013","type":"BasicTicker"},{"attributes":{"ticker":{"id":"1013","type":"BasicTicker"}},"id":"1016","type":"Grid"},{"attributes":{"callback":null,"range_padding":0},"id":"1004","type":"DataRange1d"},{"attributes":{"ticks":[0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5,11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5,21.5,22.5,23.5,24.5,25.5,26.5,27.5,28.5,29.5,30.5,31.5,32.5,33.5,34.5,35.5,36.5,37.5,38.5,39.5,40.5,41.5,42.5,43.5,44.5,45.5,46.5,47.5,48.5,49.5]},"id":"1043","type":"FixedTicker"}],"root_ids":["1001"]},"title":"Bokeh Application","version":"1.4.0"}};
-  var render_items = [{"docid":"d6396d6f-7dfe-4144-80f0-09095cf34615","roots":{"1001":"7fe1f8f3-5c78-43aa-9344-53f8312344ce"}}];
+  var docs_json = {"c3d03a7e-ef1c-49a2-bece-c6b842a28a52":{"roots":{"references":[{"attributes":{"below":[{"id":"1091"}],"center":[{"id":"1094"},{"id":"1098"}],"left":[{"id":"1095"}],"plot_height":300,"plot_width":800,"renderers":[{"id":"1116"}],"title":{"id":"1081"},"toolbar":{"id":"1106"},"x_range":{"id":"1083"},"x_scale":{"id":"1087"},"y_range":{"id":"1120"},"y_scale":{"id":"1089"}},"id":"1080","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1100","type":"WheelZoomTool"},{"attributes":{"overlay":{"id":"1105"}},"id":"1101","type":"BoxZoomTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1099"},{"id":"1100"},{"id":"1101"},{"id":"1102"},{"id":"1103"},{"id":"1104"}]},"id":"1106","type":"Toolbar"},{"attributes":{},"id":"1104","type":"HelpTool"},{"attributes":{},"id":"1102","type":"SaveTool"},{"attributes":{},"id":"1103","type":"ResetTool"},{"attributes":{"data_source":{"id":"1113"},"glyph":{"id":"1114"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1115"},"selection_glyph":null,"view":{"id":"1117"}},"id":"1116","type":"GlyphRenderer"},{"attributes":{},"id":"1132","type":"Selection"},{"attributes":{"source":{"id":"1113"}},"id":"1117","type":"CDSView"},{"attributes":{},"id":"1133","type":"UnionRenderers"},{"attributes":{},"id":"1099","type":"PanTool"},{"attributes":{"bounds":[0,10],"end":10},"id":"1120","type":"Range1d"},{"attributes":{"ticks":[0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5]},"id":"1118","type":"FixedTicker"},{"attributes":{"ticks":[0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5,11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5,21.5,22.5,23.5,24.5,25.5,26.5,27.5,28.5,29.5,30.5,31.5,32.5,33.5,34.5,35.5,36.5,37.5,38.5,39.5,40.5,41.5,42.5,43.5,44.5,45.5,46.5,47.5,48.5,49.5]},"id":"1121","type":"FixedTicker"},{"attributes":{"formatter":{"id":"1130"},"major_label_orientation":1.57,"major_label_overrides":{"0.5":"4918.2","1.5":"4918.3","10.5":"4921.1","11.5":"4921.2","12.5":"4921.3","13.5":"4922.0","14.5":"4922.1","15.5":"4923.0","16.5":"4923.1","17.5":"4924.0","18.5":"4925.0","19.5":"4925.1","2.5":"4919.0","20.5":"4925.2","21.5":"4925.3","22.5":"4926.0","23.5":"4926.1","24.5":"4926.2","25.5":"4926.3","26.5":"4927.0","27.5":"4928.0","28.5":"4929.0","29.5":"4930.0","3.5":"4919.1","30.5":"4930.1","31.5":"4930.2","32.5":"4930.3","33.5":"4931.0","34.5":"4931.1","35.5":"4932.0","36.5":"4932.1","37.5":"4933.0","38.5":"4934.0","39.5":"4934.1","4.5":"4919.2","40.5":"4934.2","41.5":"4935.0","42.5":"4936.0","43.5":"4937.0","44.5":"4937.1","45.5":"4938.0","46.5":"4939.0","47.5":"4940.0","48.5":"4940.1","49.5":"4940.2","5.5":"4920.0","6.5":"4920.1","7.5":"4920.2","8.5":"4920.3","9.5":"4921.0"},"ticker":{"id":"1121"}},"id":"1091","type":"LinearAxis"},{"attributes":{"formatter":{"id":"1131"},"major_label_overrides":{"0.5":"D","1.5":"d","2.5":"T","3.5":"G","4.5":"C","5.5":"A","6.5":"t","7.5":"g","8.5":"c","9.5":"a"},"ticker":{"id":"1118"}},"id":"1095","type":"LinearAxis"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1105","type":"BoxAnnotation"},{"attributes":{"range_padding":0},"id":"1083","type":"DataRange1d"},{"attributes":{},"id":"1089","type":"LinearScale"},{"attributes":{"text":"Base counts"},"id":"1081","type":"Title"},{"attributes":{"data":{"image":[{"__ndarray__":"///////////////////////////Ly8v//////////////////////////////////////+7u7v///////////////////////////////////////////7a2tv/////////////////d3d3////////////////////////////////////////////////////////////d3d3/////////////////7u7u/+7u7v//////3d3d/7q6uv/u7u7//////////////////////+7u7v///////////7q6uv/////////////////Ly8v/////////////////7u7u//////+pqan//////+7u7v/u7u7/////////////////Tk5O/////////////////8vLy//u7u7/7u7u/+7u7v/////////////////u7u7//////8vLy////////////////////////////+7u7v+Xl5f/hoaG////////////7u7u/////////////////////////////v////7///////////////7////+/////v////7///////////////////////////////////////////////n///////////////////////////////////////////////////////////////7//////////v///3z//////////////////////////v////f////+////ev////////////////////z/////////fP////7///////////////////9/f/////////////////////////////////////////f3///8/P////////Pz////////g4P///////99ff///////////////////////////////////v7///7+///+/v////////////////////////////////////////z8//99ff///////3x8////////////////////////iIj///7+////////gYH///z8/////////Pz///7+//////////////7//v/+//7//////4H/gf////////////////99/33///////////////////////////////////////7//v+B/4H////////////////////////////////////////////////////////////////////////////+//7//////////////////////////////////v/+////////////f/9///////////////////////////////////////////////7+/////////v7///7+///////////////////+/v///v7///r6///+/v//iIj////////39////v7///7+////////9fX///r6///+/v//m5v///7+/////////////39///96ev//enr//3p6/////////v7///////////////////z8///+/v///v7//39////////////////////z8////v7///z8////////hIT//////////////Pz////////////////////////////8/////v//////////////9/////////////////////7////+/////P///////////////P////////////////////7//////////////////////////v////7//////////v//////////////iP////////////////////7///////////////////+I//////////////////////////////+I///////////////+/v///////4qK///////////////////////////////////+/v//////////////////+vr///r6//+Skv///////4qK//////////////////////////////////////////////7+///+/v////////7+/////////v7//////////////////4uL////////iIj///////////////////////+QkP////////7+//+Ghv/////////////8/P////////7//v/+//7/////////////////kP+Q/////////////////5b/lv///////////////////////////////////////v/+/43/jf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+S/5L//////////////////////////////////////////////v7///////////////////////////////////////////////////////+Pj/////////////////////////7+///6+v////////////+zs///////////////////jY3//4uL//+Kiv//ior/////////////////////////////////////////////hob///////////////////////////////////////+IiP///v7////////8/P8=","dtype":"uint8","order":"little","shape":[10,50,4]}]},"selected":{"id":"1132"},"selection_policy":{"id":"1133"}},"id":"1113","type":"ColumnDataSource"},{"attributes":{},"id":"1130","type":"BasicTickFormatter"},{"attributes":{"dh":{"units":"data","value":10},"dw":{"units":"data","value":50},"image":{"field":"image"},"x":{"value":0},"y":{"value":0}},"id":"1114","type":"ImageRGBA"},{"attributes":{"dh":{"units":"data","value":10},"dw":{"units":"data","value":50},"global_alpha":0.1,"image":{"field":"image"},"x":{"value":0},"y":{"value":0}},"id":"1115","type":"ImageRGBA"},{"attributes":{},"id":"1087","type":"LinearScale"},{"attributes":{"axis":{"id":"1091"},"ticker":null},"id":"1094","type":"Grid"},{"attributes":{},"id":"1131","type":"BasicTickFormatter"},{"attributes":{"axis":{"id":"1095"},"dimension":1,"ticker":null},"id":"1098","type":"Grid"}],"root_ids":["1080"]},"title":"Bokeh Application","version":"2.2.3"}};
+  var render_items = [{"docid":"c3d03a7e-ef1c-49a2-bece-c6b842a28a52","root_ids":["1080"],"roots":{"1080":"d21544d2-7d12-4740-8b99-cbca12345104"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
@@ -15304,14 +15144,14 @@ var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">resource_filename</span>
 
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">GRU</span><span class="p">,</span> <span class="n">CuDNNGRU</span><span class="p">,</span> <span class="n">Bidirectional</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">GRU</span><span class="p">,</span> <span class="n">Bidirectional</span>
 
 <span class="kn">from</span> <span class="nn">medaka.labels</span> <span class="kn">import</span> <span class="n">BaseLabelScheme</span>
 
@@ -15325,15 +15165,12 @@ var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
 <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;medaka&#39;</span><span class="p">)</span>
 <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">feature_len</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-    <span class="n">gru</span> <span class="o">=</span> <span class="n">CuDNNGRU</span><span class="p">(</span><span class="n">gru_size</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gru_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">gru</span> <span class="o">=</span> <span class="n">GRU</span><span class="p">(</span><span class="n">gru_size</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gru_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Bidirectional</span><span class="p">(</span><span class="n">gru</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span>
     <span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;classify&#39;</span><span class="p">,</span>
     <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">time_steps</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">gru_size</span><span class="p">)))</span>
 
-<span class="c1"># add pre-trained model weights</span>
-<span class="n">weight_file</span> <span class="o">=</span> <span class="n">resource_filename</span><span class="p">(</span><span class="s1">&#39;medaka&#39;</span><span class="p">,</span><span class="s1">&#39;data/r941_min_high_g344_model.hdf5&#39;</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">weight_file</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 
@@ -15358,9 +15195,9 @@ var element = document.getElementById('04763f98-0648-4a9a-8209-0355d21b5a7c');
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-bidirectional_16 (Bidirectio (None, 1000, 256)         107520    
+bidirectional_2 (Bidirection (None, 1000, 256)         107520    
 _________________________________________________________________
-bidirectional_17 (Bidirectio (None, 1000, 256)         296448    
+bidirectional_3 (Bidirection (None, 1000, 256)         296448    
 _________________________________________________________________
 classify (Dense)             (None, 1000, 5)           1285      
 =================================================================
@@ -15392,11 +15229,15 @@ _________________________________________________________________
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 <span class="kn">from</span> <span class="nn">medaka.common</span> <span class="kn">import</span> <span class="n">sliding_window</span><span class="p">,</span> <span class="n">grouper</span>
+
+<span class="c1"># load an actual medaka model</span>
+<span class="kn">from</span> <span class="nn">medaka</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">open_model</span><span class="p">(</span><span class="s2">&quot;r941_min_high_g360&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load_model</span><span class="p">()</span>
 
 <span class="c1"># create a function to perform windowing on an array</span>
 <span class="n">overlap</span> <span class="o">=</span> <span class="mi">200</span>
@@ -15414,7 +15255,7 @@ _________________________________________________________________
 <span class="n">t0</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">get_predictions</span><span class="p">(</span><span class="n">window</span><span class="p">(</span><span class="n">feature_array</span><span class="p">))</span>
 <span class="n">seq_chunks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">pred</span> <span class="n">predictions</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">predictions</span><span class="p">:</span>
     <span class="c1"># remove half the overlapping region of chunks</span>
     <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[</span><span class="n">overlap</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="n">overlap</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
     <span class="c1"># find the most likely base at each position and form the sequence</span>
@@ -15445,8 +15286,8 @@ _________________________________________________________________
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>7.50 to run predictions
-Total sequence length: 1500668.
+<pre>135.05 to run predictions
+Total sequence length: 1500539.
 </pre>
 </div>
 </div>
@@ -15470,15 +15311,15 @@ Total sequence length: 1500668.
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;/content/data/output.fasta&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;output.fasta&quot;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
     <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&gt;seq</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sequence</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;/content/data/saureus_canu.fasta&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;saureus_canu.fasta&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Analysing: </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
-    <span class="o">!</span>assess_assembly -r /content/data/references.fasta -i <span class="s2">&quot;</span><span class="nv">$fname</span><span class="s2">&quot;</span> <span class="m">2</span>&gt;/dev/null
+    <span class="o">!</span>assess_assembly -r references.fasta -i <span class="s2">&quot;</span><span class="nv">$fname</span><span class="s2">&quot;</span> <span class="m">2</span>&gt;/dev/null
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -15499,44 +15340,44 @@ Total sequence length: 1500668.
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Analysing: /content/data/saureus_canu.fasta.
+<pre>Analysing: saureus_canu.fasta.
 Writing list of indels 100 bases and longer to assm_indel_ge100.txt.
 #  Percentage Errors
   name     mean     q10      q50      q90   
- err_ont  0.133%   0.056%   0.068%   0.290% 
- err_bal  0.133%   0.056%   0.068%   0.290% 
-    iden  0.004%   0.000%   0.001%   0.024% 
-     del  0.117%   0.049%   0.059%   0.166% 
-     ins  0.012%   0.003%   0.006%   0.046% 
+err_ont   0.133%   0.056%   0.068%   0.290% 
+err_bal   0.133%   0.056%   0.068%   0.290% 
+   iden   0.004%   0.000%   0.001%   0.024% 
+    del   0.117%   0.049%   0.059%   0.166% 
+    ins   0.012%   0.003%   0.006%   0.046% 
 
 #  Q Scores
   name     mean      q10      q50      q90  
- err_ont  28.76    32.54    31.65    25.38  
- err_bal  28.76    32.54    31.65    25.38  
-    iden  44.39      inf    50.00    36.20  
-     del  29.30    33.10    32.29    27.79  
-     ins  39.20    45.23    42.22    33.41  
+err_ont   28.76    32.54    31.65    25.38  
+err_bal   28.76    32.54    31.65    25.38  
+   iden   44.39      inf    50.00    36.20  
+    del   29.30    33.10    32.29    27.79  
+    ins   39.20    45.23    42.22    33.41  
 
 All done, output written to assm_stats.txt, assm_summ.txt and assm_indel_ge100.txt
 
 
-Analysing: /content/data/output.fasta.
+Analysing: output.fasta.
 Writing list of indels 100 bases and longer to assm_indel_ge100.txt.
 #  Percentage Errors
   name     mean     q10      q50      q90   
- err_ont  0.007%   0.003%   0.005%   0.013% 
- err_bal  0.007%   0.003%   0.006%   0.013% 
-    iden  0.001%   0.000%   0.000%   0.003% 
-     del  0.002%   0.000%   0.001%   0.004% 
-     ins  0.005%   0.002%   0.005%   0.008% 
+err_ont   0.014%   0.008%   0.015%   0.023% 
+err_bal   0.014%   0.008%   0.015%   0.023% 
+   iden   0.001%   0.000%   0.000%   0.003% 
+    del   0.010%   0.005%   0.010%   0.016% 
+    ins   0.004%   0.001%   0.003%   0.007% 
 
 #  Q Scores
   name     mean      q10      q50      q90  
- err_ont  41.55    45.23    42.60    39.03  
- err_bal  41.55    45.23    42.60    39.03  
-    iden  51.35      inf      inf    46.02  
-     del  48.15      inf    50.00    44.56  
-     ins  43.25    46.99    43.01    41.25  
+err_ont   38.40    40.97    38.24    36.47  
+err_bal   38.40    40.97    38.24    36.47  
+   iden   50.30      inf      inf    46.02  
+    del   40.21    42.60    40.00    37.95  
+    ins   43.98    48.24    44.56    41.55  
 
 All done, output written to assm_stats.txt, assm_summ.txt and assm_indel_ge100.txt
 
@@ -15555,6 +15396,20 @@ All done, output written to assm_stats.txt, assm_summ.txt and assm_indel_ge100.t
 <h1 id="Remarks">Remarks<a class="anchor-link" href="#Remarks">&#182;</a></h1><p>In this short walkthrough we have examined some of the internals of Oxford Nanopore Technologies' <code>medaka</code> program performs GPU accelerated consensus calculations from aligned sequencing data. The public <code>medaka</code> codebase implements various alternative forms of the algorithms presented here including run length compression and support for multiple datatypes. Hopefully this guide will prove useful to anyone wishing to implement algorithms similar to that implemented in <code>medaka</code>.</p>
 
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 
