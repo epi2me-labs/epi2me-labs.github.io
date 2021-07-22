@@ -14259,7 +14259,9 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1>Introduction to Pychopper</h1><p>Pychopper is a tool to identify, orient and trim full-length Nanopore cDNA reads. It acts as a QC and filtering step in more complicated cDNA workflows.</p>
+<p><h1>Introduction to Pychopper</h1></p>
+<p><h4>Expected Duration: 10 minutes</h4>
+Pychopper is a tool to identify, orient and trim full-length Nanopore cDNA reads. It acts as a QC and filtering step in more complicated cDNA workflows.</p>
 <p>The tutorial contains a sample D. melanogaster cDNA <code>.fastq</code> dataset but you can run your own dataset by following the instructions in <strong>Using your own data</strong>. Please note that if you wish to analyse your own data you must supply an untrimmed cDNA <code>.fastq</code>, i.e. the direct output of the sequencing device.</p>
 <p>This workflow will:</p>
 <ul>
@@ -14285,48 +14287,13 @@ a.anchor-link {
 <h2 id="Installing-Pychopper">Installing Pychopper<a class="anchor-link" href="#Installing-Pychopper">&#182;</a></h2><p>The default <strong>EPI2MELabs</strong> server environment does not have Pychopper preinstalled. To use Pychopper we must therefore first install it, this is most easily done with conda:</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mamba install -q -y <span class="s2">&quot;pychopper&gt;=2.0&quot;</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>To avoid conflicts with other software, you may wish to restart your <strong>EPI2MELabs</strong> server when you have finished using Pychopper.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Data-preparation">Data preparation<a class="anchor-link" href="#Data-preparation">&#182;</a></h2><p>The workflow below requires a single folder containing <code>.fastq</code> files from an Oxford Nanopore Technologies' sequencing device, or a single such file. Compressed or uncompressed files may be used.</p>
-<p>Before anything else we will create and set a working directory:</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a work directory and move into it</span>
-<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;pychopper_tutorial&quot;</span>
-<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
-<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
-<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
-
-<span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
-<span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;pychopper_tutorial&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mamba install -q -y <span class="s2">&quot;pychopper&gt;=2.5&quot;</span>
 </pre></div>
 
      </div>
@@ -14346,13 +14313,52 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>/epi2melabs/pychopper_tutorial
+<pre>
+  Pinned packages:
+
+  - conda 4.9.2  - python 3.8.*  - tini 0.18.0
+
 </pre>
 </div>
 </div>
 
 </div>
 
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>To avoid conflicts with other software, you may wish to restart your <strong>EPI2MELabs</strong> server when you have finished using Pychopper.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Data-preparation">Data preparation<a class="anchor-link" href="#Data-preparation">&#182;</a></h2><p>The workflow below requires a single folder containing <code>.fastq</code> files from an Oxford Nanopore Technologies' sequencing device, or a single such file. Compressed or uncompressed files may be used.</p>
+<p>Before anything else we will create and set a working directory:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a work directory and move into it</span>
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;pychopper_tutorial&quot;</span>
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
+<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
+
+<span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
+<span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;pychopper_tutorial&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div>
@@ -14366,10 +14372,10 @@ a.anchor-link {
 <p>The form below will download either dataset and save them as <code>sample_data.fastq</code>. To start the download click on the cell and then press Command/Ctrl-Enter, or click the Play symbol to the left-hand side.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#@markdown Select download type and press Play</span>
@@ -14407,37 +14413,6 @@ a.anchor-link {
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-
-
-
-
-<div id="d011f49d-865b-4c39-a0f5-52ec89cef05c" class="jupyter-widgets jp-OutputArea-output ">
-<script type="text/javascript">
-var element = document.getElementById('d011f49d-865b-4c39-a0f5-52ec89cef05c');
-</script>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "e42b8cb87b274ef9bf6c8a6c50829183", "version_major": 2, "version_minor": 0}
-</script>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14447,7 +14422,7 @@ var element = document.getElementById('d011f49d-865b-4c39-a0f5-52ec89cef05c');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree .
@@ -14470,10 +14445,17 @@ var element = document.getElementById('d011f49d-865b-4c39-a0f5-52ec89cef05c');
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>.
+<pre><span class="ansi-blue-intense-fg ansi-bold">.</span>
+├── <span class="ansi-blue-intense-fg ansi-bold">analysis</span>
+│   ├── cdna_classifier_report.tsv
+│   ├── full_length_output.fq
+│   ├── <span class="ansi-cyan-intense-fg ansi-bold">input.fastq</span> -&gt; /epi2melabs/pychopper_tutorial/sample_data.fastq
+│   ├── report.pdf
+│   ├── rescued.fq
+│   └── unclassified.fq
 └── sample_data.fastq
 
-0 directories, 1 file
+1 directory, 7 files
 </pre>
 </div>
 </div>
@@ -14509,7 +14491,7 @@ var element = document.getElementById('d011f49d-865b-4c39-a0f5-52ec89cef05c');
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Data-entry">Data entry<a class="anchor-link" href="#Data-entry">&#182;</a></h3><p>Having downloaded the sample data, or locating your own data in the file browser, we need to provide the filepaths as input to the notebook. This is done in the form below.</p>
+<h3 id="Data-entry">Data entry<a class="anchor-link" href="#Data-entry">&#182;</a></h3><p>Having downloaded the sample data, or locating your own data in the file browser, we need to provide the filepaths as input to the notebook. This is done in the form below. It is also possible to select which primer kit has been used, the default is PCS110 but it is also possible to choose PCS109 using the drop down.</p>
 
 </div>
 </div>
@@ -14519,14 +14501,14 @@ var element = document.getElementById('d011f49d-865b-4c39-a0f5-52ec89cef05c');
 </blockquote>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#@markdown Enter the paths to you input files and output folder here. The input data may be either a a single fastq, compressed or otherwise, file or a directory containing multiple such files:</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
 
 <span class="n">input_file</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">output_folder</span> <span class="o">=</span> <span class="kc">None</span>
@@ -14534,6 +14516,7 @@ var element = document.getElementById('d011f49d-865b-4c39-a0f5-52ec89cef05c');
 <span class="k">def</span> <span class="nf">process_form</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">input_file</span>
     <span class="k">global</span> <span class="n">output_folder</span>
+    <span class="k">global</span> <span class="n">primer_kit</span>
     <span class="c1"># run a command to concatenate all the files together</span>
     <span class="o">!</span><span class="nb">echo</span> <span class="s2">&quot;Making output folder&quot;</span>
     <span class="n">output_folder</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">output_folder</span>
@@ -14542,9 +14525,12 @@ var element = document.getElementById('d011f49d-865b-4c39-a0f5-52ec89cef05c');
     <span class="o">!</span><span class="nb">test</span> -e <span class="s2">&quot;</span><span class="nv">$input_data</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;Found input file.&quot;</span> <span class="o">||</span> <span class="s2">&quot;WARNING: </span><span class="nv">$input_data</span><span class="s2"> does not exist&quot;</span>
     <span class="n">input_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s2">&quot;input.fastq&quot;</span><span class="p">)</span>
     <span class="o">!</span>rationalize_fastq -i <span class="s2">&quot;</span><span class="nv">$input_data</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$input_file</span><span class="s2">&quot;</span>
+    <span class="n">primer_kit</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">primer_kit</span>
     
 <span class="n">pychopper_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;input_data&#39;</span><span class="p">,</span> <span class="s1">&#39;Input fastq&#39;</span><span class="p">,</span> <span class="s1">&#39;/epi2melabs/pychopper_tutorial/sample_data.fastq&#39;</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;primer_kit&#39;</span><span class="p">,</span> <span class="s1">&#39;Primer Kit&#39;</span><span class="p">,</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+            <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PCS110&#39;</span><span class="p">,</span><span class="s1">&#39;PCS109&#39;</span><span class="p">])),</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;output_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Output folder&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">))</span>
 <span class="n">pychopper_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
 <span class="n">pychopper_form</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
@@ -14553,37 +14539,6 @@ var element = document.getElementById('d011f49d-865b-4c39-a0f5-52ec89cef05c');
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-
-
-
-
-<div id="478ba5e8-dd8e-438c-bc6c-c268c76f8f09" class="jupyter-widgets jp-OutputArea-output ">
-<script type="text/javascript">
-var element = document.getElementById('478ba5e8-dd8e-438c-bc6c-c268c76f8f09');
-</script>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "a82ffd6c711f493d97920e13c5465add", "version_major": 2, "version_minor": 0}
-</script>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14607,6 +14562,7 @@ var element = document.getElementById('478ba5e8-dd8e-438c-bc6c-c268c76f8f09');
     <span class="o">-</span><span class="n">u</span> <span class="s2">&quot;$output_folder&quot;</span><span class="o">/</span><span class="n">unclassified</span><span class="o">.</span><span class="n">fq</span> \
     <span class="o">-</span><span class="n">w</span> <span class="s2">&quot;$output_folder&quot;</span><span class="o">/</span><span class="n">rescued</span><span class="o">.</span><span class="n">fq</span> \
     <span class="o">-</span><span class="n">S</span> <span class="s2">&quot;$output_folder&quot;</span><span class="o">/</span><span class="n">cdna_classifier_report</span><span class="o">.</span><span class="n">tsv</span> \
+    <span class="o">-</span><span class="n">k</span> <span class="s2">&quot;$primer_kit&quot;</span> \
     <span class="s2">&quot;$input_file&quot;</span> \
     <span class="s2">&quot;$output_folder&quot;</span><span class="o">/</span><span class="n">full_length_output</span><span class="o">.</span><span class="n">fq</span>
 </pre></div>
@@ -14632,7 +14588,7 @@ of the classification decision boundary. This plot should be unimodal (have a si
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Classification summary *(click to show)*</span>
@@ -14705,17 +14661,17 @@ of the classification decision boundary. This plot should be unimodal (have a si
     <tr>
       <th>0</th>
       <td>Primers_found</td>
-      <td>80.098457</td>
+      <td>74.364532</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Rescue</td>
-      <td>2.047916</td>
+      <td>1.931034</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Unusable</td>
-      <td>17.853627</td>
+      <td>23.704433</td>
     </tr>
   </tbody>
 </table>
@@ -14732,9 +14688,9 @@ of the classification decision boundary. This plot should be unimodal (have a si
 
 
 
-<div id="f0dd627a-9a3c-4e0f-aceb-04611fb271aa" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e79364fc-4c7c-4042-8b2a-b460a2ef7173" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('f0dd627a-9a3c-4e0f-aceb-04611fb271aa');
+var element = document.getElementById('e79364fc-4c7c-4042-8b2a-b460a2ef7173');
 
 (function(root) {
   function now() {
@@ -14961,7 +14917,7 @@ var element = document.getElementById('f0dd627a-9a3c-4e0f-aceb-04611fb271aa');
       document.body.appendChild(element);
     }
 
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js": "kLr4fYcqcSpbuI95brIH3vnnYCquzzSxHPU6XGQCIkQRGJwhg0StNbj1eegrHs12", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js": "xIGPmVtaOm+z0BqfSOMn4lOR6ciex448GIKG4eE61LsAvmGj48XcMQZtKcE/UXZe", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js": "Dc9u1wF/0zApGIWoBbH77iWEHtdmkuYWG839Uzmv8y8yBLXebjO9ZnERsde5Ln/P", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js": "cT9JaBz7GiRXdENrJLZNSC6eMNF3nh3fa5fTF51Svp+ukxPdwcU5kGXGPBgDCa2j"};
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js": "T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js": "98GDGJ0kOMCUMUePhksaQ/GYgB3+NH9h996V88sh3aOiUNX3N+fLXAtry6xctSZ6", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js": "89bArO+nlbP3sgakeHjCo1JYxYR5wufVgA3IbUvDY+K7w4zyxJqssu7wVnfeKCq8"};
 
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
@@ -14986,7 +14942,7 @@ var element = document.getElementById('f0dd627a-9a3c-4e0f-aceb-04611fb271aa');
   }
 
   
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js"];
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js"];
   var css_urls = [];
   
 
@@ -15048,7 +15004,7 @@ var element = document.getElementById('f0dd627a-9a3c-4e0f-aceb-04611fb271aa');
 
 
 
-  <div class="bk-root" id="5d7333c0-ed85-4298-8aab-79993a4e90ee" data-root-id="1001"></div>
+  <div class="bk-root" id="c8f5d57b-44af-4d31-9f1c-d3233f86ea83" data-root-id="1001"></div>
 
 </div>
 
@@ -15062,14 +15018,14 @@ var element = document.getElementById('f0dd627a-9a3c-4e0f-aceb-04611fb271aa');
 
 
 
-<div id="f0dd627a-9a3c-4e0f-aceb-04611fb271aa" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e79364fc-4c7c-4042-8b2a-b460a2ef7173" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('f0dd627a-9a3c-4e0f-aceb-04611fb271aa');
+var element = document.getElementById('e79364fc-4c7c-4042-8b2a-b460a2ef7173');
 (function(root) {
   function embed_document(root) {
     
-  var docs_json = {"9e394499-da53-48a8-8277-e8077078e551": {"roots": {"references": [{"attributes": {"bounds": [2007.0, 8119.0], "end": 8119.0, "start": 2007.0}, "id": "1040", "type": "Range1d"}, {"attributes": {}, "id": "1046", "type": "UnionRenderers"}, {"attributes": {}, "id": "1017", "type": "BasicTicker"}, {"attributes": {}, "id": "1047", "type": "Selection"}, {"attributes": {"text": "Cut off parameter selection curve"}, "id": "1002", "type": "Title"}, {"attributes": {}, "id": "1021", "type": "WheelZoomTool"}, {"attributes": {}, "id": "1023", "type": "SaveTool"}, {"attributes": {"line_alpha": 0.1, "line_color": "blue", "line_width": 1.5}, "id": "1036", "type": "Line"}, {"attributes": {"source": {"id": "1034"}}, "id": "1038", "type": "CDSView"}, {"attributes": {}, "id": "1008", "type": "LinearScale"}, {"attributes": {"background_fill_color": "#F4F4F4", "below": [{"id": "1012"}], "border_fill_color": "#F4F4F4", "center": [{"id": "1015"}, {"id": "1019"}], "left": [{"id": "1016"}], "output_backend": "webgl", "plot_height": 300, "renderers": [{"id": "1037"}], "title": {"id": "1002"}, "toolbar": {"id": "1027"}, "x_range": {"id": "1039"}, "x_scale": {"id": "1008"}, "y_range": {"id": "1040"}, "y_scale": {"id": "1010"}}, "id": "1001", "subtype": "Figure", "type": "Plot"}, {"attributes": {"bottom_units": "screen", "fill_alpha": 0.5, "fill_color": "lightgrey", "left_units": "screen", "level": "overlay", "line_alpha": 1.0, "line_color": "black", "line_dash": [4, 4], "line_width": 2, "right_units": "screen", "top_units": "screen"}, "id": "1026", "type": "BoxAnnotation"}, {"attributes": {}, "id": "1042", "type": "BasicTickFormatter"}, {"attributes": {}, "id": "1010", "type": "LinearScale"}, {"attributes": {"line_color": "blue", "line_width": 1.5}, "id": "1035", "type": "Line"}, {"attributes": {"data": {"x": {"__ndarray__": "8WjjiLX45D6kRbS3+BHGP90zScbOEdY/cyJcmFCN4D/5qpPNuRHmP38zywIjlus/Al4BHEaN8D9FIp22ek/zP4jmOFGvEfY/y6rU6+PT+D8Ob3CGGJb7P1AzDCFNWP4/yfvT3UCNAEDr3SErW+4BQAzAb3h1TwNALqK9xY+wBEBPhAsTqhEGQHBmWWDEcgdAkkinrd7TCECzKvX6+DQKQNUMQ0gTlgtA9u6QlS33DEAX0d7iR1gOQDmzLDBiuQ9ArEq9Pj6NEEC9O2Rlyz0RQM4sC4xY7hFA3x2ysuWeEkDvDlnZck8TQAAAAAAAABRA", "dtype": "float64", "order": "little", "shape": [30]}, "y": {"__ndarray__": "AAAAAABcn0AAAAAAABm/QAAAAAAAnL9AAAAAAAC3v0AAAAAAAKW/QAAAAAAAn79AAAAAAACEv0AAAAAAAE2/QAAAAAAAEr9AAAAAAACpvkAAAAAAAFS+QAAAAAAAAr5AAAAAAACjvUAAAAAAAEa9QAAAAAAAw7xAAAAAAACIvEAAAAAAACO8QAAAAAAAmbtAAAAAAAAvu0AAAAAAAMq6QAAAAAAAa7pAAAAAAAAWukAAAAAAANK5QAAAAAAAYrlAAAAAAAATuUAAAAAAAMK4QAAAAAAAhbhAAAAAAAA7uEAAAAAAAPu3QAAAAAAAvrdA", "dtype": "float64", "order": "little", "shape": [30]}}, "selected": {"id": "1047"}, "selection_policy": {"id": "1046"}}, "id": "1034", "type": "ColumnDataSource"}, {"attributes": {"axis": {"id": "1016"}, "dimension": 1, "ticker": null}, "id": "1019", "type": "Grid"}, {"attributes": {"active_drag": "auto", "active_inspect": "auto", "active_multi": null, "active_scroll": "auto", "active_tap": "auto", "tools": [{"id": "1020"}, {"id": "1021"}, {"id": "1022"}, {"id": "1023"}, {"id": "1024"}, {"id": "1025"}]}, "id": "1027", "type": "Toolbar"}, {"attributes": {}, "id": "1020", "type": "PanTool"}, {"attributes": {}, "id": "1025", "type": "HelpTool"}, {"attributes": {"overlay": {"id": "1026"}}, "id": "1022", "type": "BoxZoomTool"}, {"attributes": {"axis_label": "Filter cut off", "formatter": {"id": "1044"}, "ticker": {"id": "1013"}}, "id": "1012", "type": "LinearAxis"}, {"attributes": {"bounds": [1e-05, 5.0], "end": 5.0, "start": 1e-05}, "id": "1039", "type": "Range1d"}, {"attributes": {"data_source": {"id": "1034"}, "glyph": {"id": "1035"}, "hover_glyph": null, "muted_glyph": null, "nonselection_glyph": {"id": "1036"}, "selection_glyph": null, "view": {"id": "1038"}}, "id": "1037", "type": "GlyphRenderer"}, {"attributes": {"axis_label": "Selected reads", "formatter": {"id": "1042"}, "ticker": {"id": "1017"}}, "id": "1016", "type": "LinearAxis"}, {"attributes": {}, "id": "1013", "type": "BasicTicker"}, {"attributes": {"axis": {"id": "1012"}, "ticker": null}, "id": "1015", "type": "Grid"}, {"attributes": {}, "id": "1044", "type": "BasicTickFormatter"}, {"attributes": {}, "id": "1024", "type": "ResetTool"}], "root_ids": ["1001"]}, "title": "Bokeh Application", "version": "2.2.3"}};
-  var render_items = [{"docid":"9e394499-da53-48a8-8277-e8077078e551","root_ids":["1001"],"roots":{"1001":"5d7333c0-ed85-4298-8aab-79993a4e90ee"}}];
+  var docs_json = {"28ad686c-32ba-442b-81b6-c8d24d2ef596":{"roots":{"references":[{"attributes":{"background_fill_color":"#f4f4f4","below":[{"id":"1012"}],"border_fill_color":"#f4f4f4","center":[{"id":"1015"},{"id":"1019"}],"left":[{"id":"1016"}],"output_backend":"webgl","plot_height":300,"renderers":[{"id":"1037"}],"title":{"id":"1002"},"toolbar":{"id":"1027"},"x_range":{"id":"1039"},"x_scale":{"id":"1008"},"y_range":{"id":"1040"},"y_scale":{"id":"1010"}},"id":"1001","subtype":"Figure","type":"Plot"},{"attributes":{"text":"Cut off parameter selection curve"},"id":"1002","type":"Title"},{"attributes":{"bounds":[5211.0,7491.0],"end":7491.0,"start":5211.0},"id":"1040","type":"Range1d"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{},"id":"1042","type":"BasicTickFormatter"},{"attributes":{"axis_label":"Filter cut off","formatter":{"id":"1044"},"ticker":{"id":"1013"}},"id":"1012","type":"LinearAxis"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{"axis":{"id":"1012"},"ticker":null},"id":"1015","type":"Grid"},{"attributes":{},"id":"1021","type":"WheelZoomTool"},{"attributes":{"axis_label":"Selected reads","formatter":{"id":"1042"},"ticker":{"id":"1017"}},"id":"1016","type":"LinearAxis"},{"attributes":{},"id":"1044","type":"BasicTickFormatter"},{"attributes":{"axis":{"id":"1016"},"dimension":1,"ticker":null},"id":"1019","type":"Grid"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"}]},"id":"1027","type":"Toolbar"},{"attributes":{},"id":"1025","type":"HelpTool"},{"attributes":{},"id":"1020","type":"PanTool"},{"attributes":{"overlay":{"id":"1026"}},"id":"1022","type":"BoxZoomTool"},{"attributes":{},"id":"1023","type":"SaveTool"},{"attributes":{},"id":"1024","type":"ResetTool"},{"attributes":{"data_source":{"id":"1034"},"glyph":{"id":"1035"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1036"},"selection_glyph":null,"view":{"id":"1038"}},"id":"1037","type":"GlyphRenderer"},{"attributes":{},"id":"1047","type":"Selection"},{"attributes":{"bounds":[1e-05,5.0],"end":5.0,"start":1e-05},"id":"1039","type":"Range1d"},{"attributes":{},"id":"1048","type":"UnionRenderers"},{"attributes":{"data":{"x":{"__ndarray__":"8WjjiLX45D6kRbS3+BHGP90zScbOEdY/cyJcmFCN4D/5qpPNuRHmP38zywIjlus/Al4BHEaN8D9FIp22ek/zP4jmOFGvEfY/y6rU6+PT+D8Ob3CGGJb7P1AzDCFNWP4/yfvT3UCNAEDr3SErW+4BQAzAb3h1TwNALqK9xY+wBEBPhAsTqhEGQHBmWWDEcgdAkkinrd7TCECzKvX6+DQKQNUMQ0gTlgtA9u6QlS33DEAX0d7iR1gOQDmzLDBiuQ9ArEq9Pj6NEEC9O2Rlyz0RQM4sC4xY7hFA3x2ysuWeEkDvDlnZck8TQAAAAAAAABRA","dtype":"float64","order":"little","shape":[30]},"y":{"__ndarray__":"AAAAAACBtkAAAAAAAEO9QAAAAAAAYrxAAAAAAAC+u0AAAAAAABG7QAAAAAAAgrpAAAAAAADYuUAAAAAAAFO5QAAAAAAA9LhAAAAAAABnuEAAAAAAAAO4QAAAAAAAv7dAAAAAAABXt0AAAAAAABq3QAAAAAAAxLZAAAAAAABztkAAAAAAADS2QAAAAAAACbZAAAAAAADMtUAAAAAAALu1QAAAAAAAcLVAAAAAAAAztUAAAAAAABe1QAAAAAAA+rRAAAAAAADUtEAAAAAAAK+0QAAAAAAAlLRAAAAAAACLtEAAAAAAAHy0QAAAAAAAW7RA","dtype":"float64","order":"little","shape":[30]}},"selected":{"id":"1047"},"selection_policy":{"id":"1048"}},"id":"1034","type":"ColumnDataSource"},{"attributes":{"line_color":"blue","line_width":1.5,"x":{"field":"x"},"y":{"field":"y"}},"id":"1035","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"blue","line_width":1.5,"x":{"field":"x"},"y":{"field":"y"}},"id":"1036","type":"Line"},{"attributes":{"source":{"id":"1034"}},"id":"1038","type":"CDSView"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1026","type":"BoxAnnotation"},{"attributes":{},"id":"1013","type":"BasicTicker"}],"root_ids":["1001"]},"title":"Bokeh Application","version":"2.2.3"}};
+  var render_items = [{"docid":"28ad686c-32ba-442b-81b6-c8d24d2ef596","root_ids":["1001"],"roots":{"1001":"c8f5d57b-44af-4d31-9f1c-d3233f86ea83"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
