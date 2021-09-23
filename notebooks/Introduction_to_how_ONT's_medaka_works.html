@@ -14356,7 +14356,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">medaka.features</span> <span class="kn">import</span> <span class="n">pileup_counts</span>
@@ -14454,7 +14454,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>38.92s to form pileup counts.
+<pre>1.66s to form pileup counts.
 </pre>
 </div>
 </div>
@@ -14636,7 +14636,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14695,41 +14695,40 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot feature array (click play)</span>
-
+<span class="kn">import</span> <span class="nn">aplanat</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
 <span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">Range1d</span>
-<span class="kn">import</span> <span class="nn">bokeh.io</span> <span class="k">as</span> <span class="nn">bkio</span>
+
 
 <span class="c1"># select just a region to plot</span>
-<span class="n">reg</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10050</span><span class="p">)</span>
-<span class="n">pdata</span> <span class="o">=</span> <span class="n">feature_array</span><span class="p">[</span><span class="n">reg</span><span class="p">]</span> <span class="o">*</span> <span class="mi">255</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">3925</span><span class="p">,</span><span class="mi">3960</span><span class="p">)</span>
+<span class="n">pdata</span> <span class="o">=</span> <span class="n">feature_array</span><span class="p">[</span><span class="n">reg</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 <span class="n">ppos</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[</span><span class="n">reg</span><span class="p">]</span>
-<span class="c1"># create RGBA image</span>
-<span class="n">pdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">pdata</span><span class="p">]</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">pdata</span><span class="p">[:,:,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># alpha channel</span>
-<span class="n">pdata</span><span class="p">[:,[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">codes</span><span class="p">],</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">0</span>
-<span class="n">pdata</span><span class="p">[:,[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;C&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">codes</span><span class="p">],</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">0</span>
-<span class="n">pdata</span><span class="p">[:,[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;G&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">codes</span><span class="p">],</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">0</span>
-<span class="n">pdata</span><span class="p">[:,[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;T&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">codes</span><span class="p">],</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">0</span>
-<span class="n">pdata</span><span class="p">[:,[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;D&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">codes</span><span class="p">],</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">10</span>
-<span class="n">pdata</span> <span class="o">=</span> <span class="n">pdata</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-<span class="n">pdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">pdata</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,:,:]</span>
-<span class="n">pdata</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pdata</span>
-
 <span class="c1"># create a figure</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span>
     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Base counts&quot;</span><span class="p">,</span>
-    <span class="n">plot_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">plot_width</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+    <span class="n">plot_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">plot_width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">pdata</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">pdata</span><span class="o">.</span><span class="n">shape</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span><span class="p">,))</span>
+<span class="c1"># set row colours: A blue, C red, G, green, T yello</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="s1">&#39;C&#39;</span><span class="p">:{</span><span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;G&#39;</span><span class="p">:{</span><span class="mi">1</span><span class="p">},</span> <span class="s1">&#39;T&#39;</span><span class="p">:{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">}}</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cols</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="n">k</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">codes</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+        <span class="n">view</span><span class="p">[</span><span class="n">where</span><span class="p">,:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+<span class="c1"># use data as transparency mask</span>
+<span class="n">view</span><span class="p">[:,:,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="mi">255</span> <span class="o">*</span> <span class="n">pdata</span><span class="p">)</span>
 
 <span class="n">p</span><span class="o">.</span><span class="n">x_range</span><span class="o">.</span><span class="n">range_padding</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">y_range</span><span class="o">.</span><span class="n">range_padding</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">p</span><span class="o">.</span><span class="n">image_rgba</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="p">[</span><span class="n">pdata</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dw</span><span class="o">=</span><span class="n">pdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dh</span><span class="o">=</span><span class="n">pdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">p</span><span class="o">.</span><span class="n">image_rgba</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="p">[</span><span class="n">img</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dw</span><span class="o">=</span><span class="n">pdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dh</span><span class="o">=</span><span class="n">pdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">ylabels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">10.5</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">ticker</span> <span class="o">=</span> <span class="n">ylabels</span>
-<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">major_label_overrides</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ylabels</span><span class="p">,</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">codes</span><span class="p">)))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">major_label_overrides</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ylabels</span><span class="p">,</span> <span class="n">codes</span><span class="p">))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">y_range</span> <span class="o">=</span> <span class="n">Range1d</span><span class="p">(</span>
     <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
@@ -14739,8 +14738,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
     <span class="n">xlabels</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;minor&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ppos</span><span class="p">)</span>
 <span class="p">))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">major_label_orientation</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">bkio</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">(</span><span class="n">hide_banner</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">bkio</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#F4F4F4&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14761,9 +14759,9 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 
-<div id="bd1f4a8f-8f95-45cb-b0c8-ad02eb17d706" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="c9e7fc92-9ffc-40be-a4ee-67e75d588681" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('bd1f4a8f-8f95-45cb-b0c8-ad02eb17d706');
+var element = document.getElementById('c9e7fc92-9ffc-40be-a4ee-67e75d588681');
 
 (function(root) {
   function now() {
@@ -15077,7 +15075,7 @@ var element = document.getElementById('bd1f4a8f-8f95-45cb-b0c8-ad02eb17d706');
 
 
 
-  <div class="bk-root" id="d21544d2-7d12-4740-8b99-cbca12345104" data-root-id="1080"></div>
+  <div class="bk-root" id="23b82adb-1c95-4c7d-9cef-3319e973b72e" data-root-id="1251"></div>
 
 </div>
 
@@ -15091,14 +15089,14 @@ var element = document.getElementById('bd1f4a8f-8f95-45cb-b0c8-ad02eb17d706');
 
 
 
-<div id="bd1f4a8f-8f95-45cb-b0c8-ad02eb17d706" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="c9e7fc92-9ffc-40be-a4ee-67e75d588681" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('bd1f4a8f-8f95-45cb-b0c8-ad02eb17d706');
+var element = document.getElementById('c9e7fc92-9ffc-40be-a4ee-67e75d588681');
 (function(root) {
   function embed_document(root) {
     
-  var docs_json = {"c3d03a7e-ef1c-49a2-bece-c6b842a28a52":{"roots":{"references":[{"attributes":{"below":[{"id":"1091"}],"center":[{"id":"1094"},{"id":"1098"}],"left":[{"id":"1095"}],"plot_height":300,"plot_width":800,"renderers":[{"id":"1116"}],"title":{"id":"1081"},"toolbar":{"id":"1106"},"x_range":{"id":"1083"},"x_scale":{"id":"1087"},"y_range":{"id":"1120"},"y_scale":{"id":"1089"}},"id":"1080","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1100","type":"WheelZoomTool"},{"attributes":{"overlay":{"id":"1105"}},"id":"1101","type":"BoxZoomTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1099"},{"id":"1100"},{"id":"1101"},{"id":"1102"},{"id":"1103"},{"id":"1104"}]},"id":"1106","type":"Toolbar"},{"attributes":{},"id":"1104","type":"HelpTool"},{"attributes":{},"id":"1102","type":"SaveTool"},{"attributes":{},"id":"1103","type":"ResetTool"},{"attributes":{"data_source":{"id":"1113"},"glyph":{"id":"1114"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1115"},"selection_glyph":null,"view":{"id":"1117"}},"id":"1116","type":"GlyphRenderer"},{"attributes":{},"id":"1132","type":"Selection"},{"attributes":{"source":{"id":"1113"}},"id":"1117","type":"CDSView"},{"attributes":{},"id":"1133","type":"UnionRenderers"},{"attributes":{},"id":"1099","type":"PanTool"},{"attributes":{"bounds":[0,10],"end":10},"id":"1120","type":"Range1d"},{"attributes":{"ticks":[0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5]},"id":"1118","type":"FixedTicker"},{"attributes":{"ticks":[0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5,11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5,21.5,22.5,23.5,24.5,25.5,26.5,27.5,28.5,29.5,30.5,31.5,32.5,33.5,34.5,35.5,36.5,37.5,38.5,39.5,40.5,41.5,42.5,43.5,44.5,45.5,46.5,47.5,48.5,49.5]},"id":"1121","type":"FixedTicker"},{"attributes":{"formatter":{"id":"1130"},"major_label_orientation":1.57,"major_label_overrides":{"0.5":"4918.2","1.5":"4918.3","10.5":"4921.1","11.5":"4921.2","12.5":"4921.3","13.5":"4922.0","14.5":"4922.1","15.5":"4923.0","16.5":"4923.1","17.5":"4924.0","18.5":"4925.0","19.5":"4925.1","2.5":"4919.0","20.5":"4925.2","21.5":"4925.3","22.5":"4926.0","23.5":"4926.1","24.5":"4926.2","25.5":"4926.3","26.5":"4927.0","27.5":"4928.0","28.5":"4929.0","29.5":"4930.0","3.5":"4919.1","30.5":"4930.1","31.5":"4930.2","32.5":"4930.3","33.5":"4931.0","34.5":"4931.1","35.5":"4932.0","36.5":"4932.1","37.5":"4933.0","38.5":"4934.0","39.5":"4934.1","4.5":"4919.2","40.5":"4934.2","41.5":"4935.0","42.5":"4936.0","43.5":"4937.0","44.5":"4937.1","45.5":"4938.0","46.5":"4939.0","47.5":"4940.0","48.5":"4940.1","49.5":"4940.2","5.5":"4920.0","6.5":"4920.1","7.5":"4920.2","8.5":"4920.3","9.5":"4921.0"},"ticker":{"id":"1121"}},"id":"1091","type":"LinearAxis"},{"attributes":{"formatter":{"id":"1131"},"major_label_overrides":{"0.5":"D","1.5":"d","2.5":"T","3.5":"G","4.5":"C","5.5":"A","6.5":"t","7.5":"g","8.5":"c","9.5":"a"},"ticker":{"id":"1118"}},"id":"1095","type":"LinearAxis"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1105","type":"BoxAnnotation"},{"attributes":{"range_padding":0},"id":"1083","type":"DataRange1d"},{"attributes":{},"id":"1089","type":"LinearScale"},{"attributes":{"text":"Base counts"},"id":"1081","type":"Title"},{"attributes":{"data":{"image":[{"__ndarray__":"///////////////////////////Ly8v//////////////////////////////////////+7u7v///////////////////////////////////////////7a2tv/////////////////d3d3////////////////////////////////////////////////////////////d3d3/////////////////7u7u/+7u7v//////3d3d/7q6uv/u7u7//////////////////////+7u7v///////////7q6uv/////////////////Ly8v/////////////////7u7u//////+pqan//////+7u7v/u7u7/////////////////Tk5O/////////////////8vLy//u7u7/7u7u/+7u7v/////////////////u7u7//////8vLy////////////////////////////+7u7v+Xl5f/hoaG////////////7u7u/////////////////////////////v////7///////////////7////+/////v////7///////////////////////////////////////////////n///////////////////////////////////////////////////////////////7//////////v///3z//////////////////////////v////f////+////ev////////////////////z/////////fP////7///////////////////9/f/////////////////////////////////////////f3///8/P////////Pz////////g4P///////99ff///////////////////////////////////v7///7+///+/v////////////////////////////////////////z8//99ff///////3x8////////////////////////iIj///7+////////gYH///z8/////////Pz///7+//////////////7//v/+//7//////4H/gf////////////////99/33///////////////////////////////////////7//v+B/4H////////////////////////////////////////////////////////////////////////////+//7//////////////////////////////////v/+////////////f/9///////////////////////////////////////////////7+/////////v7///7+///////////////////+/v///v7///r6///+/v//iIj////////39////v7///7+////////9fX///r6///+/v//m5v///7+/////////////39///96ev//enr//3p6/////////v7///////////////////z8///+/v///v7//39////////////////////z8////v7///z8////////hIT//////////////Pz////////////////////////////8/////v//////////////9/////////////////////7////+/////P///////////////P////////////////////7//////////////////////////v////7//////////v//////////////iP////////////////////7///////////////////+I//////////////////////////////+I///////////////+/v///////4qK///////////////////////////////////+/v//////////////////+vr///r6//+Skv///////4qK//////////////////////////////////////////////7+///+/v////////7+/////////v7//////////////////4uL////////iIj///////////////////////+QkP////////7+//+Ghv/////////////8/P////////7//v/+//7/////////////////kP+Q/////////////////5b/lv///////////////////////////////////////v/+/43/jf////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+S/5L//////////////////////////////////////////////v7///////////////////////////////////////////////////////+Pj/////////////////////////7+///6+v////////////+zs///////////////////jY3//4uL//+Kiv//ior/////////////////////////////////////////////hob///////////////////////////////////////+IiP///v7////////8/P8=","dtype":"uint8","order":"little","shape":[10,50,4]}]},"selected":{"id":"1132"},"selection_policy":{"id":"1133"}},"id":"1113","type":"ColumnDataSource"},{"attributes":{},"id":"1130","type":"BasicTickFormatter"},{"attributes":{"dh":{"units":"data","value":10},"dw":{"units":"data","value":50},"image":{"field":"image"},"x":{"value":0},"y":{"value":0}},"id":"1114","type":"ImageRGBA"},{"attributes":{"dh":{"units":"data","value":10},"dw":{"units":"data","value":50},"global_alpha":0.1,"image":{"field":"image"},"x":{"value":0},"y":{"value":0}},"id":"1115","type":"ImageRGBA"},{"attributes":{},"id":"1087","type":"LinearScale"},{"attributes":{"axis":{"id":"1091"},"ticker":null},"id":"1094","type":"Grid"},{"attributes":{},"id":"1131","type":"BasicTickFormatter"},{"attributes":{"axis":{"id":"1095"},"dimension":1,"ticker":null},"id":"1098","type":"Grid"}],"root_ids":["1080"]},"title":"Bokeh Application","version":"2.2.3"}};
-  var render_items = [{"docid":"c3d03a7e-ef1c-49a2-bece-c6b842a28a52","root_ids":["1080"],"roots":{"1080":"d21544d2-7d12-4740-8b99-cbca12345104"}}];
+  var docs_json = {"2394e71a-c118-4599-85f6-c6f2378ac01a":{"roots":{"references":[{"attributes":{"background_fill_color":"#F4F4F4","below":[{"id":"1262"}],"border_fill_color":"#F4F4F4","center":[{"id":"1265"},{"id":"1269"}],"left":[{"id":"1266"}],"plot_height":300,"renderers":[{"id":"1287"}],"title":{"id":"1252"},"toolbar":{"id":"1277"},"x_range":{"id":"1254"},"x_scale":{"id":"1258"},"y_range":{"id":"1291"},"y_scale":{"id":"1260"}},"id":"1251","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1260","type":"LinearScale"},{"attributes":{"bounds":[0,10],"end":10},"id":"1291","type":"Range1d"},{"attributes":{"dh":{"units":"data","value":10},"dw":{"units":"data","value":35},"global_alpha":0.1,"image":{"field":"image"},"x":{"value":0},"y":{"value":0}},"id":"1286","type":"ImageRGBA"},{"attributes":{"axis":{"id":"1262"},"ticker":null},"id":"1265","type":"Grid"},{"attributes":{"ticks":[0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5]},"id":"1289","type":"FixedTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1270"},{"id":"1271"},{"id":"1272"},{"id":"1273"},{"id":"1274"},{"id":"1275"}]},"id":"1277","type":"Toolbar"},{"attributes":{"dh":{"units":"data","value":10},"dw":{"units":"data","value":35},"image":{"field":"image"},"x":{"value":0},"y":{"value":0}},"id":"1285","type":"ImageRGBA"},{"attributes":{"overlay":{"id":"1276"}},"id":"1272","type":"BoxZoomTool"},{"attributes":{},"id":"1307","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"1284"}},"id":"1288","type":"CDSView"},{"attributes":{},"id":"1270","type":"PanTool"},{"attributes":{"formatter":{"id":"1308"},"major_label_overrides":{"0.5":"a","1.5":"c","2.5":"g","3.5":"t","4.5":"A","5.5":"C","6.5":"G","7.5":"T","8.5":"d","9.5":"D"},"ticker":{"id":"1289"}},"id":"1266","type":"LinearAxis"},{"attributes":{},"id":"1308","type":"BasicTickFormatter"},{"attributes":{},"id":"1271","type":"WheelZoomTool"},{"attributes":{"ticks":[0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5,11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5,21.5,22.5,23.5,24.5,25.5,26.5,27.5,28.5,29.5,30.5,31.5,32.5,33.5,34.5]},"id":"1292","type":"FixedTicker"},{"attributes":{"text":"Base counts"},"id":"1252","type":"Title"},{"attributes":{},"id":"1275","type":"HelpTool"},{"attributes":{},"id":"1309","type":"UnionRenderers"},{"attributes":{},"id":"1310","type":"Selection"},{"attributes":{"range_padding":0},"id":"1254","type":"DataRange1d"},{"attributes":{"axis":{"id":"1266"},"dimension":1,"ticker":null},"id":"1269","type":"Grid"},{"attributes":{"data":{"image":[{"__ndarray__":"AAD//wAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/xUAAP8VAAD//wAA//8AAP//AAD/AAAA/wAAAP8AAAD//wAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/FQAA/wAAAP8AAAD//wAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wD/AAAA/wAAAP8AAP//AAAA/wAA//8AAAD/AAD//wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA//8AAP//AAAA/wAAAP8AAAD/AAAA/wAAAP8AABX/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AP8A/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8A/wD/AAAA/wD/AP8AAAD/ABUA/wBAAP8A/wD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA//8AAP//AAD//wAV//8AAP//AAD//wAA//8AQP//ACr//wAA//8AAP//AAD//wAA//8AAP//AAD//wAV//8AAP//AAD//wAA//8AAP//ABX//wAA//8AFf//AAD//wAA//8A////AAD//wAA//8AAP//AP///wAA//8AAP//AAD//wAA//8AAP//AAAAAP//AAD/AAAA/xUAAP8AAAD/FQAA/xUAAP9VAAD/gAAA/xUAAP8AAAD/FQAA/wAAAP//AAD//wAA//8AAP8AAAD/AAAA/wAAAP//AAD/AAAA/xUAAP9VAAD/KgAA/wAAAP8AAAD/AAAA/wAAAP//AAD/AAAA/wAAAP8AAAD/FQAA/wAAAP8AAAD/AP8AAAD/AAAq/wAA//8AAAD/AAD//wAAAP8AAP//AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AABX/AAD//wAA//8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAKv8AAAD/AAAA/wAAAP8AAAD/AAAVAP8AVQD/ACoA/wBVAP8AFQD/ACoA/wAAAP8AFQD/AAAA/wAAAP8A/wD/AAAA/wAAAP8AAAD/AAAA/wBrAP8AFQD/AFUA/wAAAP8AFQD/AAAA/wD/AP8AAAD/AP8A/wAAAP8AAAD/AAAA/wD/AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AFQD/AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAV//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wD///8AAP//AAD//wAA//8A////AAD//wAV//8AAP//ABX//wAA//8AAAAAAAAAAAAAAAAAFQAAAAAAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAAAAAACrAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAABUAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAAAAAAAqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","dtype":"uint32","order":"little","shape":[10,35]}]},"selected":{"id":"1310"},"selection_policy":{"id":"1309"}},"id":"1284","type":"ColumnDataSource"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1276","type":"BoxAnnotation"},{"attributes":{"formatter":{"id":"1307"},"major_label_orientation":1.57,"major_label_overrides":{"0.5":"2257.0","1.5":"2257.1","10.5":"2261.1","11.5":"2261.2","12.5":"2262.0","13.5":"2263.0","14.5":"2264.0","15.5":"2264.1","16.5":"2265.0","17.5":"2266.0","18.5":"2267.0","19.5":"2267.1","2.5":"2258.0","20.5":"2268.0","21.5":"2268.1","22.5":"2269.0","23.5":"2269.1","24.5":"2270.0","25.5":"2270.1","26.5":"2271.0","27.5":"2272.0","28.5":"2273.0","29.5":"2273.1","3.5":"2258.1","30.5":"2273.2","31.5":"2273.3","32.5":"2273.4","33.5":"2273.5","34.5":"2273.6","4.5":"2259.0","5.5":"2259.1","6.5":"2260.0","7.5":"2260.1","8.5":"2260.2","9.5":"2261.0"},"ticker":{"id":"1292"}},"id":"1262","type":"LinearAxis"},{"attributes":{"data_source":{"id":"1284"},"glyph":{"id":"1285"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1286"},"selection_glyph":null,"view":{"id":"1288"}},"id":"1287","type":"GlyphRenderer"},{"attributes":{},"id":"1274","type":"ResetTool"},{"attributes":{},"id":"1273","type":"SaveTool"},{"attributes":{},"id":"1258","type":"LinearScale"}],"root_ids":["1251"]},"title":"Bokeh Application","version":"2.2.3"}};
+  var render_items = [{"docid":"2394e71a-c118-4599-85f6-c6f2378ac01a","root_ids":["1251"],"roots":{"1251":"23b82adb-1c95-4c7d-9cef-3319e973b72e"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
@@ -15144,10 +15142,13 @@ var element = document.getElementById('bd1f4a8f-8f95-45cb-b0c8-ad02eb17d706');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">resource_filename</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
@@ -15229,7 +15230,7 @@ _________________________________________________________________
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
@@ -15286,7 +15287,7 @@ _________________________________________________________________
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>135.05 to run predictions
+<pre>113.92 to run predictions
 Total sequence length: 1500539.
 </pre>
 </div>
@@ -15311,7 +15312,7 @@ Total sequence length: 1500539.
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;output.fasta&quot;</span>
@@ -15396,20 +15397,6 @@ All done, output written to assm_stats.txt, assm_summ.txt and assm_indel_ge100.t
 <h1 id="Remarks">Remarks<a class="anchor-link" href="#Remarks">&#182;</a></h1><p>In this short walkthrough we have examined some of the internals of Oxford Nanopore Technologies' <code>medaka</code> program performs GPU accelerated consensus calculations from aligned sequencing data. The public <code>medaka</code> codebase implements various alternative forms of the algorithms presented here including run length compression and support for multiple datatypes. Hopefully this guide will prove useful to anyone wishing to implement algorithms similar to that implemented in <code>medaka</code>.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
