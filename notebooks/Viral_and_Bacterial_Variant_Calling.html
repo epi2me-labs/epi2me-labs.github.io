@@ -14307,10 +14307,10 @@ a.anchor-link {
 <h2 id="Getting-started">Getting started<a class="anchor-link" href="#Getting-started">&#182;</a></h2><p>Before anything else we will create and set a working directory:</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
@@ -14322,6 +14322,34 @@ a.anchor-link {
 <span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
 <span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
 <span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Sample-Data">Sample Data<a class="anchor-link" href="#Sample-Data">&#182;</a></h3><p>In order to demonstrate the abilities of this notebook, a small sample dataset from a B.subtilis isolate is included together with a reference sequence.</p>
+<p>To download the sample file we run the <code>linux</code> command <code>wget</code>. To execute the command click on the cell and then press Command/Ctrl-Enter, or click the Play symbol to the left-hand side.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com&quot;</span>
+
+<span class="o">!</span>mkdir -p sample_data
+<span class="o">!</span><span class="nb">cd</span> sample_data <span class="o">&amp;&amp;</span> wget <span class="nv">$site</span>/bacterial_snp_tutorial/bsubtilis.reads.fasta.gz
+<span class="o">!</span><span class="nb">cd</span> sample_data <span class="o">&amp;&amp;</span> wget <span class="nv">$site</span>/bacterial_snp_tutorial/bsubtilis.ref.fasta
 </pre></div>
 
      </div>
@@ -14341,41 +14369,19 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>/epi2melabs/bacterial-snp
-</pre>
+<pre>--2021-10-12 11:39:15--  https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com/bacterial_snp_tutorial/bsubtilis.reads.fasta.gz
+Resolving ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com (ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com)... 52.218.97.195
+Connecting to ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com (ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com)|52.218.97.195|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 388972323 (371M) [binary/octet-stream]
+Saving to: ‘bsubtilis.reads.fasta.gz’
+
+bsubtilis.reads.fas  79%[==============&gt;     ] 294.97M  12.3MB/s    eta 8s     </pre>
 </div>
 </div>
 
 </div>
 
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Sample-Data">Sample Data<a class="anchor-link" href="#Sample-Data">&#182;</a></h3><p>In order to demonstrate the abilities of this notebook, a small sample dataset from a B.subtilis isolate is included together with a reference sequence.</p>
-<p>To download the sample file we run the <code>linux</code> command <code>wget</code>. To execute the command click on the cell and then press Command/Ctrl-Enter, or click the Play symbol to the left-hand side.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
-<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com&quot;</span>
-
-<span class="o">!</span>mkdir -p sample_data
-<span class="o">!</span><span class="nb">cd</span> sample_data <span class="o">&amp;&amp;</span> wget <span class="nv">$site</span>/lc2020/bsubtilis.reads.fasta.gz
-<span class="o">!</span><span class="nb">cd</span> sample_data <span class="o">&amp;&amp;</span> wget <span class="nv">$site</span>/lc2020/bsubtilis.ref.fasta
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div>
@@ -14406,7 +14412,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">aplanat</span>
@@ -14415,6 +14421,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 <span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
 
 <span class="kn">from</span> <span class="nn">epi2melabs.notebook</span> <span class="kn">import</span> <span class="n">InputForm</span><span class="p">,</span> <span class="n">InputSpec</span>
 
@@ -14425,6 +14432,17 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 <span class="n">threads</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">exec_summary</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">report</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="o">!</span>run medaka tools list_models &gt; medaka_models.txt
+<span class="n">model_keys</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Available&#39;</span><span class="p">,</span> <span class="s1">&#39;Default consensus&#39;</span><span class="p">}</span>
+<span class="n">models</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;medaka_models.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fh</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">model_key</span> <span class="ow">in</span> <span class="n">model_keys</span><span class="p">:</span>
+            <span class="n">key</span><span class="p">,</span> <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="n">mods</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">items</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+            <span class="n">models</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mods</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;variant&#39;</span> <span class="ow">in</span> <span class="n">m</span><span class="p">)]</span>
+
 
 <span class="k">def</span> <span class="nf">process_inputs</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">input_fastq</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">reference_genome</span><span class="p">,</span> <span class="n">medaka_model</span><span class="p">,</span> \
@@ -14453,7 +14471,9 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;input_data&#39;</span><span class="p">,</span> <span class="s1">&#39;Input reads&#39;</span><span class="p">,</span> <span class="s1">&#39;sample_data/bsubtilis.reads.fasta.gz&#39;</span><span class="p">),</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;output_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Output folder&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">),</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;reference_genome&#39;</span><span class="p">,</span> <span class="s1">&#39;Reference .fasta&#39;</span><span class="p">,</span> <span class="s1">&#39;sample_data/bsubtilis.ref.fasta&#39;</span><span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;medaka_model&#39;</span><span class="p">,</span> <span class="s1">&#39;Medaka model&#39;</span><span class="p">,</span> <span class="s2">&quot;r10_min_high_g340&quot;</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span>
+        <span class="s1">&#39;medaka_model&#39;</span><span class="p">,</span> <span class="s1">&#39;Medaka model name&#39;</span><span class="p">,</span>
+        <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Default variant&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">options</span><span class="o">=</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;Available&#39;</span><span class="p">])),</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;threads&#39;</span><span class="p">,</span> <span class="s1">&#39;Compute threads&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()))</span>
 <span class="p">)</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_inputs</span><span class="p">)</span>
@@ -14481,12 +14501,12 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
-<div id="263ae8af-1d57-40c6-84d5-8204d673948e" class="jupyter-widgets jp-OutputArea-output ">
+<div id="a2689963-7ed2-4176-833f-48a0c0829250" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('263ae8af-1d57-40c6-84d5-8204d673948e');
+var element = document.getElementById('a2689963-7ed2-4176-833f-48a0c0829250');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "36cde0f15b274e1ba39ab25c279c9c4c", "version_major": 2, "version_minor": 0}
+{"model_id": "a5f1e480bfbb42f2b9a7462ce421e864", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14505,7 +14525,7 @@ var element = document.getElementById('263ae8af-1d57-40c6-84d5-8204d673948e');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculating read accuracy and genome coverage (click play)</span>
@@ -14549,26 +14569,25 @@ var element = document.getElementById('263ae8af-1d57-40c6-84d5-8204d673948e');
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre><span class="ansi-blue-intense-fg ansi-bold">Running alignments</span>
 Constructing minimap index.
-[M::mm_idx_gen::0.129*0.98] collected minimizers
-[M::mm_idx_gen::0.161*1.24] sorted minimizers
-[M::main::1.744*0.21] loaded/built the index for 2 target sequence(s)
+[M::mm_idx_gen::0.151*1.14] collected minimizers
+[M::mm_idx_gen::0.199*1.54] sorted minimizers
+[M::main::0.248*1.44] loaded/built the index for 2 target sequence(s)
 [M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 2
-[M::mm_idx_stat::1.752*0.21] distinct minimizers: 737336 (98.05% are singletons); average occurrences: 1.038; average spacing: 5.345
+[M::mm_idx_stat::0.256*1.42] distinct minimizers: 737336 (98.05% are singletons); average occurrences: 1.038; average spacing: 5.345
 [M::main] Version: 2.17-r941
 [M::main] CMD: minimap2 -I 16G -x map-ont -d sample_data/bsubtilis.ref.fasta.mmi sample_data/bsubtilis.ref.fasta
-[M::main] Real time: 1.759 sec; CPU: 0.379 sec; Peak RSS: 0.038 GB
-[M::main::0.128*0.59] loaded/built the index for 2 target sequence(s)
-[M::mm_mapopt_update::0.138*0.61] mid_occ = 11
+[M::main] Real time: 0.262 sec; CPU: 0.370 sec; Peak RSS: 0.041 GB
+[M::main::0.054*1.08] loaded/built the index for 2 target sequence(s)
+[M::mm_mapopt_update::0.064*1.07] mid_occ = 11
 [M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 2
-[M::mm_idx_stat::0.145*0.63] distinct minimizers: 737336 (98.05% are singletons); average occurrences: 1.038; average spacing: 5.345
-[M::worker_pipeline::165.276*1.32] mapped 5201 sequences
-[M::worker_pipeline::213.485*1.45] mapped 4027 sequences
+[M::mm_idx_stat::0.071*1.06] distinct minimizers: 737336 (98.05% are singletons); average occurrences: 1.038; average spacing: 5.345
+[M::worker_pipeline::17.705*15.42] mapped 150251 sequences
 [M::main] Version: 2.17-r941
-[M::main] CMD: minimap2 -x map-ont -t 2 -a -A 2 -B 4 -O 4,24 -E 2,1 sample_data/bsubtilis.ref.fasta.mmi analysis/bsubtilis.reads.fasta.gz
-[M::main] Real time: 213.553 sec; CPU: 308.728 sec; Peak RSS: 1.313 GB
-[bam_sort_core] merging from 0 files and 2 in-memory blocks...
+[M::main] CMD: minimap2 -x map-ont -t 40 -a -A 2 -B 4 -O 4,24 -E 2,1 sample_data/bsubtilis.ref.fasta.mmi analysis/basecalls.fastq.gz
+[M::main] Real time: 17.726 sec; CPU: 272.960 sec; Peak RSS: 1.763 GB
+[bam_sort_core] merging from 0 files and 40 in-memory blocks...
 <span class="ansi-blue-intense-fg ansi-bold">Creating alignment statistics</span>
-Mapped/Unmapped/Short/Masked: 9228/0/0/0
+Mapped/Unmapped/Short/Masked/Skipped(all matches masked): 150250/0/0/0/0
 Calculating depth
 Available regions:
   bsubtilis1:0-4065191
@@ -14590,10 +14609,11 @@ Available regions:
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">annot</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">hist</span><span class="p">,</span> <span class="n">util</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plotting read alignment statistics (click play)</span>
+<span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">annot</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">hist</span><span class="p">,</span> <span class="n">util</span>
 <span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="kn">import</span> <span class="n">gridplot</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -14646,6 +14666,7 @@ Available regions:
     <span class="n">mode</span> <span class="o">=</span> <span class="n">x_grid</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">pdf</span><span class="p">)]</span>
     <span class="n">acc_plot</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
         <span class="p">[</span><span class="n">x_grid</span><span class="p">],</span> <span class="p">[</span><span class="n">pdf</span><span class="p">],</span>
+        <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span>
         <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;read accuracy&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;read density&quot;</span><span class="p">)</span>
     <span class="n">acc_plot</span> <span class="o">=</span> <span class="n">annot</span><span class="o">.</span><span class="n">marker_vline</span><span class="p">(</span><span class="n">acc_plot</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mode: </span><span class="si">{:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span>
 
@@ -14683,12 +14704,12 @@ Available regions:
 
 
 
-<div id="e345681c-e1d1-4502-bb23-1b4cd2b98049" class="jupyter-widgets jp-OutputArea-output ">
+<div id="3aa5afc4-d9d1-40b6-be13-feb0ac7246d1" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('e345681c-e1d1-4502-bb23-1b4cd2b98049');
+var element = document.getElementById('3aa5afc4-d9d1-40b6-be13-feb0ac7246d1');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "2adb7ddd33de48d1aa47661f84099b26", "version_major": 2, "version_minor": 0}
+{"model_id": "b26e5183bcdc4113beb53fe63be6a716", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14724,11 +14745,8 @@ var element = document.getElementById('e345681c-e1d1-4502-bb23-1b4cd2b98049');
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cecho ok <span class="s2">&quot;Running variant calling&quot;</span>
 <span class="o">!</span>rm -rf <span class="nv">$output_folder</span>/variant/
-<span class="o">!</span>run medaka_haploid_variant --model <span class="nv">$medaka_model</span> --threads <span class="nv">$threads</span> <span class="err">\</span>
-    <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="n">output_folder</span><span class="o">/</span><span class="n">variant</span><span class="o">/</span> <span class="err">$</span><span class="n">input_fastq</span> <span class="err">$</span><span class="n">reference_genome</span>
-<span class="o">!</span>cecho ok <span class="s2">&quot;Annotating variants&quot;</span>
-<span class="o">!</span>run medaka tools annotate <span class="nv">$output_folder</span>/variant/consensus_to_ref.vcf <span class="nv">$reference_genome</span> <span class="err">\</span>
-    <span class="s2">&quot;$data_prefix&quot;</span><span class="o">.</span><span class="n">bam</span> <span class="err">$</span><span class="n">output_folder</span><span class="o">/</span><span class="n">variant</span><span class="o">/</span><span class="n">consensus_to_ref</span><span class="o">.</span><span class="n">annotated</span><span class="o">.</span><span class="n">vcf</span>
+<span class="o">!</span>run medaka_haploid_variant -m <span class="nv">$medaka_model</span> -t <span class="nv">$threads</span> <span class="err">\</span>
+    <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="n">output_folder</span><span class="o">/</span><span class="n">variant</span><span class="o">/</span> <span class="o">-</span><span class="n">i</span> <span class="err">$</span><span class="n">input_fastq</span> <span class="o">-</span><span class="n">r</span> <span class="err">$</span><span class="n">reference_genome</span>
 </pre></div>
 
      </div>
@@ -14766,12 +14784,12 @@ var element = document.getElementById('e345681c-e1d1-4502-bb23-1b4cd2b98049');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">from</span> <span class="nn">pysam</span> <span class="kn">import</span> <span class="n">VariantFile</span>
-<span class="n">vcf_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s2">&quot;variant&quot;</span><span class="p">,</span> <span class="s2">&quot;consensus_to_ref.annotated.vcf&quot;</span><span class="p">)</span>
+<span class="n">vcf_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s2">&quot;variant&quot;</span><span class="p">,</span> <span class="s2">&quot;medaka.annotated.vcf&quot;</span><span class="p">)</span>
 <span class="n">vcf</span> <span class="o">=</span> <span class="n">VariantFile</span><span class="p">(</span><span class="n">vcf_file</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">variant</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">fetch</span><span class="p">(),</span> <span class="mi">10</span><span class="p">):</span>
@@ -14795,16 +14813,16 @@ var element = document.getElementById('e345681c-e1d1-4502-bb23-1b4cd2b98049');
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>bsubtilis1 310 A &gt; AG
-bsubtilis1 1047 AA &gt; A
-bsubtilis1 1079 G &gt; GGGG
-bsubtilis1 1084 G &gt; GG
-bsubtilis1 1141 A &gt; G
-bsubtilis1 1239 G &gt; GG
-bsubtilis1 1253 C &gt; CG
-bsubtilis1 1559 C &gt; CC
-bsubtilis1 1777 C &gt; CC
-bsubtilis1 1802 C &gt; CC
+<pre>bsubtilis1 465 T &gt; C
+bsubtilis1 481 T &gt; TC
+bsubtilis1 483 G &gt; GA
+bsubtilis1 486 T &gt; C
+bsubtilis1 499 G &gt; GCA
+bsubtilis1 502 T &gt; A
+bsubtilis1 516 C &gt; A
+bsubtilis1 524 AT &gt; CA
+bsubtilis1 528 C &gt; A
+bsubtilis1 532 AC &gt; TT
 </pre>
 </div>
 </div>
@@ -14825,7 +14843,7 @@ bsubtilis1 1802 C &gt; CC
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># show the header information for the info fields</span>
@@ -14859,17 +14877,17 @@ bsubtilis1 1802 C &gt; CC
 ##INFO=&lt;ID=DPSP,Number=1,Type=Integer,Description=&#34;Depth of reads spanning pos +-25&#34;&gt;
 ##INFO=&lt;ID=SR,Number=.,Type=Integer,Description=&#34;Depth of spanning reads by strand which best align to each allele (ref fwd, ref rev, alt1 fwd, alt1 rev, etc.)&#34;&gt;
 ##INFO=&lt;ID=AR,Number=2,Type=Integer,Description=&#34;Depth of ambiguous spanning reads by strand which align equally well to all alleles (fwd, rev)&#34;&gt;
-##INFO=&lt;ID=SC,Number=.,Type=Integer,Description=&#34;Total alignment score to each allele of spanning reads by strand (ref fwd, ref rev, alt1 fwd, alt1 rev, etc.) aligned with parasail match 5, mismatch -4, open 5, extend 3&#34;&gt;
-bsubtilis1 310 None AR=(0, 0) DP=91 DPS=(46, 45) DPSP=91 SC=(9789, 9932, 10125, 10301) SR=(5, 4, 41, 41)
-bsubtilis1 1047 None AR=(0, 0) DP=92 DPS=(45, 47) DPSP=93 SC=(10543, 10612, 10714, 10843) SR=(5, 0, 41, 47)
-bsubtilis1 1079 None AR=(0, 0) DP=90 DPS=(46, 44) DPSP=93 SC=(10166, 10027, 10569, 10140) SR=(8, 18, 38, 29)
-bsubtilis1 1084 None AR=(0, 0) DP=91 DPS=(45, 46) DPSP=93 SC=(10128, 10087, 10529, 10408) SR=(3, 8, 43, 39)
-bsubtilis1 1141 None AR=(5, 2) DP=84 DPS=(43, 41) DPSP=93 SC=(9816, 10508, 10154, 10908) SR=(0, 0, 41, 45)
-bsubtilis1 1239 None AR=(0, 0) DP=93 DPS=(46, 47) DPSP=93 SC=(10072, 10339, 10479, 10781) SR=(0, 1, 46, 46)
-bsubtilis1 1253 None AR=(0, 0) DP=93 DPS=(46, 47) DPSP=93 SC=(9949, 10524, 10400, 10973) SR=(0, 1, 46, 46)
-bsubtilis1 1559 None AR=(0, 0) DP=86 DPS=(40, 46) DPSP=93 SC=(10502, 9700, 10816, 9918) SR=(9, 14, 37, 33)
-bsubtilis1 1777 None AR=(0, 0) DP=83 DPS=(43, 40) DPSP=93 SC=(10197, 10178, 10577, 10462) SR=(1, 11, 45, 36)
-bsubtilis1 1802 None AR=(0, 0) DP=82 DPS=(44, 38) DPSP=93 SC=(10140, 9848, 10535, 10087) SR=(1, 11, 45, 36)
+##INFO=&lt;ID=SC,Number=.,Type=Integer,Description=&#34;Total alignment score to each allele of spanning reads by strand (ref fwd, ref rev, alt1 fwd, alt1 rev, etc.) aligned with parasail: match 5, mismatch -4, open 5, extend 3&#34;&gt;
+bsubtilis1 465 0.9470000267028809 DP=1 DPS=(0, 1)
+bsubtilis1 481 21.972999572753906 DP=1 DPS=(0, 1)
+bsubtilis1 483 22.60700035095215 DP=1 DPS=(0, 1)
+bsubtilis1 486 27.981000900268555 DP=1 DPS=(0, 1)
+bsubtilis1 499 49.77799987792969 DP=1 DPS=(0, 1)
+bsubtilis1 502 2.2079999446868896 DP=1 DPS=(0, 1)
+bsubtilis1 516 23.27899932861328 DP=1 DPS=(0, 1)
+bsubtilis1 524 40.37699890136719 DP=1 DPS=(0, 1)
+bsubtilis1 528 0.515999972820282 DP=1 DPS=(0, 1)
+bsubtilis1 532 3.3929998874664307 DP=1 DPS=(0, 1)
 </pre>
 </div>
 </div>
@@ -14887,7 +14905,7 @@ bsubtilis1 1802 None AR=(0, 0) DP=82 DPS=(44, 38) DPSP=93 SC=(10140, 9848, 10535
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Parsing and plotting VCF data with pandas (click play)</span>
@@ -14917,7 +14935,7 @@ bsubtilis1 1802 None AR=(0, 0) DP=82 DPS=(44, 38) DPSP=93 SC=(10140, 9848, 10535
 <span class="n">vcf</span> <span class="o">=</span> <span class="n">parse_vcf</span><span class="p">(</span><span class="n">vcf_file</span><span class="p">,</span> <span class="n">info_cols</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;DP&#39;</span><span class="p">:</span><span class="nb">int</span><span class="p">})</span>
 <span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sub&#39;</span><span class="p">,</span> <span class="s1">&#39;ins&#39;</span><span class="p">,</span> <span class="s1">&#39;del&#39;</span><span class="p">]</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">vcf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;DP&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">types</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">vcf</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;DP&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;DP&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">types</span><span class="p">],</span>
     <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">types</span><span class="p">,</span>
     <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;sequencing depth&#39;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;variant quality&#39;</span><span class="p">,</span>
     <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sequencing depth by variant type&#39;</span><span class="p">)</span>
@@ -14942,9 +14960,9 @@ bsubtilis1 1802 None AR=(0, 0) DP=82 DPS=(44, 38) DPSP=93 SC=(10140, 9848, 10535
 
 
 
-<div id="c778778c-4c33-46d9-9735-a25199e6bca2" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="032fd0dc-dc32-464b-be65-b70ff5aee94e" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('c778778c-4c33-46d9-9735-a25199e6bca2');
+var element = document.getElementById('032fd0dc-dc32-464b-be65-b70ff5aee94e');
 
 (function(root) {
   function now() {
@@ -15171,7 +15189,7 @@ var element = document.getElementById('c778778c-4c33-46d9-9735-a25199e6bca2');
       document.body.appendChild(element);
     }
 
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js": "kLr4fYcqcSpbuI95brIH3vnnYCquzzSxHPU6XGQCIkQRGJwhg0StNbj1eegrHs12", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js": "xIGPmVtaOm+z0BqfSOMn4lOR6ciex448GIKG4eE61LsAvmGj48XcMQZtKcE/UXZe", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js": "Dc9u1wF/0zApGIWoBbH77iWEHtdmkuYWG839Uzmv8y8yBLXebjO9ZnERsde5Ln/P", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js": "cT9JaBz7GiRXdENrJLZNSC6eMNF3nh3fa5fTF51Svp+ukxPdwcU5kGXGPBgDCa2j"};
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js": "T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js": "98GDGJ0kOMCUMUePhksaQ/GYgB3+NH9h996V88sh3aOiUNX3N+fLXAtry6xctSZ6", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js": "89bArO+nlbP3sgakeHjCo1JYxYR5wufVgA3IbUvDY+K7w4zyxJqssu7wVnfeKCq8"};
 
     for (var i = 0; i < js_urls.length; i++) {
       var url = js_urls[i];
@@ -15196,7 +15214,7 @@ var element = document.getElementById('c778778c-4c33-46d9-9735-a25199e6bca2');
   }
 
   
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js"];
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js"];
   var css_urls = [];
   
 
@@ -15258,7 +15276,7 @@ var element = document.getElementById('c778778c-4c33-46d9-9735-a25199e6bca2');
 
 
 
-  <div class="bk-root" id="24f9d645-63ee-4b8e-9607-001d68b35876" data-root-id="1294"></div>
+  <div class="bk-root" id="ec2721be-1530-4ddd-bbf1-4e77080f0b2c" data-root-id="2282"></div>
 
 </div>
 
@@ -15272,14 +15290,14 @@ var element = document.getElementById('c778778c-4c33-46d9-9735-a25199e6bca2');
 
 
 
-<div id="c778778c-4c33-46d9-9735-a25199e6bca2" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="032fd0dc-dc32-464b-be65-b70ff5aee94e" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('c778778c-4c33-46d9-9735-a25199e6bca2');
+var element = document.getElementById('032fd0dc-dc32-464b-be65-b70ff5aee94e');
 (function(root) {
   function embed_document(root) {
     
-  var docs_json = {"c86f7672-2d6b-485c-a9b5-6a9547c188dd": {"roots": {"references": [{"attributes": {"data": {"left": {"__ndarray__": "AAAAAAAAU0CoEZZ7GmFUQFAjLPc0wlVA9zTCck8jV0CfRljuaYRYQEdY7mmE5VlA7mmE5Z5GW0CWexphuadcQD6NsNzTCF5A5p5GWO5pX0BHWO5phGVgQBphuacRFmFA7mmE5Z7GYUDCck8jLHdiQJZ7GmG5J2NAaoTlnkbYY0A+jbDc04hkQBKWexphOWVA5p5GWO7pZUC6pxGWe5pmQI6w3NMIS2dAYrmnEZb7Z0A1wnJPI6xoQAnLPY2wXGlA3dMIyz0NakCx3NMIy71qQIXlnkZYbmtAWe5phOUebEAs9zTCcs9sQA==", "dtype": "float64", "order": "little", "shape": [29]}, "right": {"__ndarray__": "qBGWexphVEBQIyz3NMJVQPc0wnJPI1dAn0ZY7mmEWEBHWO5phOVZQO5phOWeRltAlnsaYbmnXEA+jbDc0wheQOaeRljuaV9AR1juaYRlYEAaYbmnERZhQO5phOWexmFAwnJPIyx3YkCWexphuSdjQGqE5Z5G2GNAPo2w3NOIZEASlnsaYTllQOaeRlju6WVAuqcRlnuaZkCOsNzTCEtnQGK5pxGW+2dANcJyTyOsaEAJyz2NsFxpQN3TCMs9DWpAsdzTCMu9akCF5Z5GWG5rQFnuaYTlHmxALPc0wnLPbEAAAAAAAIBtQA==", "dtype": "float64", "order": "little", "shape": [29]}, "top": [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]}, "selected": {"id": "1338"}, "selection_policy": {"id": "1337"}}, "id": "1327", "type": "ColumnDataSource"}, {"attributes": {}, "id": "1373", "type": "Selection"}, {"attributes": {"axis_label": "sequencing depth", "formatter": {"id": "1336"}, "ticker": {"id": "1306"}}, "id": "1305", "type": "LinearAxis"}, {"attributes": {"data": {"left": {"__ndarray__": "AAAAAAAAU0CoEZZ7GmFUQFAjLPc0wlVA9zTCck8jV0CfRljuaYRYQEdY7mmE5VlA7mmE5Z5GW0CWexphuadcQD6NsNzTCF5A5p5GWO5pX0BHWO5phGVgQBphuacRFmFA7mmE5Z7GYUDCck8jLHdiQJZ7GmG5J2NAaoTlnkbYY0A+jbDc04hkQBKWexphOWVA5p5GWO7pZUC6pxGWe5pmQI6w3NMIS2dAYrmnEZb7Z0A1wnJPI6xoQAnLPY2wXGlA3dMIyz0NakCx3NMIy71qQIXlnkZYbmtAWe5phOUebEAs9zTCcs9sQA==", "dtype": "float64", "order": "little", "shape": [29]}, "right": {"__ndarray__": "qBGWexphVEBQIyz3NMJVQPc0wnJPI1dAn0ZY7mmEWEBHWO5phOVZQO5phOWeRltAlnsaYbmnXEA+jbDc0wheQOaeRljuaV9AR1juaYRlYEAaYbmnERZhQO5phOWexmFAwnJPIyx3YkCWexphuSdjQGqE5Z5G2GNAPo2w3NOIZEASlnsaYTllQOaeRlju6WVAuqcRlnuaZkCOsNzTCEtnQGK5pxGW+2dANcJyTyOsaEAJyz2NsFxpQN3TCMs9DWpAsdzTCMu9akCF5Z5GWG5rQFnuaYTlHmxALPc0wnLPbEAAAAAAAIBtQA==", "dtype": "float64", "order": "little", "shape": [29]}, "top": [1, 1, 3, 2, 0, 1, 0, 2, 1, 0, 0, 1, 0, 1, 1, 3, 4, 2, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0]}, "selected": {"id": "1373"}, "selection_policy": {"id": "1372"}}, "id": "1358", "type": "ColumnDataSource"}, {"attributes": {"overlay": {"id": "1319"}}, "id": "1315", "type": "BoxZoomTool"}, {"attributes": {"axis_label": "variant quality", "formatter": {"id": "1334"}, "ticker": {"id": "1310"}}, "id": "1309", "type": "LinearAxis"}, {"attributes": {"bottom_units": "screen", "fill_alpha": 0.5, "fill_color": "lightgrey", "left_units": "screen", "level": "overlay", "line_alpha": 1.0, "line_color": "black", "line_dash": [4, 4], "line_width": 2, "right_units": "screen", "top_units": "screen"}, "id": "1319", "type": "BoxAnnotation"}, {"attributes": {}, "id": "1355", "type": "Selection"}, {"attributes": {}, "id": "1336", "type": "BasicTickFormatter"}, {"attributes": {"source": {"id": "1358"}}, "id": "1362", "type": "CDSView"}, {"attributes": {"label": {"value": "del"}, "renderers": [{"id": "1361"}]}, "id": "1375", "type": "LegendItem"}, {"attributes": {"bounds": [76, 236], "end": 236, "start": 76}, "id": "1376", "type": "Range1d"}, {"attributes": {"active_drag": "auto", "active_inspect": "auto", "active_multi": null, "active_scroll": "auto", "active_tap": "auto", "tools": [{"id": "1313"}, {"id": "1314"}, {"id": "1315"}, {"id": "1316"}, {"id": "1317"}, {"id": "1318"}]}, "id": "1320", "type": "Toolbar"}, {"attributes": {}, "id": "1372", "type": "UnionRenderers"}, {"attributes": {"bottom": {"value": 0}, "fill_alpha": {"value": 0.1}, "fill_color": {"value": "red"}, "left": {"field": "left"}, "line_alpha": {"value": 0.1}, "line_color": {"value": "red"}, "right": {"field": "right"}, "top": {"field": "top"}}, "id": "1329", "type": "Quad"}, {"attributes": {}, "id": "1316", "type": "SaveTool"}, {"attributes": {}, "id": "1318", "type": "HelpTool"}, {"attributes": {"data_source": {"id": "1342"}, "glyph": {"id": "1343"}, "hover_glyph": null, "muted_glyph": null, "nonselection_glyph": {"id": "1344"}, "selection_glyph": null, "view": {"id": "1346"}}, "id": "1345", "type": "GlyphRenderer"}, {"attributes": {"text": "Sequencing depth by variant type"}, "id": "1295", "type": "Title"}, {"attributes": {}, "id": "1317", "type": "ResetTool"}, {"attributes": {"source": {"id": "1342"}}, "id": "1346", "type": "CDSView"}, {"attributes": {"bottom": {"value": 0}, "fill_alpha": {"value": 0.6}, "fill_color": {"value": "red"}, "left": {"field": "left"}, "line_alpha": {"value": 0.6}, "line_color": {"value": "red"}, "right": {"field": "right"}, "top": {"field": "top"}}, "id": "1328", "type": "Quad"}, {"attributes": {}, "id": "1338", "type": "Selection"}, {"attributes": {"data": {"left": {"__ndarray__": "AAAAAAAAU0CoEZZ7GmFUQFAjLPc0wlVA9zTCck8jV0CfRljuaYRYQEdY7mmE5VlA7mmE5Z5GW0CWexphuadcQD6NsNzTCF5A5p5GWO5pX0BHWO5phGVgQBphuacRFmFA7mmE5Z7GYUDCck8jLHdiQJZ7GmG5J2NAaoTlnkbYY0A+jbDc04hkQBKWexphOWVA5p5GWO7pZUC6pxGWe5pmQI6w3NMIS2dAYrmnEZb7Z0A1wnJPI6xoQAnLPY2wXGlA3dMIyz0NakCx3NMIy71qQIXlnkZYbmtAWe5phOUebEAs9zTCcs9sQA==", "dtype": "float64", "order": "little", "shape": [29]}, "right": {"__ndarray__": "qBGWexphVEBQIyz3NMJVQPc0wnJPI1dAn0ZY7mmEWEBHWO5phOVZQO5phOWeRltAlnsaYbmnXEA+jbDc0wheQOaeRljuaV9AR1juaYRlYEAaYbmnERZhQO5phOWexmFAwnJPIyx3YkCWexphuSdjQGqE5Z5G2GNAPo2w3NOIZEASlnsaYTllQOaeRlju6WVAuqcRlnuaZkCOsNzTCEtnQGK5pxGW+2dANcJyTyOsaEAJyz2NsFxpQN3TCMs9DWpAsdzTCMu9akCF5Z5GWG5rQFnuaYTlHmxALPc0wnLPbEAAAAAAAIBtQA==", "dtype": "float64", "order": "little", "shape": [29]}, "top": [1, 3, 6, 10, 3, 1, 1, 1, 0, 0, 1, 1, 1, 3, 0, 3, 2, 2, 0, 1, 1, 0, 0, 1, 0, 0, 2, 0, 2]}, "selected": {"id": "1355"}, "selection_policy": {"id": "1354"}}, "id": "1342", "type": "ColumnDataSource"}, {"attributes": {}, "id": "1314", "type": "WheelZoomTool"}, {"attributes": {"source": {"id": "1327"}}, "id": "1331", "type": "CDSView"}, {"attributes": {}, "id": "1334", "type": "BasicTickFormatter"}, {"attributes": {"data_source": {"id": "1358"}, "glyph": {"id": "1359"}, "hover_glyph": null, "muted_glyph": null, "nonselection_glyph": {"id": "1360"}, "selection_glyph": null, "view": {"id": "1362"}}, "id": "1361", "type": "GlyphRenderer"}, {"attributes": {}, "id": "1354", "type": "UnionRenderers"}, {"attributes": {"label": {"value": "sub"}, "renderers": [{"id": "1330"}]}, "id": "1341", "type": "LegendItem"}, {"attributes": {}, "id": "1303", "type": "LinearScale"}, {"attributes": {"bottom": {"value": 0}, "fill_alpha": {"value": 0.6}, "fill_color": {"value": "green"}, "left": {"field": "left"}, "line_alpha": {"value": 0.6}, "line_color": {"value": "green"}, "right": {"field": "right"}, "top": {"field": "top"}}, "id": "1343", "type": "Quad"}, {"attributes": {}, "id": "1306", "type": "BasicTicker"}, {"attributes": {"axis": {"id": "1309"}, "dimension": 1, "ticker": null}, "id": "1312", "type": "Grid"}, {"attributes": {"bottom": {"value": 0}, "fill_alpha": {"value": 0.1}, "fill_color": {"value": "blue"}, "left": {"field": "left"}, "line_alpha": {"value": 0.1}, "line_color": {"value": "blue"}, "right": {"field": "right"}, "top": {"field": "top"}}, "id": "1360", "type": "Quad"}, {"attributes": {"data_source": {"id": "1327"}, "glyph": {"id": "1328"}, "hover_glyph": null, "muted_glyph": null, "nonselection_glyph": {"id": "1329"}, "selection_glyph": null, "view": {"id": "1331"}}, "id": "1330", "type": "GlyphRenderer"}, {"attributes": {}, "id": "1313", "type": "PanTool"}, {"attributes": {"axis": {"id": "1305"}, "ticker": null}, "id": "1308", "type": "Grid"}, {"attributes": {}, "id": "1310", "type": "BasicTicker"}, {"attributes": {"bottom": {"value": 0}, "fill_alpha": {"value": 0.6}, "fill_color": {"value": "blue"}, "left": {"field": "left"}, "line_alpha": {"value": 0.6}, "line_color": {"value": "blue"}, "right": {"field": "right"}, "top": {"field": "top"}}, "id": "1359", "type": "Quad"}, {"attributes": {}, "id": "1337", "type": "UnionRenderers"}, {"attributes": {"background_fill_color": "#F4F4F4", "below": [{"id": "1305"}], "border_fill_color": "#F4F4F4", "center": [{"id": "1308"}, {"id": "1312"}, {"id": "1340"}], "left": [{"id": "1309"}], "output_backend": "webgl", "plot_height": 300, "renderers": [{"id": "1330"}, {"id": "1345"}, {"id": "1361"}], "title": {"id": "1295"}, "toolbar": {"id": "1320"}, "x_range": {"id": "1376"}, "x_scale": {"id": "1301"}, "y_range": {"id": "1377"}, "y_scale": {"id": "1303"}}, "id": "1294", "subtype": "Figure", "type": "Plot"}, {"attributes": {"bottom": {"value": 0}, "fill_alpha": {"value": 0.1}, "fill_color": {"value": "green"}, "left": {"field": "left"}, "line_alpha": {"value": 0.1}, "line_color": {"value": "green"}, "right": {"field": "right"}, "top": {"field": "top"}}, "id": "1344", "type": "Quad"}, {"attributes": {}, "id": "1301", "type": "LinearScale"}, {"attributes": {"bounds": [0, 10], "end": 10}, "id": "1377", "type": "Range1d"}, {"attributes": {"label": {"value": "ins"}, "renderers": [{"id": "1345"}]}, "id": "1357", "type": "LegendItem"}, {"attributes": {"items": [{"id": "1341"}, {"id": "1357"}, {"id": "1375"}]}, "id": "1340", "type": "Legend"}], "root_ids": ["1294"]}, "title": "Bokeh Application", "version": "2.2.3"}};
-  var render_items = [{"docid":"c86f7672-2d6b-485c-a9b5-6a9547c188dd","root_ids":["1294"],"roots":{"1294":"24f9d645-63ee-4b8e-9607-001d68b35876"}}];
+  var docs_json = {"ef85e7f5-779a-4929-a51c-2047862dc1dd":{"roots":{"references":[{"attributes":{"background_fill_color":"#f4f4f4","below":[{"id":"2293"}],"border_fill_color":"#f4f4f4","center":[{"id":"2296"},{"id":"2300"},{"id":"2328"}],"left":[{"id":"2297"}],"output_backend":"webgl","plot_height":300,"renderers":[{"id":"2318"},{"id":"2333"},{"id":"2349"}],"title":{"id":"2283"},"toolbar":{"id":"2308"},"x_range":{"id":"2364"},"x_scale":{"id":"2289"},"y_range":{"id":"2365"},"y_scale":{"id":"2291"}},"id":"2282","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"2343","type":"Selection"},{"attributes":{},"id":"2289","type":"LinearScale"},{"attributes":{},"id":"2306","type":"HelpTool"},{"attributes":{},"id":"2321","type":"BasicTickFormatter"},{"attributes":{},"id":"2301","type":"PanTool"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"2307","type":"BoxAnnotation"},{"attributes":{},"id":"2360","type":"UnionRenderers"},{"attributes":{"text":"Sequencing depth by variant type"},"id":"2283","type":"Title"},{"attributes":{},"id":"2361","type":"Selection"},{"attributes":{},"id":"2323","type":"BasicTickFormatter"},{"attributes":{"overlay":{"id":"2307"}},"id":"2303","type":"BoxZoomTool"},{"attributes":{},"id":"2294","type":"BasicTicker"},{"attributes":{},"id":"2304","type":"SaveTool"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"green"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"green"},"right":{"field":"right"},"top":{"field":"top"}},"id":"2331","type":"Quad"},{"attributes":{"label":{"value":"ins"},"renderers":[{"id":"2333"}]},"id":"2345","type":"LegendItem"},{"attributes":{"axis_label":"sequencing depth","formatter":{"id":"2321"},"ticker":{"id":"2294"}},"id":"2293","type":"LinearAxis"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"green"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"green"},"right":{"field":"right"},"top":{"field":"top"}},"id":"2332","type":"Quad"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"2348","type":"Quad"},{"attributes":{},"id":"2291","type":"LinearScale"},{"attributes":{"axis":{"id":"2293"},"ticker":null},"id":"2296","type":"Grid"},{"attributes":{"data":{"left":{"__ndarray__":"AAAAAAAAWEB8GmG5pxFYQPc0wnJPI1hAc08jLPc0WEDuaYTlnkZYQGqE5Z5GWFhA5p5GWO5pWEBhuacRlntYQN3TCMs9jVhAWO5phOWeWEDUCMs9jbBYQE8jLPc0wlhAyz2NsNzTWEBHWO5phOVYQMJyTyMs91hAPo2w3NMIWUC5pxGWexpZQDXCck8jLFlAsdzTCMs9WUAs9zTCck9ZQKgRlnsaYVlAIyz3NMJyWUCfRljuaYRZQBphuacRlllAlnsaYbmnWUASlnsaYblZQI2w3NMIy1lACcs9jbDcWUCE5Z5GWO5ZQA==","dtype":"float64","order":"little","shape":[29]},"right":{"__ndarray__":"fBphuacRWED3NMJyTyNYQHNPIyz3NFhA7mmE5Z5GWEBqhOWeRlhYQOaeRljuaVhAYbmnEZZ7WEDd0wjLPY1YQFjuaYTlnlhA1AjLPY2wWEBPIyz3NMJYQMs9jbDc01hAR1juaYTlWEDCck8jLPdYQD6NsNzTCFlAuacRlnsaWUA1wnJPIyxZQLHc0wjLPVlALPc0wnJPWUCoEZZ7GmFZQCMs9zTCcllAn0ZY7mmEWUAaYbmnEZZZQJZ7GmG5p1lAEpZ7GmG5WUCNsNzTCMtZQAnLPY2w3FlAhOWeRljuWUAAAAAAAABaQA==","dtype":"float64","order":"little","shape":[29]},"top":[2,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0]},"selected":{"id":"2343"},"selection_policy":{"id":"2342"}},"id":"2330","type":"ColumnDataSource"},{"attributes":{},"id":"2302","type":"WheelZoomTool"},{"attributes":{"source":{"id":"2330"}},"id":"2334","type":"CDSView"},{"attributes":{"axis_label":"variant quality","formatter":{"id":"2323"},"ticker":{"id":"2298"}},"id":"2297","type":"LinearAxis"},{"attributes":{"data_source":{"id":"2330"},"glyph":{"id":"2331"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2332"},"selection_glyph":null,"view":{"id":"2334"}},"id":"2333","type":"GlyphRenderer"},{"attributes":{"axis":{"id":"2297"},"dimension":1,"ticker":null},"id":"2300","type":"Grid"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"2301"},{"id":"2302"},{"id":"2303"},{"id":"2304"},{"id":"2305"},{"id":"2306"}]},"id":"2308","type":"Toolbar"},{"attributes":{},"id":"2298","type":"BasicTicker"},{"attributes":{"label":{"value":"del"},"renderers":[{"id":"2349"}]},"id":"2363","type":"LegendItem"},{"attributes":{"data":{"left":{"__ndarray__":"AAAAAAAAWEB8GmG5pxFYQPc0wnJPI1hAc08jLPc0WEDuaYTlnkZYQGqE5Z5GWFhA5p5GWO5pWEBhuacRlntYQN3TCMs9jVhAWO5phOWeWEDUCMs9jbBYQE8jLPc0wlhAyz2NsNzTWEBHWO5phOVYQMJyTyMs91hAPo2w3NMIWUC5pxGWexpZQDXCck8jLFlAsdzTCMs9WUAs9zTCck9ZQKgRlnsaYVlAIyz3NMJyWUCfRljuaYRZQBphuacRlllAlnsaYbmnWUASlnsaYblZQI2w3NMIy1lACcs9jbDcWUCE5Z5GWO5ZQA==","dtype":"float64","order":"little","shape":[29]},"right":{"__ndarray__":"fBphuacRWED3NMJyTyNYQHNPIyz3NFhA7mmE5Z5GWEBqhOWeRlhYQOaeRljuaVhAYbmnEZZ7WEDd0wjLPY1YQFjuaYTlnlhA1AjLPY2wWEBPIyz3NMJYQMs9jbDc01hAR1juaYTlWEDCck8jLPdYQD6NsNzTCFlAuacRlnsaWUA1wnJPIyxZQLHc0wjLPVlALPc0wnJPWUCoEZZ7GmFZQCMs9zTCcllAn0ZY7mmEWUAaYbmnEZZZQJZ7GmG5p1lAEpZ7GmG5WUCNsNzTCMtZQAnLPY2w3FlAhOWeRljuWUAAAAAAAABaQA==","dtype":"float64","order":"little","shape":[29]},"top":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,12,0,0,0,1,0,0,0,0,0,0,1,0,0,1]},"selected":{"id":"2361"},"selection_policy":{"id":"2360"}},"id":"2346","type":"ColumnDataSource"},{"attributes":{"bounds":[96,104],"end":104,"start":96},"id":"2364","type":"Range1d"},{"attributes":{},"id":"2305","type":"ResetTool"},{"attributes":{"data":{"left":{"__ndarray__":"AAAAAAAAWEB8GmG5pxFYQPc0wnJPI1hAc08jLPc0WEDuaYTlnkZYQGqE5Z5GWFhA5p5GWO5pWEBhuacRlntYQN3TCMs9jVhAWO5phOWeWEDUCMs9jbBYQE8jLPc0wlhAyz2NsNzTWEBHWO5phOVYQMJyTyMs91hAPo2w3NMIWUC5pxGWexpZQDXCck8jLFlAsdzTCMs9WUAs9zTCck9ZQKgRlnsaYVlAIyz3NMJyWUCfRljuaYRZQBphuacRlllAlnsaYbmnWUASlnsaYblZQI2w3NMIy1lACcs9jbDcWUCE5Z5GWO5ZQA==","dtype":"float64","order":"little","shape":[29]},"right":{"__ndarray__":"fBphuacRWED3NMJyTyNYQHNPIyz3NFhA7mmE5Z5GWEBqhOWeRlhYQOaeRljuaVhAYbmnEZZ7WEDd0wjLPY1YQFjuaYTlnlhA1AjLPY2wWEBPIyz3NMJYQMs9jbDc01hAR1juaYTlWEDCck8jLPdYQD6NsNzTCFlAuacRlnsaWUA1wnJPIyxZQLHc0wjLPVlALPc0wnJPWUCoEZZ7GmFZQCMs9zTCcllAn0ZY7mmEWUAaYbmnEZZZQJZ7GmG5p1lAEpZ7GmG5WUCNsNzTCMtZQAnLPY2w3FlAhOWeRljuWUAAAAAAAABaQA==","dtype":"float64","order":"little","shape":[29]},"top":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},"selected":{"id":"2326"},"selection_policy":{"id":"2325"}},"id":"2315","type":"ColumnDataSource"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"blue"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"blue"},"right":{"field":"right"},"top":{"field":"top"}},"id":"2347","type":"Quad"},{"attributes":{"data_source":{"id":"2346"},"glyph":{"id":"2347"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2348"},"selection_glyph":null,"view":{"id":"2350"}},"id":"2349","type":"GlyphRenderer"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.1},"fill_color":{"value":"red"},"left":{"field":"left"},"line_alpha":{"value":0.1},"line_color":{"value":"red"},"right":{"field":"right"},"top":{"field":"top"}},"id":"2317","type":"Quad"},{"attributes":{"bottom":{"value":0},"fill_alpha":{"value":0.6},"fill_color":{"value":"red"},"left":{"field":"left"},"line_alpha":{"value":0.6},"line_color":{"value":"red"},"right":{"field":"right"},"top":{"field":"top"}},"id":"2316","type":"Quad"},{"attributes":{"label":{"value":"sub"},"renderers":[{"id":"2318"}]},"id":"2329","type":"LegendItem"},{"attributes":{"source":{"id":"2315"}},"id":"2319","type":"CDSView"},{"attributes":{"source":{"id":"2346"}},"id":"2350","type":"CDSView"},{"attributes":{"data_source":{"id":"2315"},"glyph":{"id":"2316"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2317"},"selection_glyph":null,"view":{"id":"2319"}},"id":"2318","type":"GlyphRenderer"},{"attributes":{},"id":"2325","type":"UnionRenderers"},{"attributes":{"items":[{"id":"2329"},{"id":"2345"},{"id":"2363"}]},"id":"2328","type":"Legend"},{"attributes":{},"id":"2326","type":"Selection"},{"attributes":{"bounds":[0,12],"end":12},"id":"2365","type":"Range1d"},{"attributes":{},"id":"2342","type":"UnionRenderers"}],"root_ids":["2282"]},"title":"Bokeh Application","version":"2.2.3"}};
+  var render_items = [{"docid":"ef85e7f5-779a-4929-a51c-2047862dc1dd","root_ids":["2282"],"roots":{"2282":"ec2721be-1530-4ddd-bbf1-4e77080f0b2c"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
@@ -15321,7 +15339,7 @@ var element = document.getElementById('c778778c-4c33-46d9-9735-a25199e6bca2');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>bcftools query <span class="err">\</span>
@@ -15347,16 +15365,16 @@ var element = document.getElementById('c778778c-4c33-46d9-9735-a25199e6bca2');
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>bsubtilis1	A	AG	.	INDEL	91
-bsubtilis1	AA	A	.	INDEL	92
-bsubtilis1	G	GGGG	.	INDEL	90
-bsubtilis1	G	GG	.	INDEL	91
-bsubtilis1	A	G	.	SNP	84
-bsubtilis1	G	GG	.	INDEL	93
-bsubtilis1	C	CG	.	INDEL	93
-bsubtilis1	C	CC	.	INDEL	86
-bsubtilis1	C	CC	.	INDEL	83
-bsubtilis1	C	CC	.	INDEL	82
+<pre>bsubtilis1	A	AG	13.307	INDEL	101
+bsubtilis1	GT	G	3.674	INDEL	100
+bsubtilis1	TA	T	7.577	INDEL	100
+bsubtilis1	TA	T	12.622	INDEL	100
+bsubtilis1	CT	C	5.725	INDEL	100
+bsubtilis1	GA	G	2.551	INDEL	100
+bsubtilis1	GA	G	10.188	INDEL	103
+bsubtilis1	TA	T	14.793	INDEL	100
+bsubtilis1	GA	G	10.679	INDEL	104
+bsubtilis1	TA	T	2.51	INDEL	100
 </pre>
 </div>
 </div>
