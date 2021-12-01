@@ -14387,6 +14387,7 @@ a.anchor-link {
 <span class="n">s3_prefix</span> <span class="o">=</span> <span class="s2">&quot;sv_tutorial/GM24385.nf7.chr20_af_minimap2.fastq.gz&quot;</span>
 <span class="n">s3_reference</span> <span class="o">=</span> <span class="s2">&quot;sv_tutorial/chr20_human_g1k_v37.fasta.gz&quot;</span>
 <span class="n">s3_bedfile</span> <span class="o">=</span> <span class="s2">&quot;sv_tutorial/target.bed&quot;</span>
+<span class="n">s3_alignments</span> <span class="o">=</span> <span class="s2">&quot;sv_tutorial/GM24385.nf7.chr20_af_minimap2.bam&quot;</span>
 <span class="n">reads</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">s3_prefix</span><span class="p">)</span>
 <span class="n">bam</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">s3_alignments</span><span class="p">)</span>
 <span class="n">reference</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">s3_reference</span><span class="p">)</span>
@@ -14394,6 +14395,7 @@ a.anchor-link {
 <span class="o">!</span>wget -O <span class="s2">&quot;</span><span class="nv">$reads</span><span class="s2">&quot;</span> https://<span class="s2">&quot;</span><span class="nv">$s3_bucket</span><span class="s2">&quot;</span>.s3.amazonaws.com/<span class="s2">&quot;</span><span class="nv">$s3_prefix</span><span class="s2">&quot;</span>
 <span class="o">!</span>wget -O <span class="s2">&quot;</span><span class="nv">$reference</span><span class="s2">&quot;</span> https://<span class="s2">&quot;</span><span class="nv">$s3_bucket</span><span class="s2">&quot;</span>.s3.amazonaws.com/<span class="s2">&quot;</span><span class="nv">$s3_reference</span><span class="s2">&quot;</span>
 <span class="o">!</span>wget -O <span class="s2">&quot;target.bed&quot;</span> https://<span class="s2">&quot;</span><span class="nv">$s3_bucket</span><span class="s2">&quot;</span>.s3.amazonaws.com/<span class="s2">&quot;</span><span class="nv">$s3_bedfile</span><span class="s2">&quot;</span>
+<span class="o">!</span>wget -0 <span class="s2">&quot;</span><span class="nv">$bam</span><span class="s2">&quot;</span>  https://<span class="s2">&quot;</span><span class="nv">$s3_bucket</span><span class="s2">&quot;</span>.s3.amazonaws.com/<span class="s2">&quot;</span><span class="nv">$s3_alignments</span><span class="s2">&quot;</span>
 </pre></div>
 
      </div>
@@ -14553,9 +14555,9 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
-<div id="761aec66-89fe-4530-913d-47cbab121cb7" class="jupyter-widgets jp-OutputArea-output ">
+<div id="40b8ea22-b17a-4958-ab79-2a181d5cb5d0" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('761aec66-89fe-4530-913d-47cbab121cb7');
+var element = document.getElementById('40b8ea22-b17a-4958-ab79-2a181d5cb5d0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "5076b76344d844859e636dd586a3d867", "version_major": 2, "version_minor": 0}
@@ -14855,9 +14857,9 @@ var element = document.getElementById('761aec66-89fe-4530-913d-47cbab121cb7');
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 
 (function(root) {
   function now() {
@@ -15185,9 +15187,9 @@ var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 (function(root) {
   function embed_document(root) {
     
@@ -15675,9 +15677,9 @@ var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 
 (function(root) {
   function now() {
@@ -16005,9 +16007,9 @@ var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 (function(root) {
   function embed_document(root) {
     
@@ -16405,9 +16407,9 @@ Compressing and indexing VCF...
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 
 (function(root) {
   function now() {
@@ -16735,9 +16737,9 @@ var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 (function(root) {
   function embed_document(root) {
     
@@ -16895,9 +16897,9 @@ var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 
 (function(root) {
   function now() {
@@ -17225,9 +17227,9 @@ var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 (function(root) {
   function embed_document(root) {
     
@@ -17304,9 +17306,9 @@ var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 
 (function(root) {
   function now() {
@@ -17634,9 +17636,9 @@ var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
 
 
 
-<div id="1a72247b-7d34-4235-b200-c3e214d0366c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="e86b9ee9-4699-4bea-a50a-bac176099b0a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('1a72247b-7d34-4235-b200-c3e214d0366c');
+var element = document.getElementById('e86b9ee9-4699-4bea-a50a-bac176099b0a');
 (function(root) {
   function embed_document(root) {
     

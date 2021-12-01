@@ -14512,7 +14512,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -14606,12 +14606,12 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
-<div id="96a3c81c-22b3-4b45-b5e1-d7e3abe5d6d0" class="jupyter-widgets jp-OutputArea-output ">
+<div id="8a151664-ae89-4157-a1bd-86fb2b4d2307" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('96a3c81c-22b3-4b45-b5e1-d7e3abe5d6d0');
+var element = document.getElementById('8a151664-ae89-4157-a1bd-86fb2b4d2307');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "8bfc8fd759be437dab2ed12ca77581a9", "version_major": 2, "version_minor": 0}
+{"model_id": "3af74c14031c4dc9a412897dfebcd485", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14758,9 +14758,9 @@ var element = document.getElementById('96a3c81c-22b3-4b45-b5e1-d7e3abe5d6d0');
 
 
 
-<div id="a51bfdd0-9660-4f62-98df-1f38e0ef1588" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="39c4361d-d97c-43d8-9ed1-03d73fb51eb3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
+var element = document.getElementById('39c4361d-d97c-43d8-9ed1-03d73fb51eb3');
 
 (function(root) {
   function now() {
@@ -15088,9 +15088,9 @@ var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
 
 
 
-<div id="a51bfdd0-9660-4f62-98df-1f38e0ef1588" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="39c4361d-d97c-43d8-9ed1-03d73fb51eb3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
+var element = document.getElementById('39c4361d-d97c-43d8-9ed1-03d73fb51eb3');
 (function(root) {
   function embed_document(root) {
     
@@ -15669,6 +15669,12 @@ Calculating read hits
     <span class="p">))</span>
 <span class="n">target_summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">target_summary</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
     <span class="s1">&#39;Chromosome&#39;</span><span class="p">:</span><span class="s1">&#39;chrom&#39;</span><span class="p">,</span> <span class="s1">&#39;Start&#39;</span><span class="p">:</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;End&#39;</span><span class="p">:</span><span class="s1">&#39;end&#39;</span><span class="p">})</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="k">with</span> <span class="n">pysam</span><span class="o">.</span><span class="n">FastxFile</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span><span class="o">.</span><span class="n">comment</span>
+        <span class="n">run_id</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;runid=(.*? )&#39;</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">target_summary</span><span class="p">[</span><span class="s1">&#39;run_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_id</span>
+<span class="n">target_summary</span><span class="p">[</span><span class="s1">&#39;total_reads&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;All&#39;</span><span class="p">][</span><span class="s1">&#39;Reads&#39;</span><span class="p">]</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
 <span class="n">display</span><span class="p">(</span><span class="n">target_summary</span><span class="p">)</span>
 <span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
@@ -15989,9 +15995,9 @@ Getting statistics for FMR1.
 
 
 
-<div id="a51bfdd0-9660-4f62-98df-1f38e0ef1588" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="39c4361d-d97c-43d8-9ed1-03d73fb51eb3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
+var element = document.getElementById('39c4361d-d97c-43d8-9ed1-03d73fb51eb3');
 
 (function(root) {
   function now() {
@@ -16319,9 +16325,9 @@ var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
 
 
 
-<div id="a51bfdd0-9660-4f62-98df-1f38e0ef1588" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="39c4361d-d97c-43d8-9ed1-03d73fb51eb3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
+var element = document.getElementById('39c4361d-d97c-43d8-9ed1-03d73fb51eb3');
 (function(root) {
   function embed_document(root) {
     
@@ -16476,9 +16482,9 @@ the coverage data is a heuristic. To get a qualitative feel for this distinticti
 
 
 
-<div id="a51bfdd0-9660-4f62-98df-1f38e0ef1588" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="39c4361d-d97c-43d8-9ed1-03d73fb51eb3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
+var element = document.getElementById('39c4361d-d97c-43d8-9ed1-03d73fb51eb3');
 
 (function(root) {
   function now() {
@@ -16806,9 +16812,9 @@ var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
 
 
 
-<div id="a51bfdd0-9660-4f62-98df-1f38e0ef1588" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="39c4361d-d97c-43d8-9ed1-03d73fb51eb3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
+var element = document.getElementById('39c4361d-d97c-43d8-9ed1-03d73fb51eb3');
 (function(root) {
   function embed_document(root) {
     
@@ -16853,7 +16859,7 @@ var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs.notebook</span> <span class="kn">import</span> <span class="n">InputForm</span><span class="p">,</span> <span class="n">InputSpec</span>
@@ -16907,12 +16913,12 @@ var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
 
 
 
-<div id="40665f6b-d683-4ec7-89ec-9ab93cd53878" class="jupyter-widgets jp-OutputArea-output ">
+<div id="03a2ebf2-9721-4963-950e-4e24a3bc7bae" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('40665f6b-d683-4ec7-89ec-9ab93cd53878');
+var element = document.getElementById('03a2ebf2-9721-4963-950e-4e24a3bc7bae');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ce656119bd3d4c1fb77d51450bff4fc8", "version_major": 2, "version_minor": 0}
+{"model_id": "d9dbb7faca034d209085d7ff7e760e5a", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17020,9 +17026,9 @@ var element = document.getElementById('40665f6b-d683-4ec7-89ec-9ab93cd53878');
 
 
 
-<div id="a51bfdd0-9660-4f62-98df-1f38e0ef1588" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="39c4361d-d97c-43d8-9ed1-03d73fb51eb3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
+var element = document.getElementById('39c4361d-d97c-43d8-9ed1-03d73fb51eb3');
 
 (function(root) {
   function now() {
@@ -17350,9 +17356,9 @@ var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
 
 
 
-<div id="a51bfdd0-9660-4f62-98df-1f38e0ef1588" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="39c4361d-d97c-43d8-9ed1-03d73fb51eb3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
+var element = document.getElementById('39c4361d-d97c-43d8-9ed1-03d73fb51eb3');
 (function(root) {
   function embed_document(root) {
     
@@ -17397,7 +17403,7 @@ var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">process_form</span><span class="p">(</span><span class="n">outputs</span><span class="p">):</span>
@@ -17448,12 +17454,12 @@ var element = document.getElementById('a51bfdd0-9660-4f62-98df-1f38e0ef1588');
 
 
 
-<div id="728ed7e9-bd62-4f82-a390-6e72a8316b72" class="jupyter-widgets jp-OutputArea-output ">
+<div id="9e660cde-907a-4a24-a2df-fde04eee02d7" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('728ed7e9-bd62-4f82-a390-6e72a8316b72');
+var element = document.getElementById('9e660cde-907a-4a24-a2df-fde04eee02d7');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "b5c2a3184046496b961007219bad505d", "version_major": 2, "version_minor": 0}
+{"model_id": "a19f53af02434330bc50bb3a7dace341", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
