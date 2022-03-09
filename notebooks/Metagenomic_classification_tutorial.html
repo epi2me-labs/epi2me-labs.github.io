@@ -14732,9 +14732,9 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
-<div id="07ab213b-1597-4d9b-9315-98a8723d33ed" class="jupyter-widgets jp-OutputArea-output ">
+<div id="fb4c004c-cce6-4543-a1bd-9db3a01cc91b" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('07ab213b-1597-4d9b-9315-98a8723d33ed');
+var element = document.getElementById('fb4c004c-cce6-4543-a1bd-9db3a01cc91b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "708d074af51e4c3298f6169e0139e56b", "version_major": 2, "version_minor": 0}
@@ -14793,7 +14793,7 @@ var element = document.getElementById('07ab213b-1597-4d9b-9315-98a8723d33ed');
                 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">db_store</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.1.cf&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">))):</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;+ Downloading </span><span class="si">{}</span><span class="s2"> index.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">download_index</span><span class="p">))</span>
             <span class="o">!</span><span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$db_store</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> wget -O <span class="s2">&quot;</span><span class="nv">$prefix</span><span class="s2">&quot;</span>.tar.gz <span class="s2">&quot;</span><span class="nv">$site</span><span class="s2">&quot;</span>/metagenomic_tutorial/<span class="s2">&quot;</span><span class="nv">$prefix</span><span class="s2">&quot;</span>.tar.gz
-            <span class="o">!</span><span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$db_store</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> mkdir -p <span class="s2">&quot;</span><span class="nv">$prefix</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$prefix</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> tar -xvf ../<span class="s2">&quot;</span><span class="nv">$prefix</span><span class="s2">&quot;</span>.tar.gz
+            <span class="o">!</span><span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$db_store</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> mkdir -p <span class="s2">&quot;</span><span class="nv">$prefix</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$prefix</span><span class="s2">&quot;</span> <span class="o">&amp;&amp;</span> tar --strip-components1 -xvf ../<span class="s2">&quot;</span><span class="nv">$prefix</span><span class="s2">&quot;</span>.tar.gz
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;+ Found existing </span><span class="si">{}</span><span class="s2"> index.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">download_index</span><span class="p">))</span>
         <span class="n">selected_database</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">db_store</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">prefix</span><span class="p">)</span>
@@ -14834,9 +14834,9 @@ var element = document.getElementById('07ab213b-1597-4d9b-9315-98a8723d33ed');
 
 
 
-<div id="6c8aabb5-f9cd-4606-9eae-c01cad3c34e7" class="jupyter-widgets jp-OutputArea-output ">
+<div id="1f38cd93-3c27-4384-bdec-ccfadd65a112" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('6c8aabb5-f9cd-4606-9eae-c01cad3c34e7');
+var element = document.getElementById('1f38cd93-3c27-4384-bdec-ccfadd65a112');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "8a65b72b997541d1b896cb50cc670fe3", "version_major": 2, "version_minor": 0}
@@ -14932,6 +14932,8 @@ Overall time: 00:00:09
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Counting genera present (press play)</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ncbitaxonomy</span> <span class="kn">import</span> <span class="n">ncbi_taxonomy</span>
+
 <span class="n">ncbi2</span> <span class="o">=</span> <span class="n">ncbi_taxonomy</span><span class="o">.</span><span class="n">ncbiquery2</span><span class="o">.</span><span class="n">NCBITaxa</span><span class="p">()</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;analysis&quot;</span><span class="p">,</span> <span class="s2">&quot;centrifuge_report.tsv&quot;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">taxIDs</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;taxID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -15145,9 +15147,9 @@ Loading nodes file ...
 
 
 
-<div id="b1a46116-192a-4883-8bf6-5916a384e9c4" class="jupyter-widgets jp-OutputArea-output ">
+<div id="a3c50da3-5ef5-4db2-9531-bf47b017231e" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('b1a46116-192a-4883-8bf6-5916a384e9c4');
+var element = document.getElementById('a3c50da3-5ef5-4db2-9531-bf47b017231e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "a35d3c0a1bea4af6a5fd772bc2c27a2f", "version_major": 2, "version_minor": 0}
