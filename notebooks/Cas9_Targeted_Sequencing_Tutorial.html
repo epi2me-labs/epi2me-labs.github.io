@@ -14322,10 +14322,10 @@ a.anchor-link {
 <p>Before anything else we will create and set a working directory:</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
@@ -14342,6 +14342,27 @@ a.anchor-link {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>/epi2melabs/cas9_tutorial
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -14512,10 +14533,11 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[108]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="kn">import</span> <span class="nn">aplanat</span>
@@ -14526,12 +14548,38 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 <span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
 
 <span class="n">input_file</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">samples_data</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">reference_genome</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">output_folder</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">region_bed</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">target_names</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">exec_summary</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">report</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">get_samples</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+    <span class="n">barcode_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()]</span>
+    <span class="n">names_paths</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">barcode_dirs</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">process_sample_form</span><span class="p">(</span><span class="n">samples</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">samples_data</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">samples</span><span class="o">.</span><span class="n">choice</span><span class="si">}</span><span class="s2"> selected&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">samples</span><span class="o">.</span><span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;Use all data&quot;</span><span class="p">:</span>
+            <span class="n">samples_data</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">samples_data</span> <span class="o">=</span> <span class="n">names_paths</span><span class="p">[</span><span class="n">samples</span><span class="o">.</span><span class="n">choice</span><span class="p">]</span>
+        
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">barcode_dirs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sample subdirectories found: Select sample/barcode to analyse and press &quot;Enter&quot;.&#39;</span><span class="p">)</span>
+        <span class="n">default_barcode</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">names_paths</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">input_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
+            <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;choice&#39;</span><span class="p">,</span> <span class="s1">&#39;Sample&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">names_paths</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;Use all data&quot;</span><span class="p">]))</span>
+        <span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_sample_form</span><span class="p">)</span>
+        <span class="n">input_form</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No sample/barcode directories found. Using all data.&quot;</span><span class="p">)</span>
+
 
 <span class="k">def</span> <span class="nf">process_form</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">input_file</span>
@@ -14549,8 +14597,6 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
     <span class="n">reference_genome</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">reference_genome</span>
     <span class="o">!</span><span class="nb">test</span> -f <span class="s2">&quot;</span><span class="nv">$reference_genome</span><span class="s2">&quot;</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&quot;WARNING: Reference file does not exist&quot;</span>
     <span class="n">input_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">output_folder</span><span class="p">,</span> <span class="s2">&quot;input.fastq&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compiling fastq data...&quot;</span><span class="p">)</span>
-    <span class="o">!</span>rationalize_fastq -i <span class="s2">&quot;</span><span class="nv">$inputs</span><span class="s2">.input_data&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$input_file</span><span class="s2">&quot;</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading bed file...&quot;</span><span class="p">)</span>
     <span class="n">region_bed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
@@ -14572,9 +14618,10 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
         <span class="s2">&quot;Cas9 Targeted Sequencing&quot;</span><span class="p">,</span> <span class="s2">&quot;EPI2ME Labs Summary&quot;</span><span class="p">)</span>
     <span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;## Excutive summary&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;exec-head&#39;</span><span class="p">)</span>
     <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;exec-plot&#39;</span><span class="p">)</span>  <span class="c1"># placeholder</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
+    <span class="c1"># samples_data = inputs.input_data</span>
+    <span class="n">get_samples</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">input_data</span><span class="p">)</span>
+   
 
-        
 <span class="n">inputs</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;input_data&#39;</span><span class="p">,</span> <span class="s1">&#39;.fastq input&#39;</span><span class="p">,</span> <span class="s1">&#39;sample_cas9/fastq_pass&#39;</span><span class="p">),</span>
     <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;output_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Output folder&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">),</span>
@@ -14606,12 +14653,12 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
-<div id="2e10a735-8351-4f86-90f5-d0dc2dbdb92f" class="jupyter-widgets jp-OutputArea-output ">
+<div id="39270944-9627-49f8-adf0-e69496e2a166" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('2e10a735-8351-4f86-90f5-d0dc2dbdb92f');
+var element = document.getElementById('39270944-9627-49f8-adf0-e69496e2a166');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3af74c14031c4dc9a412897dfebcd485", "version_major": 2, "version_minor": 0}
+{"model_id": "27635393c1e34d16b375f0c661833438", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14636,6 +14683,10 @@ var element = document.getElementById('2e10a735-8351-4f86-90f5-d0dc2dbdb92f');
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">reference_genome</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compiling fastq data...&quot;</span><span class="p">)</span>
+<span class="o">!</span>rationalize_fastq -i <span class="s2">&quot;</span><span class="nv">$samples_data</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$input_file</span><span class="s2">&quot;</span>
+
 <span class="o">!</span>run mini_align <span class="err">\</span>
     <span class="o">-</span><span class="n">r</span> <span class="s2">&quot;$reference_genome&quot;</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$input_file&quot;</span> \
     <span class="o">-</span><span class="n">p</span> <span class="s2">&quot;$output_folder/alignments&quot;</span> \
@@ -14758,9 +14809,9 @@ var element = document.getElementById('2e10a735-8351-4f86-90f5-d0dc2dbdb92f');
 
 
 
-<div id="62f88cfd-616c-4c9a-9b66-0d6112d5eff3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b2640db4-d256-416e-9b16-254118cfa879" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
+var element = document.getElementById('b2640db4-d256-416e-9b16-254118cfa879');
 
 (function(root) {
   function now() {
@@ -15088,9 +15139,9 @@ var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
 
 
 
-<div id="62f88cfd-616c-4c9a-9b66-0d6112d5eff3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b2640db4-d256-416e-9b16-254118cfa879" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
+var element = document.getElementById('b2640db4-d256-416e-9b16-254118cfa879');
 (function(root) {
   function embed_document(root) {
     
@@ -15995,9 +16046,9 @@ Getting statistics for FMR1.
 
 
 
-<div id="62f88cfd-616c-4c9a-9b66-0d6112d5eff3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b2640db4-d256-416e-9b16-254118cfa879" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
+var element = document.getElementById('b2640db4-d256-416e-9b16-254118cfa879');
 
 (function(root) {
   function now() {
@@ -16325,9 +16376,9 @@ var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
 
 
 
-<div id="62f88cfd-616c-4c9a-9b66-0d6112d5eff3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b2640db4-d256-416e-9b16-254118cfa879" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
+var element = document.getElementById('b2640db4-d256-416e-9b16-254118cfa879');
 (function(root) {
   function embed_document(root) {
     
@@ -16482,9 +16533,9 @@ the coverage data is a heuristic. To get a qualitative feel for this distinticti
 
 
 
-<div id="62f88cfd-616c-4c9a-9b66-0d6112d5eff3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b2640db4-d256-416e-9b16-254118cfa879" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
+var element = document.getElementById('b2640db4-d256-416e-9b16-254118cfa879');
 
 (function(root) {
   function now() {
@@ -16812,9 +16863,9 @@ var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
 
 
 
-<div id="62f88cfd-616c-4c9a-9b66-0d6112d5eff3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b2640db4-d256-416e-9b16-254118cfa879" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
+var element = document.getElementById('b2640db4-d256-416e-9b16-254118cfa879');
 (function(root) {
   function embed_document(root) {
     
@@ -16913,12 +16964,12 @@ var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
 
 
 
-<div id="2debf113-db20-46a7-b67f-cb9acc5359a6" class="jupyter-widgets jp-OutputArea-output ">
+<div id="b1e7a3e5-697e-4189-8b1a-f22da27ab9d4" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('2debf113-db20-46a7-b67f-cb9acc5359a6');
+var element = document.getElementById('b1e7a3e5-697e-4189-8b1a-f22da27ab9d4');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d9dbb7faca034d209085d7ff7e760e5a", "version_major": 2, "version_minor": 0}
+{"model_id": "d1b963ba0bb347789de6038d409cda74", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -17026,9 +17077,9 @@ var element = document.getElementById('2debf113-db20-46a7-b67f-cb9acc5359a6');
 
 
 
-<div id="62f88cfd-616c-4c9a-9b66-0d6112d5eff3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b2640db4-d256-416e-9b16-254118cfa879" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
+var element = document.getElementById('b2640db4-d256-416e-9b16-254118cfa879');
 
 (function(root) {
   function now() {
@@ -17356,9 +17407,9 @@ var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
 
 
 
-<div id="62f88cfd-616c-4c9a-9b66-0d6112d5eff3" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b2640db4-d256-416e-9b16-254118cfa879" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
+var element = document.getElementById('b2640db4-d256-416e-9b16-254118cfa879');
 (function(root) {
   function embed_document(root) {
     
@@ -17454,12 +17505,12 @@ var element = document.getElementById('62f88cfd-616c-4c9a-9b66-0d6112d5eff3');
 
 
 
-<div id="f5594aae-d682-4fdb-9fb7-734d2e2cb5de" class="jupyter-widgets jp-OutputArea-output ">
+<div id="ebde633d-0610-42b4-b2c6-4d494ed7320b" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('f5594aae-d682-4fdb-9fb7-734d2e2cb5de');
+var element = document.getElementById('ebde633d-0610-42b4-b2c6-4d494ed7320b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "a19f53af02434330bc50bb3a7dace341", "version_major": 2, "version_minor": 0}
+{"model_id": "4c67455c99ed43d1a74f83f923a5d4c3", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
