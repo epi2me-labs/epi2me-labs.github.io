@@ -14604,60 +14604,60 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <span class="k">class</span> <span class="nc">EnsemblRestClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="o">=</span><span class="s1">&#39;http://rest.ensembl.org&#39;</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="s1">&#39;http://rest.ensembl.org&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">=</span> <span class="s1">&#39;ftp.ensembl.org&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span> <span class="o">=</span> <span class="s1">&#39;/pub/release-100/fasta/</span><span class="si">{}</span><span class="s1">/dna/&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="o">=</span><span class="s1">'http://rest.ensembl.org'</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="s1">'http://rest.ensembl.org'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">=</span> <span class="s1">'ftp.ensembl.org'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span> <span class="o">=</span> <span class="s1">'/pub/release-100/fasta/</span><span class="si">{}</span><span class="s1">/dna/'</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_suff</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;primary&#39;</span><span class="p">:</span><span class="s1">&#39;dna.primary_assembly.fa.gz&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;toplevel&#39;</span><span class="p">:</span><span class="s1">&#39;dna.toplevel.fa.gz&#39;</span><span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span> <span class="o">=</span> <span class="s1">&#39;/pub/release-100/gtf/</span><span class="si">{}</span><span class="s1">/&#39;</span>
+            <span class="s1">'primary'</span><span class="p">:</span><span class="s1">'dna.primary_assembly.fa.gz'</span><span class="p">,</span>
+            <span class="s1">'toplevel'</span><span class="p">:</span><span class="s1">'dna.toplevel.fa.gz'</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span> <span class="o">=</span> <span class="s1">'/pub/release-100/gtf/</span><span class="si">{}</span><span class="s1">/'</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_suff</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;gtf&#39;</span><span class="p">:</span><span class="s2">&quot;100.gtf.gz&quot;</span><span class="p">}</span>
+            <span class="s1">'gtf'</span><span class="p">:</span><span class="s2">"100.gtf.gz"</span><span class="p">}</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">dna_template</span> <span class="o">=</span> \
-            <span class="s2">&quot;ftp://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span> <span class="o">+</span> <span class="s2">&quot;/</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span>
+            <span class="s2">"ftp://"</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span> <span class="o">+</span> <span class="s2">"/</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">"</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gtf_template</span> <span class="o">=</span> \
-            <span class="s2">&quot;ftp://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span> <span class="o">+</span> \
-            <span class="s2">&quot;/</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_suff</span><span class="p">[</span><span class="s1">&#39;gtf&#39;</span><span class="p">]</span>
+            <span class="s2">"ftp://"</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span> <span class="o">+</span> \
+            <span class="s2">"/</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">."</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_suff</span><span class="p">[</span><span class="s1">'gtf'</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s1">&#39;json&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;json&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="k">if</span> <span class="s1">'json'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s1">'json'</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span>
         <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">+</span> <span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s1">&#39;Retry-After&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
-                    <span class="n">retry</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Retry-After&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="s1">'Retry-After'</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+                    <span class="n">retry</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">'Retry-After'</span><span class="p">]</span>
                     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">retry</span><span class="p">))</span>
                     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">+</span> <span class="n">endpoint</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - Request failed for </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">endpoint</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">' - Request failed for </span><span class="si">{0}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">endpoint</span><span class="p">))</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span> 
         <span class="k">else</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-            <span class="k">if</span> <span class="s2">&quot;error&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - ERROR:</span><span class="se">\n</span><span class="s2">   </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="s2">"error"</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">" - ERROR:</span><span class="se">\n</span><span class="s2">   </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]))</span>
         <span class="k">return</span> <span class="n">data</span>
 
     <span class="k">def</span> <span class="nf">species_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/info/species&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/info/species"</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">assembly_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
-        <span class="c1">#assembly = self.get(&#39;/info/assembly/{}&#39;.format(species))</span>
-        <span class="c1">#if &#39;assembly_name&#39; in assembly:</span>
-        <span class="c1">#    return assembly[&#39;assembly_name&#39;]</span>
+        <span class="c1">#assembly = self.get('/info/assembly/{}'.format(species))</span>
+        <span class="c1">#if 'assembly_name' in assembly:</span>
+        <span class="c1">#    return assembly['assembly_name']</span>
         <span class="c1"># this is a bit circular...</span>
         <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ftp_list</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_suff</span><span class="p">)</span>
-        <span class="n">stem</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s2">&quot;toplevel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">assm</span> <span class="o">=</span> <span class="n">stem</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_suff</span><span class="p">[</span><span class="s2">&quot;toplevel&quot;</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">stem</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s2">"toplevel"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">assm</span> <span class="o">=</span> <span class="n">stem</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"."</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_suff</span><span class="p">[</span><span class="s2">"toplevel"</span><span class="p">],</span> <span class="s2">""</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">assm</span>
 
     <span class="k">def</span> <span class="nf">_ftp_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">filt</span><span class="p">):</span>
         <span class="n">ftpdata</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-        <span class="k">with</span> <span class="n">FTP</span><span class="p">(</span><span class="s1">&#39;ftp.ensembl.org&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ftp</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">FTP</span><span class="p">(</span><span class="s1">'ftp.ensembl.org'</span><span class="p">)</span> <span class="k">as</span> <span class="n">ftp</span><span class="p">:</span>
             <span class="n">ftp</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
             <span class="k">def</span> <span class="nf">grab</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
                 <span class="n">fname</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -14674,10 +14674,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
         <span class="c1">#    species, species.capitalize(), assembly_name)</span>
         <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ftp_list</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_suff</span><span class="p">)</span>
-        <span class="n">fname</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;toplevel&#39;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="s1">&#39;primary&#39;</span> <span class="ow">in</span> <span class="n">paths</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">fname</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;primary&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="s2">&quot;ftp://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">+</span> <span class="n">fname</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">'toplevel'</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">'primary'</span> <span class="ow">in</span> <span class="n">paths</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">'primary'</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s2">"ftp://"</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_dna_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">+</span> <span class="n">fname</span>
         
     <span class="k">def</span> <span class="nf">gtf_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">assembly_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1">#if assembly_name is None:</span>
@@ -14686,16 +14686,16 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
         <span class="c1">#    species, species.capitalize(), assembly_name)</span>
         <span class="n">paths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ftp_list</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_suff</span><span class="p">)</span>
-        <span class="n">fname</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">&#39;gtf&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="s2">&quot;ftp://&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">+</span> <span class="n">fname</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="s1">'gtf'</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s2">"ftp://"</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp_gtf_path</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">+</span> <span class="n">fname</span>
 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Querying ensembl species&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">" * Querying ensembl species"</span><span class="p">)</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">EnsemblRestClient</span><span class="p">()</span>
 <span class="n">species_list</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">species_list</span><span class="p">()</span>
-<span class="n">species_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">species_list</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Found </span><span class="si">{}</span><span class="s2"> species&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">species_list</span><span class="p">)))</span>
-<span class="n">species_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">species_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">species_list</span><span class="p">[</span><span class="s1">'species'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">" - Found </span><span class="si">{}</span><span class="s2"> species"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">species_list</span><span class="p">)))</span>
+<span class="n">species_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"--"</span><span class="p">)</span>
 <span class="n">urls</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 </pre></div>
 
@@ -14750,7 +14750,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">species_change</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">urls</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Finding files, please wait...&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" * Finding files, please wait..."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
     <span class="n">assm</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assembly_name</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
     <span class="n">dna_url</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">dna_url</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">assembly_name</span><span class="o">=</span><span class="n">assm</span><span class="p">)</span>
     <span class="n">gtf_url</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">gtf_url</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="n">assembly_name</span><span class="o">=</span><span class="n">assm</span><span class="p">)</span>
@@ -14758,65 +14758,65 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     
     
     <span class="k">try</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Retrieving files...&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dna_url</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gtf_url</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">" * Retrieving files..."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">" - </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dna_url</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">" - </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gtf_url</span><span class="p">))</span>
         <span class="n">dna_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">dna_url</span><span class="p">)</span>
         <span class="n">gtf_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">gtf_url</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">dna_path</span><span class="p">):</span>
-            <span class="o">!</span>wget <span class="nv">$dna_url</span> <span class="o">||</span> <span class="nb">printf</span> <span class="s2">&quot;\n * Failed to download assembly\n&quot;</span>
+            <span class="o">!</span>wget <span class="nv">$dna_url</span> <span class="o">||</span> <span class="nb">printf</span> <span class="s2">"\n * Failed to download assembly\n"</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">dna_path</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s1">&#39; - Assembly could not be downloaded.&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s1">' - Assembly could not be downloaded.'</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Skipping genome download&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">" - Skipping genome download"</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">gtf_path</span><span class="p">):</span>
-            <span class="o">!</span>wget <span class="nv">$gtf_url</span> <span class="o">||</span> <span class="nb">printf</span> <span class="s2">&quot;\n * Failed to download gtf\n&quot;</span>
+            <span class="o">!</span>wget <span class="nv">$gtf_url</span> <span class="o">||</span> <span class="nb">printf</span> <span class="s2">"\n * Failed to download gtf\n"</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">gtf_path</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s1">&#39; - GTF could not be downloaded.&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s1">' - GTF could not be downloaded.'</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Skipping gtf download&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">" - Skipping gtf download"</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Failed to retrieve files&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">" * Failed to retrieve files"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Finished download&quot;</span><span class="p">)</span>
-        <span class="c1">#print(&quot; * Calculating total assembly length&quot;)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">" * Finished download"</span><span class="p">)</span>
+        <span class="c1">#print(" * Calculating total assembly length")</span>
         <span class="c1">#glength = 0</span>
         <span class="c1">#with pysam.FastxFile(dna_path) as fh:</span>
         <span class="c1">#    for r in fh:</span>
         <span class="c1">#        glength += len(r.sequence)</span>
-        <span class="c1">#    print(&quot; - Assembly length: {}&quot;.format(glength))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Reading gtf&quot;</span><span class="p">)</span>
+        <span class="c1">#    print(" - Assembly length: {}".format(glength))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">" * Reading gtf"</span><span class="p">)</span>
         <span class="n">ranges</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">read_gtf</span><span class="p">(</span><span class="n">gtf_path</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - Merging and expanding intervals (this may take a while)...&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">" - Merging and expanding intervals (this may take a while)..."</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
         <span class="n">merged</span> <span class="o">=</span> <span class="n">ranges</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">strand</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">sloppy</span> <span class="o">=</span> <span class="n">merged</span><span class="o">.</span><span class="n">slack</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">read_length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">strand</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"done"</span><span class="p">)</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-            <span class="s1">&#39;Source GTF&#39;</span><span class="p">:[</span><span class="nb">len</span><span class="p">(</span><span class="n">ranges</span><span class="p">)],</span>
-            <span class="s1">&#39;Filtered&#39;</span><span class="p">:[</span><span class="nb">len</span><span class="p">(</span><span class="n">merged</span><span class="p">)],</span>
-            <span class="s1">&#39;Padded&#39;</span><span class="p">:[</span><span class="nb">len</span><span class="p">(</span><span class="n">sloppy</span><span class="p">)]},</span>
-            <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Intervals&#39;</span><span class="p">])</span>
-        <span class="n">bed_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.read_until.bed&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dna_path</span><span class="p">)</span>
+            <span class="s1">'Source GTF'</span><span class="p">:[</span><span class="nb">len</span><span class="p">(</span><span class="n">ranges</span><span class="p">)],</span>
+            <span class="s1">'Filtered'</span><span class="p">:[</span><span class="nb">len</span><span class="p">(</span><span class="n">merged</span><span class="p">)],</span>
+            <span class="s1">'Padded'</span><span class="p">:[</span><span class="nb">len</span><span class="p">(</span><span class="n">sloppy</span><span class="p">)]},</span>
+            <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'Intervals'</span><span class="p">])</span>
+        <span class="n">bed_path</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">.read_until.bed"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dna_path</span><span class="p">)</span>
         <span class="n">sloppy</span><span class="o">.</span><span class="n">to_bed</span><span class="p">(</span><span class="n">bed_path</span><span class="p">)</span>
 
         <span class="nb">print</span><span class="p">()</span>
         <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Input files:&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - Genome: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dna_url</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - GTF   : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gtf_url</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; * Output files:&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - Genome: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">dna_path</span><span class="p">)))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - GTF   : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">gtf_path</span><span class="p">)))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   - BED   : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">bed_path</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">" * Input files:"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"   - Genome: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dna_url</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"   - GTF   : </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gtf_url</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">" * Output files:"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"   - Genome: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">dna_path</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"   - GTF   : </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">gtf_path</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"   - BED   : </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">bed_path</span><span class="p">)))</span>
     
 
 <span class="kn">from</span> <span class="nn">epi2melabs.notebook</span> <span class="kn">import</span> <span class="n">InputForm</span><span class="p">,</span> <span class="n">InputSpec</span>
 <span class="n">species_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span><span class="o">=</span><span class="n">species_list</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;species:&#39;</span><span class="p">)</span>
+    <span class="n">options</span><span class="o">=</span><span class="n">species_list</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">'species:'</span><span class="p">)</span>
 <span class="n">input_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;read_length&#39;</span><span class="p">,</span> <span class="s1">&#39;Read length&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="n">species_dropdown</span><span class="p">))</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'read_length'</span><span class="p">,</span> <span class="s1">'Read length'</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'species'</span><span class="p">,</span> <span class="s1">'Species'</span><span class="p">,</span> <span class="n">species_dropdown</span><span class="p">))</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">species_change</span><span class="p">)</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>

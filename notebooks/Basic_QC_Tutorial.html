@@ -14677,13 +14677,13 @@ Oxford Nanopore Technologies' sequencing device.</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
 <span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
-<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;basic_qc_tutorial&#39;</span><span class="p">)</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'start'</span><span class="p">,</span> <span class="s1">'basic_qc_tutorial'</span><span class="p">)</span>
 
 <span class="c1"># create a work directory and move into it</span>
-<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;basicqc_tutorial&quot;</span>
-<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
-<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
-<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">"basicqc_tutorial"</span>
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">'/epi2melabs/</span><span class="si">{}</span><span class="s1">/'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$working_dir</span><span class="s2">"</span>
+<span class="o">%</span><span class="k">cd</span> "$working_dir"
 </pre></div>
 
      </div>
@@ -14735,12 +14735,12 @@ Oxford Nanopore Technologies' sequencing device.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
-<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">"ont-exd-int-s3-euwst1-epi2me-labs"</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">"s3-eu-west-1.amazonaws.com"</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">"https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
 
 <span class="o">!</span>wget -O lambda_sequencing_summary.txt.bz2 <span class="err">\</span>
-    <span class="s2">&quot;$site/basicqc_tutorial/lambda_sequencing_summary.txt.bz2&quot;</span>
+    <span class="s2">"$site/basicqc_tutorial/lambda_sequencing_summary.txt.bz2"</span>
 </pre></div>
 
      </div>
@@ -14837,29 +14837,29 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 <span class="k">def</span> <span class="nf">process_form</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
     <span class="n">summary_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">summary_file</span><span class="p">)</span>
     <span class="k">global</span> <span class="n">seq_summary</span><span class="p">,</span> <span class="n">exec_summary</span><span class="p">,</span> <span class="n">report</span>
-    <span class="c1"># Read the file, use a tab (&#39;\t&#39;) as the separator between columns</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading input file...&quot;</span><span class="p">)</span>
+    <span class="c1"># Read the file, use a tab ('\t') as the separator between columns</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Reading input file..."</span><span class="p">)</span>
     <span class="n">seq_summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-        <span class="n">inputs</span><span class="o">.</span><span class="n">summary_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">inputs</span><span class="o">.</span><span class="n">summary_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span>
         <span class="n">usecols</span><span class="o">=</span><span class="p">[</span>
-            <span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="s1">&#39;start_time&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">,</span> <span class="s1">&#39;passes_filtering&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;sequence_length_template&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_qscore_template&#39;</span><span class="p">])</span>
+            <span class="s1">'channel'</span><span class="p">,</span> <span class="s1">'start_time'</span><span class="p">,</span> <span class="s1">'duration'</span><span class="p">,</span> <span class="s1">'passes_filtering'</span><span class="p">,</span>
+            <span class="s1">'sequence_length_template'</span><span class="p">,</span> <span class="s1">'mean_qscore_template'</span><span class="p">])</span>
     <span class="c1"># ensure the file is sorted by time and reset its</span>
     <span class="c1"># indexing after doing so</span>
-    <span class="n">seq_summary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;start_time&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">seq_summary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'start_time'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">seq_summary</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">seq_summary</span> <span class="o">=</span> <span class="n">seq_summary</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Done."</span><span class="p">)</span>
 
     <span class="n">exec_summary</span> <span class="o">=</span> <span class="n">aplanat</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">InfoGraphItems</span><span class="p">()</span>
     <span class="n">report</span> <span class="o">=</span> <span class="n">aplanat</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">HTMLReport</span><span class="p">(</span>
-        <span class="s2">&quot;Basic QC Tutorial&quot;</span><span class="p">,</span> <span class="s2">&quot;EPI2ME Labs Summary&quot;</span><span class="p">)</span>
-    <span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;## Excutive summary&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;exec-head&#39;</span><span class="p">)</span>
-    <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;exec-plot&#39;</span><span class="p">)</span>  <span class="c1"># placeholder</span>
+        <span class="s2">"Basic QC Tutorial"</span><span class="p">,</span> <span class="s2">"EPI2ME Labs Summary"</span><span class="p">)</span>
+    <span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">"## Excutive summary"</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'exec-head'</span><span class="p">)</span>
+    <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">'exec-plot'</span><span class="p">)</span>  <span class="c1"># placeholder</span>
 
 
 <span class="n">inputs</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;summary_file&#39;</span><span class="p">,</span> <span class="s1">&#39;Sequencing summary&#39;</span><span class="p">,</span> <span class="s1">&#39;lambda_sequencing_summary.txt.bz2&#39;</span><span class="p">),)</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'summary_file'</span><span class="p">,</span> <span class="s1">'Sequencing summary'</span><span class="p">,</span> <span class="s1">'lambda_sequencing_summary.txt.bz2'</span><span class="p">),)</span>
 <span class="n">inputs</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
 <span class="n">inputs</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
@@ -15043,16 +15043,16 @@ ask the dataframe how many rows it contains:</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Show the total number of reads</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The total number of reads is:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq_summary</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The total number of reads is:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq_summary</span><span class="p">))</span>
 
 <span class="c1"># Group the rows of the dataframe by the value of the `passes_filtering` column</span>
 <span class="c1"># then ask the size of each group.</span>
-<span class="n">pass_fail</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;passes_filtering&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">pass_fail</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'passes_filtering'</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of pass reads is:&quot;</span><span class="p">,</span> <span class="n">pass_fail</span><span class="p">[</span><span class="kc">True</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of fail reads is:&quot;</span><span class="p">,</span> <span class="n">pass_fail</span><span class="p">[</span><span class="kc">False</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The number of pass reads is:"</span><span class="p">,</span> <span class="n">pass_fail</span><span class="p">[</span><span class="kc">True</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The number of fail reads is:"</span><span class="p">,</span> <span class="n">pass_fail</span><span class="p">[</span><span class="kc">False</span><span class="p">])</span>
 
-<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Total reads&#39;</span><span class="p">,</span> <span class="n">pass_fail</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s1">&#39;angle-up&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Total reads'</span><span class="p">,</span> <span class="n">pass_fail</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s1">'angle-up'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15112,22 +15112,22 @@ to create common plots using the <code>bokeh</code> library:</p>
 
 <span class="n">pass_percentage</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">pass_fail</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq_summary</span><span class="p">)</span>
 <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">pass_percentage</span><span class="p">,</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">pass_percentage</span><span class="p">]</span>
-<span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pass&#39;</span><span class="p">,</span> <span class="s1">&#39;Fail&#39;</span><span class="p">]</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#54B8B1&#39;</span><span class="p">,</span> <span class="s1">&#39;#EF4135&#39;</span><span class="p">]</span>
+<span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Pass'</span><span class="p">,</span> <span class="s1">'Fail'</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'#54B8B1'</span><span class="p">,</span> <span class="s1">'#EF4135'</span><span class="p">]</span>
 
 <span class="n">plot</span> <span class="o">=</span> <span class="n">bars</span><span class="o">.</span><span class="n">single_hbar</span><span class="p">(</span>
     <span class="n">values</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Pass / Fail reads&quot;</span><span class="p">)</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%a</span><span class="s1">ge Reads&#39;</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"Pass / Fail reads"</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'</span><span class="si">%a</span><span class="s1">ge Reads'</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
 
 <span class="c1"># add item to report</span>
-<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">"""</span>
 <span class="s2">## Pass/fail classification</span>
 
 <span class="s2">The run contained </span><span class="si">{}</span><span class="s2"> pass and </span><span class="si">{}</span><span class="s2"> fail reads for a total of </span><span class="si">{}</span><span class="s2"> reads.</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pass_fail</span><span class="p">[</span><span class="kc">True</span><span class="p">],</span> <span class="n">pass_fail</span><span class="p">[</span><span class="kc">False</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq_summary</span><span class="p">)),</span>
-    <span class="n">key</span><span class="o">=</span><span class="s2">&quot;pass-fail-head&quot;</span><span class="p">)</span>
+<span class="s2">"""</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pass_fail</span><span class="p">[</span><span class="kc">True</span><span class="p">],</span> <span class="n">pass_fail</span><span class="p">[</span><span class="kc">False</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq_summary</span><span class="p">)),</span>
+    <span class="n">key</span><span class="o">=</span><span class="s2">"pass-fail-head"</span><span class="p">)</span>
 <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
 </pre></div>
 
@@ -15151,9 +15151,9 @@ to create common plots using the <code>bokeh</code> library:</p>
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 
 (function(root) {
   function now() {
@@ -15481,9 +15481,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 (function(root) {
   function embed_document(root) {
     
@@ -15554,17 +15554,17 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <span class="n">n50_index</span> <span class="o">=</span> <span class="n">cumulative_length</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">total_bases</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">n50_length</span> <span class="o">=</span> <span class="n">sorted_lengths</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n50_index</span><span class="p">]</span>
 
-<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Total yield&#39;</span><span class="p">,</span> <span class="n">total_bases</span><span class="p">,</span> <span class="s1">&#39;signal&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Mean read length&#39;</span><span class="p">,</span> <span class="n">mean_length</span><span class="p">,</span> <span class="s1">&#39;align-center&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;N50 read length&#39;</span><span class="p">,</span> <span class="n">n50_length</span><span class="p">,</span> <span class="s1">&#39;align-left&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Total yield'</span><span class="p">,</span> <span class="n">total_bases</span><span class="p">,</span> <span class="s1">'signal'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
+<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Mean read length'</span><span class="p">,</span> <span class="n">mean_length</span><span class="p">,</span> <span class="s1">'align-center'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
+<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'N50 read length'</span><span class="p">,</span> <span class="n">n50_length</span><span class="p">,</span> <span class="s1">'align-left'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
 
-<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">"""</span>
 <span class="s2">## Read Lengths and yield</span>
 
 <span class="s2">The following graphics depict the read-length distribution in a variety</span>
 <span class="s2">of ways, see the tutorial for additional details.</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span>
-    <span class="n">key</span><span class="o">=</span><span class="s1">&#39;length-yield-head&#39;</span><span class="p">)</span>
+<span class="s2">"""</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="s1">'length-yield-head'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15597,16 +15597,16 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">hist</span><span class="p">,</span> <span class="n">annot</span>
 
 <span class="n">datas</span> <span class="o">=</span> <span class="p">[</span><span class="n">seq_summary</span><span class="o">.</span><span class="n">sequence_length_template</span><span class="p">]</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">datas</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Read length distribution&quot;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#0084A9&#39;</span><span class="p">])</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">datas</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Read length distribution"</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'#0084A9'</span><span class="p">])</span>
 <span class="c1"># add vertical lines for mean and N50 read length</span>
-<span class="n">annot</span><span class="o">.</span><span class="n">marker_vline</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">mean_length</span><span class="p">,</span> <span class="s1">&#39;Mean: </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_length</span><span class="p">))</span>
-<span class="n">annot</span><span class="o">.</span><span class="n">marker_vline</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">n50_length</span><span class="p">,</span> <span class="s1">&#39;N50: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n50_length</span><span class="p">),</span> <span class="n">text_baseline</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+<span class="n">annot</span><span class="o">.</span><span class="n">marker_vline</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">mean_length</span><span class="p">,</span> <span class="s1">'Mean: </span><span class="si">{:.0f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_length</span><span class="p">))</span>
+<span class="n">annot</span><span class="o">.</span><span class="n">marker_vline</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">n50_length</span><span class="p">,</span> <span class="s1">'N50: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n50_length</span><span class="p">),</span> <span class="n">text_baseline</span><span class="o">=</span><span class="s1">'top'</span><span class="p">)</span>
 <span class="c1"># add axis labels</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Read Length / bases&#39;</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Number of reads&#39;</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Read Length / bases'</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Number of reads'</span>
 <span class="c1"># show the plot</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;length-plain&#39;</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'length-plain'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15629,9 +15629,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 
 (function(root) {
   function now() {
@@ -15959,9 +15959,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 (function(root) {
   function embed_document(root) {
     
@@ -16038,17 +16038,17 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <span class="n">plot</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
     <span class="n">datas</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span>
     <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">bins</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Read length distribution&quot;</span><span class="p">,</span>
-    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#0084A9&quot;</span><span class="p">])</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Read length distribution"</span><span class="p">,</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"#0084A9"</span><span class="p">])</span>
 <span class="c1"># add vertical lines for mean and N50 read length</span>
-<span class="n">annot</span><span class="o">.</span><span class="n">marker_vline</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">mean_length</span><span class="p">,</span> <span class="s1">&#39;Mean: </span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_length</span><span class="p">))</span>
-<span class="n">annot</span><span class="o">.</span><span class="n">marker_vline</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">n50_length</span><span class="p">,</span> <span class="s1">&#39;N50: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n50_length</span><span class="p">),</span> <span class="n">text_baseline</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+<span class="n">annot</span><span class="o">.</span><span class="n">marker_vline</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">mean_length</span><span class="p">,</span> <span class="s1">'Mean: </span><span class="si">{:.0f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_length</span><span class="p">))</span>
+<span class="n">annot</span><span class="o">.</span><span class="n">marker_vline</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">n50_length</span><span class="p">,</span> <span class="s1">'N50: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n50_length</span><span class="p">),</span> <span class="n">text_baseline</span><span class="o">=</span><span class="s1">'top'</span><span class="p">)</span>
 <span class="c1"># add axis labels</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Read Length / bases&#39;</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Base density&#39;</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Read Length / bases'</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Base density'</span>
 <span class="c1"># show the plot</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;length-mass&#39;</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'length-mass'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16071,9 +16071,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 
 (function(root) {
   function now() {
@@ -16401,9 +16401,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 (function(root) {
   function embed_document(root) {
     
@@ -16479,13 +16479,13 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <span class="n">x</span> <span class="o">=</span> <span class="n">sorted_lengths</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">10000</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">cumulative_length</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">10000</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e9</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">line</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Base yield above given read length&#39;</span><span class="p">,</span>
-    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#0084A9&quot;</span><span class="p">])</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Read Length / bases&#39;</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Yield above length / Gbases&#39;</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">'Base yield above given read length'</span><span class="p">,</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"#0084A9"</span><span class="p">])</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Read Length / bases'</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Yield above length / Gbases'</span>
 <span class="c1"># show the plot</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s1">&#39;yield-length&#39;</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s1">'yield-length'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16508,9 +16508,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 
 (function(root) {
   function now() {
@@ -16838,9 +16838,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 (function(root) {
   function embed_document(root) {
     
@@ -16913,27 +16913,27 @@ data using the mean per-base quality score of reads written in the <code>sequenc
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Histogram of read quality (click play)</span>
 
-<span class="n">passes</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="p">[</span><span class="s1">&#39;passes_filtering&#39;</span><span class="p">]</span>
+<span class="n">passes</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="p">[</span><span class="s1">'passes_filtering'</span><span class="p">]</span>
 <span class="n">datas</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">seq_summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">passes</span> <span class="o">==</span> <span class="n">status</span><span class="p">][</span><span class="s1">&#39;mean_qscore_template&#39;</span><span class="p">]</span>
+    <span class="n">seq_summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">passes</span> <span class="o">==</span> <span class="n">status</span><span class="p">][</span><span class="s1">'mean_qscore_template'</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]]</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
-    <span class="n">datas</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#54B8B1&#39;</span><span class="p">,</span> <span class="s1">&#39;#EF4135&#39;</span><span class="p">],</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Pass&#39;</span><span class="p">,</span> <span class="s1">&#39;Fail&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Read quality score distribution&quot;</span><span class="p">)</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Read Quality Score&#39;</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Count reads / M&#39;</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
+    <span class="n">datas</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'#54B8B1'</span><span class="p">,</span> <span class="s1">'#EF4135'</span><span class="p">],</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'Pass'</span><span class="p">,</span> <span class="s1">'Fail'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"Read quality score distribution"</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Read Quality Score'</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Count reads / M'</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
 
-<span class="n">pass_mean_qscore</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="p">[</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">&#39;passes_filtering&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">][</span><span class="s2">&quot;mean_qscore_template&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Mean qscore (pass)&#39;</span><span class="p">,</span> <span class="n">pass_mean_qscore</span><span class="p">,</span> <span class="s1">&#39;thumbs-up&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">pass_mean_qscore</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="p">[</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">'passes_filtering'</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">][</span><span class="s2">"mean_qscore_template"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Mean qscore (pass)'</span><span class="p">,</span> <span class="n">pass_mean_qscore</span><span class="p">,</span> <span class="s1">'thumbs-up'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
 
-<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">"""</span>
 <span class="s2">## Read quality</span>
 
 <span class="s2">Distribution of read quality for pass and fail reads.</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;qual-head&#39;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;qual-plot&#39;</span><span class="p">)</span>
+<span class="s2">"""</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'qual-head'</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'qual-plot'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16956,9 +16956,9 @@ data using the mean per-base quality score of reads written in the <code>sequenc
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 
 (function(root) {
   function now() {
@@ -17286,9 +17286,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 (function(root) {
   function embed_document(root) {
     
@@ -17382,11 +17382,11 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">process_form</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
-    <span class="n">seq_summary</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">/</span> <span class="n">inputs</span><span class="o">.</span><span class="n">discretize</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">seq_summary</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">]</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">/</span> <span class="n">inputs</span><span class="o">.</span><span class="n">discretize</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
     <span class="c1"># group the data by quarter hour and pass/fail</span>
-    <span class="n">groups</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;passes_filtering&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'passes_filtering'</span><span class="p">,</span> <span class="s1">'time'</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="c1"># sum the bases per group</span>
-    <span class="n">throughput</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">&#39;sequence_length_template&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+    <span class="n">throughput</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">'sequence_length_template'</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">'sum'</span><span class="p">)</span>
 
     <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">throughput</span><span class="p">[</span><span class="n">throughput</span><span class="o">.</span><span class="n">passes_filtering</span> <span class="o">==</span> <span class="n">status</span><span class="p">]</span>
@@ -17394,25 +17394,25 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
     <span class="n">plot</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
         <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">time</span> <span class="o">/</span> <span class="p">(</span><span class="mi">60</span> <span class="o">/</span> <span class="n">inputs</span><span class="o">.</span><span class="n">discretize</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">],</span>
         <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">sequence_length_template</span> <span class="o">/</span> <span class="n">inputs</span><span class="o">.</span><span class="n">discretize</span> <span class="o">/</span> <span class="mf">1e6</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">],</span>
-        <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Pass&#39;</span><span class="p">,</span> <span class="s1">&#39;Fail&#39;</span><span class="p">],</span>
-        <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#54B8B1&#39;</span><span class="p">,</span> <span class="s1">&#39;#EF4135&#39;</span><span class="p">],</span>
+        <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'Pass'</span><span class="p">,</span> <span class="s1">'Fail'</span><span class="p">],</span>
+        <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'#54B8B1'</span><span class="p">,</span> <span class="s1">'#EF4135'</span><span class="p">],</span>
         <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Throughput&#39;</span><span class="p">,</span>
-        <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">&#39;time / hr&#39;</span><span class="p">,</span>
-        <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">&#39;yield / Gbases&#39;</span><span class="p">)</span>
-    <span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">'Throughput'</span><span class="p">,</span>
+        <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">'time / hr'</span><span class="p">,</span>
+        <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">'yield / Gbases'</span><span class="p">)</span>
+    <span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
 
-    <span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">"""</span>
 <span class="s2">    ## Performance through time</span>
 
 <span class="s2">    The following charts illustrate read, yield, and flowcell performance through</span>
 <span class="s2">    the course of the sequencing experiment.</span>
-<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;time-head&#39;</span><span class="p">)</span>
-    <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;yield-time-plot&#39;</span><span class="p">)</span>
+<span class="s2">    """</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'time-head'</span><span class="p">)</span>
+    <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'yield-time-plot'</span><span class="p">)</span>
 
 
 <span class="n">tp_inputs</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;discretize&#39;</span><span class="p">,</span> <span class="s1">&#39;Time discretization (min)&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">description_width</span><span class="o">=</span><span class="s2">&quot;180px&quot;</span><span class="p">)</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'discretize'</span><span class="p">,</span> <span class="s1">'Time discretization (min)'</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">description_width</span><span class="o">=</span><span class="s2">"180px"</span><span class="p">)</span>
 <span class="n">tp_inputs</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
 <span class="n">tp_inputs</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
@@ -17482,11 +17482,11 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plotting base yield through time (click play)</span>
 
 <span class="c1"># group the data by pass/fail</span>
-<span class="n">groups</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;passes_filtering&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">'passes_filtering'</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># calculate a cumulative sum of the number of bases sequenced (per group)</span>
-<span class="n">sum_tp</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">&#39;sequence_length_template&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">sum_tp</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">'sequence_length_template'</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="c1"># attach the start times from the original table</span>
-<span class="n">sum_tp</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span>
+<span class="n">sum_tp</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">]</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">sum_tp</span><span class="p">[::</span><span class="mi">1000</span><span class="p">][</span><span class="n">sum_tp</span><span class="p">[::</span><span class="mi">1000</span><span class="p">]</span><span class="o">.</span><span class="n">passes_filtering</span> <span class="o">==</span> <span class="n">status</span><span class="p">]</span>
@@ -17494,14 +17494,14 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <span class="n">plot</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
     <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">start_time</span> <span class="o">/</span> <span class="mi">3600</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">],</span>
     <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">sequence_length_template</span> <span class="o">/</span> <span class="mf">1e9</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">],</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Pass&#39;</span><span class="p">,</span> <span class="s1">&#39;Fail&#39;</span><span class="p">],</span>
-    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#54B8B1&#39;</span><span class="p">,</span> <span class="s1">&#39;#EF4135&#39;</span><span class="p">],</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'Pass'</span><span class="p">,</span> <span class="s1">'Fail'</span><span class="p">],</span>
+    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'#54B8B1'</span><span class="p">,</span> <span class="s1">'#EF4135'</span><span class="p">],</span>
     <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Cumulative yield&#39;</span><span class="p">,</span>
-    <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">&#39;time / hr&#39;</span><span class="p">,</span>
-    <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">&#39;yield / Gbases&#39;</span><span class="p">)</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;yield-time-plot&#39;</span><span class="p">)</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">'Cumulative yield'</span><span class="p">,</span>
+    <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">'time / hr'</span><span class="p">,</span>
+    <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">'yield / Gbases'</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'yield-time-plot'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17524,9 +17524,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 
 (function(root) {
   function now() {
@@ -17854,9 +17854,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 (function(root) {
   function embed_document(root) {
     
@@ -17917,20 +17917,20 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <span class="n">hour</span> <span class="o">=</span> <span class="p">(</span><span class="n">seq_summary</span><span class="o">.</span><span class="n">start_time</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">speed</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">sequence_length_template</span> <span class="o">/</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">duration</span>
 <span class="n">spd_plot</span> <span class="o">=</span> <span class="n">bars</span><span class="o">.</span><span class="n">boxplot_series</span><span class="p">(</span>
-    <span class="n">hour</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sequencing speed&#39;</span><span class="p">,</span>
-    <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">&#39;time / hr&#39;</span><span class="p">,</span>
-    <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">&#39;speed / (bases / s)&#39;</span><span class="p">)</span>
+    <span class="n">hour</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Sequencing speed'</span><span class="p">,</span>
+    <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">'time / hr'</span><span class="p">,</span>
+    <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">'speed / (bases / s)'</span><span class="p">)</span>
 
 <span class="n">length</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">sequence_length_template</span> 
 <span class="n">len_plot</span> <span class="o">=</span> <span class="n">bars</span><span class="o">.</span><span class="n">boxplot_series</span><span class="p">(</span>
-    <span class="n">hour</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sequencing Lengths&#39;</span><span class="p">,</span>
-    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;time / hr&#39;</span><span class="p">,</span>
-    <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;read length / bases&#39;</span><span class="p">)</span>
+    <span class="n">hour</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Sequencing Lengths'</span><span class="p">,</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">'time / hr'</span><span class="p">,</span>
+    <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">'read length / bases'</span><span class="p">)</span>
 <span class="n">len_plot</span><span class="o">.</span><span class="n">x_range</span><span class="o">=</span><span class="n">spd_plot</span><span class="o">.</span><span class="n">x_range</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">layouts</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">spd_plot</span><span class="p">,</span> <span class="n">len_plot</span><span class="p">)</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;speed-length-boxplots&#39;</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'speed-length-boxplots'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17953,9 +17953,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 
 (function(root) {
   function now() {
@@ -18283,9 +18283,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 (function(root) {
   function embed_document(root) {
     
@@ -18344,26 +18344,26 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">process_form</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
     <span class="c1"># calculate a start time for each read rounded to discretize minutes</span>
-    <span class="n">seq_summary</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">/</span> <span class="n">inputs</span><span class="o">.</span><span class="n">discretize</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">seq_summary</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">]</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">/</span> <span class="n">inputs</span><span class="o">.</span><span class="n">discretize</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
     <span class="c1"># group the data by quarter hour</span>
-    <span class="n">groups</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'time'</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="c1"># count the unique channels in each 5 minutes</span>
-    <span class="n">chan_counts</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">&#39;channel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+    <span class="n">chan_counts</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">'channel'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
     <span class="n">hours</span> <span class="o">=</span> <span class="n">chan_counts</span><span class="o">.</span><span class="n">index</span> <span class="o">/</span> <span class="p">(</span><span class="mi">60</span> <span class="o">/</span> <span class="n">inputs</span><span class="o">.</span><span class="n">discretize</span><span class="p">)</span>
 
     <span class="n">plot</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
         <span class="p">[</span><span class="n">hours</span><span class="p">],</span>
-        <span class="p">[</span><span class="n">chan_counts</span><span class="p">[</span><span class="s1">&#39;channel&#39;</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">chan_counts</span><span class="p">[</span><span class="s1">'channel'</span><span class="p">]],</span>
         <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Functional channels (</span><span class="si">{}</span><span class="s1">min period)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">discretize</span><span class="p">),</span>
-        <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">&#39;time / hr&#39;</span><span class="p">,</span>
-        <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">&#39;active channels&#39;</span><span class="p">,</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#0084A9&quot;</span><span class="p">])</span>
-    <span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-    <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s1">&#39;active-channels-plot&#39;</span><span class="p">)</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">'Functional channels (</span><span class="si">{}</span><span class="s1">min period)'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">discretize</span><span class="p">),</span>
+        <span class="n">x_axis_label</span> <span class="o">=</span> <span class="s1">'time / hr'</span><span class="p">,</span>
+        <span class="n">y_axis_label</span> <span class="o">=</span> <span class="s1">'active channels'</span><span class="p">,</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"#0084A9"</span><span class="p">])</span>
+    <span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+    <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s1">'active-channels-plot'</span><span class="p">)</span>
 
 <span class="n">ac_inputs</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;discretize&#39;</span><span class="p">,</span> <span class="s1">&#39;Time discretization (min)&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">description_width</span><span class="o">=</span><span class="s2">&quot;180px&quot;</span><span class="p">)</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'discretize'</span><span class="p">,</span> <span class="s1">'Time discretization (min)'</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">description_width</span><span class="o">=</span><span class="s2">"180px"</span><span class="p">)</span>
 <span class="n">ac_inputs</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
 <span class="n">ac_inputs</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
@@ -18435,8 +18435,8 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
     <span class="c1"># lowest block is at the top</span>
     <span class="n">first_channel</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">64</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">channel_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">channel_block</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">first_channel</span><span class="p">])</span>
-    <span class="n">ca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">channel_array</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
-    <span class="n">ca</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="s1">&#39;column&#39;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">]</span>
+    <span class="n">ca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">channel_array</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">'index'</span><span class="p">)</span>
+    <span class="n">ca</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'row'</span><span class="p">,</span> <span class="s1">'column'</span><span class="p">,</span> <span class="s1">'channel'</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">ca</span>
 
 <span class="k">def</span> <span class="nf">flongle_array</span><span class="p">():</span>
@@ -18447,8 +18447,8 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
         <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span>
         <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">115</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span>
         <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">115</span><span class="p">,</span> <span class="mi">127</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
-    <span class="n">ca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">channel_array</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
-    <span class="n">ca</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="s1">&#39;column&#39;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">]</span>
+    <span class="n">ca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">channel_array</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">'index'</span><span class="p">)</span>
+    <span class="n">ca</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'row'</span><span class="p">,</span> <span class="s1">'column'</span><span class="p">,</span> <span class="s1">'channel'</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">ca</span>
 
 <span class="k">def</span> <span class="nf">promethion_array</span><span class="p">():</span>
@@ -18456,22 +18456,22 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
     <span class="n">channel_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span>
         <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">250</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2752</span><span class="p">,</span> <span class="mi">250</span><span class="p">)])</span>
-    <span class="n">ca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">channel_array</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
-    <span class="n">ca</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="s1">&#39;column&#39;</span><span class="p">,</span> <span class="s1">&#39;channel&#39;</span><span class="p">]</span>
+    <span class="n">ca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">channel_array</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">'index'</span><span class="p">)</span>
+    <span class="n">ca</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'row'</span><span class="p">,</span> <span class="s1">'column'</span><span class="p">,</span> <span class="s1">'channel'</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">ca</span>
 
 <span class="k">def</span> <span class="nf">guess_device</span><span class="p">(</span><span class="n">max_channel</span><span class="p">):</span>
-    <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;minion&quot;</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="s2">"minion"</span>
     <span class="k">if</span> <span class="n">max_channel</span> <span class="o">&gt;</span> <span class="mi">512</span><span class="p">:</span>
-        <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;promethion&quot;</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="s2">"promethion"</span>
     <span class="k">if</span> <span class="n">max_channel</span> <span class="o">&lt;=</span> <span class="mi">130</span><span class="p">:</span>
-        <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;flongle&quot;</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="s2">"flongle"</span>
     <span class="k">return</span> <span class="n">device</span>
 
 <span class="n">channel_maps</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;minion&#39;</span><span class="p">:</span> <span class="n">minion_array</span><span class="p">(),</span>
-    <span class="s1">&#39;flongle&#39;</span><span class="p">:</span> <span class="n">flongle_array</span><span class="p">(),</span>
-    <span class="s1">&#39;promethion&#39;</span><span class="p">:</span> <span class="n">promethion_array</span><span class="p">()}</span>
+    <span class="s1">'minion'</span><span class="p">:</span> <span class="n">minion_array</span><span class="p">(),</span>
+    <span class="s1">'flongle'</span><span class="p">:</span> <span class="n">flongle_array</span><span class="p">(),</span>
+    <span class="s1">'promethion'</span><span class="p">:</span> <span class="n">promethion_array</span><span class="p">()}</span>
 </pre></div>
 
      </div>
@@ -18499,16 +18499,16 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">guess_device</span><span class="p">(</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">&#39;channel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">guess_device</span><span class="p">(</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">'channel'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 <span class="n">channel_map</span> <span class="o">=</span> <span class="n">channel_maps</span><span class="p">[</span><span class="n">device</span><span class="p">]</span>
 
 <span class="c1"># count pass reads per channel...</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="p">[</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">&#39;passes_filtering&#39;</span><span class="p">]]</span> \
-    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;channel&#39;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s1">&#39;reads&#39;</span><span class="p">)</span> \
+<span class="n">counts</span> <span class="o">=</span> <span class="n">seq_summary</span><span class="p">[</span><span class="n">seq_summary</span><span class="p">[</span><span class="s1">'passes_filtering'</span><span class="p">]]</span> \
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'channel'</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s1">'reads'</span><span class="p">)</span> \
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="c1"># ...and merge with the channel map</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">channel_map</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;channel&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">channel_map</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'channel'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18540,11 +18540,11 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">spatial</span>
 
 <span class="n">plot</span> <span class="o">=</span> <span class="n">spatial</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
-    <span class="n">counts</span><span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">],</span> <span class="n">counts</span><span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">],</span> <span class="n">counts</span><span class="p">[</span><span class="s1">&#39;reads&#39;</span><span class="p">],</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;# reads&#39;</span><span class="p">)</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;### Active channels&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;active-channels-head&#39;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;active-channels-heat&#39;</span><span class="p">)</span>
+    <span class="n">counts</span><span class="p">[</span><span class="s1">'column'</span><span class="p">],</span> <span class="n">counts</span><span class="p">[</span><span class="s1">'row'</span><span class="p">],</span> <span class="n">counts</span><span class="p">[</span><span class="s1">'reads'</span><span class="p">],</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">'# reads'</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">"### Active channels"</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'active-channels-head'</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'active-channels-heat'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18567,9 +18567,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 
 (function(root) {
   function now() {
@@ -18897,9 +18897,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 (function(root) {
   function embed_document(root) {
     
@@ -18956,15 +18956,15 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Executive summary (click play)</span>
-<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;stop&#39;</span><span class="p">,</span> <span class="s1">&#39;basic_qc_tutorial&#39;</span><span class="p">)</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'stop'</span><span class="p">,</span> <span class="s1">'basic_qc_tutorial'</span><span class="p">)</span>
 
 <span class="n">exec_plot</span> <span class="o">=</span> <span class="n">aplanat</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">infographic</span><span class="p">(</span><span class="n">exec_summary</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">exec_plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exec_plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;exec-plot&#39;</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">exec_plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exec_plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'exec-plot'</span><span class="p">)</span>
 
-<span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">summary_file</span><span class="p">),</span> <span class="s1">&#39;report.html&#39;</span><span class="p">)</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">summary_file</span><span class="p">),</span> <span class="s1">'report.html'</span><span class="p">)</span>
 <span class="n">report</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Report written to: </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Report written to: </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -18987,9 +18987,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 
 (function(root) {
   function now() {
@@ -19317,9 +19317,9 @@ var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
 
 
 
-<div id="9c45c408-5d3d-4d02-a845-07c38f083cbf" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="19098cf4-fcd0-4e8f-93d9-0a68c6c6688d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('9c45c408-5d3d-4d02-a845-07c38f083cbf');
+var element = document.getElementById('19098cf4-fcd0-4e8f-93d9-0a68c6c6688d');
 (function(root) {
   function embed_document(root) {
     

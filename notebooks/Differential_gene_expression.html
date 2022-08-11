@@ -14651,14 +14651,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
-<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;differential-expression&quot;</span>
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">"differential-expression"</span>
 <span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
-<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'start'</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
 
 <span class="c1"># create a work directory and move into it</span>
-<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
-<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
-<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">'/epi2melabs/</span><span class="si">{}</span><span class="s1">/'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$working_dir</span><span class="s2">"</span>
+<span class="o">%</span><span class="k">cd</span> "$working_dir"
 </pre></div>
 
      </div>
@@ -14693,11 +14693,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="o">!</span>rm -rf pipeline-transcriptome-de
 <span class="o">!</span>git clone --branch v0.5.0 --depth <span class="m">1</span>  https://github.com/nanoporetech/pipeline-transcriptome-de.git <span class="err">\</span>
     <span class="mi">2</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span> \
-    <span class="o">&amp;&amp;</span> <span class="n">cecho</span> <span class="n">success</span> <span class="s2">&quot;Download complete&quot;</span> \
-    <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">&quot;Download failed&quot;</span>
+    <span class="o">&amp;&amp;</span> <span class="n">cecho</span> <span class="n">success</span> <span class="s2">"Download complete"</span> \
+    <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">"Download failed"</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">working_dir</span><span class="p">,</span> <span class="s2">&quot;pipeline-transcriptome-de&quot;</span><span class="p">)):</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Repository was not cloned successfully&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">working_dir</span><span class="p">,</span> <span class="s2">"pipeline-transcriptome-de"</span><span class="p">)):</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"Repository was not cloned successfully"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14728,7 +14728,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mamba install -y -q <span class="err">\</span>
     <span class="n">bioconductor</span><span class="o">-</span><span class="n">genomicfeatures</span> <span class="n">bioconductor</span><span class="o">-</span><span class="n">drimseq</span> <span class="n">bioconductor</span><span class="o">-</span><span class="n">edger</span> \
     <span class="n">bioconductor</span><span class="o">-</span><span class="n">dexseq</span> <span class="n">bioconductor</span><span class="o">-</span><span class="n">stager</span> \
-    <span class="s2">&quot;snakemake&lt;5.27&quot;</span> <span class="n">salmon</span> \
+    <span class="s2">"snakemake&lt;5.27"</span> <span class="n">salmon</span> \
     <span class="mi">2</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
 </pre></div>
 
@@ -14757,8 +14757,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>Rscript -e <span class="s1">&#39;install.packages(&quot;BiocManager&quot;, repos=&quot;https://ftp.fau.de/cran/&quot;)&#39;</span>  &gt; /dev/null
-<span class="o">!</span>Rscript -e <span class="s1">&#39;BiocManager::install(c(&quot;GenomeInfoDbData&quot;, &quot;DRIMSeq&quot;))&#39;</span>  &gt; /dev/null
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>Rscript -e <span class="s1">'install.packages("BiocManager", repos="https://ftp.fau.de/cran/")'</span>  &gt; /dev/null
+<span class="o">!</span>Rscript -e <span class="s1">'BiocManager::install(c("GenomeInfoDbData", "DRIMSeq"))'</span>  &gt; /dev/null
 </pre></div>
 
      </div>
@@ -14788,21 +14788,21 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Download sample data (click play)</span>
-<span class="n">experiment_name</span> <span class="o">=</span> <span class="s2">&quot;sample_data&quot;</span>
+<span class="n">experiment_name</span> <span class="o">=</span> <span class="s2">"sample_data"</span>
 <span class="o">!</span>mkdir -p <span class="nv">$experiment_name</span>
 
-<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com/dge_tutorial&quot;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">"https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com/dge_tutorial"</span>
 
 <span class="k">for</span> <span class="n">condition</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
-  <span class="n">condition_dir</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/condition</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">,</span> <span class="n">condition</span><span class="p">)</span>
-  <span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$condition_dir</span><span class="s2">&quot;</span>
-  <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;condition</span><span class="si">{}</span><span class="s2">/condition</span><span class="si">{}</span><span class="s2">_rep</span><span class="si">{}</span><span class="s2">.fastq.gz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
-  <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+  <span class="n">condition_dir</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">/condition</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">,</span> <span class="n">condition</span><span class="p">)</span>
+  <span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$condition_dir</span><span class="s2">"</span>
+  <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"condition</span><span class="si">{}</span><span class="s2">/condition</span><span class="si">{}</span><span class="s2">_rep</span><span class="si">{}</span><span class="s2">.fastq.gz"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+  <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
   <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
     <span class="o">!</span>wget -P <span class="nv">$condition_dir</span> --no-clobber <span class="nv">$address</span>
 
-<span class="n">ref</span> <span class="o">=</span> <span class="s2">&quot;http://ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz&quot;</span>
-<span class="n">annotation</span> <span class="o">=</span> <span class="s2">&quot;http://ftp.ensembl.org/pub/release-95/gtf/homo_sapiens/Homo_sapiens.GRCh38.95.gtf.gz&quot;</span>
+<span class="n">ref</span> <span class="o">=</span> <span class="s2">"http://ftp.ensembl.org/pub/release-95/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz"</span>
+<span class="n">annotation</span> <span class="o">=</span> <span class="s2">"http://ftp.ensembl.org/pub/release-95/gtf/homo_sapiens/Homo_sapiens.GRCh38.95.gtf.gz"</span>
 <span class="o">!</span>wget -P <span class="nv">$experiment_name</span> --no-clobber <span class="nv">$ref</span>
 <span class="o">!</span>wget -P <span class="nv">$experiment_name</span> --no-clobber <span class="nv">$annotation</span>
 </pre></div>
@@ -14898,15 +14898,15 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 <span class="n">treated_samples</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="k">def</span> <span class="nf">ensure_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Raise error is `path` doesn&#39;t exist&quot;&quot;&quot;</span>
+    <span class="sd">"""Raise error is `path` doesn't exist"""</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="o">.</span><span class="n">ENOENT</span><span class="p">),</span> <span class="n">path</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> exists&quot;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✓ </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> exists"</span><span class="p">))</span>
     <span class="k">return</span> <span class="kc">True</span>
 
-<span class="k">def</span> <span class="nf">build_sample_dict</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">sample_name</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;.fastq.gz&quot;</span><span class="p">):</span>
-    <span class="n">wildcard</span> <span class="o">=</span> <span class="s2">&quot;*</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">build_sample_dict</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">sample_name</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">".fastq.gz"</span><span class="p">):</span>
+    <span class="n">wildcard</span> <span class="o">=</span> <span class="s2">"*</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
     <span class="n">samples</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">sample_name</span><span class="p">,</span> <span class="n">wildcard</span><span class="p">))</span>
     <span class="k">return</span> <span class="p">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="n">extension</span><span class="p">)):</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">}</span>
 
@@ -14920,7 +14920,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
     <span class="n">annotation</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">annotation</span>
     <span class="n">control_name</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">control_name</span>
     <span class="n">treated_name</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">treated_name</span>
-    <span class="n">experiment_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">working_dir</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">))</span>
+    <span class="n">experiment_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">working_dir</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">))</span>
         
     <span class="n">ensure_path</span><span class="p">(</span><span class="n">transcriptome</span><span class="p">)</span>
     <span class="n">ensure_path</span><span class="p">(</span><span class="n">annotation</span><span class="p">)</span>
@@ -14928,69 +14928,69 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
     <span class="c1"># setup report</span>
     <span class="n">exec_summary</span> <span class="o">=</span> <span class="n">aplanat</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">InfoGraphItems</span><span class="p">()</span>
     <span class="n">report</span> <span class="o">=</span> <span class="n">aplanat</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">HTMLReport</span><span class="p">(</span>
-        <span class="s2">&quot;Differential gene expression&quot;</span><span class="p">,</span> <span class="s2">&quot;EPI2ME Labs Summary&quot;</span><span class="p">)</span>
-    <span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;## Excutive summary&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;exec-head&#39;</span><span class="p">)</span>
-    <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;exec-plot&#39;</span><span class="p">)</span>
+        <span class="s2">"Differential gene expression"</span><span class="p">,</span> <span class="s2">"EPI2ME Labs Summary"</span><span class="p">)</span>
+    <span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">"## Excutive summary"</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'exec-head'</span><span class="p">)</span>
+    <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">'exec-plot'</span><span class="p">)</span>
 
     <span class="c1"># prepare a snakemake config</span>
-    <span class="n">results_dir</span> <span class="o">=</span> <span class="s2">&quot;results&quot;</span>
-    <span class="n">extension</span> <span class="o">=</span> <span class="s2">&quot;.fastq.gz&quot;</span>
-    <span class="n">wildcard</span> <span class="o">=</span> <span class="s2">&quot;*</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
+    <span class="n">results_dir</span> <span class="o">=</span> <span class="s2">"results"</span>
+    <span class="n">extension</span> <span class="o">=</span> <span class="s2">".fastq.gz"</span>
+    <span class="n">wildcard</span> <span class="o">=</span> <span class="s2">"*</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
     <span class="n">control_samples</span> <span class="o">=</span> <span class="n">build_sample_dict</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">control_name</span><span class="p">)</span>
     <span class="n">treated_samples</span> <span class="o">=</span> <span class="n">build_sample_dict</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">treated_name</span><span class="p">)</span>
 
     <span class="n">xconfig</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;pipeline&quot;</span><span class="p">:</span> <span class="n">results_dir</span><span class="p">,</span>
-        <span class="s2">&quot;workdir_top&quot;</span><span class="p">:</span> <span class="n">experiment_name</span><span class="p">,</span>
-        <span class="s2">&quot;resdir&quot;</span><span class="p">:</span> <span class="s2">&quot;results&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;repo&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/nanoporetech/pipeline-transcriptome-de&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;transcriptome&quot;</span><span class="p">:</span> <span class="n">transcriptome</span><span class="p">,</span>
-        <span class="s2">&quot;annotation&quot;</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span>
-        <span class="s2">&quot;control_samples&quot;</span><span class="p">:</span> <span class="n">control_samples</span><span class="p">,</span>
-        <span class="s2">&quot;treated_samples&quot;</span><span class="p">:</span> <span class="n">treated_samples</span><span class="p">,</span>
-        <span class="s2">&quot;minimap_index_opts&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;minimap2_opts&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;maximum_secondary&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="s2">&quot;secondary_score_ratio&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-        <span class="s2">&quot;salmon_libtype&quot;</span><span class="p">:</span> <span class="s2">&quot;U&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;min_samps_gene_expr&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s2">&quot;min_samps_feature_expr&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;min_gene_expr&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">&quot;min_feature_expr&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s2">&quot;threads&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span> 
+        <span class="s2">"pipeline"</span><span class="p">:</span> <span class="n">results_dir</span><span class="p">,</span>
+        <span class="s2">"workdir_top"</span><span class="p">:</span> <span class="n">experiment_name</span><span class="p">,</span>
+        <span class="s2">"resdir"</span><span class="p">:</span> <span class="s2">"results"</span><span class="p">,</span>
+        <span class="s2">"repo"</span><span class="p">:</span> <span class="s2">"https://github.com/nanoporetech/pipeline-transcriptome-de"</span><span class="p">,</span>
+        <span class="s2">"transcriptome"</span><span class="p">:</span> <span class="n">transcriptome</span><span class="p">,</span>
+        <span class="s2">"annotation"</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span>
+        <span class="s2">"control_samples"</span><span class="p">:</span> <span class="n">control_samples</span><span class="p">,</span>
+        <span class="s2">"treated_samples"</span><span class="p">:</span> <span class="n">treated_samples</span><span class="p">,</span>
+        <span class="s2">"minimap_index_opts"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"minimap2_opts"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"maximum_secondary"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s2">"secondary_score_ratio"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">"salmon_libtype"</span><span class="p">:</span> <span class="s2">"U"</span><span class="p">,</span>
+        <span class="s2">"min_samps_gene_expr"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">"min_samps_feature_expr"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"min_gene_expr"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"min_feature_expr"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">"threads"</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span> 
 
     <span class="n">all_good</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Checking control samples exist...&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">xconfig</span><span class="p">[</span><span class="s2">&quot;control_samples&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Checking control samples exist..."</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">xconfig</span><span class="p">[</span><span class="s2">"control_samples"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
         <span class="n">all_good</span> <span class="o">&amp;=</span> <span class="n">ensure_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
   
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Checking treated samples exist...&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">xconfig</span><span class="p">[</span><span class="s2">&quot;treated_samples&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Checking treated samples exist..."</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">xconfig</span><span class="p">[</span><span class="s2">"treated_samples"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
         <span class="n">all_good</span> <span class="o">&amp;=</span> <span class="n">ensure_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">all_good</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing new config</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;config.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Writing new config</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">'config.yaml'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
             <span class="n">documents</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">xconfig</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">show_errors</span><span class="p">:</span>
-            <span class="o">!</span>cat <span class="s2">&quot;config.yaml&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">&quot;Inputs found successfully&quot;</span><span class="p">))</span>
+            <span class="o">!</span>cat <span class="s2">"config.yaml"</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s2">"Inputs found successfully"</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;One or more inputs were invalid.&quot;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"One or more inputs were invalid."</span><span class="p">))</span>
 
-    <span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Control replicates&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">control_samples</span><span class="p">),</span> <span class="s2">&quot;calculator&quot;</span><span class="p">)</span>
-    <span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Treated replicates&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">control_samples</span><span class="p">),</span> <span class="s2">&quot;calculator&quot;</span><span class="p">)</span>
+    <span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Control replicates"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">control_samples</span><span class="p">),</span> <span class="s2">"calculator"</span><span class="p">)</span>
+    <span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Treated replicates"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">control_samples</span><span class="p">),</span> <span class="s2">"calculator"</span><span class="p">)</span>
 
 
 
 <span class="n">input_form</span> <span class="o">=</span> <span class="n">notebook</span><span class="o">.</span><span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;experiment_name&#39;</span><span class="p">,</span> <span class="s1">&#39;Experiment name&#39;</span><span class="p">,</span> <span class="s1">&#39;sample_data&#39;</span><span class="p">,</span> <span class="p">),</span>
-    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;transcriptome&#39;</span><span class="p">,</span> <span class="s1">&#39;Transcriptome .fasta.gz&#39;</span><span class="p">,</span> <span class="s2">&quot;/epi2melabs/differential-expression/sample_data/Homo_sapiens.GRCh38.cdna.all.fa.gz&quot;</span><span class="p">),</span>
-    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;annotation&#39;</span><span class="p">,</span> <span class="s1">&#39;Annotation .gtf.gz&#39;</span><span class="p">,</span> <span class="s2">&quot;/epi2melabs/differential-expression/sample_data/Homo_sapiens.GRCh38.95.gtf.gz&quot;</span><span class="p">),</span>
-    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;control_name&#39;</span><span class="p">,</span> <span class="s1">&#39;Control experiment prefix&#39;</span><span class="p">,</span> <span class="s1">&#39;condition1&#39;</span><span class="p">),</span>
-    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;treated_name&#39;</span><span class="p">,</span> <span class="s1">&#39;Treatment experiment prefix&#39;</span><span class="p">,</span> <span class="s1">&#39;condition2&#39;</span><span class="p">),</span>
-    <span class="n">description_width</span><span class="o">=</span><span class="s1">&#39;200px&#39;</span>
+    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">'experiment_name'</span><span class="p">,</span> <span class="s1">'Experiment name'</span><span class="p">,</span> <span class="s1">'sample_data'</span><span class="p">,</span> <span class="p">),</span>
+    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">'transcriptome'</span><span class="p">,</span> <span class="s1">'Transcriptome .fasta.gz'</span><span class="p">,</span> <span class="s2">"/epi2melabs/differential-expression/sample_data/Homo_sapiens.GRCh38.cdna.all.fa.gz"</span><span class="p">),</span>
+    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">'annotation'</span><span class="p">,</span> <span class="s1">'Annotation .gtf.gz'</span><span class="p">,</span> <span class="s2">"/epi2melabs/differential-expression/sample_data/Homo_sapiens.GRCh38.95.gtf.gz"</span><span class="p">),</span>
+    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">'control_name'</span><span class="p">,</span> <span class="s1">'Control experiment prefix'</span><span class="p">,</span> <span class="s1">'condition1'</span><span class="p">),</span>
+    <span class="n">notebook</span><span class="o">.</span><span class="n">InputSpec</span><span class="p">(</span><span class="s1">'treated_name'</span><span class="p">,</span> <span class="s1">'Treatment experiment prefix'</span><span class="p">,</span> <span class="s1">'condition2'</span><span class="p">),</span>
+    <span class="n">description_width</span><span class="o">=</span><span class="s1">'200px'</span>
 <span class="p">)</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_inputs</span><span class="p">)</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
@@ -15072,7 +15072,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>snakemake --snakefile pipeline-transcriptome-de/Snakefile all <span class="err">\</span>
     <span class="o">--</span><span class="n">configfile</span> <span class="n">config</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span> \
-    <span class="o">--</span><span class="n">until</span> <span class="s2">&quot;build_minimap_index&quot;</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+    <span class="o">--</span><span class="n">until</span> <span class="s2">"build_minimap_index"</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
 </pre></div>
 
      </div>
@@ -15102,7 +15102,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>snakemake --snakefile pipeline-transcriptome-de/Snakefile all <span class="err">\</span>
     <span class="o">--</span><span class="n">configfile</span> <span class="n">config</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span> \
-    <span class="o">--</span><span class="n">until</span> <span class="s2">&quot;map_reads&quot;</span>
+    <span class="o">--</span><span class="n">until</span> <span class="s2">"map_reads"</span>
 </pre></div>
 
      </div>
@@ -15131,15 +15131,15 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate alignment statistics (click play)</span>
-<span class="n">align_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">results_dir</span><span class="p">,</span> <span class="s2">&quot;sorted_alignments&quot;</span><span class="p">)</span>
-<span class="n">bams</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">align_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.bam&quot;</span><span class="p">)))</span>
+<span class="n">align_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="n">results_dir</span><span class="p">,</span> <span class="s2">"sorted_alignments"</span><span class="p">)</span>
+<span class="n">bams</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">align_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".bam"</span><span class="p">)))</span>
 
 <span class="k">for</span> <span class="n">bam</span> <span class="ow">in</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">align_dir</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">bams</span><span class="p">):</span>
-    <span class="n">seqkit_stats</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.seqkit.tsv&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bam</span><span class="p">)</span>
-    <span class="o">!</span>seqkit bam <span class="nv">$bam</span> <span class="m">2</span>&gt; <span class="s2">&quot;</span><span class="nv">$seqkit_stats</span><span class="s2">&quot;</span> <span class="o">||</span> cecho error <span class="s2">&quot;seqkit stats failed&quot;</span>
-    <span class="o">!</span>cecho success <span class="s2">&quot;✔ Generated tsv for </span><span class="nv">$bam</span><span class="s2">&quot;</span>
+    <span class="n">seqkit_stats</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">.seqkit.tsv"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bam</span><span class="p">)</span>
+    <span class="o">!</span>seqkit bam <span class="nv">$bam</span> <span class="m">2</span>&gt; <span class="s2">"</span><span class="nv">$seqkit_stats</span><span class="s2">"</span> <span class="o">||</span> cecho error <span class="s2">"seqkit stats failed"</span>
+    <span class="o">!</span>cecho success <span class="s2">"✔ Generated tsv for </span><span class="nv">$bam</span><span class="s2">"</span>
 
-<span class="o">!</span>cecho success <span class="s2">&quot;Step complete&quot;</span>
+<span class="o">!</span>cecho success <span class="s2">"Step complete"</span>
 </pre></div>
 
      </div>
@@ -15171,48 +15171,48 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 <span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{:.2f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span>
 
 <span class="k">def</span> <span class="nf">parse_seqkit</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="n">cols</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;Read&#39;</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;Ref&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;MapQual&#39;</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;Acc&#39;</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;ReadLen&#39;</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span>
-        <span class="s1">&#39;ReadAln&#39;</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;ReadCov&#39;</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;MeanQual&#39;</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span>
-        <span class="s1">&#39;IsSec&#39;</span><span class="p">:</span><span class="nb">bool</span><span class="p">,</span> <span class="s1">&#39;IsSup&#39;</span><span class="p">:</span><span class="nb">bool</span><span class="p">}</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">cols</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">cols</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Clipped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ReadLen&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ReadAln&#39;</span><span class="p">]</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Primary&#39;</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;IsSec&#39;</span><span class="p">],</span> <span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Secondary&#39;</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;IsSup&#39;</span><span class="p">],</span> <span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Supplementary&#39;</span>
-    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;fname&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;.bam.seqkit.tsv&quot;</span><span class="p">)</span>
+        <span class="s1">'Read'</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="s1">'Ref'</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s1">'MapQual'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="s1">'Acc'</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="s1">'ReadLen'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span>
+        <span class="s1">'ReadAln'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="s1">'ReadCov'</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="s1">'MeanQual'</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span>
+        <span class="s1">'IsSec'</span><span class="p">:</span><span class="nb">bool</span><span class="p">,</span> <span class="s1">'IsSup'</span><span class="p">:</span><span class="nb">bool</span><span class="p">}</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">cols</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">cols</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'Clipped'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'ReadLen'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">'ReadAln'</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'Type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Primary'</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'IsSec'</span><span class="p">],</span> <span class="s1">'Type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Secondary'</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'IsSup'</span><span class="p">],</span> <span class="s1">'Type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Supplementary'</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">"fname"</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">".bam.seqkit.tsv"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">df</span>
 
 <span class="k">def</span> <span class="nf">create_summary_table</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">number_of_alignments</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">field_name</span><span class="p">):</span>
-        <span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;fname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
-            <span class="n">field_name</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Read&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">),</span>
+        <span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'fname'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+            <span class="n">field_name</span><span class="p">:</span> <span class="p">(</span><span class="s1">'Read'</span><span class="p">,</span> <span class="s1">'size'</span><span class="p">),</span>
         <span class="p">})</span>
         <span class="k">return</span> <span class="n">grouped</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 
-    <span class="nb">all</span> <span class="o">=</span> <span class="n">number_of_alignments</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Read mappings&quot;</span><span class="p">)</span>
+    <span class="nb">all</span> <span class="o">=</span> <span class="n">number_of_alignments</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">"Read mappings"</span><span class="p">)</span>
     <span class="n">total_alignment_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">all</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-    <span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Total alignments&quot;</span><span class="p">,</span> <span class="n">total_alignment_count</span><span class="p">,</span> <span class="s2">&quot;calculator&quot;</span><span class="p">)</span>
-    <span class="n">primary</span> <span class="o">=</span> <span class="n">number_of_alignments</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Primary&#39;</span><span class="p">],</span> <span class="s2">&quot;Primary&quot;</span><span class="p">)</span>
-    <span class="n">secondary</span> <span class="o">=</span> <span class="n">number_of_alignments</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Secondary&#39;</span><span class="p">],</span> <span class="s2">&quot;Secondary&quot;</span><span class="p">)</span>
-    <span class="n">supplementary</span> <span class="o">=</span> <span class="n">number_of_alignments</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Supplementary&#39;</span><span class="p">],</span> <span class="s2">&quot;Supplementary&quot;</span><span class="p">)</span>
-    <span class="n">avg_acc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Primary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;fname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;Median Qscore&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;MeanQual&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">),})</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-    <span class="n">avg_mapq</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Primary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;fname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;Median MAPQ&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;MapQual&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">),})</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Total alignments"</span><span class="p">,</span> <span class="n">total_alignment_count</span><span class="p">,</span> <span class="s2">"calculator"</span><span class="p">)</span>
+    <span class="n">primary</span> <span class="o">=</span> <span class="n">number_of_alignments</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Primary'</span><span class="p">],</span> <span class="s2">"Primary"</span><span class="p">)</span>
+    <span class="n">secondary</span> <span class="o">=</span> <span class="n">number_of_alignments</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Secondary'</span><span class="p">],</span> <span class="s2">"Secondary"</span><span class="p">)</span>
+    <span class="n">supplementary</span> <span class="o">=</span> <span class="n">number_of_alignments</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Supplementary'</span><span class="p">],</span> <span class="s2">"Supplementary"</span><span class="p">)</span>
+    <span class="n">avg_acc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Primary'</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'fname'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">"Median Qscore"</span><span class="p">:</span> <span class="p">(</span><span class="s1">'MeanQual'</span><span class="p">,</span> <span class="s1">'median'</span><span class="p">),})</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="n">avg_mapq</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Primary'</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'fname'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">"Median MAPQ"</span><span class="p">:</span> <span class="p">(</span><span class="s1">'MapQual'</span><span class="p">,</span> <span class="s1">'median'</span><span class="p">),})</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
         <span class="nb">all</span><span class="p">,</span> <span class="n">primary</span><span class="p">,</span> <span class="n">secondary</span><span class="p">,</span> <span class="n">supplementary</span><span class="p">,</span>
         <span class="n">avg_acc</span><span class="p">,</span> <span class="n">avg_mapq</span><span class="p">])</span>
 
 <span class="k">def</span> <span class="nf">pool_csvs</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
-    <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s2">&quot;/*bam.seqkit.tsv&quot;</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s2">"/*bam.seqkit.tsv"</span><span class="p">)</span>
     <span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span><span class="n">parse_seqkit</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
 
 <span class="n">alignment_stats</span> <span class="o">=</span> <span class="n">pool_csvs</span><span class="p">(</span><span class="n">align_dir</span><span class="p">)</span>
 <span class="n">alignment_summary_df</span> <span class="o">=</span> <span class="n">create_summary_table</span><span class="p">(</span><span class="n">alignment_stats</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">alignment_summary_df</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;alignment-stats&#39;</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">alignment_summary_df</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'alignment-stats'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">alignment_summary_df</span><span class="p">)</span>
 </pre></div>
 
@@ -15243,7 +15243,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>snakemake --snakefile pipeline-transcriptome-de/Snakefile all <span class="err">\</span>
     <span class="o">--</span><span class="n">configfile</span> <span class="n">config</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span> \
-    <span class="o">--</span><span class="n">until</span> <span class="s2">&quot;merge_counts&quot;</span>
+    <span class="o">--</span><span class="n">until</span> <span class="s2">"merge_counts"</span>
 </pre></div>
 
      </div>
@@ -15322,7 +15322,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>snakemake --snakefile pipeline-transcriptome-de/Snakefile <span class="err">\</span>
     <span class="o">--</span><span class="n">configfile</span> <span class="n">config</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span> \
-    <span class="o">--</span><span class="n">until</span> <span class="s2">&quot;de_analysis&quot;</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+    <span class="o">--</span><span class="n">until</span> <span class="s2">"de_analysis"</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
 </pre></div>
 
      </div>
@@ -15390,23 +15390,23 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span>
 
-<span class="n">salmon_merged_file</span> <span class="o">=</span> <span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/merged/all_counts.tsv&quot;</span>
-<span class="n">salmon_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">salmon_merged_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">salmon_counts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Reference&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">salmon_merged_file</span> <span class="o">=</span> <span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/merged/all_counts.tsv"</span>
+<span class="n">salmon_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">salmon_merged_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">salmon_counts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"Reference"</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">salmon_size_top</span> <span class="o">=</span> <span class="n">salmon_counts</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">salmon_counts</span> <span class="o">=</span> <span class="n">salmon_counts</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">salmon_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">salmon_size_top</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">salmon_count_caption</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;*Table showing the 10 annotated transcript features</span>
+<span class="n">salmon_count_caption</span> <span class="o">=</span> <span class="s1">'''*Table showing the 10 annotated transcript features</span>
 <span class="s1">identified by Minimap2 mapping and Salmon transcript detection with the highest</span>
-<span class="s1">number of mapped reads*&#39;&#39;&#39;</span>
+<span class="s1">number of mapped reads*'''</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">salmon_count_caption</span><span class="p">))</span>
-<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">salmon_count_caption</span><span class="p">,</span> <span class="s2">&quot;salmon-head-caption&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">salmon_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">salmon_size_top</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="s2">&quot;salmon-head&quot;</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">salmon_count_caption</span><span class="p">,</span> <span class="s2">"salmon-head-caption"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">salmon_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">salmon_size_top</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="s2">"salmon-head"</span><span class="p">)</span>
 
-<span class="n">unique_transcripts</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">salmon_counts</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="s2">&quot;Reference&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Unique transcripts found&quot;</span><span class="p">,</span> <span class="n">unique_transcripts</span><span class="p">,</span> <span class="s2">&quot;calculator&quot;</span><span class="p">)</span>
+<span class="n">unique_transcripts</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">salmon_counts</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="s2">"Reference"</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">exec_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Unique transcripts found"</span><span class="p">,</span> <span class="n">unique_transcripts</span><span class="p">,</span> <span class="s2">"calculator"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15569,6 +15569,7 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
 
 
 
+
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output " data-mime-type="text/markdown">
 <p><em>Table showing the 10 annotated transcript features
 identified by Minimap2 mapping and Salmon transcript detection with the highest
@@ -15605,20 +15606,20 @@ number of mapped reads</em></p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reviewing the number of transcripts per gene (click play)</span>
-<span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/merged/all_counts_filtered.tsv&quot;</span>
+<span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/merged/all_counts_filtered.tsv"</span>
 <span class="c1"># note that filtered_counts only includes genes with &gt; 1 transcript</span>
 <span class="n">transcripts_per_gene</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filtered_count_file</span><span class="p">,</span> \
-                                   <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> \
-                                   <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gene_id&#39;</span><span class="p">,</span> <span class="s1">&#39;feature_id&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;gene_id&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;count&#39;</span><span class="p">])</span>
+                                   <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span> \
+                                   <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">'gene_id'</span><span class="p">,</span> <span class="s1">'feature_id'</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'gene_id'</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">'count'</span><span class="p">])</span>
 <span class="n">transcripts_per_gene</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">transcripts_per_gene</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">droplevel</span><span class="p">()</span>
 <span class="c1"># now load the complete genes counts</span>
-<span class="n">gene_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/merged/all_gene_counts.tsv&quot;</span>
+<span class="n">gene_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/merged/all_gene_counts.tsv"</span>
 <span class="n">gene_ids</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">gene_count_file</span><span class="p">,</span> \
-                                   <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> \
+                                   <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span> \
                                    <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="c1"># identify the singletons</span>
 <span class="n">singletons</span> <span class="o">=</span> <span class="p">[</span> <span class="n">gene_id</span> <span class="k">for</span> <span class="n">gene_id</span> <span class="ow">in</span> <span class="n">gene_ids</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">gene_id</span> <span class="ow">in</span> <span class="n">transcripts_per_gene</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span> 
-<span class="n">singletons</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">singletons</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">singletons</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">singletons</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'count'</span><span class="p">])</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># and add the singletons to transcripts_per_gene</span>
 <span class="n">transcripts_per_gene</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">singletons</span><span class="p">,</span> <span class="n">transcripts_per_gene</span><span class="p">])</span>
 
@@ -15626,21 +15627,21 @@ number of mapped reads</em></p>
 <span class="n">gene_transcript_counts</span> <span class="o">=</span> <span class="n">transcripts_per_gene</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">)</span>
 <span class="n">groups</span> <span class="o">=</span> <span class="n">gene_transcript_counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 <span class="c1"># print(groups)</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">gene_transcript_counts</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">gene_transcript_counts</span><span class="p">[</span><span class="s1">'count'</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 <span class="c1"># print(counts)</span>
 <span class="c1">### PLEASE DELETE ME BEFORE RELEASE ###</span>
 
 <span class="kn">import</span> <span class="nn">aplanat</span>
 <span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">hist</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">([</span><span class="n">transcripts_per_gene</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()],</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;Number of transcripts per gene (n)&quot;</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;Number of occurences&quot;</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">transcripts_per_gene_caption</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;*Histogram showing the abundance of </span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">([</span><span class="n">transcripts_per_gene</span><span class="p">[</span><span class="s1">'count'</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()],</span> <span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">"Number of transcripts per gene (n)"</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">"Number of occurences"</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">transcripts_per_gene_caption</span> <span class="o">=</span> <span class="s2">"""*Histogram showing the abundance of </span>
 <span class="s2">transcript counts for genes identified in the analysis.*</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">transcripts_per_gene_caption</span><span class="p">,</span> <span class="s2">&quot;transcripts-per-gene-caption&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s2">&quot;transcripts-per-gene&quot;</span><span class="p">)</span>
+<span class="s2">"""</span>
+<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">transcripts_per_gene_caption</span><span class="p">,</span> <span class="s2">"transcripts-per-gene-caption"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s2">"transcripts-per-gene"</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">transcripts_per_gene_caption</span><span class="p">))</span>
 </pre></div>
 
@@ -15664,9 +15665,9 @@ number of mapped reads</em></p>
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 
 (function(root) {
   function now() {
@@ -15994,9 +15995,9 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 (function(root) {
   function embed_document(root) {
     
@@ -16032,6 +16033,7 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
 
 
 
@@ -16071,25 +16073,25 @@ transcript counts for genes identified in the analysis.</em></p>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">reset_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">reset_option</span><span class="p">(</span><span class="s1">'display.float_format'</span><span class="p">)</span>
 
-<span class="n">dge_file</span> <span class="o">=</span> <span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/de_analysis/results_dge.tsv&quot;</span>
-<span class="n">dge_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dge_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">dge_file</span> <span class="o">=</span> <span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/de_analysis/results_dge.tsv"</span>
+<span class="n">dge_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dge_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="n">dge_pvals</span> <span class="o">=</span> <span class="n">dge_results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;FDR&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dge_pvals</span> <span class="o">=</span> <span class="n">dge_results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'FDR'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">dge_results</span><span class="p">[[</span><span class="s1">&#39;logFC&#39;</span><span class="p">,</span> <span class="s1">&#39;logCPM&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dge_results</span><span class="p">[[</span><span class="s1">&#39;logFC&#39;</span><span class="p">,</span> <span class="s1">&#39;logCPM&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dge_results</span><span class="p">[[</span><span class="s1">'logFC'</span><span class="p">,</span> <span class="s1">'logCPM'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dge_results</span><span class="p">[[</span><span class="s1">'logFC'</span><span class="p">,</span> <span class="s1">'logCPM'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">]]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">dge_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dge_pvals</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">))</span>
 
 <span class="c1"># include a legend</span>
-<span class="n">dge_caption</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;*Table showing the top 15 genes, ranked by adjusted p-value, </span>
+<span class="n">dge_caption</span> <span class="o">=</span> <span class="s1">'''*Table showing the top 15 genes, ranked by adjusted p-value, </span>
 <span class="s1">from the edgeR analysis. Information shown includes the log2 fold change between</span>
 <span class="s1">experimental conditions, the log-scaled counts per million measure of abundance</span>
 <span class="s1">and the false discovery corrected p-value (FDR). This table has not been</span>
-<span class="s1">filtered for genes that satisfy statistical or magnitudinal thresholds*&#39;&#39;&#39;</span>
+<span class="s1">filtered for genes that satisfy statistical or magnitudinal thresholds*'''</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">dge_caption</span><span class="p">))</span>
-<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">dge_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dge_pvals</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span> <span class="s2">&quot;dge-table&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">dge_caption</span><span class="p">,</span> <span class="s2">&quot;dge-caption&quot;</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">dge_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dge_pvals</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span> <span class="s2">"dge-table"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">dge_caption</span><span class="p">,</span> <span class="s2">"dge-caption"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16272,6 +16274,7 @@ transcript counts for genes identified in the analysis.</em></p>
 
 
 
+
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output " data-mime-type="text/markdown">
 <p><em>Table showing the top 15 genes, ranked by adjusted p-value, 
 from the edgeR analysis. Information shown includes the log2 fold change between
@@ -16314,35 +16317,35 @@ filtered for genes that satisfy statistical or magnitudinal thresholds</em></p>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">points</span>
 
-<span class="n">dge</span> <span class="o">=</span> <span class="s2">&quot;/epi2melabs/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/&quot;</span> \
-    <span class="s2">&quot;de_analysis/results_dge.tsv&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="n">dge</span> <span class="o">=</span> <span class="s2">"/epi2melabs/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/"</span> \
+    <span class="s2">"de_analysis/results_dge.tsv"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
         <span class="n">tutorial_name</span><span class="p">,</span> <span class="n">experiment_name</span><span class="p">,</span> <span class="n">results_dir</span><span class="p">)</span>
-<span class="n">dge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dge</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">dge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dge</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)</span>
 <span class="n">pval_limit</span> <span class="o">=</span> <span class="mf">0.01</span>
-<span class="n">up</span> <span class="o">=</span> <span class="n">dge</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dge</span><span class="p">[</span><span class="s2">&quot;logFC&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dge</span><span class="p">[</span><span class="s1">&#39;PValue&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pval_limit</span><span class="p">)]</span>
-<span class="n">down</span> <span class="o">=</span> <span class="n">dge</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dge</span><span class="p">[</span><span class="s2">&quot;logFC&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dge</span><span class="p">[</span><span class="s1">&#39;PValue&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pval_limit</span><span class="p">)]</span>
-<span class="n">not_sig</span> <span class="o">=</span> <span class="n">dge</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dge</span><span class="p">[</span><span class="s2">&quot;PValue&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">pval_limit</span><span class="p">)]</span>
+<span class="n">up</span> <span class="o">=</span> <span class="n">dge</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dge</span><span class="p">[</span><span class="s2">"logFC"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dge</span><span class="p">[</span><span class="s1">'PValue'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pval_limit</span><span class="p">)]</span>
+<span class="n">down</span> <span class="o">=</span> <span class="n">dge</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dge</span><span class="p">[</span><span class="s2">"logFC"</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dge</span><span class="p">[</span><span class="s1">'PValue'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pval_limit</span><span class="p">)]</span>
+<span class="n">not_sig</span> <span class="o">=</span> <span class="n">dge</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dge</span><span class="p">[</span><span class="s2">"PValue"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">pval_limit</span><span class="p">)]</span>
 <span class="n">logcpm_vs_logfc</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">points</span><span class="p">(</span>
     <span class="n">x_datas</span><span class="o">=</span><span class="p">[</span>
-             <span class="n">up</span><span class="p">[</span><span class="s2">&quot;logCPM&quot;</span><span class="p">],</span> 
-             <span class="n">down</span><span class="p">[</span><span class="s2">&quot;logCPM&quot;</span><span class="p">],</span> 
-             <span class="n">not_sig</span><span class="p">[</span><span class="s2">&quot;logCPM&quot;</span><span class="p">],</span>
+             <span class="n">up</span><span class="p">[</span><span class="s2">"logCPM"</span><span class="p">],</span> 
+             <span class="n">down</span><span class="p">[</span><span class="s2">"logCPM"</span><span class="p">],</span> 
+             <span class="n">not_sig</span><span class="p">[</span><span class="s2">"logCPM"</span><span class="p">],</span>
              <span class="p">],</span> 
     <span class="n">y_datas</span><span class="o">=</span><span class="p">[</span>
-             <span class="n">up</span><span class="p">[</span><span class="s2">&quot;logFC&quot;</span><span class="p">],</span> 
-             <span class="n">down</span><span class="p">[</span><span class="s2">&quot;logFC&quot;</span><span class="p">],</span>
-             <span class="n">not_sig</span><span class="p">[</span><span class="s2">&quot;logFC&quot;</span><span class="p">],</span>
+             <span class="n">up</span><span class="p">[</span><span class="s2">"logFC"</span><span class="p">],</span> 
+             <span class="n">down</span><span class="p">[</span><span class="s2">"logFC"</span><span class="p">],</span>
+             <span class="n">not_sig</span><span class="p">[</span><span class="s2">"logFC"</span><span class="p">],</span>
              <span class="p">],</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Average copy per million (CPM) vs Log-fold change (LFC)&quot;</span><span class="p">,</span>
-    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">],</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Up&quot;</span><span class="p">,</span> <span class="s2">&quot;Down&quot;</span><span class="p">,</span> <span class="s2">&quot;NotSig&quot;</span><span class="p">]</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"Average copy per million (CPM) vs Log-fold change (LFC)"</span><span class="p">,</span>
+    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"red"</span><span class="p">,</span> <span class="s2">"black"</span><span class="p">],</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">"Up"</span><span class="p">,</span> <span class="s2">"Down"</span><span class="p">,</span> <span class="s2">"NotSig"</span><span class="p">]</span>
     <span class="p">)</span>
 
-<span class="n">logcpm_vs_logfc</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;Average log CPM&quot;</span>
-<span class="n">logcpm_vs_logfc</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;Log-fold change&quot;</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">logcpm_vs_logfc</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">logcpm_caption</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;*Results of the edgeR Analysis.*&quot;&quot;&quot;</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logcpm_vs_logfc</span><span class="p">,</span> <span class="s2">&quot;logcpm-vs-log-fc&quot;</span><span class="p">)</span>
+<span class="n">logcpm_vs_logfc</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">"Average log CPM"</span>
+<span class="n">logcpm_vs_logfc</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">"Log-fold change"</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">logcpm_vs_logfc</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">logcpm_caption</span> <span class="o">=</span> <span class="s2">"""*Results of the edgeR Analysis.*"""</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logcpm_vs_logfc</span><span class="p">,</span> <span class="s2">"logcpm-vs-log-fc"</span><span class="p">)</span>
 <span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">logcpm_caption</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">logcpm_caption</span><span class="p">))</span>
 </pre></div>
@@ -16367,9 +16370,9 @@ filtered for genes that satisfy statistical or magnitudinal thresholds</em></p>
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 
 (function(root) {
   function now() {
@@ -16697,9 +16700,9 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 (function(root) {
   function embed_document(root) {
     
@@ -16735,6 +16738,7 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
 
 
 
@@ -16774,19 +16778,19 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">dexseq_file</span> <span class="o">=</span> <span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/de_analysis/results_dexseq.tsv&quot;</span>
-<span class="n">dexseq_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dexseq_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">dexseq_pvals</span> <span class="o">=</span> <span class="n">dexseq_results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;pvalue&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dexseq_file</span> <span class="o">=</span> <span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/de_analysis/results_dexseq.tsv"</span>
+<span class="n">dexseq_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dexseq_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">dexseq_pvals</span> <span class="o">=</span> <span class="n">dexseq_results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'pvalue'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">dexseq_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dexseq_pvals</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">))</span>
-<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">dexseq_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dexseq_pvals</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span> <span class="s2">&quot;dexseq-head&quot;</span><span class="p">)</span>
-<span class="n">dexseq_caption</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;*Table showing the top 15 gene isoforms, ranked by adjusted </span>
+<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">dexseq_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dexseq_pvals</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span> <span class="s2">"dexseq-head"</span><span class="p">)</span>
+<span class="n">dexseq_caption</span> <span class="o">=</span> <span class="s1">'''*Table showing the top 15 gene isoforms, ranked by adjusted </span>
 <span class="s1">p-value, from the DEXSeq analysis. Information shown includes the log2 fold </span>
 <span class="s1">change between experimental conditions, the log-scaled transcript abundance and </span>
 <span class="s1">the false discovery corrected p-value (FDR). This table has not been filtered </span>
-<span class="s1">for genes that satisfy statistical or magnitudinal thresholds*&#39;&#39;&#39;</span>
+<span class="s1">for genes that satisfy statistical or magnitudinal thresholds*'''</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">dexseq_caption</span><span class="p">))</span>
-<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">dexseq_caption</span><span class="p">,</span> <span class="s2">&quot;dexseq-head-caption&quot;</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">dexseq_caption</span><span class="p">,</span> <span class="s2">"dexseq-head-caption"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16953,6 +16957,7 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
 
 
+
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output " data-mime-type="text/markdown">
 <p><em>Table showing the top 15 gene isoforms, ranked by adjusted 
 p-value, from the DEXSeq analysis. Information shown includes the log2 fold 
@@ -16994,32 +16999,32 @@ for genes that satisfy statistical or magnitudinal thresholds</em></p>
 <span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">points</span>
 
 <span class="n">pval_limit</span> <span class="o">=</span> <span class="mf">0.01</span>
-<span class="n">up</span> <span class="o">=</span> <span class="n">dexseq_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s2">&quot;Log2FC&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s1">&#39;pvalue&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pval_limit</span><span class="p">)]</span>
-<span class="n">down</span> <span class="o">=</span> <span class="n">dexseq_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s2">&quot;Log2FC&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s1">&#39;pvalue&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pval_limit</span><span class="p">)]</span>
-<span class="n">not_sig</span> <span class="o">=</span> <span class="n">dexseq_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s2">&quot;pvalue&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">pval_limit</span><span class="p">)]</span>
+<span class="n">up</span> <span class="o">=</span> <span class="n">dexseq_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s2">"Log2FC"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s1">'pvalue'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pval_limit</span><span class="p">)]</span>
+<span class="n">down</span> <span class="o">=</span> <span class="n">dexseq_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s2">"Log2FC"</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s1">'pvalue'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pval_limit</span><span class="p">)]</span>
+<span class="n">not_sig</span> <span class="o">=</span> <span class="n">dexseq_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dexseq_results</span><span class="p">[</span><span class="s2">"pvalue"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">pval_limit</span><span class="p">)]</span>
 
 <span class="n">plot</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">points</span><span class="p">(</span>
     <span class="n">x_datas</span><span class="o">=</span><span class="p">[</span>
-             <span class="n">up</span><span class="p">[</span><span class="s2">&quot;Log2MeanExon&quot;</span><span class="p">],</span> 
-             <span class="n">down</span><span class="p">[</span><span class="s2">&quot;Log2MeanExon&quot;</span><span class="p">],</span> 
-             <span class="n">not_sig</span><span class="p">[</span><span class="s2">&quot;Log2MeanExon&quot;</span><span class="p">],</span>
+             <span class="n">up</span><span class="p">[</span><span class="s2">"Log2MeanExon"</span><span class="p">],</span> 
+             <span class="n">down</span><span class="p">[</span><span class="s2">"Log2MeanExon"</span><span class="p">],</span> 
+             <span class="n">not_sig</span><span class="p">[</span><span class="s2">"Log2MeanExon"</span><span class="p">],</span>
              <span class="p">],</span> 
     <span class="n">y_datas</span><span class="o">=</span><span class="p">[</span>
-             <span class="n">up</span><span class="p">[</span><span class="s2">&quot;Log2FC&quot;</span><span class="p">],</span> 
-             <span class="n">down</span><span class="p">[</span><span class="s2">&quot;Log2FC&quot;</span><span class="p">],</span>
-             <span class="n">not_sig</span><span class="p">[</span><span class="s2">&quot;Log2FC&quot;</span><span class="p">],</span>
+             <span class="n">up</span><span class="p">[</span><span class="s2">"Log2FC"</span><span class="p">],</span> 
+             <span class="n">down</span><span class="p">[</span><span class="s2">"Log2FC"</span><span class="p">],</span>
+             <span class="n">not_sig</span><span class="p">[</span><span class="s2">"Log2FC"</span><span class="p">],</span>
              <span class="p">],</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Average copy per million (CPM) vs Log-fold change (LFC)&quot;</span><span class="p">,</span>
-    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">],</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"Average copy per million (CPM) vs Log-fold change (LFC)"</span><span class="p">,</span>
+    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"black"</span><span class="p">],</span>
     <span class="n">xlim</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Up&quot;</span><span class="p">,</span> <span class="s2">&quot;Down&quot;</span><span class="p">,</span> <span class="s2">&quot;NotSig&quot;</span><span class="p">]</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">"Up"</span><span class="p">,</span> <span class="s2">"Down"</span><span class="p">,</span> <span class="s2">"NotSig"</span><span class="p">]</span>
     <span class="p">)</span>
 
-<span class="c1"># plot = points.points(x_datas=[dexseq_results[&quot;Log2MeanExon&quot;]], y_datas=[dexseq_results[&quot;Log2FC&quot;]], xlim=[0, 5])</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;A (log2 transformed mean exon read counts)&quot;</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;M (log2 transformed differential abundance)&quot;</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">dexseq_results_caption</span> <span class="o">=</span> <span class="s2">&quot;dexseq results&quot;</span>
+<span class="c1"># plot = points.points(x_datas=[dexseq_results["Log2MeanExon"]], y_datas=[dexseq_results["Log2FC"]], xlim=[0, 5])</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">"A (log2 transformed mean exon read counts)"</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">"M (log2 transformed differential abundance)"</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">dexseq_results_caption</span> <span class="o">=</span> <span class="s2">"dexseq results"</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">dexseq_results_caption</span><span class="p">))</span>
 <span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">dexseq_results_caption</span><span class="p">)</span>
 <span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
@@ -17045,9 +17050,9 @@ for genes that satisfy statistical or magnitudinal thresholds</em></p>
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 
 (function(root) {
   function now() {
@@ -17375,9 +17380,9 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 (function(root) {
   function embed_document(root) {
     
@@ -17413,6 +17418,7 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
 
 
 
@@ -17452,22 +17458,22 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">dtu_file</span> <span class="o">=</span> <span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/de_analysis/results_dtu_stageR.tsv&quot;</span>
-<span class="n">dtu_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dtu_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">dtu_pvals</span> <span class="o">=</span> <span class="n">dtu_results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;gene&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># dtu_pvals.astype({&quot;gene&quot;: &quot;int&quot;})</span>
+<span class="n">dtu_file</span> <span class="o">=</span> <span class="n">filtered_count_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">experiment_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">results_dir</span><span class="si">}</span><span class="s2">/de_analysis/results_dtu_stageR.tsv"</span>
+<span class="n">dtu_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dtu_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">dtu_pvals</span> <span class="o">=</span> <span class="n">dtu_results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'gene'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># dtu_pvals.astype({"gene": "int"})</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">dtu_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dtu_pvals</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="c1"># include a legend</span>
-<span class="n">dtu_caption</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Table showing gene and transcript identifiers and their FDR </span>
+<span class="n">dtu_caption</span> <span class="o">=</span> <span class="s1">'''Table showing gene and transcript identifiers and their FDR </span>
 <span class="s1">corrected probabilities for the genes and their isoforms that have been </span>
 <span class="s1">identified as showing DTU using the R packages DEXSeq and StageR. This list has </span>
 <span class="s1">been shortened requiring that both gene and transcript must satisfy the p-value </span>
-<span class="s1">threshold&#39;&#39;&#39;</span>
+<span class="s1">threshold'''</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">dtu_caption</span><span class="p">))</span>
-<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">dtu_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dtu_pvals</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="s2">&quot;dtu-head&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">dtu_caption</span><span class="p">,</span> <span class="s2">&quot;dtu-caption&quot;</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">dtu_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dtu_pvals</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="s2">"dtu-head"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">dtu_caption</span><span class="p">,</span> <span class="s2">"dtu-caption"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17599,6 +17605,7 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
 
 
+
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output " data-mime-type="text/markdown">
 <p>Table showing gene and transcript identifiers and their FDR 
 corrected probabilities for the genes and their isoforms that have been 
@@ -17637,67 +17644,67 @@ threshold</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Please select a gene name to see detailed gene specific information (click play)</span>
-<span class="c1"># gene_id = &quot;ENSG00000142937&quot; #@  {&quot;type&quot;: &quot;string&quot;}</span>
-<span class="n">gene_id</span> <span class="o">=</span> <span class="s2">&quot;ENSG00000132849&quot;</span> <span class="c1">#@param {&quot;type&quot;: &quot;string&quot;}</span>
+<span class="c1"># gene_id = "ENSG00000142937" #@  {"type": "string"}</span>
+<span class="n">gene_id</span> <span class="o">=</span> <span class="s2">"ENSG00000132849"</span> <span class="c1">#@param {"type": "string"}</span>
 
-<span class="n">table</span> <span class="o">=</span> <span class="n">dtu_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dtu_results</span><span class="p">[</span><span class="s2">&quot;geneID&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">gene_id</span><span class="p">)]</span>
-<span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Gene ID </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s2"> does not exist in the dataset, please select another&quot;</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">dtu_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dtu_results</span><span class="p">[</span><span class="s2">"geneID"</span><span class="p">]</span> <span class="o">==</span> <span class="n">gene_id</span><span class="p">)]</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s2">"Gene ID </span><span class="se">\"</span><span class="si">{}</span><span class="se">\"</span><span class="s2"> does not exist in the dataset, please select another"</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">table</span><span class="o">.</span><span class="n">empty</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gene_id</span><span class="p">)</span>
 
-<span class="n">alignment_stats</span><span class="p">[</span><span class="n">alignment_stats</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">gene_id</span><span class="p">])]</span>
-<span class="n">alignment_stats</span><span class="p">[</span><span class="s2">&quot;Transcript&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alignment_stats</span><span class="p">[</span><span class="s2">&quot;Ref&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">gene_alignments</span> <span class="o">=</span> <span class="n">alignment_stats</span><span class="p">[</span><span class="n">alignment_stats</span><span class="p">[</span><span class="s2">&quot;Transcript&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;txID&quot;</span><span class="p">])]</span>
-<span class="n">gene_alignments</span> <span class="o">=</span> <span class="n">gene_alignments</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">gene_alignments</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Primary&quot;</span><span class="p">)]</span>
-<span class="n">gene_alignments</span><span class="p">[</span><span class="s2">&quot;condition&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gene_alignments</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">control_name</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;fname&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">control_samples</span> <span class="k">else</span> <span class="n">treated_name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">alignment_stats</span><span class="p">[</span><span class="n">alignment_stats</span><span class="p">[</span><span class="s2">"Ref"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">gene_id</span><span class="p">])]</span>
+<span class="n">alignment_stats</span><span class="p">[</span><span class="s2">"Transcript"</span><span class="p">]</span> <span class="o">=</span> <span class="n">alignment_stats</span><span class="p">[</span><span class="s2">"Ref"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">gene_alignments</span> <span class="o">=</span> <span class="n">alignment_stats</span><span class="p">[</span><span class="n">alignment_stats</span><span class="p">[</span><span class="s2">"Transcript"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s2">"txID"</span><span class="p">])]</span>
+<span class="n">gene_alignments</span> <span class="o">=</span> <span class="n">gene_alignments</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">gene_alignments</span><span class="p">[</span><span class="s2">"Type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Primary"</span><span class="p">)]</span>
+<span class="n">gene_alignments</span><span class="p">[</span><span class="s2">"condition"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gene_alignments</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">control_name</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s2">"fname"</span><span class="p">]</span> <span class="ow">in</span> <span class="n">control_samples</span> <span class="k">else</span> <span class="n">treated_name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">groups</span> <span class="o">=</span> <span class="n">gene_alignments</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
-    <span class="p">[</span><span class="s2">&quot;Transcript&quot;</span><span class="p">,</span> <span class="s2">&quot;fname&quot;</span><span class="p">,</span> <span class="s2">&quot;condition&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;Transcript_count&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Read&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">)})</span>
+    <span class="p">[</span><span class="s2">"Transcript"</span><span class="p">,</span> <span class="s2">"fname"</span><span class="p">,</span> <span class="s2">"condition"</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">"Transcript_count"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"Read"</span><span class="p">,</span> <span class="s2">"size"</span><span class="p">)})</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="k">for</span> <span class="n">gene_id</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">gene_alignments</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Transcript&quot;</span><span class="p">):</span>
-  <span class="n">temp</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;fname&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
-      <span class="n">gene_id</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;Read&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">gene_id</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">gene_alignments</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Transcript"</span><span class="p">):</span>
+  <span class="n">temp</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"fname"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+      <span class="n">gene_id</span><span class="p">:</span> <span class="p">(</span><span class="s2">"Read"</span><span class="p">,</span> <span class="s2">"size"</span><span class="p">)</span>
   <span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
   <span class="k">if</span> <span class="n">df</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">temp</span>
   <span class="k">else</span><span class="p">:</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">temp</span><span class="p">])</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;Transcript_ID&quot;</span><span class="p">})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"index"</span><span class="p">:</span> <span class="s2">"Transcript_ID"</span><span class="p">})</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
-    <span class="s2">&quot;txID&quot;</span><span class="p">:</span> <span class="s2">&quot;Transcript_ID&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;gene&quot;</span><span class="p">:</span> <span class="s2">&quot;p_gene&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;transcript&quot;</span><span class="p">:</span> <span class="s2">&quot;p_transcript&quot;</span>
+    <span class="s2">"txID"</span><span class="p">:</span> <span class="s2">"Transcript_ID"</span><span class="p">,</span>
+    <span class="s2">"gene"</span><span class="p">:</span> <span class="s2">"p_gene"</span><span class="p">,</span>
+    <span class="s2">"transcript"</span><span class="p">:</span> <span class="s2">"p_transcript"</span>
     <span class="p">})</span>
 <span class="n">gene_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
-<span class="n">gene_table</span> <span class="o">=</span> <span class="n">gene_table</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;geneID&quot;</span><span class="p">,</span><span class="s2">&quot;Transcript_ID&quot;</span><span class="p">])</span>
+<span class="n">gene_table</span> <span class="o">=</span> <span class="n">gene_table</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">"geneID"</span><span class="p">,</span><span class="s2">"Transcript_ID"</span><span class="p">])</span>
 <span class="n">file_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">control_samples</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">file_names</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">treated_samples</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">gene_table</span> <span class="o">=</span> <span class="n">gene_table</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">gene_table</span> <span class="o">=</span> <span class="n">gene_table</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="n">f</span><span class="p">:</span> <span class="s2">&quot;int64&quot;</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file_names</span><span class="p">})</span>
+<span class="n">gene_table</span> <span class="o">=</span> <span class="n">gene_table</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="n">f</span><span class="p">:</span> <span class="s2">"int64"</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">file_names</span><span class="p">})</span>
 
 
 <span class="n">display</span><span class="p">(</span><span class="n">gene_table</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">gene_table</span><span class="p">,</span> <span class="s2">&quot;transcript-counts-by-condition&quot;</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">gene_table</span><span class="p">,</span> <span class="s2">"transcript-counts-by-condition"</span><span class="p">)</span>
 
-<span class="n">candidate_gene_caption</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Table showing a selected annotated</span>
+<span class="n">candidate_gene_caption</span> <span class="o">=</span> <span class="s1">'''Table showing a selected annotated</span>
 <span class="s1">gene and its isoform transcripts. The number of reads mapped </span>
 <span class="s1">to each transcript is shown along withthe FDR corrected p-values </span>
-<span class="s1">for DGE and DTU. The read counts are the raw counts. &#39;&#39;&#39;</span>
+<span class="s1">for DGE and DTU. The read counts are the raw counts. '''</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">candidate_gene_caption</span><span class="p">))</span>
 
 
-<span class="n">table</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s2">&quot;condition&quot;</span><span class="p">,</span> <span class="s2">&quot;Transcript&quot;</span><span class="p">,</span> <span class="s2">&quot;Transcript_count&quot;</span><span class="p">]]</span>
-<span class="n">table</span><span class="p">[</span><span class="s1">&#39;transcript, condition&#39;</span><span class="p">]</span> <span class="o">=</span> \
-    <span class="n">table</span><span class="p">[</span><span class="s1">&#39;Transcript&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;condition&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<span class="n">repeats</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Transcript&#39;</span><span class="p">,</span> <span class="s1">&#39;condition&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s2">"condition"</span><span class="p">,</span> <span class="s2">"Transcript"</span><span class="p">,</span> <span class="s2">"Transcript_count"</span><span class="p">]]</span>
+<span class="n">table</span><span class="p">[</span><span class="s1">'transcript, condition'</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="n">table</span><span class="p">[</span><span class="s1">'Transcript'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s1">', '</span> <span class="o">+</span> <span class="n">table</span><span class="p">[</span><span class="s1">'condition'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">repeats</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="s1">'Transcript'</span><span class="p">,</span> <span class="s1">'condition'</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 <span class="n">min_rep</span><span class="p">,</span> <span class="n">max_rep</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">repeats</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">repeats</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">aplanat.bars</span> <span class="kn">import</span> <span class="n">boxplot_series</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">boxplot_series</span><span class="p">(</span>
-    <span class="n">table</span><span class="p">[</span><span class="s1">&#39;transcript, condition&#39;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;Transcript_count&#39;</span><span class="p">],</span>
-    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;Transcript, condition&#39;</span><span class="p">,</span>
-    <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;Transcript count&#39;</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Transcript counts (from </span><span class="si">{}</span><span class="s2">-</span><span class="si">{}</span><span class="s2"> replicates)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_rep</span><span class="p">,</span> <span class="n">max_rep</span><span class="p">))</span>
+    <span class="n">table</span><span class="p">[</span><span class="s1">'transcript, condition'</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">'Transcript_count'</span><span class="p">],</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">'Transcript, condition'</span><span class="p">,</span>
+    <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">'Transcript count'</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Transcript counts (from </span><span class="si">{}</span><span class="s2">-</span><span class="si">{}</span><span class="s2"> replicates)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_rep</span><span class="p">,</span> <span class="n">max_rep</span><span class="p">))</span>
 <span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">major_label_orientation</span> <span class="o">=</span> <span class="mf">3.1452</span><span class="o">/</span><span class="mi">2</span>
 <span class="k">if</span> <span class="n">min_rep</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">renderer</span> <span class="ow">in</span> <span class="n">plot</span><span class="o">.</span><span class="n">renderers</span><span class="p">:</span>
@@ -17707,10 +17714,10 @@ threshold</p>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
     <span class="n">plot</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span>
-        <span class="n">table</span><span class="p">[</span><span class="s1">&#39;transcript, condition&#39;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;Transcript_count&#39;</span><span class="p">],</span>
-        <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s2">&quot;Transcript-count-boxplot&quot;</span><span class="p">)</span>
+        <span class="n">table</span><span class="p">[</span><span class="s1">'transcript, condition'</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">'Transcript_count'</span><span class="p">],</span>
+        <span class="n">fill_color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="s2">"Transcript-count-boxplot"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17845,6 +17852,7 @@ threshold</p>
 
 
 
+
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output " data-mime-type="text/markdown">
 <p>Table showing a selected annotated
 gene and its isoform transcripts. The number of reads mapped 
@@ -17863,9 +17871,9 @@ for DGE and DTU. The read counts are the raw counts.</p>
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 
 (function(root) {
   function now() {
@@ -18193,9 +18201,9 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 (function(root) {
   function embed_document(root) {
     
@@ -18252,16 +18260,16 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a summary (click play)</span>
-<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;stop&#39;</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'stop'</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">aplanat.graphics</span>
 
 <span class="n">exec_plot</span> <span class="o">=</span> <span class="n">aplanat</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">infographic</span><span class="p">(</span><span class="n">exec_summary</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">exec_plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
-<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exec_plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;exec-plot&#39;</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">exec_plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">report</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exec_plot</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">'exec-plot'</span><span class="p">)</span>
 
-<span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="s1">&#39;report.html&#39;</span><span class="p">)</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_dir</span><span class="p">,</span> <span class="s1">'report.html'</span><span class="p">)</span>
 <span class="n">report</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Report written to: </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Report written to: </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -18284,9 +18292,9 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 
 (function(root) {
   function now() {
@@ -18614,9 +18622,9 @@ var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
 
 
 
-<div id="73e197b0-d7a9-4e4d-8b7d-2acacb341392" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="d403ea57-7f9f-4c20-a8d8-d5ffc3513616" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('73e197b0-d7a9-4e4d-8b7d-2acacb341392');
+var element = document.getElementById('d403ea57-7f9f-4c20-a8d8-d5ffc3513616');
 (function(root) {
   function embed_document(root) {
     

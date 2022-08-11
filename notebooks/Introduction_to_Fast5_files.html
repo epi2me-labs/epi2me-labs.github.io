@@ -14636,14 +14636,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
-<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;fast5_tutorial&quot;</span>
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">"fast5_tutorial"</span>
 <span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
-<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'start'</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
 
 <span class="c1"># create a work directory and move into it</span>
-<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
-<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
-<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">'/epi2melabs/</span><span class="si">{}</span><span class="s1">/'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$working_dir</span><span class="s2">"</span>
+<span class="o">%</span><span class="k">cd</span> "$working_dir"
 </pre></div>
 
      </div>
@@ -14701,7 +14701,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="o">!</span>. /opt/conda/etc/profile.d/conda.sh <span class="err">\</span>
     <span class="o">&amp;&amp;</span> <span class="n">conda</span> <span class="n">activate</span> <span class="n">ont_fast5_api</span> \
     <span class="o">&amp;&amp;</span> <span class="n">which</span> <span class="n">pip</span> \
-    <span class="o">&amp;&amp;</span> <span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;ont_fast5_api&gt;=3.1.6&quot;</span> 
+    <span class="o">&amp;&amp;</span> <span class="n">pip</span> <span class="n">install</span> <span class="s2">"ont_fast5_api&gt;=3.1.6"</span> 
 </pre></div>
 
      </div>
@@ -14730,10 +14730,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
-<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">"ont-exd-int-s3-euwst1-epi2me-labs"</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">"s3-eu-west-1.amazonaws.com"</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">"https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">"https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com"</span>
 
 <span class="o">!</span>rm -rf sample_fast5
 <span class="o">!</span>wget -O sample_fast5.tar <span class="nv">$site</span>/fast5_tutorial/sample_fast5.tar
@@ -14777,17 +14777,17 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <span class="n">input_folder</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">input_folder</span>
     <span class="n">output_folder</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">output_folder</span>
     <span class="c1"># run a command to concatenate all the files together</span>
-    <span class="o">!</span>cecho ok <span class="s2">&quot;Making output folder&quot;</span>
-    <span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>
-    <span class="o">!</span><span class="nb">test</span> -d <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">&quot;</span> <span class="err">\</span>
-        <span class="o">&amp;&amp;</span> <span class="n">cecho</span> <span class="n">success</span> <span class="s2">&quot;Found input folder.&quot;</span> \
-        <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">&quot;Input folder does not exist.&quot;</span>
-    <span class="o">!</span><span class="nb">echo</span> <span class="s2">&quot; - Found &quot;</span><span class="k">$(</span>find <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">&quot;</span> -name <span class="s2">&quot;*.fast5&quot;</span> <span class="p">|</span> wc -l<span class="k">)</span><span class="s2">&quot; fast5 files&quot;</span>
+    <span class="o">!</span>cecho ok <span class="s2">"Making output folder"</span>
+    <span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$output_folder</span><span class="s2">"</span>
+    <span class="o">!</span><span class="nb">test</span> -d <span class="s2">"</span><span class="nv">$input_folder</span><span class="s2">"</span> <span class="err">\</span>
+        <span class="o">&amp;&amp;</span> <span class="n">cecho</span> <span class="n">success</span> <span class="s2">"Found input folder."</span> \
+        <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">"Input folder does not exist."</span>
+    <span class="o">!</span><span class="nb">echo</span> <span class="s2">" - Found "</span><span class="k">$(</span>find <span class="s2">"</span><span class="nv">$input_folder</span><span class="s2">"</span> -name <span class="s2">"*.fast5"</span> <span class="p">|</span> wc -l<span class="k">)</span><span class="s2">" fast5 files"</span>
 
 <span class="kn">from</span> <span class="nn">epi2melabs.notebook</span> <span class="kn">import</span> <span class="n">InputForm</span><span class="p">,</span> <span class="n">InputSpec</span>
 <span class="n">input_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;input_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Input folder&#39;</span><span class="p">,</span> <span class="s1">&#39;/epi2melabs/fast5_tutorial/sample_fast5&#39;</span><span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;output_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Output folder&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">))</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'input_folder'</span><span class="p">,</span> <span class="s1">'Input folder'</span><span class="p">,</span> <span class="s1">'/epi2melabs/fast5_tutorial/sample_fast5'</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'output_folder'</span><span class="p">,</span> <span class="s1">'Output folder'</span><span class="p">,</span> <span class="s1">'analysis'</span><span class="p">))</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
@@ -14910,9 +14910,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#   i) find and list all .fast5 files</span>
 <span class="c1">#  ii) take the first file</span>
-<span class="c1"># iii) use `h5ls` to list the file&#39;s contents</span>
+<span class="c1"># iii) use `h5ls` to list the file's contents</span>
 <span class="c1">#  iv) truncate the output to the first 19 lines</span>
-<span class="o">!</span>find <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">&quot;</span> -name <span class="s2">&quot;*.fast5&quot;</span> <span class="err">\</span>
+<span class="o">!</span>find <span class="s2">"</span><span class="nv">$input_folder</span><span class="s2">"</span> -name <span class="s2">"*.fast5"</span> <span class="err">\</span>
     <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">1</span> \
     <span class="o">|</span> <span class="n">xargs</span> <span class="n">h5ls</span> <span class="o">-</span><span class="n">r</span> \
     <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">19</span>
@@ -15244,15 +15244,15 @@ fb15566d-370c-478e-a190-d4221407e500.fast5	analysis/multi-reads/prefix_0.fast5
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># build a script that will do the work</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;build_read_index.sh&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"build_read_index.sh"</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
     <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        echo -e &quot;filename\tread_id&quot;</span>
-<span class="sd">        find $1 -name &quot;*.fast5&quot; \\</span>
+        <span class="sd">'''</span>
+<span class="sd">        echo -e "filename\tread_id"</span>
+<span class="sd">        find $1 -name "*.fast5" \\</span>
 <span class="sd">        | parallel --tag h5ls -f -r \\</span>
-<span class="sd">        | grep &quot;read_.\{8\}-.\{4\}-.\{4\}-.\{4\}-.\{12\} Group&quot; \\</span>
-<span class="sd">        | sed &quot;s# Group##&quot; | sed &quot;s#/read_##&quot;</span>
-<span class="sd">        &#39;&#39;&#39;</span><span class="p">)</span>
+<span class="sd">        | grep "read_.\{8\}-.\{4\}-.\{4\}-.\{4\}-.\{12\} Group" \\</span>
+<span class="sd">        | sed "s# Group##" | sed "s#/read_##"</span>
+<span class="sd">        '''</span><span class="p">)</span>
 <span class="c1"># run the script</span>
 <span class="o">!</span>bash build_read_index.sh <span class="nv">$input_folder</span> &gt; read_index.txt
 </pre></div>
@@ -15344,11 +15344,11 @@ fb15566d-370c-478e-a190-d4221407e500.fast5	analysis/multi-reads/prefix_0.fast5
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>rm -rf read_list.txt
-<span class="o">!</span><span class="nb">echo</span> <span class="s2">&quot;read_id&quot;</span> &gt; read_list.txt
+<span class="o">!</span><span class="nb">echo</span> <span class="s2">"read_id"</span> &gt; read_list.txt
 <span class="o">!</span>samtools view fast5_sample.bam lfermentum <span class="err">\</span>
-    <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{print $1}&#39;</span> \
+    <span class="o">|</span> <span class="n">awk</span> <span class="s1">'{print $1}'</span> \
     <span class="o">|</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="n">read_list</span><span class="o">.</span><span class="n">txt</span> \
-    <span class="o">|</span> <span class="n">echo</span> <span class="s2">&quot;Found&quot;</span> <span class="err">$</span><span class="p">(</span><span class="n">wc</span> <span class="o">-</span><span class="n">l</span><span class="p">)</span> <span class="s2">&quot;reads&quot;</span>
+    <span class="o">|</span> <span class="n">echo</span> <span class="s2">"Found"</span> <span class="err">$</span><span class="p">(</span><span class="n">wc</span> <span class="o">-</span><span class="n">l</span><span class="p">)</span> <span class="s2">"reads"</span>
 </pre></div>
 
      </div>

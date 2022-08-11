@@ -14623,14 +14623,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a work directory and move into it</span>
-<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s1">&#39;modbase_tutorial&#39;</span>
-<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
-<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
-<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s1">'modbase_tutorial'</span>
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">'/epi2melabs/</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$working_dir</span><span class="s2">"</span>
+<span class="o">%</span><span class="k">cd</span> "$working_dir"
 
 <span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
 <span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;modified_base_tutorial&#39;</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'start'</span><span class="p">,</span> <span class="s1">'modified_base_tutorial'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14713,14 +14713,14 @@ tutorial, but we also have Python library for directly manipulating such files: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
-<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">"ont-exd-int-s3-euwst1-epi2me-labs"</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">"s3-eu-west-1.amazonaws.com"</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">"https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
 
-<span class="o">!</span><span class="nb">echo</span> <span class="s1">&#39;Downloading `.bam` data...&#39;</span>
-<span class="o">!</span>wget <span class="s2">&quot;</span><span class="nv">$site</span><span class="s2">&quot;</span>/modbase_tutorial/chr20.bam
-<span class="o">!</span>wget <span class="s2">&quot;</span><span class="nv">$site</span><span class="s2">&quot;</span>/modbase_tutorial/chr20.bam.bai
-<span class="o">!</span>mkdir -p <span class="s2">&quot;sample_data&quot;</span> <span class="o">&amp;&amp;</span> mv chr20.bam* sample_data
+<span class="o">!</span><span class="nb">echo</span> <span class="s1">'Downloading `.bam` data...'</span>
+<span class="o">!</span>wget <span class="s2">"</span><span class="nv">$site</span><span class="s2">"</span>/modbase_tutorial/chr20.bam
+<span class="o">!</span>wget <span class="s2">"</span><span class="nv">$site</span><span class="s2">"</span>/modbase_tutorial/chr20.bam.bai
+<span class="o">!</span>mkdir -p <span class="s2">"sample_data"</span> <span class="o">&amp;&amp;</span> mv chr20.bam* sample_data
 </pre></div>
 
      </div>
@@ -14748,7 +14748,7 @@ tutorial, but we also have Python library for directly manipulating such files: 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget <span class="s2">&quot;</span><span class="nv">$site</span><span class="s2">&quot;</span>/grch38.tar.gz
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget <span class="s2">"</span><span class="nv">$site</span><span class="s2">"</span>/grch38.tar.gz
 <span class="o">!</span>tar -xzvf grch38.tar.gz
 </pre></div>
 
@@ -14911,22 +14911,22 @@ the <code>Files</code> browser to the left-hand side, right-click on the file an
     <span class="c1"># make sure all bams are indexed</span>
     <span class="n">data_folder</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">data_folder</span>
     <span class="k">if</span> <span class="n">inputs</span><span class="o">.</span><span class="n">force_bam_index</span><span class="p">:</span>
-        <span class="o">!</span><span class="nb">echo</span> <span class="s2">&quot;Ensuring .bams are indexed&quot;</span>
-        <span class="o">!</span>find <span class="nv">$data_folder</span> -name <span class="s2">&quot;*.bam&quot;</span> <span class="p">|</span> xargs -I <span class="o">{}</span> samtools index <span class="o">{}</span>
-    <span class="o">!</span><span class="nb">echo</span> <span class="s2">&quot;Making output folder&quot;</span>
+        <span class="o">!</span><span class="nb">echo</span> <span class="s2">"Ensuring .bams are indexed"</span>
+        <span class="o">!</span>find <span class="nv">$data_folder</span> -name <span class="s2">"*.bam"</span> <span class="p">|</span> xargs -I <span class="o">{}</span> samtools index <span class="o">{}</span>
+    <span class="o">!</span><span class="nb">echo</span> <span class="s2">"Making output folder"</span>
     <span class="n">output_folder</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">output_folder</span>
-    <span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>
+    <span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$output_folder</span><span class="s2">"</span>
     <span class="n">reference_genome</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">reference_genome</span>
-    <span class="o">!</span><span class="nb">test</span> -f <span class="s2">&quot;</span><span class="nv">$reference_genome</span><span class="s2">&quot;</span> <span class="err">\</span>
-        <span class="o">&amp;&amp;</span> <span class="n">echo</span> <span class="s2">&quot;Reference file found&quot;</span> \
-        <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">&quot;WARNING: Reference file does not exist&quot;</span>
+    <span class="o">!</span><span class="nb">test</span> -f <span class="s2">"</span><span class="nv">$reference_genome</span><span class="s2">"</span> <span class="err">\</span>
+        <span class="o">&amp;&amp;</span> <span class="n">echo</span> <span class="s2">"Reference file found"</span> \
+        <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">"WARNING: Reference file does not exist"</span>
 
 
 <span class="n">input_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;data_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Input folder&#39;</span><span class="p">,</span> <span class="s1">&#39;sample_data&#39;</span><span class="p">,</span><span class="n">long_desc</span><span class="o">=</span><span class="s2">&quot;Guppy/MinKNOW output directory, will be searched for BAM files:&quot;</span><span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;force_bam_index&#39;</span><span class="p">,</span> <span class="s1">&#39;Index BAMs&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">long_desc</span><span class="o">=</span><span class="s2">&quot;Some versions of Guppy do not write required BAM indexes tick this box to force indexing:&quot;</span><span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;output_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Output folder&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">,</span> <span class="n">long_desc</span><span class="o">=</span><span class="s2">&quot;Output location:&quot;</span><span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;reference_genome&#39;</span><span class="p">,</span> <span class="s1">&#39;Reference .fasta&#39;</span><span class="p">,</span> <span class="s1">&#39;grch38/grch38.fasta.gz&#39;</span><span class="p">,</span> <span class="n">long_desc</span><span class="o">=</span><span class="s2">&quot;Location of reference genome:&quot;</span><span class="p">))</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'data_folder'</span><span class="p">,</span> <span class="s1">'Input folder'</span><span class="p">,</span> <span class="s1">'sample_data'</span><span class="p">,</span><span class="n">long_desc</span><span class="o">=</span><span class="s2">"Guppy/MinKNOW output directory, will be searched for BAM files:"</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'force_bam_index'</span><span class="p">,</span> <span class="s1">'Index BAMs'</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">long_desc</span><span class="o">=</span><span class="s2">"Some versions of Guppy do not write required BAM indexes tick this box to force indexing:"</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'output_folder'</span><span class="p">,</span> <span class="s1">'Output folder'</span><span class="p">,</span> <span class="s1">'analysis'</span><span class="p">,</span> <span class="n">long_desc</span><span class="o">=</span><span class="s2">"Output location:"</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'reference_genome'</span><span class="p">,</span> <span class="s1">'Reference .fasta'</span><span class="p">,</span> <span class="s1">'grch38/grch38.fasta.gz'</span><span class="p">,</span> <span class="n">long_desc</span><span class="o">=</span><span class="s2">"Location of reference genome:"</span><span class="p">))</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
@@ -14998,8 +14998,8 @@ akin to that obtained for bisulfite sequencing using packages such as bismark. F
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">prefix</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s2">&quot;mod-counts&quot;</span><span class="p">)</span>
-<span class="n">bedmethyl</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot;.cpg.bed&quot;</span>
+<span class="n">prefix</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s2">"mod-counts"</span><span class="p">)</span>
+<span class="n">bedmethyl</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s2">".cpg.bed"</span>
 <span class="o">!</span>modbam2bed --aggregate -p <span class="nv">$prefix</span> -e -m 5mC --cpg -t <span class="m">4</span> -r chr20 <span class="nv">$reference_genome</span> <span class="nv">$data_folder</span>/*.bam &gt; <span class="nv">$bedmethyl</span>
 </pre></div>
 
@@ -15061,9 +15061,9 @@ akin to that obtained for bisulfite sequencing using packages such as bismark. F
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">methdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="n">bedmethyl</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">bedmethyl</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span>
     <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;chrom&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="s2">&quot;strand&quot;</span><span class="p">,</span> <span class="s2">&quot;tstart&quot;</span><span class="p">,</span> <span class="s2">&quot;tend&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;coverage&quot;</span><span class="p">,</span> <span class="s2">&quot;freq&quot;</span><span class="p">,</span> <span class="s2">&quot;canon&quot;</span><span class="p">,</span> <span class="s2">&quot;mod&quot;</span><span class="p">,</span> <span class="s2">&quot;filt&quot;</span><span class="p">])</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">"chrom"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">,</span> <span class="s2">"strand"</span><span class="p">,</span> <span class="s2">"tstart"</span><span class="p">,</span> <span class="s2">"tend"</span><span class="p">,</span> <span class="s2">"color"</span><span class="p">,</span> <span class="s2">"coverage"</span><span class="p">,</span> <span class="s2">"freq"</span><span class="p">,</span> <span class="s2">"canon"</span><span class="p">,</span> <span class="s2">"mod"</span><span class="p">,</span> <span class="s2">"filt"</span><span class="p">])</span>
 <span class="n">methdata</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -15268,17 +15268,17 @@ average methylation rates and examine potential strand bias.</p>
 <span class="kn">import</span> <span class="nn">aplanat</span>
 <span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">hist</span>
 
-<span class="n">names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;fwd&#39;</span><span class="p">,</span> <span class="s1">&#39;rev&#39;</span><span class="p">)</span>
-<span class="n">fwdmeth</span> <span class="o">=</span> <span class="n">methdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">methdata</span><span class="p">[</span><span class="s1">&#39;strand&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">]</span>
-<span class="n">revmeth</span> <span class="o">=</span> <span class="n">methdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">methdata</span><span class="p">[</span><span class="s1">&#39;strand&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">]</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'fwd'</span><span class="p">,</span> <span class="s1">'rev'</span><span class="p">)</span>
+<span class="n">fwdmeth</span> <span class="o">=</span> <span class="n">methdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">methdata</span><span class="p">[</span><span class="s1">'strand'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"+"</span><span class="p">]</span>
+<span class="n">revmeth</span> <span class="o">=</span> <span class="n">methdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">methdata</span><span class="p">[</span><span class="s1">'strand'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"-"</span><span class="p">]</span>
 <span class="n">plot</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;coverage&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">fwdmeth</span><span class="p">,</span> <span class="n">revmeth</span><span class="p">)],</span>
-    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;maroon&#39;</span><span class="p">,</span> <span class="s1">&#39;darkolivegreen&#39;</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span>
-    <span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Coverage distribution&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"coverage"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">fwdmeth</span><span class="p">,</span> <span class="n">revmeth</span><span class="p">)],</span>
+    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'maroon'</span><span class="p">,</span> <span class="s1">'darkolivegreen'</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span>
+    <span class="n">binwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">'line'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Coverage distribution'</span><span class="p">,</span>
     <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;coverage&#39;</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;frequency&#39;</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;#F4F4F4&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'coverage'</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'frequency'</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">'#F4F4F4'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15301,9 +15301,9 @@ average methylation rates and examine potential strand bias.</p>
 
 
 
-<div id="07240467-30ef-4e3a-af46-6cedb3d14143" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="28c42aba-4b15-4fa8-a5d3-25fb296cb9f5" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
+var element = document.getElementById('28c42aba-4b15-4fa8-a5d3-25fb296cb9f5');
 
 (function(root) {
   function now() {
@@ -15631,9 +15631,9 @@ var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
 
 
 
-<div id="07240467-30ef-4e3a-af46-6cedb3d14143" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="28c42aba-4b15-4fa8-a5d3-25fb296cb9f5" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
+var element = document.getElementById('28c42aba-4b15-4fa8-a5d3-25fb296cb9f5');
 (function(root) {
   function embed_document(root) {
     
@@ -15698,31 +15698,31 @@ var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
 
 <span class="c1"># join the reverse to the fwd assuming sites are one apart</span>
 <span class="c1"># NOTE: we could just use the aggregated results from modbam2bed</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Joining forward and reverse strand joins assuming 1-base offset.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Joining forward and reverse strand joins assuming 1-base offset."</span><span class="p">)</span>
 <span class="n">tmp</span> <span class="o">=</span> <span class="n">revmeth</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">tmp</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
-<span class="n">tmp</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
-<span class="n">methjoin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fwdmeth</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;chrom&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">),</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;.fwd&quot;</span><span class="p">,</span> <span class="s2">&quot;.rev&quot;</span><span class="p">))</span>
-<span class="n">methjoin</span><span class="p">[</span><span class="s2">&quot;coverage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">methjoin</span><span class="p">[</span><span class="s2">&quot;coverage.fwd&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">methjoin</span><span class="p">[</span><span class="s2">&quot;coverage.rev&quot;</span><span class="p">]</span>
+<span class="n">tmp</span><span class="p">[</span><span class="s1">'start'</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="n">tmp</span><span class="p">[</span><span class="s1">'end'</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="n">methjoin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fwdmeth</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">(</span><span class="s2">"chrom"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">),</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s2">".fwd"</span><span class="p">,</span> <span class="s2">".rev"</span><span class="p">))</span>
+<span class="n">methjoin</span><span class="p">[</span><span class="s2">"coverage"</span><span class="p">]</span> <span class="o">=</span> <span class="n">methjoin</span><span class="p">[</span><span class="s2">"coverage.fwd"</span><span class="p">]</span> <span class="o">+</span> <span class="n">methjoin</span><span class="p">[</span><span class="s2">"coverage.rev"</span><span class="p">]</span>
 
 <span class="c1"># proportion by site</span>
 <span class="n">p1</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">methdata</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]],</span>
-    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;steelblue&#39;</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
-    <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Methylation proportion by site&#39;</span><span class="p">)</span>
-<span class="n">p1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;methylation proportion&#39;</span>
-<span class="n">p1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;frequency&#39;</span>
+    <span class="p">[</span><span class="n">methdata</span><span class="p">[</span><span class="s1">'freq'</span><span class="p">]],</span>
+    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'steelblue'</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Methylation proportion by site'</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'methylation proportion'</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'frequency'</span>
 
 <span class="c1"># strand bias - remove the trivial case</span>
-<span class="n">bias</span> <span class="o">=</span> <span class="n">methjoin</span><span class="p">[</span><span class="s1">&#39;freq.fwd&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">methjoin</span><span class="p">[</span><span class="s1">&#39;freq.rev&#39;</span><span class="p">]</span>
+<span class="n">bias</span> <span class="o">=</span> <span class="n">methjoin</span><span class="p">[</span><span class="s1">'freq.fwd'</span><span class="p">]</span> <span class="o">-</span> <span class="n">methjoin</span><span class="p">[</span><span class="s1">'freq.rev'</span><span class="p">]</span>
 <span class="n">bias</span> <span class="o">=</span> <span class="n">bias</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">bias</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bias</span><span class="o">&gt;-</span><span class="mi">50</span><span class="p">)]</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">hist</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">bias</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;steelblue&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Methylation strand bias by site.&quot;</span><span class="p">)</span>
-<span class="n">p2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;(fwd. meth. prop.) - (rev. meth. prop.)&#39;</span>
-<span class="n">p2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;frequency&#39;</span>
+    <span class="p">[</span><span class="n">bias</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'steelblue'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"Methylation strand bias by site."</span><span class="p">)</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'(fwd. meth. prop.) - (rev. meth. prop.)'</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'frequency'</span>
 
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">([[</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">]])</span> <span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;#F4F4F4&#39;</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">([[</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">]])</span> <span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">'#F4F4F4'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15757,9 +15757,9 @@ var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
 
 
 
-<div id="07240467-30ef-4e3a-af46-6cedb3d14143" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="28c42aba-4b15-4fa8-a5d3-25fb296cb9f5" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
+var element = document.getElementById('28c42aba-4b15-4fa8-a5d3-25fb296cb9f5');
 
 (function(root) {
   function now() {
@@ -16087,9 +16087,9 @@ var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
 
 
 
-<div id="07240467-30ef-4e3a-af46-6cedb3d14143" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="28c42aba-4b15-4fa8-a5d3-25fb296cb9f5" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
+var element = document.getElementById('28c42aba-4b15-4fa8-a5d3-25fb296cb9f5');
 (function(root) {
   function embed_document(root) {
     
@@ -16152,69 +16152,69 @@ var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
 
 <span class="k">def</span> <span class="nf">plot_callback</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">chrom</span><span class="p">,</span> <span class="n">coords</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
-        <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">coords</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">))</span>
+        <span class="n">chrom</span><span class="p">,</span> <span class="n">coords</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">coords</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"-"</span><span class="p">))</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cannot parse region as &quot;chrom:start-stop&quot;.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Cannot parse region as "chrom:start-stop".'</span><span class="p">)</span>
 
     <span class="c1"># filter data by inputs</span>
     <span class="n">select</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">(</span><span class="n">methjoin</span><span class="p">[</span><span class="s1">&#39;coverage&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">coverage_mask</span><span class="p">)</span> <span class="o">&amp;</span>
-        <span class="p">(</span><span class="n">methjoin</span><span class="p">[</span><span class="s1">&#39;chrom&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">chrom</span><span class="p">)</span> <span class="o">&amp;</span> 
-        <span class="p">(</span><span class="n">methjoin</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">start</span><span class="p">)</span> <span class="o">&amp;</span> 
-        <span class="p">(</span><span class="n">methjoin</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">))</span>
+        <span class="p">(</span><span class="n">methjoin</span><span class="p">[</span><span class="s1">'coverage'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">coverage_mask</span><span class="p">)</span> <span class="o">&amp;</span>
+        <span class="p">(</span><span class="n">methjoin</span><span class="p">[</span><span class="s1">'chrom'</span><span class="p">]</span> <span class="o">==</span> <span class="n">chrom</span><span class="p">)</span> <span class="o">&amp;</span> 
+        <span class="p">(</span><span class="n">methjoin</span><span class="p">[</span><span class="s1">'start'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">start</span><span class="p">)</span> <span class="o">&amp;</span> 
+        <span class="p">(</span><span class="n">methjoin</span><span class="p">[</span><span class="s1">'start'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">))</span>
     <span class="n">d</span> <span class="o">=</span> <span class="n">methjoin</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">select</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">down_sample</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">plot_limit</span><span class="o">=</span><span class="mi">350000</span><span class="p">):</span>
         <span class="c1"># if we have a lot of points, remove some to avoid bokeh dying.</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">plot_limit</span><span class="p">:</span>
-            <span class="n">display</span><span class="p">(</span><span class="s2">&quot;Warning: Downsampling points to </span><span class="si">{}</span><span class="s2"> entries. Select a smaller region to show all points.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">plot_limit</span><span class="p">))</span>
+            <span class="n">display</span><span class="p">(</span><span class="s2">"Warning: Downsampling points to </span><span class="si">{}</span><span class="s2"> entries. Select a smaller region to show all points."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">plot_limit</span><span class="p">))</span>
             <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">plot_limit</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">display</span><span class="p">(</span><span class="s2">&quot;Showing all sites.&quot;</span><span class="p">)</span>
+            <span class="n">display</span><span class="p">(</span><span class="s2">"Showing all sites."</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">df</span>
 
     <span class="c1"># create a plot</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> coverage&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">region</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{}</span><span class="s1"> coverage'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">region</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">inputs</span><span class="o">.</span><span class="n">colour_by</span> <span class="o">==</span> <span class="s2">&quot;orientation&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">inputs</span><span class="o">.</span><span class="n">colour_by</span> <span class="o">==</span> <span class="s2">"orientation"</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">down_sample</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">plot_limit</span><span class="o">=</span><span class="mi">350000</span><span class="p">)</span>
-        <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">2</span>
-        <span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;coverage.fwd&#39;</span><span class="p">],</span> <span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;coverage.rev&#39;</span><span class="p">]]</span>
-        <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;maroon&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
-        <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fwd&#39;</span><span class="p">,</span> <span class="s1">&#39;rev&#39;</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">inputs</span><span class="o">.</span><span class="n">colour_by</span> <span class="o">==</span> <span class="s2">&quot;mod. status&quot;</span><span class="p">:</span>
+        <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">'start'</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">'coverage.fwd'</span><span class="p">],</span> <span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="s1">'coverage.rev'</span><span class="p">]]</span>
+        <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'maroon'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">]</span>
+        <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'fwd'</span><span class="p">,</span> <span class="s1">'rev'</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">inputs</span><span class="o">.</span><span class="n">colour_by</span> <span class="o">==</span> <span class="s2">"mod. status"</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">down_sample</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">plot_limit</span><span class="o">=</span><span class="mi">350000</span><span class="p">)</span>
-        <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">'start'</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">2</span>
         <span class="n">ys</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="o">+</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;mod.fwd&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;mod.rev&#39;</span><span class="p">],</span>
-            <span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;canon.rev&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;canon.rev&#39;</span><span class="p">]]</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">]</span>
-        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;modified&#39;</span><span class="p">,</span> <span class="s1">&#39;canonical&#39;</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">inputs</span><span class="o">.</span><span class="n">colour_by</span> <span class="o">==</span> <span class="s2">&quot;both&quot;</span><span class="p">:</span>
+            <span class="o">+</span><span class="n">d</span><span class="p">[</span><span class="s1">'mod.fwd'</span><span class="p">]</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s1">'mod.rev'</span><span class="p">],</span>
+            <span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="s1">'canon.rev'</span><span class="p">]</span> <span class="o">-</span> <span class="n">d</span><span class="p">[</span><span class="s1">'canon.rev'</span><span class="p">]]</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">]</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'modified'</span><span class="p">,</span> <span class="s1">'canonical'</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">inputs</span><span class="o">.</span><span class="n">colour_by</span> <span class="o">==</span> <span class="s2">"both"</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">down_sample</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">plot_limit</span><span class="o">=</span><span class="mi">125000</span><span class="p">)</span>
-        <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">4</span>
-        <span class="n">title</span> <span class="o">+=</span> <span class="s1">&#39; Positive: fwd strand, Negative: rev strand&#39;</span>
+        <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">'start'</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">4</span>
+        <span class="n">title</span> <span class="o">+=</span> <span class="s1">' Positive: fwd strand, Negative: rev strand'</span>
         <span class="n">ys</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="o">+</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;mod.fwd&#39;</span><span class="p">],</span> <span class="o">+</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;canon.fwd&#39;</span><span class="p">],</span>
-            <span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;mod.rev&#39;</span><span class="p">],</span> <span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;canon.fwd&#39;</span><span class="p">]]</span>
-        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">]</span>
-        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;modified&#39;</span><span class="p">,</span> <span class="s1">&#39;canonical&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> 
+            <span class="o">+</span><span class="n">d</span><span class="p">[</span><span class="s1">'mod.fwd'</span><span class="p">],</span> <span class="o">+</span><span class="n">d</span><span class="p">[</span><span class="s1">'canon.fwd'</span><span class="p">],</span>
+            <span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="s1">'mod.rev'</span><span class="p">],</span> <span class="o">-</span><span class="n">d</span><span class="p">[</span><span class="s1">'canon.fwd'</span><span class="p">]]</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">]</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'modified'</span><span class="p">,</span> <span class="s1">'canonical'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> 
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unrecognised &#39;colour_by&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Unrecognised 'colour_by'."</span><span class="p">)</span>
 
     <span class="n">plot</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">points</span><span class="p">(</span>
         <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
     <span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">formatter</span><span class="o">.</span><span class="n">use_scientific</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;position&#39;</span>
-    <span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;frequency&#39;</span>
-    <span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;#F4F4F4&#39;</span><span class="p">)</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'position'</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'frequency'</span>
+    <span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">plot</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">'#F4F4F4'</span><span class="p">)</span>
 
 
 <span class="n">plot_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="s2">&quot;Region&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20:0-65000000&quot;</span><span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;colour_by&quot;</span><span class="p">,</span> <span class="s2">&quot;Colour by&quot;</span><span class="p">,[</span><span class="s2">&quot;mod. status&quot;</span><span class="p">,</span> <span class="s2">&quot;orientation&quot;</span><span class="p">,</span> <span class="s2">&quot;both&quot;</span><span class="p">]),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">&quot;coverage_mask&quot;</span><span class="p">,</span> <span class="s2">&quot;Coverage mask&quot;</span><span class="p">,</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntText</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">"region"</span><span class="p">,</span> <span class="s2">"Region"</span><span class="p">,</span> <span class="s2">"chr20:0-65000000"</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">"colour_by"</span><span class="p">,</span> <span class="s2">"Colour by"</span><span class="p">,[</span><span class="s2">"mod. status"</span><span class="p">,</span> <span class="s2">"orientation"</span><span class="p">,</span> <span class="s2">"both"</span><span class="p">]),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s2">"coverage_mask"</span><span class="p">,</span> <span class="s2">"Coverage mask"</span><span class="p">,</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntText</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
 <span class="n">plot_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">plot_callback</span><span class="p">)</span>
 <span class="n">plot_form</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
@@ -16273,12 +16273,12 @@ var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
-<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">"ont-exd-int-s3-euwst1-epi2me-labs"</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">"s3-eu-west-1.amazonaws.com"</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">"https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
 
-<span class="o">!</span><span class="nb">echo</span> <span class="s1">&#39;Downloading bisulfite data...&#39;</span>
-<span class="o">!</span>wget <span class="s2">&quot;</span><span class="nv">$site</span><span class="s2">&quot;</span>/modbase_tutorial/chr20.bismark.bed.gz
+<span class="o">!</span><span class="nb">echo</span> <span class="s1">'Downloading bisulfite data...'</span>
+<span class="o">!</span>wget <span class="s2">"</span><span class="nv">$site</span><span class="s2">"</span>/modbase_tutorial/chr20.bismark.bed.gz
 </pre></div>
 
      </div>
@@ -16342,9 +16342,9 @@ chr20.bismark.bed.g 100%[===================&gt;]  14.29M  2.26MB/s    in 6.6s
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reading bisulfite data from bismark</span>
 <span class="n">bis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="s2">&quot;chr20.bismark.bed.gz&quot;</span><span class="p">,</span>
-    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chrom&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;freq&#39;</span><span class="p">,</span> <span class="s1">&#39;mod&#39;</span><span class="p">,</span> <span class="s1">&#39;canon&#39;</span><span class="p">])</span>
+    <span class="s2">"chr20.bismark.bed.gz"</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'chrom'</span><span class="p">,</span> <span class="s1">'start'</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">,</span> <span class="s1">'freq'</span><span class="p">,</span> <span class="s1">'mod'</span><span class="p">,</span> <span class="s1">'canon'</span><span class="p">])</span>
 <span class="n">bis</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -16475,29 +16475,29 @@ chr20.bismark.bed.g 100%[===================&gt;]  14.29M  2.26MB/s    in 6.6s
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">spatial</span>
 
-<span class="n">combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">bis</span><span class="p">,</span> <span class="n">methdata</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;chrom&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">],</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;.bis&quot;</span><span class="p">,</span> <span class="s2">&quot;.nano&quot;</span><span class="p">])</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">bis</span><span class="p">,</span> <span class="n">methdata</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"outer"</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">"chrom"</span><span class="p">,</span> <span class="s2">"start"</span><span class="p">,</span> <span class="s2">"end"</span><span class="p">],</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s2">".bis"</span><span class="p">,</span> <span class="s2">".nano"</span><span class="p">])</span>
 
 <span class="n">plot_data</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-    <span class="p">(</span><span class="n">combined</span><span class="p">[</span><span class="s1">&#39;mod.bis&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">combined</span><span class="p">[</span><span class="s1">&#39;canon.bis&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span>
-    <span class="p">(</span><span class="n">combined</span><span class="p">[</span><span class="s1">&#39;coverage&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">r_coeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s1">&#39;freq.bis&#39;</span><span class="p">],</span> <span class="n">plot_data</span><span class="p">[</span><span class="s1">&#39;freq.nano&#39;</span><span class="p">])</span>
+    <span class="p">(</span><span class="n">combined</span><span class="p">[</span><span class="s1">'mod.bis'</span><span class="p">]</span> <span class="o">+</span> <span class="n">combined</span><span class="p">[</span><span class="s1">'canon.bis'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">combined</span><span class="p">[</span><span class="s1">'coverage'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">r_coeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">plot_data</span><span class="p">[</span><span class="s1">'freq.bis'</span><span class="p">],</span> <span class="n">plot_data</span><span class="p">[</span><span class="s1">'freq.nano'</span><span class="p">])</span>
 <span class="n">r_coeff</span> <span class="o">=</span> <span class="n">r_coeff</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">spatial</span><span class="o">.</span><span class="n">heatmap2</span><span class="p">(</span>
-    <span class="n">plot_data</span><span class="p">[</span><span class="s1">&#39;freq.bis&#39;</span><span class="p">],</span> <span class="n">plot_data</span><span class="p">[</span><span class="s1">&#39;freq.nano&#39;</span><span class="p">],</span>
-    <span class="n">tools</span> <span class="o">=</span> <span class="s2">&quot;pan,wheel_zoom,box_zoom,reset&quot;</span><span class="p">,</span>
+    <span class="n">plot_data</span><span class="p">[</span><span class="s1">'freq.bis'</span><span class="p">],</span> <span class="n">plot_data</span><span class="p">[</span><span class="s1">'freq.nano'</span><span class="p">],</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="s2">"pan,wheel_zoom,box_zoom,reset"</span><span class="p">,</span>
     <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">x_bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">zlim</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100000</span><span class="p">),</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Methylation comparison. R=</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_coeff</span><span class="p">))</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"Methylation comparison. R=</span><span class="si">{:.3f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_coeff</span><span class="p">))</span>
 
-<span class="c1"># match_aspect doesn&#39;t seem to work as described...</span>
+<span class="c1"># match_aspect doesn't seem to work as described...</span>
 <span class="n">p</span><span class="o">.</span><span class="n">match_aspect</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">p</span><span class="o">.</span><span class="n">aspect_ratio</span> <span class="o">=</span> <span class="mf">1.2</span>
-<span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Bisulphite Methylation Frequency&#39;</span>
-<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">&#39;Nanopore Methylation Frequency&#39;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Bisulphite Methylation Frequency'</span>
+<span class="n">p</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s1">'Nanopore Methylation Frequency'</span>
 <span class="n">p</span><span class="o">.</span><span class="n">toolbar</span><span class="o">.</span><span class="n">logo</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;#F4F4F4&#39;</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">'#F4F4F4'</span><span class="p">)</span>
 
-<span class="n">_</span> <span class="o">=</span> <span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;stop&#39;</span><span class="p">,</span> <span class="s1">&#39;modified_base_tutorial&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'stop'</span><span class="p">,</span> <span class="s1">'modified_base_tutorial'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16520,9 +16520,9 @@ chr20.bismark.bed.g 100%[===================&gt;]  14.29M  2.26MB/s    in 6.6s
 
 
 
-<div id="07240467-30ef-4e3a-af46-6cedb3d14143" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="28c42aba-4b15-4fa8-a5d3-25fb296cb9f5" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
+var element = document.getElementById('28c42aba-4b15-4fa8-a5d3-25fb296cb9f5');
 
 (function(root) {
   function now() {
@@ -16850,9 +16850,9 @@ var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
 
 
 
-<div id="07240467-30ef-4e3a-af46-6cedb3d14143" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="28c42aba-4b15-4fa8-a5d3-25fb296cb9f5" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('07240467-30ef-4e3a-af46-6cedb3d14143');
+var element = document.getElementById('28c42aba-4b15-4fa8-a5d3-25fb296cb9f5');
 (function(root) {
   function embed_document(root) {
     
