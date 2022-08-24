@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14464,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14477,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14579,20 +14593,21 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1>Introduction to Fastq files</h1><p>The <a href="https://en.wikipedia.org/wiki/FASTQ_format">fastq format</a> is (usually) a 4 line string (text) data format denoting a sequence and it's corresponding quality score values.  There different ways of encoding quality in a <code>.fastq</code> file however, files from ONT sequencing devices use <a href="https://academic.oup.com/nar/article/38/6/1767/3112533">sanger phred scores</a>. A sequence record is made up of 4 lines:</p>
-
+<h1>Introduction to Fastq files</h1>
+<p>The <a href="https://en.wikipedia.org/wiki/FASTQ_format">fastq format</a> is (usually) a 4 line string (text) data format denoting a sequence and it's corresponding quality score values.  There different ways of encoding quality in a <code>.fastq</code> file however, files from ONT sequencing devices use <a href="https://academic.oup.com/nar/article/38/6/1767/3112533">sanger phred scores</a>. A sequence record is made up of 4 lines:</p>
 <pre><code>line 1: Sequence ID and Sequence description
 line 2: Sequence line e.g. ATCGs
 line 3: plus symbol (can additionally have description here)
-line 4: Sequence line qualities</code></pre>
+line 4: Sequence line qualities
+</code></pre>
 <p><strong>IMPORTANT:</strong> Lines 2 and line 4 must have the same length or the sequence record is not valid.</p>
 <p>For example a sample record looks like:</p>
-
 <pre><code>@sequence_id sequence_description
 ATCG
 +
-!^%%</code></pre>
-<p>The sequence ID must not contain any spaces. Anything after the first space in the sequence ID line will be considered the "description".</p>
+!^%%
+</code></pre>
+<p>The sequence ID must not contain any spaces. Anything after the first space in the sequence ID line will be considered the &quot;description&quot;.</p>
 <p>A <code>.fastq</code> file may contain multiple records. The default number of records in a fastq file generated during a nanopore run is 4000 reads (16000 lines).</p>
 
 </div>
@@ -14722,7 +14737,7 @@ ATCG
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The default directory value here (<code>.</code>) means "the current working directory."</p>
+<p>The default directory value here (<code>.</code>) means &quot;the current working directory.&quot;</p>
 
 </div>
 </div>
@@ -14734,7 +14749,7 @@ ATCG
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Concatenate-all-fastqs-in-a-directory-into-a-single-file">Concatenate all fastqs in a directory into a single file<a class="anchor-link" href="#Concatenate-all-fastqs-in-a-directory-into-a-single-file">&#182;</a></h4><p>Many bioinformatics programs require all sequence data to be present in a single <code>.fastq</code> file. In order to process sequences across multiple files we must concatenate (or "cat") all the <code>.fastq</code> files into a single consolidated file. To perform this task we can use a combination of the linux <a href="https://linux.die.net/man/1/find">find</a>, <a href="https://linux.die.net/man/1/xargs">xargs</a>, and <a href="https://linux.die.net/man/1/cat">cat</a> commands:</p>
+<h4 id="Concatenate-all-fastqs-in-a-directory-into-a-single-file">Concatenate all fastqs in a directory into a single file<a class="anchor-link" href="#Concatenate-all-fastqs-in-a-directory-into-a-single-file">&#182;</a></h4><p>Many bioinformatics programs require all sequence data to be present in a single <code>.fastq</code> file. In order to process sequences across multiple files we must concatenate (or &quot;cat&quot;) all the <code>.fastq</code> files into a single consolidated file. To perform this task we can use a combination of the linux <a href="https://linux.die.net/man/1/find">find</a>, <a href="https://linux.die.net/man/1/xargs">xargs</a>, and <a href="https://linux.die.net/man/1/cat">cat</a> commands:</p>
 
 </div>
 </div>
@@ -14767,9 +14782,8 @@ ATCG
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Again the default directory value here (<code>.</code>) means "the current working directory."</p>
+<p>Again the default directory value here (<code>.</code>) means &quot;the current working directory.&quot;</p>
 <p>You may often see a simple form of the above:</p>
-
 <pre><code>cat *.fastq &gt; output.fastq
 
 </code></pre>
@@ -15028,18 +15042,17 @@ ATCG
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 
 
-<div id="30c65c11-00c3-4876-affd-9dd1799d1703" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+
+<div id="1710ac24-c995-498d-93ea-d5e6c701f996" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('30c65c11-00c3-4876-affd-9dd1799d1703');
+var element = document.getElementById('1710ac24-c995-498d-93ea-d5e6c701f996');
 
 (function(root) {
   function now() {
@@ -15338,9 +15351,7 @@ var element = document.getElementById('30c65c11-00c3-4876-affd-9dd1799d1703');
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15358,18 +15369,17 @@ var element = document.getElementById('30c65c11-00c3-4876-affd-9dd1799d1703');
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 
 
-<div id="30c65c11-00c3-4876-affd-9dd1799d1703" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+
+<div id="e721a698-171a-422f-99c3-646dc37a9fa1" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('30c65c11-00c3-4876-affd-9dd1799d1703');
+var element = document.getElementById('e721a698-171a-422f-99c3-646dc37a9fa1');
 (function(root) {
   function embed_document(root) {
     

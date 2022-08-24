@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14464,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14477,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14579,7 +14593,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1>Introduction to Fast5 files</h1><p>The tutorial provides a short introduction to Fast5 files used to store raw data output of Oxford Nanopore Technologies' sequencing devices. The tutorial aims to provide background information for why users may have cause to interact with Fast5 files and show how to perform common manipulations.</p>
+<h1>Introduction to Fast5 files</h1>
+<p>The tutorial provides a short introduction to Fast5 files used to store raw data output of Oxford Nanopore Technologies' sequencing devices. The tutorial aims to provide background information for why users may have cause to interact with Fast5 files and show how to perform common manipulations.</p>
 <p>Methods used in this tutorial include:</p>
 <ul>
 <li><code>ont_fast5_api</code> for manipulating read information within Fast5 files.</li>
@@ -14589,7 +14604,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>A computer running the EPI2ME Labs Server environment,</li>
 <li>8Gb RAM.</li>
 </ul>
-<blockquote><p>⚠️ <strong>Warning:</strong> This notebook has been saved with its outputs for demostration purposed. It is recommeded to select <code>Edit &gt; Clear all outputs</code> before using the notebook to analyse your own data.</p>
+<blockquote>
+<p>⚠️ <strong>Warning:</strong> This notebook has been saved with its outputs for demostration purposed. It is recommeded to select <code>Edit &gt; Clear all outputs</code> before using the notebook to analyse your own data.</p>
 </blockquote>
 
 </div>
@@ -14657,9 +14673,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14803,9 +14817,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14856,7 +14868,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="HDF5-files">HDF5 files<a class="anchor-link" href="#HDF5-files">&#182;</a></h3><p>Files output by the MinKNOW instrument software and the Guppy basecalling software using the <code>.fast5</code> file extension are a <a href="https://en.wikipedia.org/wiki/Container_format_%28computing%29">container file</a> using the <a href="https://en.wikipedia.org/wiki/Hierarchical_Data_Format">HDF5 format</a>. As such they are a self-describing file with all the necessary information to correctly interpret the data they contain.</p>
 <p>A Fast5 file differs from a generic HDF5 file in containing only a fixed, defined structure of data. This structure is elucidated in the <a href="https://github.com/nanoporetech/ont_h5_validator">ont_h5_validator</a> repository on Github, specifically in the file <a href="https://github.com/nanoporetech/ont_h5_validator/blob/master/h5_validator/schemas/multi_read_fast5.yaml">multi_read_fast5.yaml</a>.</p>
-<blockquote><p><em>Users are referred to the YAML schemas to gain an understanding of all the data contained in Fast5 files. Users are encouraged to raise Issues on the ont_h5_validator project if the schemas are unclear. The rest of this tutorial will be mostly practical in nature.</em></p>
+<blockquote>
+<p><em>Users are referred to the YAML schemas to gain an understanding of all the data contained in Fast5 files. Users are encouraged to raise Issues on the ont_h5_validator project if the schemas are unclear. The rest of this tutorial will be mostly practical in nature.</em></p>
 </blockquote>
 <p>The schema file describes how the internal structure of a Fast5 file is laid out. There are three core concepts to understand:</p>
 <ol>
@@ -14937,7 +14950,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li><code>Raw</code>: the raw sequencer output, measurements of the ionic current through a nanopore as a function of time.</li>
 <li><code>channel_id</code>: information such as channel number and ASIC sampling rate</li>
 <li><code>context_tags</code>: information provided at runtime such as experiment type</li>
-<li><code>tracking_id</code>: information such as the unique run identified, flowcell identifier, and computer name. </li>
+<li><code>tracking_id</code>: information such as the unique run identified, flowcell identifier, and computer name.</li>
 </ul>
 <p><em>For a full description of these fields see the documentation on the <a href="https://community.nanoporetech.com/technical_documents/data-analysis">Nanopore Community</a>.</em></p>
 <p>For files generated by MinKNOW without live basecalling enabled, the <code>Analyses</code> section will be absent (or contain no subgroups). The sample file is one that has been created by Guppy using the <code>--fast5_out</code> option to produce Fast5 files in addition to <code>.fastq.gz</code> files containing solely the basecalls. The <code>Analyses</code> section listed above therefore contains two subgroups: <code>Segmentation_000</code> and <code>Basecall_1D_000</code>. The first of these contains information regarding how a read as been trimmed by the basecaller into seqeuncing adapter and, barcode and insert regions. The second contains the basecaller outputs, primarily the <code>Fastq</code> dataset but also two additional groups <code>Move</code> and <code>Trace</code> which contain advanced basecaller outputs. Again see the documentation in the Nanopore Community for a full description of these.</p>
@@ -14953,7 +14966,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="An-aside-on-file-indexing-and-compression">An aside on file indexing and compression<a class="anchor-link" href="#An-aside-on-file-indexing-and-compression">&#182;</a></h3><p>The Fast5 files from a MinION run can become fairly sizeable, up to a few hundred gigabytes. Efficient and performant compression and indexing is therefore required.</p>
-<h4 id="Indexing-reads">Indexing reads<a class="anchor-link" href="#Indexing-reads">&#182;</a></h4><p>For the most part the self describing and indexed nature of the HDF5 format ensures that data within a file can be quickly retrieved. However for a MinION run multiple Fast5 files are created each with a subset of the sequencing reads produced by the sequencer. Therefore finding the information pertaining to a read of a known ID cannot be done without a supplementary index cross-referencing the reads contained within in file; the alternative is to open all the files in turn and enquire about their contents. <strong><em>The <code>sequencing_summary.txt</code> file produced by both MinKNOW and Guppy provides an index of the reads contained within in each Fast5 file</em></strong>. This index can of course be reconstructed if required (as in the case of <a href="https://github.com/jts/nanopolish">nanopolish index</a>), though we recommend always storing the sequencing summary with the Fast5 data files.</p>
+<h4 id="Indexing-reads">Indexing reads<a class="anchor-link" href="#Indexing-reads">&#182;</a></h4><p>For the most part the self describing and indexed nature of the HDF5 format ensures that data within a file can be quickly retrieved. However for a MinION run multiple Fast5 files are created each with a subset of the sequencing reads produced by the sequencer. Therefore finding the information pertaining to a read of a known ID cannot be done without a supplementary index cross-referencing the reads contained within in file; the alternative is to open all the files in turn and enquire about their contents. *<strong>The <code>sequencing_summary.txt</code> file produced by both MinKNOW and Guppy provides an index of the reads contained within in each Fast5 file</strong>*. This index can of course be reconstructed if required (as in the case of <a href="https://github.com/jts/nanopolish">nanopolish index</a>), though we recommend always storing the sequencing summary with the Fast5 data files.</p>
 <h4 id="File-compression">File compression<a class="anchor-link" href="#File-compression">&#182;</a></h4><p>Due to the large volume of data created by nanopore sequencing devices Oxford Nanopore Technologies has developed a bespoke compression scheme for ionic current trace data known as <a href="https://github.com/nanoporetech/vbz_compression">VBZ</a>. VBZ is a combination of two open compression algorithms and is itself open and freely available from the Github <a href="https://github.com/nanoporetech/vbz_compression/releases/latest">release page</a>. Ordinarily it will not be necessary to install the VBZ compression library and HDF5 plugin to simply use MinKNOW and Guppy as these software applications include their own copy of VBZ. However if you wish to read Fast5 files using third party applications (such as <a href="https://pypi.org/project/h5py/">h5py</a>) you will need to install the VBZ plugin.</p>
 
 </div>
@@ -15037,9 +15050,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15095,9 +15106,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15146,9 +15155,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15197,9 +15204,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15296,9 +15301,7 @@ fb15566d-370c-478e-a190-d4221407e500.fast5	analysis/multi-reads/prefix_0.fast5
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15362,9 +15365,7 @@ fb15566d-370c-478e-a190-d4221407e500.fast5	analysis/multi-reads/prefix_0.fast5
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15416,9 +15417,7 @@ fb15566d-370c-478e-a190-d4221407e500.fast5	analysis/multi-reads/prefix_0.fast5
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15472,9 +15471,7 @@ INFO:Fast5Filter:1100 reads extracted
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15523,9 +15520,7 @@ INFO:Fast5Filter:1100 reads extracted
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 

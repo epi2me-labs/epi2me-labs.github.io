@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14464,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14477,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14579,7 +14593,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1>How medaka works</h1><p>The following is a relatively short document describing how Oxford Nanopore Technologies' program for consensus calling of sequencing data, <code>medaka</code>, functions internally. We will demonstrate the core functionality required to process alignment data, how it is presented to a recurrent neural network, and how a consensus sequence is formed.</p>
+<h1>How medaka works</h1>
+<p>The following is a relatively short document describing how Oxford Nanopore Technologies' program for consensus calling of sequencing data, <code>medaka</code>, functions internally. We will demonstrate the core functionality required to process alignment data, how it is presented to a recurrent neural network, and how a consensus sequence is formed.</p>
 
 </div>
 </div>
@@ -14625,9 +14640,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14734,9 +14747,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14818,9 +14829,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14869,9 +14878,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14926,9 +14933,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14940,9 +14945,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15003,9 +15006,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15079,9 +15080,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15178,18 +15177,17 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 
 
-<div id="54cf1208-cae9-451b-b206-702a8944cacb" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+
+<div id="b9411b53-066b-4efd-a34a-9641dadbf269" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('54cf1208-cae9-451b-b206-702a8944cacb');
+var element = document.getElementById('b9411b53-066b-4efd-a34a-9641dadbf269');
 
 (function(root) {
   function now() {
@@ -15488,9 +15486,7 @@ var element = document.getElementById('54cf1208-cae9-451b-b206-702a8944cacb');
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15508,18 +15504,17 @@ var element = document.getElementById('54cf1208-cae9-451b-b206-702a8944cacb');
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 
 
-<div id="54cf1208-cae9-451b-b206-702a8944cacb" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+
+<div id="dbd5f955-5636-442f-a5df-ddfbb22cb26d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('54cf1208-cae9-451b-b206-702a8944cacb');
+var element = document.getElementById('dbd5f955-5636-442f-a5df-ddfbb22cb26d');
 (function(root) {
   function embed_document(root) {
     
@@ -15628,9 +15623,7 @@ var element = document.getElementById('54cf1208-cae9-451b-b206-702a8944cacb');
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15739,9 +15732,7 @@ _________________________________________________________________
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15809,9 +15800,7 @@ Total sequence length: 1500539.
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
