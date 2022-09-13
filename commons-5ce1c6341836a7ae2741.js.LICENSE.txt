@@ -22,7 +22,13 @@
  * http://api.jqueryui.com/category/ui-core/
  */
 
-/*! For license information please see index.js.LICENSE.txt */
+/*!
+ * JavaScript Cookie v2.2.1
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
 
 /** @license React v16.13.1
  * react-is.production.min.js
