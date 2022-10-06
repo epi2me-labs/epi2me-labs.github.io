@@ -14665,14 +14665,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
-<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">"vcf-tutorial"</span>
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;vcf-tutorial&quot;</span>
 <span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
-<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'start'</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
 
 <span class="c1"># create a work directory and move into it</span>
-<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">'/epi2melabs/</span><span class="si">{}</span><span class="s1">/'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
-<span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$working_dir</span><span class="s2">"</span>
-<span class="o">%</span><span class="k">cd</span> "$working_dir"
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
+<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
 </pre></div>
 
      </div>
@@ -14722,10 +14722,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">"ont-exd-int-s3-euwst1-epi2me-labs"</span>
-<span class="n">domain</span> <span class="o">=</span> <span class="s2">"s3-eu-west-1.amazonaws.com"</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">"https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">"https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://ont-exd-int-s3-euwst1-epi2me-labs.s3-eu-west-1.amazonaws.com&quot;</span>
 
 <span class="o">!</span>mkdir -p sample_data
 <span class="o">!</span><span class="nb">cd</span> sample_data <span class="o">&amp;&amp;</span> wget -O medaka.vcf.gz.tbi <span class="nv">$site</span>/vcf_tutorial/ont_hg002/medaka.vcf.gz.tbi
@@ -14767,22 +14767,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <span class="n">input_file</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">input_file</span>
     <span class="n">output_folder</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">output_folder</span>
     <span class="c1"># run a command to concatenate all the files together</span>
-    <span class="o">!</span>cecho ok <span class="s2">"Making output folder"</span>
-    <span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$output_folder</span><span class="s2">"</span>
-    <span class="o">!</span><span class="nb">test</span> -f <span class="s2">"</span><span class="nv">$input_file</span><span class="s2">"</span> <span class="err">\</span>
-        <span class="o">&amp;&amp;</span> <span class="n">cecho</span> <span class="n">success</span> <span class="s2">" - Found input file."</span> \
-        <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">" - Input file does not exist."</span>
+    <span class="o">!</span>cecho ok <span class="s2">&quot;Making output folder&quot;</span>
+    <span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>
+    <span class="o">!</span><span class="nb">test</span> -f <span class="s2">&quot;</span><span class="nv">$input_file</span><span class="s2">&quot;</span> <span class="err">\</span>
+        <span class="o">&amp;&amp;</span> <span class="n">cecho</span> <span class="n">success</span> <span class="s2">&quot; - Found input file.&quot;</span> \
+        <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">&quot; - Input file does not exist.&quot;</span>
 
     <span class="c1"># create index file</span>
-    <span class="o">!</span>cecho ok <span class="s2">"Creating index file"</span>
+    <span class="o">!</span>cecho ok <span class="s2">&quot;Creating index file&quot;</span>
     <span class="o">!</span>tabix -f /epi2melabs/vcf-tutorial/sample_data/medaka.vcf.gz <span class="err">\</span>
-        <span class="o">&amp;&amp;</span> <span class="n">cecho</span> <span class="n">success</span> <span class="s2">" - Successfully created index."</span> \
-        <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">" - Failed to create index file."</span>
+        <span class="o">&amp;&amp;</span> <span class="n">cecho</span> <span class="n">success</span> <span class="s2">&quot; - Successfully created index.&quot;</span> \
+        <span class="o">||</span> <span class="n">cecho</span> <span class="n">error</span> <span class="s2">&quot; - Failed to create index file.&quot;</span>
 
 <span class="kn">from</span> <span class="nn">epi2melabs.notebook</span> <span class="kn">import</span> <span class="n">InputForm</span><span class="p">,</span> <span class="n">InputSpec</span>
 <span class="n">input_form</span> <span class="o">=</span> <span class="n">InputForm</span><span class="p">(</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'input_file'</span><span class="p">,</span> <span class="s1">'Input folder'</span><span class="p">,</span> <span class="s1">'/epi2melabs/vcf-tutorial/sample_data/medaka.vcf.gz'</span><span class="p">),</span>
-    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">'output_folder'</span><span class="p">,</span> <span class="s1">'Output folder'</span><span class="p">,</span> <span class="s1">'analysis'</span><span class="p">))</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;input_file&#39;</span><span class="p">,</span> <span class="s1">&#39;Input folder&#39;</span><span class="p">,</span> <span class="s1">&#39;/epi2melabs/vcf-tutorial/sample_data/medaka.vcf.gz&#39;</span><span class="p">),</span>
+    <span class="n">InputSpec</span><span class="p">(</span><span class="s1">&#39;output_folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Output folder&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis&#39;</span><span class="p">))</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">add_process_button</span><span class="p">(</span><span class="n">process_form</span><span class="p">)</span>
 <span class="n">input_form</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
@@ -14937,18 +14937,67 @@ chr1	10321	.	C	T	0.562	PASS	pos2=10321;q2=0.562	GT:GQ	0|1:1
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="The-VCF-data-table">The VCF data table<a class="anchor-link" href="#The-VCF-data-table">&#182;</a></h3><p>In the above prelude we have introduced the meta-information section of VCF files. We will now move to examine the data section of VCF files.</p>
 <p>Aside from the header information a VCF file is simple a tab-delimited data table. Each row of the table describes a possible variant in one or more of the analysed samples, with the columns being:</p>
-<p>|   |   Name   | Brief description (see the specification for details).                                                                                                                                                          |
-|:-:|:--------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1 | CHROM    | The name of the sequence (typically a chromosome) on which the variation is being called (<code>contig</code> from the meta-information). This sequence is usually known as 'the reference sequence'.|
-| 2 | POS      | The 1-based position of the variation on the given sequence.                                                                                                                                                    |
-| 3 | ID       | The identifier of the variation, e.g. a dbSNP rs identifier, or if unknown a &quot;.&quot;. Multiple identifiers should be separated by semi-colons without white-space. Medaka will output a &quot;.&quot; here.                                                  |
-| 4 | REF      | The reference base (or bases in the case of an indel) at the given position on the given reference sequence.                                                                                                    |
-| 5 | ALT      | The list of alternative alleles at this position, i.e. the sequence of &quot;the variant&quot;                                                                                                                                                               |
-| 6 | QUAL     | A quality score associated with the inference of the given alleles.                                                                                                                                             |
-| 7 | FILTER   | A flag indicating which of a given set of filters the variation has passed.                                                                                                                                     |
-| 8 | INFO     | An extensible list of key-value pairs describing the variation. Multiple fields are separated by semicolons with optional values in the format: <key>=<data>[,data]. The description of each field is given in the meta-information section. |
-| 9 | FORMAT   | An (optional) extensible list of fields for describing the samples. The description of each field is given in the meta-information section.                                                                                                         |
-| + | SAMPLEs  | For each (optional) sample described in the file, values are given for the fields listed in FORMAT.                                                                                                              |</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center"></th>
+  <th style="text-align:center">Name</th>
+  <th>Brief description (see the specification for details).</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">CHROM</td>
+  <td>The name of the sequence (typically a chromosome) on which the variation is being called (<code>contig</code> from the meta-information). This sequence is usually known as 'the reference sequence'.</td>
+</tr>
+<tr>
+  <td style="text-align:center">2</td>
+  <td style="text-align:center">POS</td>
+  <td>The 1-based position of the variation on the given sequence.</td>
+</tr>
+<tr>
+  <td style="text-align:center">3</td>
+  <td style="text-align:center">ID</td>
+  <td>The identifier of the variation, e.g. a dbSNP rs identifier, or if unknown a &quot;.&quot;. Multiple identifiers should be separated by semi-colons without white-space. Medaka will output a &quot;.&quot; here.</td>
+</tr>
+<tr>
+  <td style="text-align:center">4</td>
+  <td style="text-align:center">REF</td>
+  <td>The reference base (or bases in the case of an indel) at the given position on the given reference sequence.</td>
+</tr>
+<tr>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center">ALT</td>
+  <td>The list of alternative alleles at this position, i.e. the sequence of &quot;the variant&quot;</td>
+</tr>
+<tr>
+  <td style="text-align:center">6</td>
+  <td style="text-align:center">QUAL</td>
+  <td>A quality score associated with the inference of the given alleles.</td>
+</tr>
+<tr>
+  <td style="text-align:center">7</td>
+  <td style="text-align:center">FILTER</td>
+  <td>A flag indicating which of a given set of filters the variation has passed.</td>
+</tr>
+<tr>
+  <td style="text-align:center">8</td>
+  <td style="text-align:center">INFO</td>
+  <td>An extensible list of key-value pairs describing the variation. Multiple fields are separated by semicolons with optional values in the format: <key>=<data>[,data]. The description of each field is given in the meta-information section.</td>
+</tr>
+<tr>
+  <td style="text-align:center">9</td>
+  <td style="text-align:center">FORMAT</td>
+  <td>An (optional) extensible list of fields for describing the samples. The description of each field is given in the meta-information section.</td>
+</tr>
+<tr>
+  <td style="text-align:center">+</td>
+  <td style="text-align:center">SAMPLEs</td>
+  <td>For each (optional) sample described in the file, values are given for the fields listed in FORMAT.</td>
+</tr>
+</tbody>
+</table>
 <p>Let's rexamine the first three lines of the Medaka VCF with the above field descriptions in mind:</p>
 
 </div>
@@ -14963,7 +15012,7 @@ chr1	10321	.	C	T	0.562	PASS	pos2=10321;q2=0.562	GT:GQ	0|1:1
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># print the header line and the first three variants</span>
-<span class="o">!</span>zcat <span class="nv">$input_file</span> <span class="m">2</span>&gt;/dev/null <span class="p">|</span> head -n <span class="m">20</span> <span class="p">|</span> grep -A <span class="m">3</span> <span class="s1">'#CHROM'</span>
+<span class="o">!</span>zcat <span class="nv">$input_file</span> <span class="m">2</span>&gt;/dev/null <span class="p">|</span> head -n <span class="m">20</span> <span class="p">|</span> grep -A <span class="m">3</span> <span class="s1">&#39;#CHROM&#39;</span>
 </pre></div>
 
      </div>
@@ -15119,7 +15168,7 @@ chr1	10257	.	A	C	0.799	PASS	pos1=10257;q1=0.799	GT:GQ	1|0:1
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ls -lh snippet.vcf* <span class="p">|</span> awk <span class="s1">'{print $5, $9}'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ls -lh snippet.vcf* <span class="p">|</span> awk <span class="s1">&#39;{print $5, $9}&#39;</span>
 </pre></div>
 
      </div>
@@ -15268,7 +15317,7 @@ chr1	10257	.	A	C	0.799	PASS	pos1=10257;q1=0.799	GT:GQ	1|0:1
 <span class="n">variants</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">all_variants</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">variant</span> <span class="ow">in</span> <span class="n">variants</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">chrom</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span> <span class="s2">"&gt;"</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">alts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">chrom</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">alts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -15326,7 +15375,7 @@ chr1 10257 A &gt; C
     <span class="k">if</span> <span class="n">variant</span><span class="o">.</span><span class="n">qual</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">chrom</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">qual</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">variant</span><span class="o">.</span><span class="n">info</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"  Bad variant at position:"</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">pos</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Bad variant at position:&quot;</span><span class="p">,</span> <span class="n">variant</span><span class="o">.</span><span class="n">pos</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15384,10 +15433,10 @@ chr1 10297 8.21500015258789 {&#39;pos2&#39;: (10297,), &#39;q2&#39;: 8.215000152
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"contigs:"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">contigs</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"filter values:"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">filters</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"INFO subfields:"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">info</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"samples:"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">samples</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;contigs:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">contigs</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;filter values:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">filters</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INFO subfields:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">info</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;samples:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vcf</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">samples</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15455,29 +15504,29 @@ samples: [&#39;SAMPLE&#39;]
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="k">def</span> <span class="nf">parse_vcf</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">info_cols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""Parse a VCF file. The INFO column is parsed to a dictionary.</span>
+    <span class="sd">&quot;&quot;&quot;Parse a VCF file. The INFO column is parsed to a dictionary.</span>
 
 <span class="sd">    :param info_cols: dict of field:dtype for INFO fields to store</span>
 <span class="sd">        as distinct column.</span>
 <span class="sd">    :param nrows: number of rows to read from file (including header). </span>
-<span class="sd">    """</span>
-    <span class="n">header</span> <span class="o">=</span> <span class="s2">"CHROM POS ID REF ALT QUAL FILTER INFO FORMAT GT"</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="s2">&quot;CHROM POS ID REF ALT QUAL FILTER INFO FORMAT GT&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="n">vcf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-        <span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">'#'</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+        <span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
     <span class="c1"># create a dictionary out of INFO</span>
-    <span class="n">vcf</span><span class="p">[</span><span class="s1">'INFO'</span><span class="p">]</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">'INFO'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">";"</span><span class="p">)</span> \
-        <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">dict</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"="</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]))</span>
+    <span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;INFO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;INFO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">dict</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]))</span>
     <span class="c1"># add a column defining the type of the variant</span>
-    <span class="n">rlen</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">'REF'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
-    <span class="n">alen</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">'ALT'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
-    <span class="n">vcf</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'sub'</span>
-    <span class="n">vcf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rlen</span> <span class="o">&gt;</span> <span class="n">alen</span><span class="p">,</span> <span class="s1">'type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'del'</span>
-    <span class="n">vcf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rlen</span> <span class="o">&lt;</span> <span class="n">alen</span><span class="p">,</span> <span class="s1">'type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'ins'</span>
+    <span class="n">rlen</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;REF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+    <span class="n">alen</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;ALT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+    <span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sub&#39;</span>
+    <span class="n">vcf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rlen</span> <span class="o">&gt;</span> <span class="n">alen</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;del&#39;</span>
+    <span class="n">vcf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rlen</span> <span class="o">&lt;</span> <span class="n">alen</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ins&#39;</span>
     <span class="c1"># add requested INFO subfields as columns</span>
     <span class="k">if</span> <span class="n">info_cols</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="n">info_cols</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">vcf</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">'INFO'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+                <span class="n">vcf</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;INFO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
                 <span class="n">vcf</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>
                 <span class="k">pass</span>
@@ -15515,20 +15564,20 @@ samples: [&#39;SAMPLE&#39;]
 <span class="kn">from</span> <span class="nn">aplanat</span> <span class="kn">import</span> <span class="n">bars</span>
 
 <span class="c1"># read the file using the function described above</span>
-<span class="n">vcf</span> <span class="o">=</span> <span class="n">parse_vcf</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">info_cols</span><span class="o">=</span><span class="p">{</span><span class="s1">'DP'</span><span class="p">:</span><span class="nb">int</span><span class="p">},</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">vcf</span> <span class="o">=</span> <span class="n">parse_vcf</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">info_cols</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;DP&#39;</span><span class="p">:</span><span class="nb">int</span><span class="p">},</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
 <span class="c1"># hack: the indexing here just makes things the same order</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[[</span><span class="s1">'ins'</span><span class="p">,</span> <span class="s1">'sub'</span><span class="p">,</span> <span class="s1">'del'</span><span class="p">]]</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[[</span><span class="s1">&#39;ins&#39;</span><span class="p">,</span> <span class="s1">&#39;sub&#39;</span><span class="p">,</span> <span class="s1">&#39;del&#39;</span><span class="p">]]</span>
 <span class="n">count_plot</span> <span class="o">=</span> <span class="n">bars</span><span class="o">.</span><span class="n">simple_bar</span><span class="p">(</span>
     <span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">counts</span><span class="p">,</span>
-    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">'Variant type'</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">'Count'</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">'Counts of variant types'</span><span class="p">)</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;Variant type&#39;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Counts of variant types&#39;</span><span class="p">)</span>
 <span class="n">qual_plot</span> <span class="o">=</span> <span class="n">bars</span><span class="o">.</span><span class="n">boxplot_series</span><span class="p">(</span>
-    <span class="n">vcf</span><span class="p">[</span><span class="s1">'type'</span><span class="p">],</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">'QUAL'</span><span class="p">],</span>
-    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">'Variant type'</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">'QUAL'</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">'Variant quality by type'</span><span class="p">,</span>
+    <span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">],</span> <span class="n">vcf</span><span class="p">[</span><span class="s1">&#39;QUAL&#39;</span><span class="p">],</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;Variant type&#39;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;QUAL&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Variant quality by type&#39;</span><span class="p">,</span>
     <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">([</span><span class="n">count_plot</span><span class="p">,</span> <span class="n">qual_plot</span><span class="p">],</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">([</span><span class="n">count_plot</span><span class="p">,</span> <span class="n">qual_plot</span><span class="p">],</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15550,9 +15599,9 @@ samples: [&#39;SAMPLE&#39;]
 
 
 
-<div id="ac36228e-42eb-481d-b23b-aa24f4c6d50a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="cd229fad-56f6-4ffa-b5be-06ea6241aae5" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('ac36228e-42eb-481d-b23b-aa24f4c6d50a');
+var element = document.getElementById('cd229fad-56f6-4ffa-b5be-06ea6241aae5');
 
 (function(root) {
   function now() {
@@ -15877,9 +15926,9 @@ var element = document.getElementById('ac36228e-42eb-481d-b23b-aa24f4c6d50a');
 
 
 
-<div id="91352c6d-5f7f-41c0-9020-a8c3656947aa" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="6be05359-d81b-4b4e-aac8-a4caa2f7f43a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('91352c6d-5f7f-41c0-9020-a8c3656947aa');
+var element = document.getElementById('6be05359-d81b-4b4e-aac8-a4caa2f7f43a');
 (function(root) {
   function embed_document(root) {
     
@@ -15946,8 +15995,8 @@ var element = document.getElementById('91352c6d-5f7f-41c0-9020-a8c3656947aa');
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>bcftools query <span class="err">\</span>
-    <span class="o">--</span><span class="nb">format</span> <span class="s1">'%CHROM</span><span class="se">\t</span><span class="s1">%POS</span><span class="se">\t</span><span class="s1">%REF</span><span class="se">\t</span><span class="si">%F</span><span class="s1">IRST_ALT</span><span class="se">\t</span><span class="s1">%QUAL</span><span class="se">\t</span><span class="s1">%TYPE</span><span class="se">\t</span><span class="s1">[</span><span class="si">%G</span><span class="s1">T]</span><span class="se">\n</span><span class="s1">'</span> \
-    <span class="o">-</span><span class="n">i</span> <span class="s1">'CHROM=="chr1" &amp;&amp; POS&gt;100000 &amp;&amp; POS &lt;120000 &amp;&amp; QUAL&gt;30 &amp;&amp; GT="1|0" &amp;&amp; TYPE!="snp"'</span> \
+    <span class="o">--</span><span class="nb">format</span> <span class="s1">&#39;%CHROM</span><span class="se">\t</span><span class="s1">%POS</span><span class="se">\t</span><span class="s1">%REF</span><span class="se">\t</span><span class="si">%F</span><span class="s1">IRST_ALT</span><span class="se">\t</span><span class="s1">%QUAL</span><span class="se">\t</span><span class="s1">%TYPE</span><span class="se">\t</span><span class="s1">[</span><span class="si">%G</span><span class="s1">T]</span><span class="se">\n</span><span class="s1">&#39;</span> \
+    <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;CHROM==&quot;chr1&quot; &amp;&amp; POS&gt;100000 &amp;&amp; POS &lt;120000 &amp;&amp; QUAL&gt;30 &amp;&amp; GT=&quot;1|0&quot; &amp;&amp; TYPE!=&quot;snp&quot;&#39;</span> \
     <span class="err">$</span><span class="n">input_file</span> <span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span> <span class="o">|</span> <span class="n">head</span>
 </pre></div>
 

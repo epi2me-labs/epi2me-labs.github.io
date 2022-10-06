@@ -14620,13 +14620,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
-<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">"medaka_walkthrough"</span>
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;medaka_walkthrough&quot;</span>
 <span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
 
 <span class="c1"># create a work directory and move into it</span>
-<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">'/epi2melabs/</span><span class="si">{}</span><span class="s1">/'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
-<span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$working_dir</span><span class="s2">"</span>
-<span class="o">%</span><span class="k">cd</span> "$working_dir"
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
+<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
 </pre></div>
 
      </div>
@@ -14809,13 +14809,13 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 <span class="kn">from</span> <span class="nn">medaka.common</span> <span class="kn">import</span> <span class="n">Region</span>
 
 <span class="n">t0</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
-<span class="n">region</span> <span class="o">=</span> <span class="n">Region</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">'tig00000061:0-1499707'</span><span class="p">)</span>
-<span class="n">bam_file</span> <span class="o">=</span> <span class="s1">'saureus.bam'</span>
+<span class="n">region</span> <span class="o">=</span> <span class="n">Region</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;tig00000061:0-1499707&#39;</span><span class="p">)</span>
+<span class="n">bam_file</span> <span class="o">=</span> <span class="s1">&#39;saureus.bam&#39;</span>
 <span class="n">pileup_data</span> <span class="o">=</span> <span class="n">pileup_counts</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">bam_file</span><span class="p">)</span>
 <span class="n">pileup_data</span> <span class="o">=</span> <span class="n">pileup_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># implementation detail that need not trouble us</span>
 <span class="n">counts</span><span class="p">,</span> <span class="n">positions</span> <span class="o">=</span> <span class="n">pileup_data</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.2f}</span><span class="s2">s to form pileup counts."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">s to form pileup counts.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14992,7 +14992,7 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 <span class="n">ffi</span><span class="p">,</span> <span class="n">lib</span> <span class="o">=</span> <span class="n">libmedaka</span><span class="o">.</span><span class="n">ffi</span><span class="p">,</span> <span class="n">libmedaka</span><span class="o">.</span><span class="n">lib</span>
 <span class="n">plp_bases</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">plp_bases</span>
 <span class="n">codes</span> <span class="o">=</span> <span class="n">ffi</span><span class="o">.</span><span class="n">string</span><span class="p">(</span><span class="n">plp_bases</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-<span class="n">display</span><span class="p">(</span><span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">codes</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">codes</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15057,10 +15057,10 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">minor_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="s1">'minor'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">major_pos_at_minor_inds</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[</span><span class="s1">'major'</span><span class="p">][</span><span class="n">minor_inds</span><span class="p">]</span>
+<span class="n">minor_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="s1">&#39;minor&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">major_pos_at_minor_inds</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">][</span><span class="n">minor_inds</span><span class="p">]</span>
 <span class="n">major_ind_at_minor_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span>
-    <span class="n">positions</span><span class="p">[</span><span class="s1">'major'</span><span class="p">],</span> <span class="n">major_pos_at_minor_inds</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
+    <span class="n">positions</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">],</span> <span class="n">major_pos_at_minor_inds</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
 
 <span class="n">depth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">depth</span><span class="p">[</span><span class="n">minor_inds</span><span class="p">]</span> <span class="o">=</span> <span class="n">depth</span><span class="p">[</span><span class="n">major_ind_at_minor_inds</span><span class="p">]</span>
@@ -15135,13 +15135,13 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 <span class="n">ppos</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[</span><span class="n">reg</span><span class="p">]</span>
 <span class="c1"># create a figure</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">"Base counts"</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Base counts&quot;</span><span class="p">,</span>
     <span class="n">plot_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">plot_width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
 
 <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">pdata</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">)</span>
 <span class="n">view</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">pdata</span><span class="o">.</span><span class="n">shape</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span><span class="p">,))</span>
 <span class="c1"># set row colours: A blue, C red, G, green, T yello</span>
-<span class="n">cols</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="s1">'C'</span><span class="p">:{</span><span class="mi">0</span><span class="p">},</span> <span class="s1">'G'</span><span class="p">:{</span><span class="mi">1</span><span class="p">},</span> <span class="s1">'T'</span><span class="p">:{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">}}</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="s1">&#39;C&#39;</span><span class="p">:{</span><span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;G&#39;</span><span class="p">:{</span><span class="mi">1</span><span class="p">},</span> <span class="s1">&#39;T&#39;</span><span class="p">:{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">}}</span>
 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cols</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">where</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="n">k</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">codes</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
@@ -15160,10 +15160,10 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 <span class="n">xlabels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">pdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">ticker</span> <span class="o">=</span> <span class="n">xlabels</span>
 <span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">major_label_overrides</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span>
-    <span class="n">xlabels</span><span class="p">,</span> <span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'major'</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">'minor'</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ppos</span><span class="p">)</span>
+    <span class="n">xlabels</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;minor&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ppos</span><span class="p">)</span>
 <span class="p">))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">major_label_orientation</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#F4F4F4"</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#F4F4F4&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15185,9 +15185,9 @@ pileup_counts(region, bam, dtype_prefixes=None, region_split=100000, workers=8, 
 
 
 
-<div id="69025905-f85b-4e7b-b491-fa6e40b24ac2" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="42df6a8a-9ae6-49ba-a81b-2f3ca8fbb9d2" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('69025905-f85b-4e7b-b491-fa6e40b24ac2');
+var element = document.getElementById('42df6a8a-9ae6-49ba-a81b-2f3ca8fbb9d2');
 
 (function(root) {
   function now() {
@@ -15512,9 +15512,9 @@ var element = document.getElementById('69025905-f85b-4e7b-b491-fa6e40b24ac2');
 
 
 
-<div id="280db1eb-d0da-4f6c-a544-f05479e7ef6f" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="c4fb9a43-bd4f-458a-a337-6c6405dcbf7c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('280db1eb-d0da-4f6c-a544-f05479e7ef6f');
+var element = document.getElementById('c4fb9a43-bd4f-458a-a337-6c6405dcbf7c');
 (function(root) {
   function embed_document(root) {
     
@@ -15585,7 +15585,7 @@ var element = document.getElementById('280db1eb-d0da-4f6c-a544-f05479e7ef6f');
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">resource_filename</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
@@ -15600,13 +15600,13 @@ var element = document.getElementById('280db1eb-d0da-4f6c-a544-f05479e7ef6f');
 <span class="n">num_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">symbols</span><span class="p">)</span>
 
 <span class="c1"># build the model</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'medaka'</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;medaka&#39;</span><span class="p">)</span>
 <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">feature_len</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-    <span class="n">gru</span> <span class="o">=</span> <span class="n">GRU</span><span class="p">(</span><span class="n">gru_size</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"gru_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">gru</span> <span class="o">=</span> <span class="n">GRU</span><span class="p">(</span><span class="n">gru_size</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gru_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Bidirectional</span><span class="p">(</span><span class="n">gru</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span>
-    <span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'classify'</span><span class="p">,</span>
+    <span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;classify&#39;</span><span class="p">,</span>
     <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">time_steps</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">gru_size</span><span class="p">)))</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
@@ -15689,7 +15689,7 @@ _________________________________________________________________
 
 <span class="c1"># load an actual medaka model</span>
 <span class="kn">from</span> <span class="nn">medaka</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">open_model</span><span class="p">(</span><span class="s2">"r941_min_high_g360"</span><span class="p">)</span><span class="o">.</span><span class="n">load_model</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">open_model</span><span class="p">(</span><span class="s2">&quot;r941_min_high_g360&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load_model</span><span class="p">()</span>
 
 <span class="c1"># create a function to perform windowing on an array</span>
 <span class="n">overlap</span> <span class="o">=</span> <span class="mi">200</span>
@@ -15712,13 +15712,13 @@ _________________________________________________________________
     <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[</span><span class="n">overlap</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="n">overlap</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
     <span class="c1"># find the most likely base at each position and form the sequence</span>
     <span class="n">mp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">seq</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">symbols</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mp</span><span class="p">))</span>
-    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'*'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">symbols</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mp</span><span class="p">))</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="n">seq_chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
-<span class="n">sequence</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seq_chunks</span><span class="p">)</span>
+<span class="n">sequence</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seq_chunks</span><span class="p">)</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.2f}</span><span class="s2"> to run predictions"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Total sequence length: </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2"> to run predictions&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total sequence length: </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)))</span>
 </pre></div>
 
      </div>
@@ -15780,13 +15780,13 @@ Total sequence length: 1500539.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="s2">"output.fasta"</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
-    <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"&gt;seq</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sequence</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"saureus_canu.fasta"</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Analysing: </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
-    <span class="o">!</span>assess_assembly -r references.fasta -i <span class="s2">"</span><span class="nv">$fname</span><span class="s2">"</span> <span class="m">2</span>&gt;/dev/null
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;output.fasta&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+    <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&gt;seq</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sequence</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;saureus_canu.fasta&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Analysing: </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+    <span class="o">!</span>assess_assembly -r references.fasta -i <span class="s2">&quot;</span><span class="nv">$fname</span><span class="s2">&quot;</span> <span class="m">2</span>&gt;/dev/null
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>

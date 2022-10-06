@@ -14653,14 +14653,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
-<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">"bam_tutorial"</span>
+<span class="n">tutorial_name</span> <span class="o">=</span> <span class="s2">&quot;bam_tutorial&quot;</span>
 <span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
-<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'start'</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="n">tutorial_name</span><span class="p">)</span>
 
 <span class="c1"># create a work directory and move into it</span>
-<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">'/epi2melabs/</span><span class="si">{}</span><span class="s1">/'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
-<span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$working_dir</span><span class="s2">"</span>
-<span class="o">%</span><span class="k">cd</span> "$working_dir"
+<span class="n">working_dir</span> <span class="o">=</span> <span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tutorial_name</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
+<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
 </pre></div>
 
      </div>
@@ -14710,17 +14710,17 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">"ont-exd-int-s3-euwst1-epi2me-labs"</span>
-<span class="n">domain</span> <span class="o">=</span> <span class="s2">"s3-eu-west-1.amazonaws.com"</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">"https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
 
 <span class="c1"># E. coli sample dataset</span>
 <span class="o">!</span>wget -O 100X_ecoli_zymo_r103.fastq.gz <span class="err">\</span>
-    <span class="s2">"$site/$tutorial_name/100X_ecoli_zymo_r103.fastq.gz"</span>
+    <span class="s2">&quot;$site/$tutorial_name/100X_ecoli_zymo_r103.fastq.gz&quot;</span>
 
 <span class="c1"># Reference sequence</span>
 <span class="o">!</span>wget -O ecoli_k12.fasta <span class="err">\</span>
-    <span class="s2">"$site/$tutorial_name/ecoli_k12.fasta"</span>
+    <span class="s2">&quot;$site/$tutorial_name/ecoli_k12.fasta&quot;</span>
 </pre></div>
 
      </div>
@@ -14816,19 +14816,72 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </blockquote>
 <p>Various command-line tools and software libraries make use of the header section by writing all sorts of meta-data for later use, either by a human manually inspecting the header, or by another tool looking for certain key bits of information. However, it is important to remember that the header and the information it contains is optional.</p>
 <h4 id="Alignment-section">Alignment section<a class="anchor-link" href="#Alignment-section">&#182;</a></h4><p>The alignment section is where the bulk of the information in the file is stored. A SAM record is a description of an alignment (or an unmapped read, if it was unaligned). There is one record per line, and each record consists of a number of tab-separated columns. There are 11 required columns. Here's an overview of those, with informal descriptions for each:</p>
-<p>|     | Column | Descripton |
-| :-: | :- | :- |
-| 1   | QNAME | Query name, i.e. the name of the read which was mapped (copied from the read's FASTQ record header) |
-| 2   | FLAG | An integer which is a short hand way of describing the type of alignment this is. See below for an explanation of FLAGS. |
-| 3   | RNAME | Name of the reference to which the read was mapped, e.g. chr1 |
-| 4   | POS | 1-based leftmost mapping position with respect to reference, e.g. a POS of 100 would indicate the read mapping starts at the 100th position of RNAME |
-| 5   | MAPQ | An integer which should be a reflection of the quality of the mapping, but for which the scale and meaning may differ by aligner |
-| 6   | CIGAR | A string of letters and numbers describing the matches and mismatches of the alignment from left to right.   |
-| 7   | RNEXT | Ignore for now. Becomes relevant when working with pair-end data. |
-| 8   | PNEXT | &quot;&quot; |
-| 9   | TLEN | &quot;&quot; |
-| 10  | SEQ | The sequence of bases constituting the underlying read |
-| 11  | QUAL | The sequence of ASCII characters encoding the <a href="https://en.wikipedia.org/wiki/Phred_quality_score">PHRED quality scores</a> for each base of the underlying read |</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center"></th>
+  <th style="text-align:left">Column</th>
+  <th style="text-align:left">Descripton</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">1</td>
+  <td style="text-align:left">QNAME</td>
+  <td style="text-align:left">Query name, i.e. the name of the read which was mapped (copied from the read's FASTQ record header)</td>
+</tr>
+<tr>
+  <td style="text-align:center">2</td>
+  <td style="text-align:left">FLAG</td>
+  <td style="text-align:left">An integer which is a short hand way of describing the type of alignment this is. See below for an explanation of FLAGS.</td>
+</tr>
+<tr>
+  <td style="text-align:center">3</td>
+  <td style="text-align:left">RNAME</td>
+  <td style="text-align:left">Name of the reference to which the read was mapped, e.g. chr1</td>
+</tr>
+<tr>
+  <td style="text-align:center">4</td>
+  <td style="text-align:left">POS</td>
+  <td style="text-align:left">1-based leftmost mapping position with respect to reference, e.g. a POS of 100 would indicate the read mapping starts at the 100th position of RNAME</td>
+</tr>
+<tr>
+  <td style="text-align:center">5</td>
+  <td style="text-align:left">MAPQ</td>
+  <td style="text-align:left">An integer which should be a reflection of the quality of the mapping, but for which the scale and meaning may differ by aligner</td>
+</tr>
+<tr>
+  <td style="text-align:center">6</td>
+  <td style="text-align:left">CIGAR</td>
+  <td style="text-align:left">A string of letters and numbers describing the matches and mismatches of the alignment from left to right.</td>
+</tr>
+<tr>
+  <td style="text-align:center">7</td>
+  <td style="text-align:left">RNEXT</td>
+  <td style="text-align:left">Ignore for now. Becomes relevant when working with pair-end data.</td>
+</tr>
+<tr>
+  <td style="text-align:center">8</td>
+  <td style="text-align:left">PNEXT</td>
+  <td style="text-align:left">&quot;&quot;</td>
+</tr>
+<tr>
+  <td style="text-align:center">9</td>
+  <td style="text-align:left">TLEN</td>
+  <td style="text-align:left">&quot;&quot;</td>
+</tr>
+<tr>
+  <td style="text-align:center">10</td>
+  <td style="text-align:left">SEQ</td>
+  <td style="text-align:left">The sequence of bases constituting the underlying read</td>
+</tr>
+<tr>
+  <td style="text-align:center">11</td>
+  <td style="text-align:left">QUAL</td>
+  <td style="text-align:left">The sequence of ASCII characters encoding the <a href="https://en.wikipedia.org/wiki/Phred_quality_score">PHRED quality scores</a> for each base of the underlying read</td>
+</tr>
+</tbody>
+</table>
 <p>The formal descriptions for these columns (and everything) can always be found in the SAM specification.</p>
 <p>It should be noted that there is also an optional section, placed after the 11 above, which not unlike the header is used flexibly and optionally by tools to store pieces of additional information in the shape of TAGs.</p>
 <p>Each tag takes the form <code>TAG:TYPE:VALUE</code> format where <code>TAG</code> is a two-character string, <code>TYPE</code> is a symbol denoting the type which the value may be (e.g. an integer, or a word), and <code>VALUE</code> is the <code>VALUE</code> of the <code>TAG</code> for this alignment. This area is often used by tools to store some additional meta data per alignment, e.g. the edit distance between the read and the reference:</p>
@@ -14864,20 +14917,77 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </ul>
 <p>⚠️  *<strong>Note</strong>*: Not all aligners operate in the same way. The above information is based on Minimap2's behaviour. Some aligners, for instance, may not always write out unaligned records. If you choose to use a different aligner for any reason, it is always important to read the documentation first.</p>
 <p>As mentioned above flags are a short-hand way of denoting the type of alignment recorded in each record. They can be referenced as integers or in hexadecimal form.</p>
-<p>| Integer | Bit | Description |
-| :---  | :-- | :-- |
-| 1 | 0x1 | template having multiple segments in sequencing |
-| 2 | 0x2 | each segment properly aligned according to the aligner |
-| 4 | 0x4 | segment unmapped |
-| 8 | 0x8 | next segment in the template unmapped |
-| 16 | 0x10 | SEQ being reverse complemented |
-| 32 | 0x20 | SEQ of the next segment in the template being reverse complemented |
-| 64 | 0x40 | the first segment in the template |
-| 128 | 0x80 | the last segment in the template |
-| 256 | 0x100 | secondary alignment |
-| 512 | 0x200 | not passing filters, such as platform/vendor quality controls |
-| 1024 | 0x400 | PCR or optical duplicate |
-| 2048 | 0x800 | supplementary alignment |</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Integer</th>
+  <th style="text-align:left">Bit</th>
+  <th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left">1</td>
+  <td style="text-align:left">0x1</td>
+  <td style="text-align:left">template having multiple segments in sequencing</td>
+</tr>
+<tr>
+  <td style="text-align:left">2</td>
+  <td style="text-align:left">0x2</td>
+  <td style="text-align:left">each segment properly aligned according to the aligner</td>
+</tr>
+<tr>
+  <td style="text-align:left">4</td>
+  <td style="text-align:left">0x4</td>
+  <td style="text-align:left">segment unmapped</td>
+</tr>
+<tr>
+  <td style="text-align:left">8</td>
+  <td style="text-align:left">0x8</td>
+  <td style="text-align:left">next segment in the template unmapped</td>
+</tr>
+<tr>
+  <td style="text-align:left">16</td>
+  <td style="text-align:left">0x10</td>
+  <td style="text-align:left">SEQ being reverse complemented</td>
+</tr>
+<tr>
+  <td style="text-align:left">32</td>
+  <td style="text-align:left">0x20</td>
+  <td style="text-align:left">SEQ of the next segment in the template being reverse complemented</td>
+</tr>
+<tr>
+  <td style="text-align:left">64</td>
+  <td style="text-align:left">0x40</td>
+  <td style="text-align:left">the first segment in the template</td>
+</tr>
+<tr>
+  <td style="text-align:left">128</td>
+  <td style="text-align:left">0x80</td>
+  <td style="text-align:left">the last segment in the template</td>
+</tr>
+<tr>
+  <td style="text-align:left">256</td>
+  <td style="text-align:left">0x100</td>
+  <td style="text-align:left">secondary alignment</td>
+</tr>
+<tr>
+  <td style="text-align:left">512</td>
+  <td style="text-align:left">0x200</td>
+  <td style="text-align:left">not passing filters, such as platform/vendor quality controls</td>
+</tr>
+<tr>
+  <td style="text-align:left">1024</td>
+  <td style="text-align:left">0x400</td>
+  <td style="text-align:left">PCR or optical duplicate</td>
+</tr>
+<tr>
+  <td style="text-align:left">2048</td>
+  <td style="text-align:left">0x800</td>
+  <td style="text-align:left">supplementary alignment</td>
+</tr>
+</tbody>
+</table>
 <p>For instance, here you can see that <code>4</code> or <code>0x4</code> refers to unmapped reads, whereas <code>256</code> or <code>0x100</code> refers to secondary alignments. Later we'll provide examples of how flags can be combined and provided as an argument to samtools, which permits us to view only matching alignments. For now, here's the rule to remember:</p>
 <ul>
 <li>*<strong>flags can be combined by simple addition</strong>*.</li>
@@ -14908,17 +15018,72 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </blockquote>
 <p>In our example <code>25M</code> is followd by <code>2D</code>. What does this mean? When an aligner makes an alignment, there might be errors or variation in the read, meaning that the alignment to the target may be imperfect. For instance if some bases appear to be missing in the read, the aligner may mark that a deletion has occured, thereby adding <code>2D</code> into the CIGAR string.</p>
 <p>The set of possible operations are listed within SAM specification, as follows:</p>
-<p>| Operation | Description | Consumes query | Consumes reference |
-| :-        | :-          | :-             | :-                 |
-| M  | alignment match (can be a sequence match or mismatch) | yes | yes |
-| I  | insertion to the reference | yes | no |
-| D  | deletion from the reference | no | yes |
-| N  | skipped region from the reference | no | yes |
-| S  | soft clipping (clipped sequences present in SEQ) | yes | no |
-| H  | hard clipping (clipped sequences NOT present in SEQ) | no | no |
-| P  | padding (silent deletion from padded reference) | no | no |
-| =  | sequence match | yes | yes |
-| X  | sequence mismatch | yes | yes |</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Operation</th>
+  <th style="text-align:left">Description</th>
+  <th style="text-align:left">Consumes query</th>
+  <th style="text-align:left">Consumes reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left">M</td>
+  <td style="text-align:left">alignment match (can be a sequence match or mismatch)</td>
+  <td style="text-align:left">yes</td>
+  <td style="text-align:left">yes</td>
+</tr>
+<tr>
+  <td style="text-align:left">I</td>
+  <td style="text-align:left">insertion to the reference</td>
+  <td style="text-align:left">yes</td>
+  <td style="text-align:left">no</td>
+</tr>
+<tr>
+  <td style="text-align:left">D</td>
+  <td style="text-align:left">deletion from the reference</td>
+  <td style="text-align:left">no</td>
+  <td style="text-align:left">yes</td>
+</tr>
+<tr>
+  <td style="text-align:left">N</td>
+  <td style="text-align:left">skipped region from the reference</td>
+  <td style="text-align:left">no</td>
+  <td style="text-align:left">yes</td>
+</tr>
+<tr>
+  <td style="text-align:left">S</td>
+  <td style="text-align:left">soft clipping (clipped sequences present in SEQ)</td>
+  <td style="text-align:left">yes</td>
+  <td style="text-align:left">no</td>
+</tr>
+<tr>
+  <td style="text-align:left">H</td>
+  <td style="text-align:left">hard clipping (clipped sequences NOT present in SEQ)</td>
+  <td style="text-align:left">no</td>
+  <td style="text-align:left">no</td>
+</tr>
+<tr>
+  <td style="text-align:left">P</td>
+  <td style="text-align:left">padding (silent deletion from padded reference)</td>
+  <td style="text-align:left">no</td>
+  <td style="text-align:left">no</td>
+</tr>
+<tr>
+  <td style="text-align:left">=</td>
+  <td style="text-align:left">sequence match</td>
+  <td style="text-align:left">yes</td>
+  <td style="text-align:left">yes</td>
+</tr>
+<tr>
+  <td style="text-align:left">X</td>
+  <td style="text-align:left">sequence mismatch</td>
+  <td style="text-align:left">yes</td>
+  <td style="text-align:left">yes</td>
+</tr>
+</tbody>
+</table>
 <p>The clipping operations <code>S</code> and <code>H</code> warrant further explanation:</p>
 <ul>
 <li><p>*<strong>Soft clipping</strong>* is more common, and refers to the instances in which alignments do not start at the end of the read, but somewhere within it. Hence, the portions of the read flanking the alignment are marked as 'soft clipped' within the CIGAR string, which lets other software know not to use it, e.g. for variant calling.</p>
@@ -14975,8 +15140,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reference</span> <span class="o">=</span> <span class="s1">'ecoli_k12.fasta'</span> 
-<span class="n">query</span> <span class="o">=</span> <span class="s1">'100X_ecoli_zymo_r103.fastq.gz'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reference</span> <span class="o">=</span> <span class="s1">&#39;ecoli_k12.fasta&#39;</span> 
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;100X_ecoli_zymo_r103.fastq.gz&#39;</span>
 
 <span class="o">!</span>minimap2 -ax map-ont <span class="nv">$reference</span> <span class="nv">$query</span> &gt; alignment.sam
 </pre></div>
@@ -15442,7 +15607,7 @@ adbc3e89-f487-40f7-b99b-adbc3cb66a9f	2048	U00096.3	1	60	17273H22M1I4M1I20M1D49M1
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>samtools view sorted.alignment.bam <span class="s2">"U00096.3:50000-150000"</span> &gt; region_extracted.sam
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>samtools view sorted.alignment.bam <span class="s2">&quot;U00096.3:50000-150000&quot;</span> &gt; region_extracted.sam
 <span class="o">!</span>tail -n <span class="m">1</span> region_extracted.sam
 </pre></div>
 
@@ -15593,10 +15758,10 @@ adbc3e89-f487-40f7-b99b-adbc3cb66a9f	2048	U00096.3	1	60	17273H22M1I4M1I20M1D49M1
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">read_lengths</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">with</span> <span class="n">pysam</span><span class="o">.</span><span class="n">AlignmentFile</span><span class="p">(</span><span class="s2">"sorted.alignment.bam"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">bam</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">read</span> <span class="ow">in</span> <span class="n">bam</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">'U00096.3'</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">pysam</span><span class="o">.</span><span class="n">AlignmentFile</span><span class="p">(</span><span class="s2">&quot;sorted.alignment.bam&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">bam</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">read</span> <span class="ow">in</span> <span class="n">bam</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s1">&#39;U00096.3&#39;</span><span class="p">):</span>
         <span class="n">read_lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">read</span><span class="o">.</span><span class="n">query_length</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Mean read length: </span><span class="si">{:.0f}</span><span class="s2"> bases."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">read_lengths</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean read length: </span><span class="si">{:.0f}</span><span class="s2"> bases.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">read_lengths</span><span class="p">)))</span>
 </pre></div>
 
      </div>
@@ -15654,15 +15819,15 @@ adbc3e89-f487-40f7-b99b-adbc3cb66a9f	2048	U00096.3	1	60	17273H22M1I4M1I20M1D49M1
 <span class="kn">import</span> <span class="nn">aplanat</span>
 <span class="kn">from</span> <span class="nn">aplanat.hist</span> <span class="kn">import</span> <span class="n">histogram</span>
 <span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="kn">import</span> <span class="n">gridplot</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"sorted.alignment.bam.stats"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;sorted.alignment.bam.stats&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">p1</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'read_length'</span><span class="p">]],</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Read lengths"</span><span class="p">,</span>
-    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">"read length / bases"</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">"count"</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;read_length&#39;</span><span class="p">]],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Read lengths&quot;</span><span class="p">,</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;read length / bases&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
 <span class="n">p1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">formatter</span><span class="o">.</span><span class="n">use_scientific</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'acc'</span><span class="p">]],</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Read accuracy"</span><span class="p">,</span>
-    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">"</span><span class="si">% a</span><span class="s2">ccuracy"</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">"count"</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Read accuracy&quot;</span><span class="p">,</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% a</span><span class="s2">ccuracy&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
 <span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">((</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 
@@ -15695,9 +15860,9 @@ adbc3e89-f487-40f7-b99b-adbc3cb66a9f	2048	U00096.3	1	60	17273H22M1I4M1I20M1D49M1
 
 
 
-<div id="679c38a0-d057-422d-b427-57032f44049b" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="7cee4e09-02ec-4a60-a3a6-0387d396828a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('679c38a0-d057-422d-b427-57032f44049b');
+var element = document.getElementById('7cee4e09-02ec-4a60-a3a6-0387d396828a');
 
 (function(root) {
   function now() {
@@ -16022,9 +16187,9 @@ var element = document.getElementById('679c38a0-d057-422d-b427-57032f44049b');
 
 
 
-<div id="6d6f5560-ce85-4219-9751-c7243d4d127f" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="7b068396-4001-4301-99c5-990d50ae11b7" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('6d6f5560-ce85-4219-9751-c7243d4d127f');
+var element = document.getElementById('7b068396-4001-4301-99c5-990d50ae11b7');
 (function(root) {
   function embed_document(root) {
     
@@ -16218,33 +16383,33 @@ total_region	4641652	100323185	21.61	0	105
 
 
 <span class="n">cumulative_depth</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="s1">'ecoli_cov.mosdepth.region.dist.txt'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'ref'</span><span class="p">,</span> <span class="s1">'depth'</span><span class="p">,</span> <span class="s1">'proportion'</span><span class="p">])</span>
+    <span class="s1">&#39;ecoli_cov.mosdepth.region.dist.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">,</span> <span class="s1">&#39;depth&#39;</span><span class="p">,</span> <span class="s1">&#39;proportion&#39;</span><span class="p">])</span>
 
 <span class="n">binned_depth</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="s1">'ecoli_cov.regions.bed.gz'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'ref'</span><span class="p">,</span> <span class="s1">'start'</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">,</span> <span class="s1">'depth'</span><span class="p">])</span>
+    <span class="s1">&#39;ecoli_cov.regions.bed.gz&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;depth&#39;</span><span class="p">])</span>
 
 <span class="k">def</span> <span class="nf">make_coverage_plot</span><span class="p">(</span><span class="n">cumulative_depth</span><span class="p">,</span> <span class="n">binned_depth</span><span class="p">):</span>
     <span class="c1"># Plot the proportion of the genome at coverage levels</span>
     <span class="n">p1</span> <span class="o">=</span> <span class="n">steps</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">cumulative_depth</span><span class="p">[</span><span class="s1">'depth'</span><span class="p">]],</span>
-        <span class="p">[</span><span class="n">cumulative_depth</span><span class="p">[</span><span class="s1">'proportion'</span><span class="p">]],</span>
-        <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'darkolivegreen'</span><span class="p">],</span>
-        <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">'Depth of coverage'</span><span class="p">,</span>
-        <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">'Proportion of genome at coverage'</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">cumulative_depth</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">cumulative_depth</span><span class="p">[</span><span class="s1">&#39;proportion&#39;</span><span class="p">]],</span>
+        <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;darkolivegreen&#39;</span><span class="p">],</span>
+        <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;Depth of coverage&#39;</span><span class="p">,</span>
+        <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;Proportion of genome at coverage&#39;</span><span class="p">)</span>
     
     <span class="c1"># Plot the binned coverage levels across the genome</span>
     <span class="n">p2</span> <span class="o">=</span> <span class="n">steps</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">binned_depth</span><span class="p">[</span><span class="s1">'start'</span><span class="p">]],</span>
-        <span class="p">[</span><span class="n">binned_depth</span><span class="p">[</span><span class="s1">'depth'</span><span class="p">]],</span>
-        <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'darkolivegreen'</span><span class="p">],</span>
-        <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">'Position along reference'</span><span class="p">,</span>
-        <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">'sequencing depth / bases'</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">binned_depth</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]],</span>
+        <span class="p">[</span><span class="n">binned_depth</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]],</span>
+        <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;darkolivegreen&#39;</span><span class="p">],</span>
+        <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;Position along reference&#39;</span><span class="p">,</span>
+        <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;sequencing depth / bases&#39;</span><span class="p">)</span>
     <span class="n">p2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">formatter</span><span class="o">.</span><span class="n">use_scientific</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">return</span> <span class="n">gridplot</span><span class="p">((</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">make_coverage_plot</span><span class="p">(</span><span class="n">cumulative_depth</span><span class="p">,</span> <span class="n">binned_depth</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">make_coverage_plot</span><span class="p">(</span><span class="n">cumulative_depth</span><span class="p">,</span> <span class="n">binned_depth</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16266,9 +16431,9 @@ total_region	4641652	100323185	21.61	0	105
 
 
 
-<div id="fb1ae588-f434-462c-9590-4d71e729b2e9" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="fefb660b-54c8-4744-814b-17224d32216d" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('fb1ae588-f434-462c-9590-4d71e729b2e9');
+var element = document.getElementById('fefb660b-54c8-4744-814b-17224d32216d');
 
 (function(root) {
   function now() {
@@ -16593,9 +16758,9 @@ var element = document.getElementById('fb1ae588-f434-462c-9590-4d71e729b2e9');
 
 
 
-<div id="d907ca6a-6d4f-4c88-9a9c-a0704e5a9bb9" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="0b0a3387-57fb-45ac-a8c0-5177f2e92e66" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('d907ca6a-6d4f-4c88-9a9c-a0704e5a9bb9');
+var element = document.getElementById('0b0a3387-57fb-45ac-a8c0-5177f2e92e66');
 (function(root) {
   function embed_document(root) {
     
@@ -16658,14 +16823,14 @@ var element = document.getElementById('d907ca6a-6d4f-4c88-9a9c-a0704e5a9bb9');
 <span class="o">!</span>mosdepth -n --fast-mode --by <span class="m">500</span> ecoli_cov_pomoxis pomoxis_sampled_25X_U00096.3.sorted.alignment.bam
 
 <span class="n">cumulative_depth</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="s1">'ecoli_cov_pomoxis.mosdepth.region.dist.txt'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'ref'</span><span class="p">,</span> <span class="s1">'depth'</span><span class="p">,</span> <span class="s1">'proportion'</span><span class="p">])</span>
+    <span class="s1">&#39;ecoli_cov_pomoxis.mosdepth.region.dist.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">,</span> <span class="s1">&#39;depth&#39;</span><span class="p">,</span> <span class="s1">&#39;proportion&#39;</span><span class="p">])</span>
 
 <span class="n">binned_depth</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="s1">'ecoli_cov_pomoxis.regions.bed.gz'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span>
-    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'ref'</span><span class="p">,</span> <span class="s1">'start'</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">,</span> <span class="s1">'depth'</span><span class="p">])</span>
+    <span class="s1">&#39;ecoli_cov_pomoxis.regions.bed.gz&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">,</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="s1">&#39;depth&#39;</span><span class="p">])</span>
 
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">make_coverage_plot</span><span class="p">(</span><span class="n">cumulative_depth</span><span class="p">,</span> <span class="n">binned_depth</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">make_coverage_plot</span><span class="p">(</span><span class="n">cumulative_depth</span><span class="p">,</span> <span class="n">binned_depth</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16687,9 +16852,9 @@ var element = document.getElementById('d907ca6a-6d4f-4c88-9a9c-a0704e5a9bb9');
 
 
 
-<div id="36e6ad50-1fab-45a5-9622-432dd4c40ba0" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="5f4773e9-90b8-45fa-b9a4-b3c89a6e6997" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('36e6ad50-1fab-45a5-9622-432dd4c40ba0');
+var element = document.getElementById('5f4773e9-90b8-45fa-b9a4-b3c89a6e6997');
 
 (function(root) {
   function now() {
@@ -17014,9 +17179,9 @@ var element = document.getElementById('36e6ad50-1fab-45a5-9622-432dd4c40ba0');
 
 
 
-<div id="fec54383-acd8-47d8-912e-d6c3328e2977" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b7f5ddc4-c98e-4366-9bbd-f11ae4aebebe" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('fec54383-acd8-47d8-912e-d6c3328e2977');
+var element = document.getElementById('b7f5ddc4-c98e-4366-9bbd-f11ae4aebebe');
 (function(root) {
   function embed_document(root) {
     

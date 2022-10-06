@@ -14635,21 +14635,21 @@ ATCG
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a work directory and move into it</span>
-<span class="n">directory</span> <span class="o">=</span> <span class="s2">"fastq_tutorial"</span>
-<span class="n">working_dir</span><span class="o">=</span><span class="s1">'/epi2melabs/</span><span class="si">{}</span><span class="s1">/'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-<span class="o">!</span>mkdir -p <span class="s2">"</span><span class="nv">$working_dir</span><span class="s2">"</span>
-<span class="o">%</span><span class="k">cd</span> "$working_dir"
+<span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;fastq_tutorial&quot;</span>
+<span class="n">working_dir</span><span class="o">=</span><span class="s1">&#39;/epi2melabs/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+<span class="o">!</span>mkdir -p <span class="s2">&quot;</span><span class="nv">$working_dir</span><span class="s2">&quot;</span>
+<span class="o">%</span><span class="k">cd</span> &quot;$working_dir&quot;
 
 <span class="kn">from</span> <span class="nn">epi2melabs</span> <span class="kn">import</span> <span class="n">ping</span>
 <span class="n">pinger</span> <span class="o">=</span> <span class="n">ping</span><span class="o">.</span><span class="n">Pingu</span><span class="p">()</span>
-<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'stop'</span><span class="p">,</span> <span class="s1">'fastq_introduction'</span><span class="p">)</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;stop&#39;</span><span class="p">,</span> <span class="s1">&#39;fastq_introduction&#39;</span><span class="p">)</span>
 
 <span class="c1"># Download sample data</span>
-<span class="n">bucket</span> <span class="o">=</span> <span class="s2">"ont-exd-int-s3-euwst1-epi2me-labs"</span>
-<span class="n">domain</span> <span class="o">=</span> <span class="s2">"s3-eu-west-1.amazonaws.com"</span>
-<span class="n">site</span> <span class="o">=</span> <span class="s2">"https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+<span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;ont-exd-int-s3-euwst1-epi2me-labs&quot;</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;s3-eu-west-1.amazonaws.com&quot;</span>
+<span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">domain</span><span class="p">)</span>
 
-<span class="o">!</span>wget <span class="s2">"</span><span class="nv">$site</span><span class="s2">/fast_introduction/archive.tar.gz"</span>
+<span class="o">!</span>wget <span class="s2">&quot;</span><span class="nv">$site</span><span class="s2">/fast_introduction/archive.tar.gz&quot;</span>
 <span class="o">!</span>tar -xzvf archive.tar.gz
 <span class="o">%</span><span class="k">cd</span> test0
 </pre></div>
@@ -14691,7 +14691,7 @@ ATCG
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">"example3.fastq"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;example3.fastq&quot;</span>
 <span class="o">!</span><span class="nb">echo</span> <span class="k">$((</span> <span class="k">$(</span>wc -l &lt; <span class="nv">$filename</span><span class="k">)</span> <span class="o">/</span> <span class="m">4</span> <span class="k">))</span> reads
 </pre></div>
 
@@ -14720,9 +14720,9 @@ ATCG
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">"."</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
 
-<span class="o">!</span>find <span class="nv">$directory</span> -name <span class="s2">"*.fastq"</span>
+<span class="o">!</span>find <span class="nv">$directory</span> -name <span class="s2">&quot;*.fastq&quot;</span>
 </pre></div>
 
      </div>
@@ -14762,10 +14762,10 @@ ATCG
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">"."</span>
-<span class="n">output_fastq</span> <span class="o">=</span> <span class="s2">"all_records.fastq"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+<span class="n">output_fastq</span> <span class="o">=</span> <span class="s2">&quot;all_records.fastq&quot;</span>
 
-<span class="o">!</span>find . -type f <span class="se">\(</span> -iname <span class="s2">"*.fastq"</span> ! -iname <span class="nv">$output_fastq</span> <span class="se">\)</span> <span class="p">|</span> <span class="err">\</span>
+<span class="o">!</span>find . -type f <span class="se">\(</span> -iname <span class="s2">&quot;*.fastq&quot;</span> ! -iname <span class="nv">$output_fastq</span> <span class="se">\)</span> <span class="p">|</span> <span class="err">\</span>
     <span class="n">xargs</span> <span class="n">cat</span> <span class="o">&gt;</span> <span class="err">$</span><span class="n">output_fastq</span>
 <span class="o">!</span><span class="nb">echo</span> <span class="k">$((</span> <span class="k">$(</span>wc -l &lt; <span class="nv">$output_fastq</span><span class="k">)</span> <span class="o">/</span> <span class="m">4</span> <span class="k">))</span> reads
 </pre></div>
@@ -14812,10 +14812,10 @@ ATCG
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_fastq</span> <span class="o">=</span> <span class="s2">"all_records.fastq"</span>
-<span class="n">output_fastq</span> <span class="o">=</span> <span class="s2">"deduplicated.fastq"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_fastq</span> <span class="o">=</span> <span class="s2">&quot;all_records.fastq&quot;</span>
+<span class="n">output_fastq</span> <span class="o">=</span> <span class="s2">&quot;deduplicated.fastq&quot;</span>
 
-<span class="o">!</span>seqkit rmdup <span class="s2">"</span><span class="nv">$input_fastq</span><span class="s2">"</span> -o <span class="s2">"</span><span class="nv">$output_fastq</span><span class="s2">"</span>
+<span class="o">!</span>seqkit rmdup <span class="s2">&quot;</span><span class="nv">$input_fastq</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$output_fastq</span><span class="s2">&quot;</span>
 </pre></div>
 
      </div>
@@ -14855,12 +14855,12 @@ ATCG
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_fastq</span> <span class="o">=</span> <span class="s2">"example3.fastq"</span>
-<span class="n">compressed_fastq</span> <span class="o">=</span> <span class="s2">"example3.fastq.gz"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_fastq</span> <span class="o">=</span> <span class="s2">&quot;example3.fastq&quot;</span>
+<span class="n">compressed_fastq</span> <span class="o">=</span> <span class="s2">&quot;example3.fastq.gz&quot;</span>
 
-<span class="o">!</span>ls -lh <span class="s2">"</span><span class="nv">$input_fastq</span><span class="s2">"</span>
-<span class="o">!</span>bgzip <span class="s2">"</span><span class="nv">$input_fastq</span><span class="s2">"</span>
-<span class="o">!</span>ls -lh <span class="s2">"</span><span class="nv">$compressed_fastq</span><span class="s2">"</span>
+<span class="o">!</span>ls -lh <span class="s2">&quot;</span><span class="nv">$input_fastq</span><span class="s2">&quot;</span>
+<span class="o">!</span>bgzip <span class="s2">&quot;</span><span class="nv">$input_fastq</span><span class="s2">&quot;</span>
+<span class="o">!</span>ls -lh <span class="s2">&quot;</span><span class="nv">$compressed_fastq</span><span class="s2">&quot;</span>
 </pre></div>
 
      </div>
@@ -14888,9 +14888,9 @@ ATCG
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compressed_fastq</span> <span class="o">=</span> <span class="s2">"example3.fastq.gz"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compressed_fastq</span> <span class="o">=</span> <span class="s2">&quot;example3.fastq.gz&quot;</span>
 
-<span class="o">!</span>bgzip -d <span class="s2">"</span><span class="nv">$compressed_fastq</span><span class="s2">"</span>
+<span class="o">!</span>bgzip -d <span class="s2">&quot;</span><span class="nv">$compressed_fastq</span><span class="s2">&quot;</span>
 </pre></div>
 
      </div>
@@ -14918,11 +14918,11 @@ ATCG
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">"pass"</span>
-<span class="n">archive</span> <span class="o">=</span> <span class="s2">"archive.tar.gz"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;pass&quot;</span>
+<span class="n">archive</span> <span class="o">=</span> <span class="s2">&quot;archive.tar.gz&quot;</span>
 
 <span class="c1"># the options here mean: create, gzip compress, verbose, output file</span>
-<span class="o">!</span>tar -czvf <span class="s2">"</span><span class="nv">$archive</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$directory</span><span class="s2">"</span>
+<span class="o">!</span>tar -czvf <span class="s2">&quot;</span><span class="nv">$archive</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$directory</span><span class="s2">&quot;</span>
 </pre></div>
 
      </div>
@@ -14951,7 +14951,7 @@ ATCG
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive</span> <span class="o">=</span> <span class="s2">"archive.tar.gz"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">archive</span> <span class="o">=</span> <span class="s2">&quot;archive.tar.gz&quot;</span>
 
 <span class="c1"># A temporary folder (tmp) is created here simply to avoid confusion with the</span>
 <span class="c1"># original directory compressed in the previous example. This is not necessary</span>
@@ -14959,7 +14959,7 @@ ATCG
 
 <span class="c1"># the options here mean: extract, gzip compressed, verbose, input file</span>
 <span class="o">!</span>rm -rf tmp <span class="o">&amp;&amp;</span> mkdir tmp <span class="o">&amp;&amp;</span> <span class="nb">cd</span> tmp <span class="o">&amp;&amp;</span> <span class="err">\</span>
-    <span class="n">tar</span> <span class="o">-</span><span class="n">xzvf</span> <span class="o">../</span><span class="s2">"$archive"</span>
+    <span class="n">tar</span> <span class="o">-</span><span class="n">xzvf</span> <span class="o">../</span><span class="s2">&quot;$archive&quot;</span>
 </pre></div>
 
      </div>
@@ -14988,7 +14988,7 @@ ATCG
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plotting basic summary graphs</span>
-<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">'stop'</span><span class="p">,</span> <span class="s1">'fastq_introduction'</span><span class="p">)</span>
+<span class="n">pinger</span><span class="o">.</span><span class="n">send_notebook_ping</span><span class="p">(</span><span class="s1">&#39;stop&#39;</span><span class="p">,</span> <span class="s1">&#39;fastq_introduction&#39;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">pysam</span> <span class="kn">import</span> <span class="n">FastxFile</span>
@@ -14999,9 +14999,9 @@ ATCG
 <span class="n">lengths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
 <span class="c1"># open the file and iterate through its records</span>
-<span class="k">with</span> <span class="n">FastxFile</span><span class="p">(</span><span class="s2">"all_records.fastq"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fq</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">FastxFile</span><span class="p">(</span><span class="s2">&quot;all_records.fastq&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fq</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">fq</span><span class="p">:</span>
-        <span class="c1"># ONT calculation for "mean Q score"</span>
+        <span class="c1"># ONT calculation for &quot;mean Q score&quot;</span>
         <span class="n">quals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">(</span>
             <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">33</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">rec</span><span class="o">.</span><span class="n">quality</span><span class="p">),</span>
             <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">quality</span><span class="p">))</span>
@@ -15017,18 +15017,18 @@ ATCG
 <span class="kn">from</span> <span class="nn">aplanat.hist</span> <span class="kn">import</span> <span class="n">histogram</span>
 
 <span class="n">p1</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mean_qualities</span><span class="p">)],</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Read quality scores"</span><span class="p">,</span>
-    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">"quality"</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">"count"</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mean_qualities</span><span class="p">)],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Read quality scores&quot;</span><span class="p">,</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;quality&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">qualities</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Base quality scores"</span><span class="p">,</span>
-    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">"quality"</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">"count"</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">qualities</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Base quality scores&quot;</span><span class="p">,</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;quality&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">p3</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">lengths</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Read lengths"</span><span class="p">,</span>
-    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">"read length / bases"</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">"count"</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">lengths</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Read lengths&quot;</span><span class="p">,</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;read length / bases&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">((</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">"#f4f4f4"</span><span class="p">)</span>
+<span class="n">aplanat</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">((</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;#f4f4f4&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15050,9 +15050,9 @@ ATCG
 
 
 
-<div id="0fe2869b-8161-4fd8-bf13-2ace1e54405f" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b1f82bc1-48a6-4e7c-8142-f4ad1474e933" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('0fe2869b-8161-4fd8-bf13-2ace1e54405f');
+var element = document.getElementById('b1f82bc1-48a6-4e7c-8142-f4ad1474e933');
 
 (function(root) {
   function now() {
@@ -15377,9 +15377,9 @@ var element = document.getElementById('0fe2869b-8161-4fd8-bf13-2ace1e54405f');
 
 
 
-<div id="b27040e2-9227-4526-bb78-81c7523a4bd2" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="b2823bd2-e8a7-4c74-8f29-79451c2c29d2" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('b27040e2-9227-4526-bb78-81c7523a4bd2');
+var element = document.getElementById('b2823bd2-e8a7-4c74-8f29-79451c2c29d2');
 (function(root) {
   function embed_document(root) {
     
