@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2ME Labs's RSS Feed]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 01 Dec 2022 00:56:10 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 22.11.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.11.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.11.01-release</guid><pubDate>Wed, 16 Nov 2022 00:00:00 GMT</pubDate><content:encoded>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2ME Labs's RSS Feed]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 01 Dec 2022 01:52:01 GMT</lastBuildDate><item><title><![CDATA[EPI2ME Labs 22.11.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.11.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.11.01-release</guid><pubDate>Wed, 16 Nov 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/4f770ae58622a663e7901cc842cc8de2/thumbnail.jpeg" length="2805066" type="image/jpeg"/><content:encoded>
 
 Dear Nanopore Community,
 
@@ -18,7 +18,7 @@ With this month’s update to our EPI2ME Labs product we are delighted to introd
     
 *   We will be deprecating the option to run workflows using the `conda` profile
     
-    *   Users are advised to run our workflows using our container images via Docker \[`--profile standard`\] or Singularity instead \[`--profile singularity`\]</content:encoded><content:thumbnail>https://labs.epi2me.io/static/4f770ae58622a663e7901cc842cc8de2/thumbnail.jpeg</content:thumbnail></item><item><title><![CDATA[Copy Number Calling Workflow]]></title><description><![CDATA[A post to describe our new copy number calling workflow.]]></description><link>https://labs.epi2me.io/copy-number-calling</link><guid isPermaLink="false">https://labs.epi2me.io/copy-number-calling</guid><pubDate>Wed, 05 Oct 2022 00:00:00 GMT</pubDate><content:encoded>
+    *   Users are advised to run our workflows using our container images via Docker \[`--profile standard`\] or Singularity instead \[`--profile singularity`\]</content:encoded></item><item><title><![CDATA[Copy Number Calling Workflow]]></title><description><![CDATA[A post to describe our new copy number calling workflow.]]></description><link>https://labs.epi2me.io/copy-number-calling</link><guid isPermaLink="false">https://labs.epi2me.io/copy-number-calling</guid><pubDate>Wed, 05 Oct 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/8f0c6cd10421c178f23342561ce2015a/AdobeStock_348188744.jpeg" length="7107471" type="image/jpeg"/><content:encoded>
 ## Introduction
 
 We are pleased to add to our human analysis workflow repertoire with wf-cnv. This new workflow enables copy number calling from Oxford Nanopore Technologies sequencing data.
@@ -114,7 +114,7 @@ We welcome feedback on this, and any of our workflows, either in the nanopore co
 ### Reference
 
 - Scheinin I, Sie D, Bengtsson H, van de Wiel MA, Olshen AB, van Thuijl HF, van Essen HF, Eijk PP, Rustenburg F, Meijer GA, Reijneveld JC, Wesseling P, Pinkel D, Albertson DG, Ylstra B. DNA copy number analysis of fresh and formalin-fixed specimens by shallow whole-genome sequencing with identification and exclusion of problematic regions in the genome assembly. Genome Res. 2014 Dec;24(12):2022-32. doi: 10.1101/gr.175141.114. Epub 2014 Sep 18. [PMCID](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4248318/).
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/8f0c6cd10421c178f23342561ce2015a/AdobeStock_348188744.jpeg</content:thumbnail></item><item><title><![CDATA[EPI2ME Labs 22.08.02 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.08.02-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.08.02-release</guid><pubDate>Wed, 21 Sep 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 22.08.02 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.08.02-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.08.02-release</guid><pubDate>Wed, 21 Sep 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/99f06f6c537ad8f0fa3eb841524bd0a9/thumbnail.jpeg" length="5222956" type="image/jpeg"/><content:encoded>
 Dear Nanopore Community
 
 We have released a [Kraken2 server](https://github.com/epi2me-labs/kraken2-server) software that has been implemented to enable [Kraken2](https://ccb.jhu.edu/software/kraken2/)\-based taxonomic classification of DNA sequences in a gRPC server-client architecture. This architectural change to the Kraken2 software means that the typically large and memory intensive database only has to be loaded once - this ameliorates a substantial bottleneck when sequence data is being processed in real-time. The Kraken2 server software is available through GitHub and pre-compiled binaries are available through conda. The software is tagged at revision v0.0.5 and will be preinstalled in appropriate workflow containers. This metagenomics server is a critical component for a new real-time implementation of wf-metagenomics that will be released in the next few days.
@@ -127,7 +127,7 @@ Our [wf-single-cell](https://github.com/epi2me-labs/wf-single-cell) workflow (
 
 The EPI2ME Labs team would welcome recommendations for new workflows, tutorials,
 and functionality that you would like to see included in the product.
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/99f06f6c537ad8f0fa3eb841524bd0a9/thumbnail.jpeg</content:thumbnail></item><item><title><![CDATA[Real-time bioinformatics with Nextflow and Kraken2]]></title><description><![CDATA[An explanation of how we implemented progressive workflow using nextflow for wf-metagenomics.]]></description><link>https://labs.epi2me.io/progressive-kraken2</link><guid isPermaLink="false">https://labs.epi2me.io/progressive-kraken2</guid><pubDate>Thu, 15 Sep 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Real-time bioinformatics with Nextflow and Kraken2]]></title><description><![CDATA[An explanation of how we implemented progressive workflow using nextflow for wf-metagenomics.]]></description><link>https://labs.epi2me.io/progressive-kraken2</link><guid isPermaLink="false">https://labs.epi2me.io/progressive-kraken2</guid><pubDate>Thu, 15 Sep 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/d09a2c5f35316810f432b1088c8a1595/thumbnail.jpeg" length="1984603" type="image/jpeg"/><content:encoded>
 Oxford nanopore is the only sequencing platform to offer the possibility of real-time analysis during a sequencing experiment. This functionality is complemented nicely by unique features of the [Nextflow](https://www.nextflow.io/) workflow manager. The combination of Nextflow&apos;s use of data streaming and recursive operations allows us to write continuous pipelines that output progressive analysis as data becomes available. This makes it possible to gain insights in real-time using many bioinformatics tools.
 
 ## Background
@@ -251,7 +251,7 @@ We are particularly excited by the prospect of using sequencing device APIs to a
 
 Of course we are also intrigued to see what creations the community can create with the combination of real-time data analysis provided through Nanopore sequencing and Nextflow.
 
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/d09a2c5f35316810f432b1088c8a1595/thumbnail.jpeg</content:thumbnail></item><item><title><![CDATA[Two years with Nextflow]]></title><description><![CDATA[A installation guide to getting started running Nextflow workflows on Windows.]]></description><link>https://labs.epi2me.io/two-years-of-nextflow</link><guid isPermaLink="false">https://labs.epi2me.io/two-years-of-nextflow</guid><pubDate>Sat, 27 Aug 2022 00:00:00 GMT</pubDate><content:encoded> 
+</content:encoded></item><item><title><![CDATA[Two years with Nextflow]]></title><description><![CDATA[A installation guide to getting started running Nextflow workflows on Windows.]]></description><link>https://labs.epi2me.io/two-years-of-nextflow</link><guid isPermaLink="false">https://labs.epi2me.io/two-years-of-nextflow</guid><pubDate>Sat, 27 Aug 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/d1d13df7c944811e2a70283b06dcc26d/thumbnail.jpeg" length="2733048" type="image/jpeg"/><content:encoded> 
 
 import usersPlot from &quot;./users.jsx&quot;
 import committersPlot from &quot;./committers.jsx&quot;
@@ -597,7 +597,7 @@ compute platforms to ease of distribution and explicit data flow and automatic
 implicit parallel compute (when you know how). We look forward to a time when
 with a better debugging experience, the parameter system is rationalised, and
 the language simplified and cleaned up. Who knows, might we one day soon have a
-DSL3?</content:encoded><content:thumbnail>https://labs.epi2me.io/static/d1d13df7c944811e2a70283b06dcc26d/thumbnail.jpeg</content:thumbnail></item><item><title><![CDATA[Influenza Workflow]]></title><description><![CDATA[Details of a workflow for Influenza typing using Oxford Nanopore Technologies sequencing.]]></description><link>https://labs.epi2me.io/influenza-workflow</link><guid isPermaLink="false">https://labs.epi2me.io/influenza-workflow</guid><pubDate>Wed, 24 Aug 2022 12:30:00 GMT</pubDate><content:encoded>
+DSL3?</content:encoded></item><item><title><![CDATA[Influenza Workflow]]></title><description><![CDATA[Details of a workflow for Influenza typing using Oxford Nanopore Technologies sequencing.]]></description><link>https://labs.epi2me.io/influenza-workflow</link><guid isPermaLink="false">https://labs.epi2me.io/influenza-workflow</guid><pubDate>Wed, 24 Aug 2022 12:30:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/43cc1b71b5c0a30813a78e5c60045c59/AdobeStock_290465641.jpeg" length="7008453" type="image/jpeg"/><content:encoded>
 We are pleased to offer a new workflow for the analysis of targeted Oxford Nanopore Technologies sequencing of Influenza virus.
 
 Influenza is a single stranded RNA virus and contains a 13.5-14.5kb genome which is split into 8 segments encoding 10-14 proteins (dependent on strain).
@@ -736,7 +736,7 @@ The workflow outputs several files that are useful for interpretation and analys
 ## Useful Links
 
 - INSaFLU: https://insaflu.insa.pt/
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/43cc1b71b5c0a30813a78e5c60045c59/AdobeStock_290465641.jpeg</content:thumbnail></item><item><title><![CDATA[EPI2ME Labs 22.08.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.08.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.08.01-release</guid><pubDate>Wed, 24 Aug 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 22.08.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.08.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.08.01-release</guid><pubDate>Wed, 24 Aug 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/381808f1423828f22dde6e7878b45aa7/yellow-helix.jpeg" length="3290678" type="image/jpeg"/><content:encoded>
 Dear Nanopore Community
 
 We are delighted to introduce two new bioinformatics workflows and a collection
@@ -791,7 +791,7 @@ software where it will continue to be developed and supported.
 
 The EPI2ME Labs team would welcome recommendations for new workflows, tutorials,
 and functionality that you would like to see included in the product.
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/381808f1423828f22dde6e7878b45aa7/yellow-helix.jpeg</content:thumbnail></item><item><title><![CDATA[EPI2ME Labs 22.07.02 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.07.02-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.07.02-release</guid><pubDate>Wed, 27 Jul 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 22.07.02 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.07.02-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.07.02-release</guid><pubDate>Wed, 27 Jul 2022 00:00:00 GMT</pubDate><content:encoded>
 Dear Nanopore Community,
 
 Our workflow for SARS-CoV-2 genome analysis, [wf-artic](https://github.com/epi2me-labs/wf-artic/), has been updated to
@@ -815,7 +815,7 @@ software (v3.1.3) and the epi2melabs-notebook container (v1.1.30).
 We look forwards to any feedback and welcome suggestions and recommendations for
 future workflows, tutorials, or new functionality to include in EPI2ME Labs.
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Reduced Representation Methylation Sequencing (RRMS)]]></title><link>https://labs.epi2me.io/rrms2022.07</link><guid isPermaLink="false">https://labs.epi2me.io/rrms2022.07</guid><pubDate>Wed, 27 Jul 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Reduced Representation Methylation Sequencing (RRMS)]]></title><link>https://labs.epi2me.io/rrms2022.07</link><guid isPermaLink="false">https://labs.epi2me.io/rrms2022.07</guid><pubDate>Wed, 27 Jul 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/cc2e8d2ae04dbdf6e1b3606f3102280d/methylation.png" length="6232017" type="image/png"/><content:encoded>
 We are excited to release the new protocol for [Reduced Representation
 Methylation Sequencing (RRMS)](https://community.nanoporetech.com/docs/prepare/library_prep_protocols/ligation-sequencing-gdna-rrms/v/rrms_v3/overview-of-the-protocol?devices=minion), login required, from the Nanopore Applications Team.
 
@@ -892,7 +892,7 @@ Combined with its ease of use and ability to scale to a high number of samples,
 RRMS is well suited to investigating methylation differences in large cohorts,
 as well as providing deeper insights into the mechanisms behind diseases such as
 cancer and monitoring tumour progression. For more information, please see our
-[poster](https://nanoporetech.com/resource-centre/reduced-representation-methylation-sequencing-rrms-captures-100-cpg-islands-and).</content:encoded><content:thumbnail>https://labs.epi2me.io/static/cc2e8d2ae04dbdf6e1b3606f3102280d/methylation.png</content:thumbnail></item><item><title><![CDATA[EPI2ME Labs 22.07.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.07.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.07.01-release</guid><pubDate>Wed, 13 Jul 2022 00:00:00 GMT</pubDate><content:encoded>
+[poster](https://nanoporetech.com/resource-centre/reduced-representation-methylation-sequencing-rrms-captures-100-cpg-islands-and).</content:encoded></item><item><title><![CDATA[EPI2ME Labs 22.07.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.07.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.07.01-release</guid><pubDate>Wed, 13 Jul 2022 00:00:00 GMT</pubDate><content:encoded>
 Dear Nanopore Community
 
 We are pleased to release a collection of EPI2ME Labs updates that include new
@@ -955,7 +955,7 @@ workflow instead.
 
 
 We welcome any suggestions for future tutorials, workflows or usability
-improvements.</content:encoded><content:thumbnail/></item><item><title><![CDATA[Monkeypox Workflow]]></title><description><![CDATA[A quick description of a new workflow for basic Monkeypox virus Oxford Nanopore Technologies sequencing analysis.]]></description><link>https://labs.epi2me.io/basic-monkeypox-workflow</link><guid isPermaLink="false">https://labs.epi2me.io/basic-monkeypox-workflow</guid><pubDate>Wed, 01 Jun 2022 12:30:00 GMT</pubDate><content:encoded>
+improvements.</content:encoded></item><item><title><![CDATA[Monkeypox Workflow]]></title><description><![CDATA[A quick description of a new workflow for basic Monkeypox virus Oxford Nanopore Technologies sequencing analysis.]]></description><link>https://labs.epi2me.io/basic-monkeypox-workflow</link><guid isPermaLink="false">https://labs.epi2me.io/basic-monkeypox-workflow</guid><pubDate>Wed, 01 Jun 2022 12:30:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/ba3161227865caebdbeca546d6284ee2/AdobeStock_506172741.jpeg" length="3497731" type="image/jpeg"/><content:encoded>
 Monkeypox (MPX) is a double-stranded DNA virus. There is an ongoing outbreak of the West African clade of the virus in
 multiple countries. Data has been generated for a number of these cases using Oxford Nanopore Technology sequencing
 and here we describe `wf-mpx`, a decentralised workflow to analyse this data on device, anywhere.
@@ -1055,7 +1055,7 @@ The original source data can also be found on SRA [here](https://www.ncbi.nlm.ni
 - Virological Monkeypox posts: https://virological.org/c/monkeypox/46
 - Nextstrain Monkeypox: https://nextstrain.org/monkeypox?c=country&amp;p=grid
 - Monkeypox background: https://www.gov.uk/guidance/monkeypox
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/ba3161227865caebdbeca546d6284ee2/AdobeStock_506172741.jpeg</content:thumbnail></item><item><title><![CDATA[EPI2ME Labs 22.06.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.06.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.06.01-release</guid><pubDate>Wed, 01 Jun 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 22.06.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.06.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.06.01-release</guid><pubDate>Wed, 01 Jun 2022 00:00:00 GMT</pubDate><content:encoded>
 Dear Nanopore Community,
 
 We are pleased to release a new infectious diseases workflow and a collection of
@@ -1097,7 +1097,7 @@ have been implemented in the epi2melabs-notebook v1.1.21 container.
 
 We welcome any feedback and would love to hear recommendations for workflow or
 interface improvements. 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Deprecation of several EPI2ME Labs tutorials]]></title><description><![CDATA[Announcing that several EPI2ME Labs tutorials are being deprecated.]]></description><link>https://labs.epi2me.io/tutorial-deprecation</link><guid isPermaLink="false">https://labs.epi2me.io/tutorial-deprecation</guid><pubDate>Wed, 01 Jun 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Deprecation of several EPI2ME Labs tutorials]]></title><description><![CDATA[Announcing that several EPI2ME Labs tutorials are being deprecated.]]></description><link>https://labs.epi2me.io/tutorial-deprecation</link><guid isPermaLink="false">https://labs.epi2me.io/tutorial-deprecation</guid><pubDate>Wed, 01 Jun 2022 00:00:00 GMT</pubDate><content:encoded>
 In the coming weeks the EPI2ME Labs team will be rejigging our tutorial and workflow offerings to remove duplication 
 and provide the best bioinformatics experience possible. 
 
@@ -1136,7 +1136,7 @@ The following are being removed from EPI2ME Labs:
 * **Viral and Bacterial Variant Calling** - please see the workflow [wf-bacterial-genomes](https://github.com/epi2me-labs/wf-bacterial-genomes)
 
 We are always keen to here feedback from our users. Were you using this notebooks? What aspects of them were useful to
-you? Would you like to see them make a return. Get in touch through the [contact](/contactus) page.</content:encoded><content:thumbnail/></item><item><title><![CDATA[CliveOME 5mC dataset]]></title><description><![CDATA[5mC basecall dataset from Nanopore's CTO, including cfDNA and .]]></description><link>https://labs.epi2me.io/cliveome_5mc_cfdna_celldna</link><guid isPermaLink="false">https://labs.epi2me.io/cliveome_5mc_cfdna_celldna</guid><pubDate>Tue, 31 May 2022 12:30:00 GMT</pubDate><content:encoded>
+you? Would you like to see them make a return. Get in touch through the [contact](/contactus) page.</content:encoded></item><item><title><![CDATA[CliveOME 5mC dataset]]></title><description><![CDATA[5mC basecall dataset from Nanopore's CTO, including cfDNA and .]]></description><link>https://labs.epi2me.io/cliveome_5mc_cfdna_celldna</link><guid isPermaLink="false">https://labs.epi2me.io/cliveome_5mc_cfdna_celldna</guid><pubDate>Tue, 31 May 2022 12:30:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/b4203e35095cfe8040afa657bb78a771/sample-tubes.jpg" length="2715991" type="image/jpeg"/><content:encoded>
 import cliveome2206length from &quot;./ulk_length_cliveome.jsx&quot;
 import cliveome2206accuracy from &quot;./accuracy_cliveome.jsx&quot;
 
@@ -1245,7 +1245,7 @@ the haplotype to which each read belongs. In this manner it is possible to
 simply acquire haplotype specific methylation frequencies for CpG sites in human
 samples, greatly accelerating research into phenomena controlled by genetic
 imprinting.  We will leave these tasks for another blog post, in the meanwhile
-please do download and explore the dataset.</content:encoded><content:thumbnail>https://labs.epi2me.io/static/b4203e35095cfe8040afa657bb78a771/sample-tubes.jpg</content:thumbnail></item><item><title><![CDATA[Data access within EPI2ME Labs]]></title><description><![CDATA[A simple guide to setting up the data folder within EPI2ME Labs.]]></description><link>https://labs.epi2me.io/mount-folder-labslauncher</link><guid isPermaLink="false">https://labs.epi2me.io/mount-folder-labslauncher</guid><pubDate>Mon, 23 May 2022 00:00:00 GMT</pubDate><content:encoded> 
+please do download and explore the dataset.</content:encoded></item><item><title><![CDATA[Data access within EPI2ME Labs]]></title><description><![CDATA[A simple guide to setting up the data folder within EPI2ME Labs.]]></description><link>https://labs.epi2me.io/mount-folder-labslauncher</link><guid isPermaLink="false">https://labs.epi2me.io/mount-folder-labslauncher</guid><pubDate>Mon, 23 May 2022 00:00:00 GMT</pubDate><content:encoded> 
 
 The `Data Mount` folder is the location within notebooks tutorials available for reading and writing data. 
 It provides an isolation from the rest of the file system, ensuring that any coding foibles
@@ -1280,7 +1280,7 @@ notebook interface file browser.
 This small guide has shown you how to set up the `Data Mount` folder in EPI2ME Labs. The option is used to expose
 only a specified location on your computer to the notebook environment to ensure any coding experiments you
 undertake cannot make unwanted changes to important parts of your system. Experiment away!
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[CliveOME cfDNA dataset]]></title><description><![CDATA[Cell free DNA (cfDNA) dataset from Nanopore's CTO.]]></description><link>https://labs.epi2me.io/cliveome_cfdna</link><guid isPermaLink="false">https://labs.epi2me.io/cliveome_cfdna</guid><pubDate>Wed, 18 May 2022 17:30:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[CliveOME cfDNA dataset]]></title><description><![CDATA[Cell free DNA (cfDNA) dataset from Nanopore's CTO.]]></description><link>https://labs.epi2me.io/cliveome_cfdna</link><guid isPermaLink="false">https://labs.epi2me.io/cliveome_cfdna</guid><pubDate>Wed, 18 May 2022 17:30:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/7d9cb78eb078cac55058564e4159bbfe/human-dna-bg.jpeg" length="252222" type="image/jpeg"/><content:encoded>
 import readLengthPlotcfDNA from &quot;./read_length.jsx&quot;
 import accuracyPlotcfDNA from &quot;./accuracy.jsx&quot;
 
@@ -1309,7 +1309,7 @@ We aim to enhance this dataset in the coming days with a standard genomic DNA da
 
 We hope that you have some interesting explorations within this dataset.
 
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/7d9cb78eb078cac55058564e4159bbfe/human-dna-bg.jpeg</content:thumbnail></item><item><title><![CDATA[EPI2ME Labs Quick Start]]></title><description><![CDATA[A guide illustrating the use of EPI2ME Labs.]]></description><link>https://labs.epi2me.io/labsquickstart</link><guid isPermaLink="false">https://labs.epi2me.io/labsquickstart</guid><pubDate>Tue, 17 May 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs Quick Start]]></title><description><![CDATA[A guide illustrating the use of EPI2ME Labs.]]></description><link>https://labs.epi2me.io/labsquickstart</link><guid isPermaLink="false">https://labs.epi2me.io/labsquickstart</guid><pubDate>Tue, 17 May 2022 00:00:00 GMT</pubDate><content:encoded>
 EPI2ME Labs extends the JupyterLab notebook framework with a pre-configured analysis environment and the ability to run Nextflow workflows all in a single
 desktop application. Our Nextflow workflows can be used to routine analyses,
 while our notebooks provide an introduction to nanopore sequencing bioinformatics
@@ -1392,7 +1392,7 @@ will be used later in the workflow to connect Google Colaboratory to the
 server.
 
 Changing these settings will cause the Lab environment to restart.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[London is Calling EPI2ME Labs]]></title><description><![CDATA[How to get your EPI2ME Labs questions answered at London Calling 2022.]]></description><link>https://labs.epi2me.io/london-calling-2022</link><guid isPermaLink="false">https://labs.epi2me.io/london-calling-2022</guid><pubDate>Thu, 12 May 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[London is Calling EPI2ME Labs]]></title><description><![CDATA[How to get your EPI2ME Labs questions answered at London Calling 2022.]]></description><link>https://labs.epi2me.io/london-calling-2022</link><guid isPermaLink="false">https://labs.epi2me.io/london-calling-2022</guid><pubDate>Thu, 12 May 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/ab62278e0c878056ad735c92573dfab6/AdobeStock_85090086.jpeg" length="18003902" type="image/jpeg"/><content:encoded>
 London Calling 2022 is now only a week away and we wanted to give you some pointers on how you can get in touch with EPI2ME Labs team both online and in person in the Live Lounge. Some of the team are very excited to be attending their 1st conference in person since before the start of the pandemic and we have our shiny new local bioinformatics platform, &quot;EPI2ME Labs&quot; to show you all. If you&apos;re not attending in person then the team will be available online for the duration of the conference and can be reached through the LC2022 platform.
 
 More information about London Calling 2022, how to register, and the jam packed agenda can be found on the conference website: https://londoncallingconf.co.uk/lc22. Please take a look!
@@ -1442,7 +1442,7 @@ Got RNA data? Talk to Neil. He&apos;s been developing some of our RNA sequencing
 * _In Person_: Friday
 
 Of COG-UK fame, Sam joins us hot off the SARS-CoV-2 sequencing production line. You can talk to him about all things workflow related, and how he&apos;s getting on with the transition to macOS.
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/ab62278e0c878056ad735c92573dfab6/AdobeStock_85090086.jpeg</content:thumbnail></item><item><title><![CDATA[EPI2ME Labs 22.05.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.05.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.05.01-release</guid><pubDate>Wed, 04 May 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 22.05.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.05.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.05.01-release</guid><pubDate>Wed, 04 May 2022 00:00:00 GMT</pubDate><content:encoded>
 Dear Nanopore Community,
 
 We are pleased to release a new version of the EPI2ME Labs software that
@@ -1508,7 +1508,7 @@ improvements required for functionality with the EPI2ME Labs software.
 
 We look forwards to any feedback and would welcome recommendations for new
 workflows, tutorials, and features.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[SARS-CoV-2 Midnight Scheme Update]]></title><description><![CDATA[Description of the new scheme naming and structure for the wf-artic workflow.]]></description><link>https://labs.epi2me.io/ont-midnight-scheme-update</link><guid isPermaLink="false">https://labs.epi2me.io/ont-midnight-scheme-update</guid><pubDate>Fri, 15 Apr 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[SARS-CoV-2 Midnight Scheme Update]]></title><description><![CDATA[Description of the new scheme naming and structure for the wf-artic workflow.]]></description><link>https://labs.epi2me.io/ont-midnight-scheme-update</link><guid isPermaLink="false">https://labs.epi2me.io/ont-midnight-scheme-update</guid><pubDate>Fri, 15 Apr 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/0be72d91de3e75aabbac10d36291da9e/AdobeStock_322667262.jpeg" length="5125759" type="image/jpeg"/><content:encoded>
 ## Introduction
 
 This blog post will explain the changes we are making to the primer scheme naming in `wf-artic` due to underlying changes in the ONT Midnight SARS-CoV-2 sequencing kit. We will also describe a new feature of `wf-artic` allowing specification of custom primer schemes.
@@ -1650,7 +1650,7 @@ We understand that users may want to supply their own schemes for use with `wf-a
 *You must specify the scheme name (`--scheme_name`) and the min (`--min_len`) and max (`--max_len`) length parameters based on your expected amplicons for read length filtering.*
 
 You must provide both a fasta of your genome and a primer bed file detailing your primers, please use the ones included in `wf-artic` as examples; These must be readable and contained within the directory you specify for `--custom-scheme`. We do not validate your bed or fasta file so please ensure these are in the correct format.
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/0be72d91de3e75aabbac10d36291da9e/AdobeStock_322667262.jpeg</content:thumbnail></item><item><title><![CDATA[EPI2ME Labs 22.03.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.03.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.03.01-release</guid><pubDate>Wed, 09 Mar 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 22.03.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.03.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.03.01-release</guid><pubDate>Wed, 09 Mar 2022 00:00:00 GMT</pubDate><content:encoded>
 Dear Nanopore Community
 
 This week the EPI2ME Labs team is delighted to release a new workflow,
@@ -1695,7 +1695,7 @@ isoforms. More information on these updates is provided in the product&apos;s
 Centrifuge software can now find the required indices.
 
 We would welcome any recommendations for future workflows, tutorials and dataset
-releases.</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs 22.02.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.02.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.02.01-release</guid><pubDate>Wed, 09 Feb 2022 00:00:00 GMT</pubDate><content:encoded>
+releases.</content:encoded></item><item><title><![CDATA[EPI2ME Labs 22.02.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.02.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.02.01-release</guid><pubDate>Wed, 09 Feb 2022 00:00:00 GMT</pubDate><content:encoded>
 Dear Nanopore Community,
 
 We are pleased to introduce an update to our EPI2ME Labs product that now
@@ -1797,7 +1797,7 @@ further details.
 We look forwards to any feedback and comments and would welcome insight as to
 workflows and tutorials that you would like to see in the future.
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Nextflow and Jupyter Labs]]></title><description><![CDATA[Running Nextflow workflows from EPI2ME Labs notebook environment.]]></description><link>https://labs.epi2me.io/jupyterflow</link><guid isPermaLink="false">https://labs.epi2me.io/jupyterflow</guid><pubDate>Wed, 09 Feb 2022 00:00:00 GMT</pubDate><content:encoded> 
+</content:encoded></item><item><title><![CDATA[Nextflow and Jupyter Labs]]></title><description><![CDATA[Running Nextflow workflows from EPI2ME Labs notebook environment.]]></description><link>https://labs.epi2me.io/jupyterflow</link><guid isPermaLink="false">https://labs.epi2me.io/jupyterflow</guid><pubDate>Wed, 09 Feb 2022 00:00:00 GMT</pubDate><content:encoded> 
 
 We are pleased to introduce an update to our EPI2ME Labs product that now
 includes the functionality to launch our Nextflow pipelines directly from the
@@ -1879,7 +1879,7 @@ from the Nextflow command (and potentially error messages) and the result files
 When the analysis has completed the results are made available through the same
 instance report page. The analysis report is accessible by clicking on the
 &quot;OPEN REPORT&quot; button.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs 22.01.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.01.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.01.01-release</guid><pubDate>Wed, 26 Jan 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 22.01.01 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-22.01.01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-22.01.01-release</guid><pubDate>Wed, 26 Jan 2022 00:00:00 GMT</pubDate><content:encoded>
 Dear Nanopore Community,
 
 This Wednesday we have a trio of announcements; these include a new
@@ -1950,7 +1950,7 @@ workflows and tutorials that you would like to see in the future.
 
 
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[SARS-CoV-2 Midnight Analysis]]></title><description><![CDATA[Background article on the choice of Nextflow for authoring bioinformatics workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io/sarscov2-midnight-analysis</link><guid isPermaLink="false">https://labs.epi2me.io/sarscov2-midnight-analysis</guid><pubDate>Mon, 24 Jan 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[SARS-CoV-2 Midnight Analysis]]></title><description><![CDATA[Background article on the choice of Nextflow for authoring bioinformatics workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io/sarscov2-midnight-analysis</link><guid isPermaLink="false">https://labs.epi2me.io/sarscov2-midnight-analysis</guid><pubDate>Mon, 24 Jan 2022 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/0be72d91de3e75aabbac10d36291da9e/AdobeStock_322667262.jpeg" length="5125759" type="image/jpeg"/><content:encoded>
 ## Introduction
 
 I wanted to write a blog post about SARS-CoV-2 sequencing data analysis to achieve two things:
@@ -2096,7 +2096,7 @@ You can follow a similar procedure to upgrade the Nextclade data in the Nextclad
 - Online Nextclade Clade Assignment: https://clades.nextstrain.org/
 - UKHSA Varinat Definitions: https://github.com/phe-genomics/variant_definitions
 - SARS-CoV-2 Codon to Nucleotide: https://codon2nucleotide.theo.io/
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/0be72d91de3e75aabbac10d36291da9e/AdobeStock_322667262.jpeg</content:thumbnail></item><item><title><![CDATA[Phased CpG Methylation Calling in GM24385 with Remora and Clair3]]></title><description><![CDATA[Reanalysing our matched Bisulfite-Nanopore Open Dataset release with Remora and Clair3.]]></description><link>https://labs.epi2me.io/gm24385-5mc-remora</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385-5mc-remora</guid><pubDate>Thu, 20 Jan 2022 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Phased CpG Methylation Calling in GM24385 with Remora and Clair3]]></title><description><![CDATA[Reanalysing our matched Bisulfite-Nanopore Open Dataset release with Remora and Clair3.]]></description><link>https://labs.epi2me.io/gm24385-5mc-remora</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385-5mc-remora</guid><pubDate>Thu, 20 Jan 2022 00:00:00 GMT</pubDate><content:encoded>
 import coorPlotPhase from &quot;./coorplot-phase.jsx&quot;
 
 [Previously](/gm24385-5mc) we released a nanopore dataset comprising 5-methylcytosine basecalls using the
@@ -2230,7 +2230,7 @@ be used to obtain simply phased CpG modification calls for the GM24385 human cel
 The methods used are applicable to any diploid sample. We hope that these new tools
 will greatly accelerate fields of research where DNA methylation is known to play an
 important role, and also unlock new insights.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Phasing and Whatshap]]></title><description><![CDATA[An overview of phasing methods and Whatshap.]]></description><link>https://labs.epi2me.io/phasing-and-whatshap</link><guid isPermaLink="false">https://labs.epi2me.io/phasing-and-whatshap</guid><pubDate>Fri, 26 Nov 2021 00:00:00 GMT</pubDate><content:encoded> 
+</content:encoded></item><item><title><![CDATA[Phasing and Whatshap]]></title><description><![CDATA[An overview of phasing methods and Whatshap.]]></description><link>https://labs.epi2me.io/phasing-and-whatshap</link><guid isPermaLink="false">https://labs.epi2me.io/phasing-and-whatshap</guid><pubDate>Fri, 26 Nov 2021 00:00:00 GMT</pubDate><content:encoded> 
 
 Phasing, also referred to as haplotyping, relates to methods used to infer which genetic variants occur together, usually distinguishing which genetic variants came from each of the maternal or paternal haplotypes. It may also be used to predict more than two haplotypes in polyploid phasing. It can refer to phasing of the whole genome, or a smaller subsequence.
 
@@ -2263,7 +2263,7 @@ Hager, P., Mewes, H.-W., Rohlfs, M., Klein, C. and Jeske, T., 2020. SmartPhase: 
 Martin, M., Patterson, M., Garg, S., O Fischer, S., Pisanti, N., Klau, G. W., Schöenhuth, A. and Marschall, T., 2016. WhatsHap: fast and accurate read-based phasing [online]. Bioinformatics. preprint. Available from: http://biorxiv.org/lookup/doi/10.1101/085050 [Accessed 26 Nov 2021].
 
 Tewhey, R., Bansal, V., Torkamani, A., Topol, E. J. and Schork, N. J., 2011. The importance of phase information for human genomics. Nature reviews. Genetics [online], 12 (3), 215–223. Available from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3753045/ [Accessed 26 Nov 2021
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Nextflow in Windows with WSL2]]></title><description><![CDATA[A installation guide to getting started running Nextflow workflows on Windows.]]></description><link>https://labs.epi2me.io/nextflow-on-windows</link><guid isPermaLink="false">https://labs.epi2me.io/nextflow-on-windows</guid><pubDate>Wed, 20 Oct 2021 00:00:00 GMT</pubDate><content:encoded> 
+</content:encoded></item><item><title><![CDATA[Nextflow in Windows with WSL2]]></title><description><![CDATA[A installation guide to getting started running Nextflow workflows on Windows.]]></description><link>https://labs.epi2me.io/nextflow-on-windows</link><guid isPermaLink="false">https://labs.epi2me.io/nextflow-on-windows</guid><pubDate>Wed, 20 Oct 2021 00:00:00 GMT</pubDate><content:encoded> 
 
 ***For EPI2ME Labs version 3 and onward the setup of Windows Subsytem for Linux is automated
 provided users have an up-to-date version of Windows 10 or 11. These instructions
@@ -2522,7 +2522,7 @@ all the steps,
 If you had any problems with this tutorial or think any additional information
 would be useful then please [let us know](https://labs.epi2me.io/contactus) so
 we can improve it for other users. 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Changing Location of Workflow Container Images]]></title><description><![CDATA[A guide to changing the storage location of persistent workflow data, focussing on Docker container images.]]></description><link>https://labs.epi2me.io/docker-storage</link><guid isPermaLink="false">https://labs.epi2me.io/docker-storage</guid><pubDate>Wed, 20 Oct 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Changing Location of Workflow Container Images]]></title><description><![CDATA[A guide to changing the storage location of persistent workflow data, focussing on Docker container images.]]></description><link>https://labs.epi2me.io/docker-storage</link><guid isPermaLink="false">https://labs.epi2me.io/docker-storage</guid><pubDate>Wed, 20 Oct 2021 00:00:00 GMT</pubDate><content:encoded>
 We&apos;ve noticed that common struggle from GridION and PromethION users of EPI2ME Labs
 Nextflow workflows is that the default location in which Docker stores our workflow
 container images is the somewhat small &quot;root partition&quot; of the devices. In this
@@ -2620,7 +2620,7 @@ for further assistance.
 This guide has walked through configuring the &quot;data-root&quot; configuration item of the
 Docker daemon, and restarting the daemon for these changes to take effect. For more
 information on configuring Docker on Linux systems see the [official documentation](https://docs.docker.com/config/daemon/).
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[October 2021 GM24385 Q20+ Simplex Dataset Release]]></title><description><![CDATA[An updated dataset release of simplex nanopore sequencing from the Genome in a Bottle sample GM24385. Sequencing libraries were prepared using our Kit 12 sequencing chemistry and DNA sequences were produced using R10.4 flowcells (FLO-PRO112)]]></description><link>https://labs.epi2me.io/gm24385_q20_2021.10</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_q20_2021.10</guid><pubDate>Fri, 08 Oct 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[October 2021 GM24385 Q20+ Simplex Dataset Release]]></title><description><![CDATA[An updated dataset release of simplex nanopore sequencing from the Genome in a Bottle sample GM24385. Sequencing libraries were prepared using our Kit 12 sequencing chemistry and DNA sequences were produced using R10.4 flowcells (FLO-PRO112)]]></description><link>https://labs.epi2me.io/gm24385_q20_2021.10</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_q20_2021.10</guid><pubDate>Fri, 08 Oct 2021 00:00:00 GMT</pubDate><content:encoded>
 import summaryPlot from &quot;./q20summary.jsx&quot;
 
 We are happy to announce an updated dataset release of *simplex* nanopore sequencing
@@ -2760,7 +2760,7 @@ and delivering high duplex yields will follow. A duplex basecalled release of GM
 
 As always we look forward to your feeback and hope that the dataset provides a valuable
 and instructive resource.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Detection of 5-methylcytosine modification in GM24385]]></title><description><![CDATA[Analysing our matched Bisulfite-Nanopore Open Dataset release.]]></description><link>https://labs.epi2me.io/gm24385-5mc</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385-5mc</guid><pubDate>Fri, 27 Aug 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Detection of 5-methylcytosine modification in GM24385]]></title><description><![CDATA[Analysing our matched Bisulfite-Nanopore Open Dataset release.]]></description><link>https://labs.epi2me.io/gm24385-5mc</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385-5mc</guid><pubDate>Fri, 27 Aug 2021 00:00:00 GMT</pubDate><content:encoded>
 import coorPlot from &quot;./coorplot.jsx&quot;
 import coverPlot from &quot;./coverplot.jsx&quot;
 
@@ -2932,7 +2932,7 @@ analysis by utilising Oxford Nanopore Technologies&apos; sequencing platforms.
 The dataset is provided for use by the community. We hope that it will aid in development
 of new and existing tools such as [mbtools](https://github.com/jts/mbtools), [methplotlib](https://github.com/wdecoster/methplotlib),
 and [pycoMeth](https://github.com/snajder-r/pycoMeth).
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Assembly tools and Flye]]></title><description><![CDATA[An overview of the Flye assembler, the assembler we recommend for use with nanopore sequencing data.]]></description><link>https://labs.epi2me.io/assembly-flye</link><guid isPermaLink="false">https://labs.epi2me.io/assembly-flye</guid><pubDate>Fri, 06 Aug 2021 00:00:00 GMT</pubDate><content:encoded> 
+</content:encoded></item><item><title><![CDATA[Assembly tools and Flye]]></title><description><![CDATA[An overview of the Flye assembler, the assembler we recommend for use with nanopore sequencing data.]]></description><link>https://labs.epi2me.io/assembly-flye</link><guid isPermaLink="false">https://labs.epi2me.io/assembly-flye</guid><pubDate>Fri, 06 Aug 2021 00:00:00 GMT</pubDate><content:encoded> 
 
 
 Assembly is required because sample extraction, processing, handling and sequencing can lead to the fragmentation of DNA molecules comprising whole chromosomes are rarely present. With careful preparation reads in excess of 2 Mbases have been achieve on Oxford Nanopore Technologies&apos; sequencing platforms. Many tools exist which aim to achieve the best assembly whilst balancing computational requirements and time constraints. 
@@ -2962,7 +2962,7 @@ Assembly is an ongoing area of research with improvements to speed and accuracy 
 Wick, R.R. and Holt, K.E. 2021. Benchmarking of long-read assemblers for prokaryote whole genome sequencing. F1000Research 8, p. 2138. doi: 10.12688/f1000research.21782.4.
 
 Jung, H. et al. 2020. Comparative Evaluation of Genome Assemblers from Long-Read Sequencing for Plants and Crops. Journal of Agricultural and Food Chemistry 68(29), pp. 7670–7677. doi: 10.1021/acs.jafc.0c01647.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs 21.07.02 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.07.02-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.07.02-release</guid><pubDate>Thu, 29 Jul 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 21.07.02 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.07.02-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.07.02-release</guid><pubDate>Thu, 29 Jul 2021 00:00:00 GMT</pubDate><content:encoded>
 Dear Nanopore Community,
 
 Our (second!) July 2021 EPI2ME Labs release includes various updates to
@@ -3023,7 +3023,7 @@ from Conda channels.
 We look forwards to feedback and recommendations for future tutorials and
 workflows.
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Normalizing fastq data]]></title><description><![CDATA[An introduction to fastcat -- the program we use in our workflows for manipulating fastq files from Nanopore sequencing devices.]]></description><link>https://labs.epi2me.io/introducing-fastcat</link><guid isPermaLink="false">https://labs.epi2me.io/introducing-fastcat</guid><pubDate>Wed, 07 Jul 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Normalizing fastq data]]></title><description><![CDATA[An introduction to fastcat -- the program we use in our workflows for manipulating fastq files from Nanopore sequencing devices.]]></description><link>https://labs.epi2me.io/introducing-fastcat</link><guid isPermaLink="false">https://labs.epi2me.io/introducing-fastcat</guid><pubDate>Wed, 07 Jul 2021 00:00:00 GMT</pubDate><content:encoded>
 import yieldPlot from &quot;./yield.jsx&quot;
 
 Oxford Nanopore Sequencing devices output RNA and DNA read sequences in batched
@@ -3089,7 +3089,7 @@ to normalize input data for downstream tools.
 * accepts compressed, uncompressed, or a mixture of fastq files,
 * filters reads on length and quality score,
 * produces per-read and per-input file summaries including information from fastq headers,
-* recapitulate standard MinKNOW demultiplexing directory layout from unstructured data. </content:encoded><content:thumbnail/></item><item><title><![CDATA[Quality Scores And Read Accuracy]]></title><description><![CDATA[In this brief post we will examine the concepts of read accuracy and read quality scores, and how they are calculated by Oxford Nanopore Technologies.]]></description><link>https://labs.epi2me.io/quality-scores</link><guid isPermaLink="false">https://labs.epi2me.io/quality-scores</guid><pubDate>Thu, 01 Jul 2021 00:00:00 GMT</pubDate><content:encoded>
+* recapitulate standard MinKNOW demultiplexing directory layout from unstructured data. </content:encoded></item><item><title><![CDATA[Quality Scores And Read Accuracy]]></title><description><![CDATA[In this brief post we will examine the concepts of read accuracy and read quality scores, and how they are calculated by Oxford Nanopore Technologies.]]></description><link>https://labs.epi2me.io/quality-scores</link><guid isPermaLink="false">https://labs.epi2me.io/quality-scores</guid><pubDate>Thu, 01 Jul 2021 00:00:00 GMT</pubDate><content:encoded>
 import accuracyPlot from &quot;./accuracy.jsx&quot;
 import qscorePlot from &quot;./qscore.jsx&quot;
 import jeffreysPlot from &quot;./qscore-pseudo.jsx&quot;
@@ -3330,7 +3330,7 @@ produced, and what they reflect is crucial to using them effectively.
 
 The data presented here suggest that current Guppy read &quot;mean Q-scores&quot; are
 useful for filtering lower quality reads from a dataset, but that care should
-be taken in using the per-base quality scores to compare bases between reads.</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs 21.07 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.07-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.07-release</guid><pubDate>Wed, 30 Jun 2021 00:00:00 GMT</pubDate><content:encoded>
+be taken in using the per-base quality scores to compare bases between reads.</content:encoded></item><item><title><![CDATA[EPI2ME Labs 21.07 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.07-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.07-release</guid><pubDate>Wed, 30 Jun 2021 00:00:00 GMT</pubDate><content:encoded>
 Dear EPI2ME Labs Users
 
 This release Wednesday we are pleased to launch [wf-human-sv](https://github.com/epi2me-labs/wf-human-sv), a new Nextflow
@@ -3394,7 +3394,7 @@ EPI2ME Labs Launcher.
 
 We look forwards to any feedback and recommendations for new workflows,
 tutorials or improvements to our current offerings.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Managing EPI2ME Labs workflows with the nextflow command-line interface]]></title><description><![CDATA[In this blogpost we explore a few details around the options available when using nextflow to run EPI2ME Labs workflows.]]></description><link>https://labs.epi2me.io/managing-epi2me-labs-workflows-with-the-nextflow-command-line-interface</link><guid isPermaLink="false">https://labs.epi2me.io/managing-epi2me-labs-workflows-with-the-nextflow-command-line-interface</guid><pubDate>Thu, 24 Jun 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Managing EPI2ME Labs workflows with the nextflow command-line interface]]></title><description><![CDATA[In this blogpost we explore a few details around the options available when using nextflow to run EPI2ME Labs workflows.]]></description><link>https://labs.epi2me.io/managing-epi2me-labs-workflows-with-the-nextflow-command-line-interface</link><guid isPermaLink="false">https://labs.epi2me.io/managing-epi2me-labs-workflows-with-the-nextflow-command-line-interface</guid><pubDate>Thu, 24 Jun 2021 00:00:00 GMT</pubDate><content:encoded>
 Our [EPI2ME Labs Workflows](/wfindex) are designed to provide reproducible analysis
 results and be deployed across a whole host of compute platforms. Our
 [workflow quick start](/wfquickstart#generic-workflow-instructions) guide shows how to get started with our
@@ -3493,7 +3493,7 @@ code simply run the workflow anew:
 EPI2ME Labs leverages the nextflow workflow system to provide rapid software updates and
 new functionality whilst also allowing complete reproducibility should users require it.
 In this post we have reviewed some of the underlying functionality that nextflow provides
-to manage workflow code allowing users to update their workflow version or keep it fixed.</content:encoded><content:thumbnail/></item><item><title><![CDATA[Conda or Mamba for production?]]></title><description><![CDATA[A short analysis of the use of the faster mamba package manager in a production software setting.]]></description><link>https://labs.epi2me.io/conda-or-mamba-for-production</link><guid isPermaLink="false">https://labs.epi2me.io/conda-or-mamba-for-production</guid><pubDate>Fri, 18 Jun 2021 00:00:00 GMT</pubDate><content:encoded> 
+to manage workflow code allowing users to update their workflow version or keep it fixed.</content:encoded></item><item><title><![CDATA[Conda or Mamba for production?]]></title><description><![CDATA[A short analysis of the use of the faster mamba package manager in a production software setting.]]></description><link>https://labs.epi2me.io/conda-or-mamba-for-production</link><guid isPermaLink="false">https://labs.epi2me.io/conda-or-mamba-for-production</guid><pubDate>Fri, 18 Jun 2021 00:00:00 GMT</pubDate><content:encoded> 
 
 Conda is a great choice for installing scientific software, permitting users to manage multiple isolated and reproducible environments. It&apos;s known as a Python package manager, but really it&apos;s a general purpose system that is also highly portable.
 
@@ -3610,7 +3610,7 @@ Here&apos;s the catch: Micromamba is still experimental, and lacks some features
 ## Conclusions
 
 Mamba is a great drop-in replacement as your daily-driver scientific package manager. In some cases it will significantly speed up your workflow over using Miniconda. However, consider using Micromamba if space or minimalism matters.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs 21.06 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.06-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.06-release</guid><pubDate>Wed, 16 Jun 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 21.06 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.06-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.06-release</guid><pubDate>Wed, 16 Jun 2021 00:00:00 GMT</pubDate><content:encoded>
 Dear EPI2ME Labs Users
 
 With the June 2021 update to EPI2ME Labs, we are pleased to release a new
@@ -3662,7 +3662,7 @@ please see the [changelog](https://github.com/nanoporetech/medaka/blob/master/CH
 
 
 We look forwards to any feedback and would welcome recommendations for future
-content.</content:encoded><content:thumbnail/></item><item><title><![CDATA[Snakemake vs Nextflow]]></title><description><![CDATA[Musing on the considerations when choosing a workflow manager.]]></description><link>https://labs.epi2me.io/snakemake-vs-nextflow</link><guid isPermaLink="false">https://labs.epi2me.io/snakemake-vs-nextflow</guid><pubDate>Sun, 13 Jun 2021 00:00:00 GMT</pubDate><content:encoded> 
+content.</content:encoded></item><item><title><![CDATA[Snakemake vs Nextflow]]></title><description><![CDATA[Musing on the considerations when choosing a workflow manager.]]></description><link>https://labs.epi2me.io/snakemake-vs-nextflow</link><guid isPermaLink="false">https://labs.epi2me.io/snakemake-vs-nextflow</guid><pubDate>Sun, 13 Jun 2021 00:00:00 GMT</pubDate><content:encoded> 
 These two popular workflow management projects were started in 2014 and 2013 respectively and likely stemmed from a common need to process the increasing quantities of scientific data. They both provide similar solutions to help break down analysis into tasks or processes and link them together in an analysis pipeline.  
 
 Here are some of the main things we considered when deciding which to use for creating our own workflows – 
@@ -3685,7 +3685,7 @@ Here are some of the main things we considered when deciding which to use for cr
 
 Nextflow and Snakemake both seem like solid choices for developing scientific workflows. There may be cases where working with Snakemake may be preferable and we may use it on occasion but ultimately it made sense for our group to choose one workflow management system to use for the bulk of our work for which we have gone with Nextflow. 
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Locating the Labs Launcher log file]]></title><description><![CDATA[A short guide on locating log files on your computer from the EPI2ME Labs Launcher.]]></description><link>https://labs.epi2me.io/locating-the-labs-launcher-log-file</link><guid isPermaLink="false">https://labs.epi2me.io/locating-the-labs-launcher-log-file</guid><pubDate>Fri, 11 Jun 2021 00:00:00 GMT</pubDate><content:encoded>As much as we&apos;d like the process of running the Labslauncher as seamless as
+</content:encoded></item><item><title><![CDATA[Locating the Labs Launcher log file]]></title><description><![CDATA[A short guide on locating log files on your computer from the EPI2ME Labs Launcher.]]></description><link>https://labs.epi2me.io/locating-the-labs-launcher-log-file</link><guid isPermaLink="false">https://labs.epi2me.io/locating-the-labs-launcher-log-file</guid><pubDate>Fri, 11 Jun 2021 00:00:00 GMT</pubDate><content:encoded>As much as we&apos;d like the process of running the Labslauncher as seamless as
 possible sometimes errors pop up --- whether this be due to something fun in
 your local setup or a bug that has snuck in!
 
@@ -3751,7 +3751,7 @@ open ~/.labslauncher/labslauncher.log
 ```
 
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Creating interactive, clean and functional graphics with aplanat]]></title><description><![CDATA[An introduction to the aplanat Python package for plotting bioinformatical data.]]></description><link>https://labs.epi2me.io/developing-aplanat</link><guid isPermaLink="false">https://labs.epi2me.io/developing-aplanat</guid><pubDate>Tue, 08 Jun 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Creating interactive, clean and functional graphics with aplanat]]></title><description><![CDATA[An introduction to the aplanat Python package for plotting bioinformatical data.]]></description><link>https://labs.epi2me.io/developing-aplanat</link><guid isPermaLink="false">https://labs.epi2me.io/developing-aplanat</guid><pubDate>Tue, 08 Jun 2021 00:00:00 GMT</pubDate><content:encoded>
 import karyogramPlot from &quot;./karyogram.jsx&quot;
 
 
@@ -3947,7 +3947,7 @@ developing new visualizations, but for our daily needs aplanat allows us to
 focus on science rather than minutia of creating attractive, useful visualizations.
 
 The EPI2ME Labs team&apos;s goal is to allow anyone, anywhere to analyse their
-Oxford Nanopore Technologies&apos; sequencing data.</content:encoded><content:thumbnail/></item><item><title><![CDATA[Q20 single-read accuracy with ultra-long CliveOME dataset]]></title><description><![CDATA[A fresh release of the CliveOME using the latest Q20 pre-release chemistry.]]></description><link>https://labs.epi2me.io/cliveome_2010.05</link><guid isPermaLink="false">https://labs.epi2me.io/cliveome_2010.05</guid><pubDate>Fri, 21 May 2021 00:00:00 GMT</pubDate><content:encoded>
+Oxford Nanopore Technologies&apos; sequencing data.</content:encoded></item><item><title><![CDATA[Q20 single-read accuracy with ultra-long CliveOME dataset]]></title><description><![CDATA[A fresh release of the CliveOME using the latest Q20 pre-release chemistry.]]></description><link>https://labs.epi2me.io/cliveome_2010.05</link><guid isPermaLink="false">https://labs.epi2me.io/cliveome_2010.05</guid><pubDate>Fri, 21 May 2021 00:00:00 GMT</pubDate><content:encoded>
 import accPlot from &quot;./accuracy.plt.jsx&quot;
 import lenPlot from &quot;./cumlength.plt.jsx&quot;
 
@@ -4002,7 +4002,7 @@ software package.
 
 &lt;Bokeh plotJson={lenPlot} plotName=&quot;len-plot&quot;
     plotCaption=&quot;Single-molecule read lengths for each of the eight flowcells.&quot;/&gt;
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Rebasecalling of SRE and ULK GM24385 Dataset]]></title><description><![CDATA[An updated basecalling of our previously released GM24385 dataset.]]></description><link>https://labs.epi2me.io/gm24385_2021.05</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_2021.05</guid><pubDate>Tue, 18 May 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Rebasecalling of SRE and ULK GM24385 Dataset]]></title><description><![CDATA[An updated basecalling of our previously released GM24385 dataset.]]></description><link>https://labs.epi2me.io/gm24385_2021.05</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_2021.05</guid><pubDate>Tue, 18 May 2021 00:00:00 GMT</pubDate><content:encoded>
 import accComparePlot from &quot;./accuracy.compare.jsx&quot;
 import qComparePlot from &quot;./qscore.compare.jsx&quot;
 import qFilterPlot from &quot;./qscore.filter.jsx&quot;
@@ -4103,7 +4103,7 @@ to the version used here. Further details of the final release are available
 in the [Nanopore Community](https://community.nanoporetech.com/posts/guppy-v5-0-7-release-note) pages.
 
 We hope that these data and analyses provide a useful resource to the community.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs 21.05 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.05-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.05-release</guid><pubDate>Mon, 17 May 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 21.05 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.05-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.05-release</guid><pubDate>Mon, 17 May 2021 00:00:00 GMT</pubDate><content:encoded>
 Our May 2021 update to EPI2ME Labs brings a smörgåsbord of fixes, new
 functionality and a colourful new project website.
 
@@ -4175,7 +4175,7 @@ documented in the [changelog](https://github.com/nanoporetech/medaka/blob/master
 *We look forward to any feedback and would welcome ideas and insight for
 tutorials and workflows that would benefit your research.*
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs Blog Revamp]]></title><description><![CDATA[A short post describing the refresh and consolidation of the EPI2ME Labs and ONT Open Datasets blog sites.]]></description><link>https://labs.epi2me.io/epi2me-labs-blog-revamp</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-blog-revamp</guid><pubDate>Mon, 17 May 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs Blog Revamp]]></title><description><![CDATA[A short post describing the refresh and consolidation of the EPI2ME Labs and ONT Open Datasets blog sites.]]></description><link>https://labs.epi2me.io/epi2me-labs-blog-revamp</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-blog-revamp</guid><pubDate>Mon, 17 May 2021 00:00:00 GMT</pubDate><content:encoded>
 Previous users of this webpage will have noticed things have changed a little.
 Gone is the purely functional style, replaced with a very more more vibrant
 look besetting of the rapid software development undertaken of the EPI2ME Labs
@@ -4217,7 +4217,7 @@ to futher collect together content.
 
 We hope you like the look of our new site and that it make our content easier
 to find an share.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Running EPI2ME Labs Notebooks on Remote Computers]]></title><description><![CDATA[A short introduction to running EPI2ME Labs tutorials on a remote networked computer.]]></description><link>https://labs.epi2me.io/running-epi2me-labs-notebooks-on-remote-computers</link><guid isPermaLink="false">https://labs.epi2me.io/running-epi2me-labs-notebooks-on-remote-computers</guid><pubDate>Wed, 17 Mar 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Running EPI2ME Labs Notebooks on Remote Computers]]></title><description><![CDATA[A short introduction to running EPI2ME Labs tutorials on a remote networked computer.]]></description><link>https://labs.epi2me.io/running-epi2me-labs-notebooks-on-remote-computers</link><guid isPermaLink="false">https://labs.epi2me.io/running-epi2me-labs-notebooks-on-remote-computers</guid><pubDate>Wed, 17 Mar 2021 00:00:00 GMT</pubDate><content:encoded>
 
 This blog post is a short introduction to running EPI2ME Labs tutorials on a remote machine that you have access to.  
 This means you can still use the straight forward graphical interface for running the applications while utilising the 
@@ -4297,7 +4297,7 @@ If your launcher is running you should be now faced with the jupyter login page.
 
 &gt; **_NOTE:_** The default token is &quot;EPI2MELabs&quot; however we recommend that you change this when appropriate.
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs Launcher Command-line interface]]></title><description><![CDATA[By popular request, an introduction to the new command-line interface for managing EPI2ME Labs notebook servers.]]></description><link>https://labs.epi2me.io/epi2me-labs-launcher-command-line-interface</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-launcher-command-line-interface</guid><pubDate>Wed, 17 Mar 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs Launcher Command-line interface]]></title><description><![CDATA[By popular request, an introduction to the new command-line interface for managing EPI2ME Labs notebook servers.]]></description><link>https://labs.epi2me.io/epi2me-labs-launcher-command-line-interface</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-launcher-command-line-interface</guid><pubDate>Wed, 17 Mar 2021 00:00:00 GMT</pubDate><content:encoded>
 
 
 Feedback from EPI2ME Labs users revealed the desired for people to be able to control the
@@ -4353,7 +4353,7 @@ natural command-line interface.
 
 We hope that users will find the new command-line interface useful and look
 forward to feedback.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs Embraces Nextflow]]></title><description><![CDATA[Background article on the choice of Nextflow for authoring bioinformatics workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io/epi2me-labs-embraces-nextflow</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-embraces-nextflow</guid><pubDate>Wed, 10 Mar 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs Embraces Nextflow]]></title><description><![CDATA[Background article on the choice of Nextflow for authoring bioinformatics workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io/epi2me-labs-embraces-nextflow</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-embraces-nextflow</guid><pubDate>Wed, 10 Mar 2021 00:00:00 GMT</pubDate><content:encoded>
 
 We are excited to launch a new bioinformatics offering using the [Nextflow](https://www.nextflow.io/)
 reactive workflow framework. Nextflow has been selected as a preferred
@@ -4409,7 +4409,7 @@ analysis. Additional data and their provenance are shown to further summarise
 the data and SARS-CoV-2 variants contained within. The dataset summarised in
 this sample report is from sequencing study [PRJNA650037](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA650037).
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Workflow Command-line Usage]]></title><description><![CDATA[A short guide to getting started with EPI2ME Labs Nextflow workflows with instructions for installation on Oxford Nanopore Technologies' sequencing devices and Linux and MacOS.]]></description><link>https://labs.epi2me.io/wfquickstart</link><guid isPermaLink="false">https://labs.epi2me.io/wfquickstart</guid><pubDate>Sun, 07 Mar 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Workflow Command-line Usage]]></title><description><![CDATA[A short guide to getting started with EPI2ME Labs Nextflow workflows with instructions for installation on Oxford Nanopore Technologies' sequencing devices and Linux and MacOS.]]></description><link>https://labs.epi2me.io/wfquickstart</link><guid isPermaLink="false">https://labs.epi2me.io/wfquickstart</guid><pubDate>Sun, 07 Mar 2021 00:00:00 GMT</pubDate><content:encoded>
 
 EPI2ME Labs workflow are built using the [nextflow](https://www.nextflow.io/) workflow
 framework:
@@ -4581,7 +4581,7 @@ container id and then `docker rm &lt;container-id&gt;`.
 
 * [nextflow](https://www.nextflow.io/) The workflow management system used by EPI2ME Labs workflows.
 * [docker](https://www.docker.com/products/docker-desktop) A software container platform that can be optionally used by EPI2ME Labs.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs 21.02 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.02-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.02-release</guid><pubDate>Wed, 10 Feb 2021 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 21.02 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-21.02-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-21.02-release</guid><pubDate>Wed, 10 Feb 2021 00:00:00 GMT</pubDate><content:encoded>
 
 We are delighted to release this month&apos;s update to EPI2ME Labs. The 2021-02.01
 release addresses some Community feedback and introduces new and updated
@@ -4664,14 +4664,14 @@ of processing read statistics and count information from BAM alignment files.
 
 We look forwards to your feedback. We would welcome suggestions for future
 tutorials and we would gratefully review Community contributions.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs Blog Launch]]></title><description><![CDATA[Welcome message to our new blog site.]]></description><link>https://labs.epi2me.io/epi2melabs-blog-launch</link><guid isPermaLink="false">https://labs.epi2me.io/epi2melabs-blog-launch</guid><pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs Blog Launch]]></title><description><![CDATA[Welcome message to our new blog site.]]></description><link>https://labs.epi2me.io/epi2melabs-blog-launch</link><guid isPermaLink="false">https://labs.epi2me.io/epi2melabs-blog-launch</guid><pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate><content:encoded>
 
 Welcome!
 
 On this site we hope to bring additional information regarding the EPI2MELabs notebook
 environment. We will present user guides, help pages and demonstrations of the available
 notebooks. All in an open setting.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs 20.11 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-20.11-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-20.11-release</guid><pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 20.11 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-20.11-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-20.11-release</guid><pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate><content:encoded>
 We are pleased to introduce a new release of our EPI2ME Labs.
 
 
@@ -4736,7 +4736,7 @@ produced in notebooks running on macOS.
 We hope that you find these updates useful. The EPI2ME Labs team would love to
 collaborate in the development of new workflows that showcase your software and
 we would welcome recommendations for new tutorials and notebooks.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Structural variation calling with GM24385]]></title><description><![CDATA[An exploration of structural variant calling with our HG002/GM24385 Askenazi Son data release.]]></description><link>https://labs.epi2me.io/gm24385_2020.11_sv</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_2020.11_sv</guid><pubDate>Tue, 01 Dec 2020 16:02:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Structural variation calling with GM24385]]></title><description><![CDATA[An exploration of structural variant calling with our HG002/GM24385 Askenazi Son data release.]]></description><link>https://labs.epi2me.io/gm24385_2020.11_sv</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_2020.11_sv</guid><pubDate>Tue, 01 Dec 2020 16:02:00 GMT</pubDate><content:encoded>
 In this blog post we will explore structural variant calling using the
 [recently released](/gm24385_2020.11) HG002 (GM24385 Ashkenazi Son) data
 release.
@@ -4848,7 +4848,7 @@ With still a little more work we can produce the following depicting the
 f1-score alongwith counts of SVs in the truthset:
 
 ![sv_length_f1](./sv_f1.png &quot;Structural variation calling f1-score&quot;)
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[November 2020 GM24385 Dataset Release]]></title><description><![CDATA[The data referenced in this page have been superceded by the June 2021 Guppy 5 rebasecalling release.]]></description><link>https://labs.epi2me.io/gm24385_2020.11</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_2020.11</guid><pubDate>Thu, 26 Nov 2020 11:38:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[November 2020 GM24385 Dataset Release]]></title><description><![CDATA[The data referenced in this page have been superceded by the June 2021 Guppy 5 rebasecalling release.]]></description><link>https://labs.epi2me.io/gm24385_2020.11</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_2020.11</guid><pubDate>Thu, 26 Nov 2020 11:38:00 GMT</pubDate><content:encoded>
 &gt; The data referenced in this page have been superceded by the [June 2021](/gm24385_2021.05) Guppy 5 rebasecalling
 
 We are happy to annouce an updated release of nanopore sequencing
@@ -4931,7 +4931,7 @@ to produce per-region .fast5 file sets.
 For more details see our [post](/katuali_human_pipeline/) detailing the
 pipeline and its outputs.
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs 20.10 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-20.10-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-20.10-release</guid><pubDate>Mon, 26 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs 20.10 Release]]></title><description><![CDATA[Software release note.]]></description><link>https://labs.epi2me.io/epi2me-labs-20.10-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-labs-20.10-release</guid><pubDate>Mon, 26 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
 We are pleased to introduce a new release of our EPI2ME Labs.
 
 With this update we are now supporting only the Jupyter interface to EPI2ME
@@ -4981,7 +4981,7 @@ and launching the EPI2ME Labs software.
 We look forwards to your feedback on this EPI2ME Labs update and we would
 welcome any recommendations for workflows that you would like to see in
 upcoming releases.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs moves to JupyterLab]]></title><description><![CDATA[An update on moving EPI2ME Labs away from Google Colab and onto a self-contained JupyterLab interface.]]></description><link>https://labs.epi2me.io/jupytermove</link><guid isPermaLink="false">https://labs.epi2me.io/jupytermove</guid><pubDate>Fri, 23 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs moves to JupyterLab]]></title><description><![CDATA[An update on moving EPI2ME Labs away from Google Colab and onto a self-contained JupyterLab interface.]]></description><link>https://labs.epi2me.io/jupytermove</link><guid isPermaLink="false">https://labs.epi2me.io/jupytermove</guid><pubDate>Fri, 23 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
 When we released EPI2MELabs earlier this year we wanted to create an
 environment where &quot;non-coders&quot;, people with little to no experience of writing
 computer code, could learn to analyse their nanopore sequencing data. To achieve this
@@ -5026,11 +5026,9 @@ location to start new analyses, or resume old ones.
 
 The work to improve our notebooks for use with the JupyterLab interface has not finished.  We intend to further enhance the visual display of code within Jupyterlab to provide a more enticing experience for all users.  Going forward, we plan to contribute what we develop here back to the wider Jupyter community - so watch this space!
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2MELabs Quick Start Guide]]></title><description><![CDATA[A guide illustrating installation and use of the EPI2ME Labs notebook server.]]></description><link>https://labs.epi2me.io/nbquickstart</link><guid isPermaLink="false">https://labs.epi2me.io/nbquickstart</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2MELabs Quick Start Guide]]></title><description><![CDATA[A guide illustrating installation and use of the EPI2ME Labs notebook server.]]></description><link>https://labs.epi2me.io/nbquickstart</link><guid isPermaLink="false">https://labs.epi2me.io/nbquickstart</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
 Redirecting to /installation
-&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; URL=&apos;/installation&apos;&quot; /&gt;</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2MELabs Quick Start Guide]]></title><description><![CDATA[A guide illustrating installation and use of the EPI2ME Labs notebook server.]]></description><link>https://labs.epi2me.io/quickstart</link><guid isPermaLink="false">https://labs.epi2me.io/quickstart</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
-Redirecting to /nbquickstart
-&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; URL=&apos;/nbquickstart&apos;&quot; /&gt;</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs downloads and resources]]></title><description><![CDATA[Software downloads and links to all our open software repositories.]]></description><link>https://labs.epi2me.io/downloads</link><guid isPermaLink="false">https://labs.epi2me.io/downloads</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
+&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; URL=&apos;/installation&apos;&quot; /&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs downloads and resources]]></title><description><![CDATA[Software downloads and links to all our open software repositories.]]></description><link>https://labs.epi2me.io/downloads</link><guid isPermaLink="false">https://labs.epi2me.io/downloads</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
 The EPI2ME Labs Launcher is used to start, stop, and update the EPI2MELabs notebook
 server, our interactive environment for bioinformatics exploration and learning.
 We provide executables for Windows 10, macOS, and Linux.
@@ -5117,7 +5115,9 @@ package designed to work on streaming data; it can be inlined in a typical
 [Fastcat](https://github.com/epi2me-labs/fastcat) is a small FASTQ utility
 primarily used to concatenate transparently compressed and uncompressed FASTQ
 files, whilst producing summaries of the input files.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs Installation]]></title><description><![CDATA[A guide illustrating installation and use of EPI2ME Labs.]]></description><link>https://labs.epi2me.io/installation</link><guid isPermaLink="false">https://labs.epi2me.io/installation</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2MELabs Quick Start Guide]]></title><description><![CDATA[A guide illustrating installation and use of the EPI2ME Labs notebook server.]]></description><link>https://labs.epi2me.io/quickstart</link><guid isPermaLink="false">https://labs.epi2me.io/quickstart</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
+Redirecting to /nbquickstart
+&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; URL=&apos;/nbquickstart&apos;&quot; /&gt;</content:encoded></item><item><title><![CDATA[EPI2ME Labs Installation]]></title><description><![CDATA[A guide illustrating installation and use of EPI2ME Labs.]]></description><link>https://labs.epi2me.io/installation</link><guid isPermaLink="false">https://labs.epi2me.io/installation</guid><pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/f43792dc5fe4e6365fad247722a39785/thumbnail.jpg" length="346188" type="image/jpeg"/><content:encoded>
 The following guide illustrates installation and use of EPI2ME Labs for running workflows and tutorials.
 
 The EPI2ME Labs environment runs in a
@@ -5326,7 +5326,87 @@ configuration files.
 The first step removes EPI2ME Labs and any associated configuration files and dependencies 
 that are only required by EPI2ME Labs. The second step reinstalls the  EPI2ME Labs.
 
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/f43792dc5fe4e6365fad247722a39785/thumbnail.jpg</content:thumbnail></item><item><title><![CDATA[Small variant calling with GM24385]]></title><description><![CDATA[An exploration of small variant calling using our previously released HG002/GM24385 Ashkenazi Son data release.]]></description><link>https://labs.epi2me.io/gm24385_snp</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_snp</guid><pubDate>Thu, 15 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Bonito basecalling with R9.4.1]]></title><link>https://labs.epi2me.io/bonito</link><guid isPermaLink="false">https://labs.epi2me.io/bonito</guid><pubDate>Thu, 15 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
+**Updated 2020-10-30: This page was edited to reflect the formal release of Bonito v0.3.0**
+
+We are please to announce the addition of
+[bonito](https://github.com/nanoporetech/bonito) basecalling results to the
+GM24385 dataset. Bonito is a research-grade, open source basecaller utilising
+the [PyTorch](https://pytorch.org/) library; its development explores
+alternative basecalling frameworks to those use in the product-grade Guppy
+basecalling software.
+
+The Bonito basecalling for the GM24385 dataset was performed using version
+0.3.0, driven by the same [katuali](/katuali_human_pipeline/) analysis pipeline
+as for the initial dataset release.  The Bonito basecaller was provided as
+input the per-chromosome `.fast5` files created in the initial pipeline via
+alignment of the Guppy 4.0.11 basecalls. This allows for easy comparison of
+results on subsets of the data (but may lead to subtle side-effects). For
+example the analysis data structure contains now entries of the form:
+
+    gm24385_2020.09/analysis/r9.4.1/{flowcell}/guppy_{suffix}/align_unfiltered/{chromosome}/bonito_v0.3.0/
+    ├── align_unfiltered
+    │   ├── align_to_ref.log
+    │   ├── basecall_stats.log
+    │   ├── calls2ref.bam
+    │   ├── calls2ref.bam.bai
+    │   └── calls2ref_stats.txt
+    ├── basecalls.fastq.gz
+    └── basecalls.fastq.gz_summary.tsv
+
+The file `basecalls.fastq.gz` contains the basecalling results from Bonito. The
+quality scores in these files have been mocked as the pre-release build of Bonito used
+does not yet provide quality scores. Similar to the main folder structure the
+`align_unfiltered` directory contains unfiltered alignments of the basecalls to
+the reference sequence (`calls2ref.bam`) along with text files summarizing the
+properties of the alignments.
+
+### Comparison with Guppy 4.0.11 basecalls
+
+As a basis for comparison with the current Guppy basecaller we can use the alignment summary
+files for both the Guppy and Bonito basecalls. To simplify the analysis we compare only chromosome 1
+data for a single flowcell; we can download the files with:
+
+    aws s3 cp --no-sign-request s3://ont-open-data/gm24385_2020.09/analysis/r9.4.1/20200914_1354_6B_PAF27096_e7c9eae6/guppy_v4.0.11_r9.4.1_hac_prom/align_unfiltered/chr1/calls2ref_stats.txt guppy.stats
+    aws s3 cp --no-sign-request s3://ont-open-data/gm24385_2020.09/analysis/r9.4.1/20200914_1354_6B_PAF27096_e7c9eae6/guppy_v4.0.11_r9.4.1_hac_prom/align_unfiltered/chr1/bonito_v0.3.0/align_unfiltered/calls2ref_stats.txt bonito.stats
+
+The following [python code](./plot.py),
+
+    from concurrent.futures import ProcessPoolExecutor
+    import pandas as pd
+    import aplanat.util
+    from aplanat import lines
+    
+    def read_data(args):
+        caller, filename = args
+        df = pd.read_csv(filename, sep=&apos;\t&apos;)
+        xs, ys = aplanat.util.kernel_density_estimate(df[&apos;acc&apos;], step=0.05)
+        df = pd.DataFrame({&apos;accuracy&apos;:xs, &apos;density&apos;:ys})
+        df[&apos;caller&apos;] = caller
+        return df
+    
+    data_sets = {
+        &apos;bonito&apos;: &apos;bonito.stats&apos;,
+        &apos;guppy&apos;: &apos;guppy.stats&apos;}
+    
+    with ProcessPoolExecutor() as executor:
+        dfs = list(executor.map(read_data, data_sets.items()))
+    plot = lines.line(
+        [df[&apos;accuracy&apos;] for df in dfs],
+        [df[&apos;density&apos;] for df in dfs],
+        colors=[&apos;red&apos;, &apos;blue&apos;],
+        names=[&apos;bonito&apos;, &apos;guppy&apos;],
+        xlim=(85,100),
+        x_axis_label=&apos;Alignment accuracy&apos;,
+        y_axis_label=&apos;Density&apos;)
+    plot.legend.location = &apos;top_left&apos;
+
+can be used to plot a kernel density estimate for the read alignment accuracy:
+
+![accuracy comparison](./accuracy.png &quot;Basecalls: Bonito CTC-CRF vs. Guppy 4.0.11&quot;)
+
+The plot indicates a decrease of one-third in the modal error of reads.
+</content:encoded></item><item><title><![CDATA[Small variant calling with GM24385]]></title><description><![CDATA[An exploration of small variant calling using our previously released HG002/GM24385 Ashkenazi Son data release.]]></description><link>https://labs.epi2me.io/gm24385_snp</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_snp</guid><pubDate>Thu, 15 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
 In this blog post we will explore small variant calling using the [previously
 released](/gm24385_2020.09) HG002 (GM24385 Ashkenazi Son) data release.
 
@@ -5515,87 +5595,7 @@ We kindly acknowledge Andrew Carroll of Google Health and Benedict Paten&apos;s
 group at the Computational Genomics Lab, UC Santa Cruz Genomics Institute for
 releasing the DeepVariant inference models for nanopore data and discussions
 concerning how to present variant candidates to DeepVariant.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Bonito basecalling with R9.4.1]]></title><link>https://labs.epi2me.io/bonito</link><guid isPermaLink="false">https://labs.epi2me.io/bonito</guid><pubDate>Thu, 15 Oct 2020 00:00:00 GMT</pubDate><content:encoded>
-**Updated 2020-10-30: This page was edited to reflect the formal release of Bonito v0.3.0**
-
-We are please to announce the addition of
-[bonito](https://github.com/nanoporetech/bonito) basecalling results to the
-GM24385 dataset. Bonito is a research-grade, open source basecaller utilising
-the [PyTorch](https://pytorch.org/) library; its development explores
-alternative basecalling frameworks to those use in the product-grade Guppy
-basecalling software.
-
-The Bonito basecalling for the GM24385 dataset was performed using version
-0.3.0, driven by the same [katuali](/katuali_human_pipeline/) analysis pipeline
-as for the initial dataset release.  The Bonito basecaller was provided as
-input the per-chromosome `.fast5` files created in the initial pipeline via
-alignment of the Guppy 4.0.11 basecalls. This allows for easy comparison of
-results on subsets of the data (but may lead to subtle side-effects). For
-example the analysis data structure contains now entries of the form:
-
-    gm24385_2020.09/analysis/r9.4.1/{flowcell}/guppy_{suffix}/align_unfiltered/{chromosome}/bonito_v0.3.0/
-    ├── align_unfiltered
-    │   ├── align_to_ref.log
-    │   ├── basecall_stats.log
-    │   ├── calls2ref.bam
-    │   ├── calls2ref.bam.bai
-    │   └── calls2ref_stats.txt
-    ├── basecalls.fastq.gz
-    └── basecalls.fastq.gz_summary.tsv
-
-The file `basecalls.fastq.gz` contains the basecalling results from Bonito. The
-quality scores in these files have been mocked as the pre-release build of Bonito used
-does not yet provide quality scores. Similar to the main folder structure the
-`align_unfiltered` directory contains unfiltered alignments of the basecalls to
-the reference sequence (`calls2ref.bam`) along with text files summarizing the
-properties of the alignments.
-
-### Comparison with Guppy 4.0.11 basecalls
-
-As a basis for comparison with the current Guppy basecaller we can use the alignment summary
-files for both the Guppy and Bonito basecalls. To simplify the analysis we compare only chromosome 1
-data for a single flowcell; we can download the files with:
-
-    aws s3 cp --no-sign-request s3://ont-open-data/gm24385_2020.09/analysis/r9.4.1/20200914_1354_6B_PAF27096_e7c9eae6/guppy_v4.0.11_r9.4.1_hac_prom/align_unfiltered/chr1/calls2ref_stats.txt guppy.stats
-    aws s3 cp --no-sign-request s3://ont-open-data/gm24385_2020.09/analysis/r9.4.1/20200914_1354_6B_PAF27096_e7c9eae6/guppy_v4.0.11_r9.4.1_hac_prom/align_unfiltered/chr1/bonito_v0.3.0/align_unfiltered/calls2ref_stats.txt bonito.stats
-
-The following [python code](./plot.py),
-
-    from concurrent.futures import ProcessPoolExecutor
-    import pandas as pd
-    import aplanat.util
-    from aplanat import lines
-    
-    def read_data(args):
-        caller, filename = args
-        df = pd.read_csv(filename, sep=&apos;\t&apos;)
-        xs, ys = aplanat.util.kernel_density_estimate(df[&apos;acc&apos;], step=0.05)
-        df = pd.DataFrame({&apos;accuracy&apos;:xs, &apos;density&apos;:ys})
-        df[&apos;caller&apos;] = caller
-        return df
-    
-    data_sets = {
-        &apos;bonito&apos;: &apos;bonito.stats&apos;,
-        &apos;guppy&apos;: &apos;guppy.stats&apos;}
-    
-    with ProcessPoolExecutor() as executor:
-        dfs = list(executor.map(read_data, data_sets.items()))
-    plot = lines.line(
-        [df[&apos;accuracy&apos;] for df in dfs],
-        [df[&apos;density&apos;] for df in dfs],
-        colors=[&apos;red&apos;, &apos;blue&apos;],
-        names=[&apos;bonito&apos;, &apos;guppy&apos;],
-        xlim=(85,100),
-        x_axis_label=&apos;Alignment accuracy&apos;,
-        y_axis_label=&apos;Density&apos;)
-    plot.legend.location = &apos;top_left&apos;
-
-can be used to plot a kernel density estimate for the read alignment accuracy:
-
-![accuracy comparison](./accuracy.png &quot;Basecalls: Bonito CTC-CRF vs. Guppy 4.0.11&quot;)
-
-The plot indicates a decrease of one-third in the modal error of reads.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[Katuali analysis pipeline for preparing human datasets]]></title><description><![CDATA[A description of the snakemake pipeline used to process many of our ONT Open Dataset releases.]]></description><link>https://labs.epi2me.io/katuali_human_pipeline</link><guid isPermaLink="false">https://labs.epi2me.io/katuali_human_pipeline</guid><pubDate>Tue, 22 Sep 2020 00:04:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[Katuali analysis pipeline for preparing human datasets]]></title><description><![CDATA[A description of the snakemake pipeline used to process many of our ONT Open Dataset releases.]]></description><link>https://labs.epi2me.io/katuali_human_pipeline</link><guid isPermaLink="false">https://labs.epi2me.io/katuali_human_pipeline</guid><pubDate>Tue, 22 Sep 2020 00:04:00 GMT</pubDate><content:encoded>
 Our recent [GM24385 data release](/gm24385_2020.09) contains data from multiple
 flowcells and analytes for both the R9.4.1 and R10.3 flowcell chemistries. The
 uploaded data contains the primary sequencer output data; the full MinKNOW
@@ -5810,7 +5810,7 @@ MinKNOW `.fast5` files but containing only the requisite reads. The file
 `filename_mapping.txt` provides a read identifier to filename mapping.
 
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[ONT Open Datasets Tutorials]]></title><description><![CDATA[Helpful information and links to tutorials for datasets within the Open Datasets project.]]></description><link>https://labs.epi2me.io/tutorials</link><guid isPermaLink="false">https://labs.epi2me.io/tutorials</guid><pubDate>Tue, 22 Sep 2020 00:01:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[ONT Open Datasets Tutorials]]></title><description><![CDATA[Helpful information and links to tutorials for datasets within the Open Datasets project.]]></description><link>https://labs.epi2me.io/tutorials</link><guid isPermaLink="false">https://labs.epi2me.io/tutorials</guid><pubDate>Tue, 22 Sep 2020 00:01:00 GMT</pubDate><content:encoded>
 Below you will find helpful information and links out to tutorials for
 datasets within the Open Datasets project.
 
@@ -5856,7 +5856,7 @@ With each dataset release we will include details of how the analysis
 directories were constructed from the primary inputs. For example for
 the [GM24385](/gm24385_2020.09) dataset release [this page](/katuali_human_pipeline)
 contains details of the Snakemake pipeline used.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[ONT Open Datasets Launch]]></title><description><![CDATA[Welcome message to our Open Datasets initiative.]]></description><link>https://labs.epi2me.io/ont-open-datasets-launch</link><guid isPermaLink="false">https://labs.epi2me.io/ont-open-datasets-launch</guid><pubDate>Tue, 22 Sep 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[ONT Open Datasets Launch]]></title><description><![CDATA[Welcome message to our Open Datasets initiative.]]></description><link>https://labs.epi2me.io/ont-open-datasets-launch</link><guid isPermaLink="false">https://labs.epi2me.io/ont-open-datasets-launch</guid><pubDate>Tue, 22 Sep 2020 00:00:00 GMT</pubDate><content:encoded>
 The ont-open-data registry provides reference sequencing data from Oxford
 Nanopore Technologies to support,
 
@@ -5871,7 +5871,7 @@ sequencing chemistries. The datasets correspond to publicly-available reference
 samples (e.g. GM24385 as reference human). Raw data are provided with metadata
 and scripts to describe sample and data provenance.
 
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[GM24385 Dataset Release]]></title><description><![CDATA[The data referenced in this page have been superceded by the June 2021 Guppy 5 rebasecalling of the November 2020 dataset.]]></description><link>https://labs.epi2me.io/gm24385_2020.09</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_2020.09</guid><pubDate>Tue, 22 Sep 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[GM24385 Dataset Release]]></title><description><![CDATA[The data referenced in this page have been superceded by the June 2021 Guppy 5 rebasecalling of the November 2020 dataset.]]></description><link>https://labs.epi2me.io/gm24385_2020.09</link><guid isPermaLink="false">https://labs.epi2me.io/gm24385_2020.09</guid><pubDate>Tue, 22 Sep 2020 00:00:00 GMT</pubDate><content:encoded>
 
 &gt; The R9.4.1 data referenced in this page have been superceded by the [June 2021](/gm24385_2021.05) Guppy 5 rebasecalling of the [November 2020](/gm24385_2020.11) dataset.
 
@@ -5941,7 +5941,7 @@ to produce per-region .fast5 file sets.
 
 For more details see our [post](/katuali_human_pipeline/) detailing the
 pipeline and its outputs.
-</content:encoded><content:thumbnail/></item><item><title><![CDATA[EPI2ME Labs Workflows]]></title><description><![CDATA[Introduction to EPI2ME Labs Nextflow bioinformatic workflows: available workflows and how to install and use them.]]></description><link>https://labs.epi2me.io/wfindex</link><guid isPermaLink="false">https://labs.epi2me.io/wfindex</guid><pubDate>Tue, 01 Sep 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs Workflows]]></title><description><![CDATA[Introduction to EPI2ME Labs Nextflow bioinformatic workflows: available workflows and how to install and use them.]]></description><link>https://labs.epi2me.io/wfindex</link><guid isPermaLink="false">https://labs.epi2me.io/wfindex</guid><pubDate>Tue, 01 Sep 2020 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/7b955fd3bff78ff21f10b5769a188346/thumbnail.jpg" length="1164457" type="image/jpeg"/><content:encoded>
 EPI2ME Labs maintains a collection of [Nextflow](https://www.nextflow.io/) bioinformatics
 workflows tailored to Oxford Nanopore Technologies long-read sequencing data. They
 are curated and actively maintained by experts in long-read sequence analysis.
@@ -6021,7 +6021,7 @@ and wf-human-sv pipelines are no longer supported. ([Documentation](/workflows/w
 * [wf-cas9](https://www.github.com/epi2me-labs/wf-cas9): a workflow for
   analysing on-target, off-target, and background sequencing from a
   Cas9 native DNA enrichment experiment.([Sample report](/workflows/wf-cas9-report.html)) ([Documentation](/workflows/wf-cas9))
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/7b955fd3bff78ff21f10b5769a188346/thumbnail.jpg</content:thumbnail></item><item><title><![CDATA[EPI2ME Labs Tutorials]]></title><description><![CDATA[EPI2ME Labs maintains a collection of example bioinformatics notebooks for running analysis in your web browser. Our Python notebook tutorials walk through various topics suitable for bioinfomatics beginners to virtuosos.]]></description><link>https://labs.epi2me.io/nbindex</link><guid isPermaLink="false">https://labs.epi2me.io/nbindex</guid><pubDate>Tue, 01 Sep 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[EPI2ME Labs Tutorials]]></title><description><![CDATA[EPI2ME Labs maintains a collection of example bioinformatics notebooks for running analysis in your web browser. Our Python notebook tutorials walk through various topics suitable for bioinfomatics beginners to virtuosos.]]></description><link>https://labs.epi2me.io/nbindex</link><guid isPermaLink="false">https://labs.epi2me.io/nbindex</guid><pubDate>Tue, 01 Sep 2020 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/d5f2779e5a84bf92e5d939ed7cc9b20e/thumbnail.jpg" length="1067874" type="image/jpeg"/><content:encoded>
 &gt; Development of EPI2ME Labs notebooks is currently on hold while we focus
 &gt; on expanding our range of Nextflow [workflows](/wfindex). The information
 &gt; below may be out of date. The ability to run our notebooks from within the
@@ -6124,7 +6124,7 @@ capabilities of each notebook; these pages are not interactive.
 
 * [Medaka tech. demo](/notebooks/Introduction_to_how_ONT&apos;s_medaka_works.html) - A deep
   dive into the inner workings of Oxford Nanopore Technologies&apos; Medaka software
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/d5f2779e5a84bf92e5d939ed7cc9b20e/thumbnail.jpg</content:thumbnail></item><item><title><![CDATA[ONT Open Datasets]]></title><description><![CDATA[The Oxford Nanopore Technologies Open Data (ont-open-data) provides reference sequencing data from ONT sequencing devices.]]></description><link>https://labs.epi2me.io/dataindex</link><guid isPermaLink="false">https://labs.epi2me.io/dataindex</guid><pubDate>Tue, 01 Sep 2020 00:00:00 GMT</pubDate><content:encoded>
+</content:encoded></item><item><title><![CDATA[ONT Open Datasets]]></title><description><![CDATA[The Oxford Nanopore Technologies Open Data (ont-open-data) provides reference sequencing data from ONT sequencing devices.]]></description><link>https://labs.epi2me.io/dataindex</link><guid isPermaLink="false">https://labs.epi2me.io/dataindex</guid><pubDate>Tue, 01 Sep 2020 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/d625388ba09b90e0b9b8a67a5e80bdb7/thumbnail.jpg" length="272911" type="image/jpeg"/><content:encoded>
 The Oxford Nanopore Technologies Open Data (ont-open-data) provides reference sequencing data from ONT sequencing devices. Data
 access is provided through the [Registry of Open Data on AWS](https://registry.opendata.aws/ont-open-data/).
 
@@ -6164,4 +6164,4 @@ under the [data-releases](/category/data-releases/) category.
 ## Data access
 
 All data is available under from the [Registry of Open Data on AWS](https://registry.opendata.aws/ont-open-data/). See the [ONT Open Data Tutorials](/tutorials) page for more information.
-</content:encoded><content:thumbnail>https://labs.epi2me.io/static/d625388ba09b90e0b9b8a67a5e80bdb7/thumbnail.jpg</content:thumbnail></item></channel></rss>
+</content:encoded></item></channel></rss>
