@@ -1,5 +1,129 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2ME Labs's RSS Feed]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 10 Aug 2023 15:11:14 GMT</lastBuildDate><item><title><![CDATA[EPI2ME 23.07-02 Release]]></title><description><![CDATA[An minor release including small UI fixes to the EPI2ME application and workflow updates.]]></description><link>https://labs.epi2me.io/epi2me-23.07-02-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-23.07-02-release</guid><pubDate>Thu, 10 Aug 2023 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/001ab376b5bfb5c384ad08a397d1d331/59ccf/release-croc.jpg" length="0" type="image/jpeg"/><content:encoded>&lt;p&gt;Dear Nanopore Community,&lt;/p&gt;&lt;p&gt;We’re please to bring a small set of updates to our Nextflow workflows. This release also lays the foundations for future user interface updates in the area of workflow setup.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;wf-basecalling &lt;a href=&quot;https://github.com/epi2me-labs/wf-basecalling/releases/tag/v1.0.0&quot;&gt;v1.0.0&lt;/a&gt; includes and updated version of dorado and automates the efficient generation of duplex reads.&lt;/li&gt;&lt;li&gt;wf-human-variation &lt;a href=&quot;https://github.com/epi2me-labs/wf-human-variation/releases/tag/v1.7.0&quot;&gt;v1.7.0&lt;/a&gt; contains a veritable smörgåsbord of updates covering improvements to automated annotation, downsampling and joint phasing.&lt;/li&gt;&lt;li&gt;wf-clone-validation &lt;a href=&quot;https://github.com/epi2me-labs/wf-clone-validation/releases/tag/v0.5.0&quot;&gt;v0.5.0&lt;/a&gt; contains an updated report and dedicated support for Apple silicon Mac computers (and ARM devices in general).
-&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The EPI2ME software release is available from the &lt;a href=&quot;/downloads&quot;&gt;downloads&lt;/a&gt; page. Current users should have been notified of the update within the application.&lt;/p&gt;&lt;p&gt;As a reminder we are currently soliciting early access users for the new cloud analysis functionality in the EPI2ME desktop application that will launch in 2024. You can register your interest &lt;a href=&quot;https://register.nanoporetech.com/epi2me-cloud&quot; title=&quot;https://register.nanoporetech.com/epi2me-cloud&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;We look forward to any feedback and welcome recommendations for workflows and EPI2ME features that could be included in future releases.&lt;/p&gt;</content:encoded><content:thumbnail>https://labs.epi2me.io/static/001ab376b5bfb5c384ad08a397d1d331/59ccf/release-croc.jpg</content:thumbnail><content:toenail>https://labs.epi2me.io/static/001ab376b5bfb5c384ad08a397d1d331/release-croc.jpeg</content:toenail></item><item><title><![CDATA[EPI2ME 23.07-01 Release]]></title><description><![CDATA[A post London Calling 2023 release including the refreshed EPI2ME desktop bioinformatics application, updated workflows and newly released datasets.]]></description><link>https://labs.epi2me.io/epi2me-23.07-01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-23.07-01-release</guid><pubDate>Wed, 26 Jul 2023 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/8160f37cabf4095a3e87c9acdb705af9/59ccf/singapore.jpg" length="0" type="image/jpeg"/><content:encoded>&lt;p&gt;Dear Nanopore Community,&lt;/p&gt;&lt;p&gt;We’re pleased to bring user experience updates to our EPI2ME desktop application (v5.1.0). For our Microsoft Windows users we have overhauled and simplified the installation process and we are now providing an EPI2ME WSL distribution. To improve feedback while your analysis is running, the application now reports progress bars for our workflows (Figure 1).&lt;/p&gt;&lt;p&gt;Other improvements include:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Enhanced handling of demonstration data when workflows are updated&lt;/li&gt;&lt;li&gt;Exporting of log information to assist issue reporting&lt;/li&gt;&lt;li&gt;Automatic checking for available updates to the application&lt;/li&gt;&lt;li&gt;Enabling more powerful workflow schemas&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The EPI2ME software release is available from the &lt;a href=&quot;/downloads&quot;&gt;downloads&lt;/a&gt; page&lt;/p&gt;&lt;p&gt;As a reminder we are currently soliciting early access users for the new cloud analysis functionality in the EPI2ME desktop application that will launch in 2024. You can register your interest &lt;a href=&quot;https://register.nanoporetech.com/epi2me-cloud&quot; title=&quot;https://register.nanoporetech.com/epi2me-cloud&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot;&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2ME Labs's RSS Feed]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 10 Aug 2023 15:40:19 GMT</lastBuildDate><item><title><![CDATA[EPI2ME 23.08-01 Release]]></title><description><![CDATA[An minor release including small UI fixes to the EPI2ME application and workflow updates.]]></description><link>https://labs.epi2me.io/epi2me-23.08-01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-23.08-01-release</guid><pubDate>Thu, 10 Aug 2023 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/001ab376b5bfb5c384ad08a397d1d331/59ccf/release-croc.jpg" length="0" type="image/jpeg"/><content:encoded>&lt;p&gt;Dear Nanopore Community,&lt;/p&gt;&lt;p&gt;We’re please to bring a small set of updates to our Nextflow workflows. This release also lays the foundations for future user interface updates in the area of workflow setup.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;wf-basecalling &lt;a href=&quot;https://github.com/epi2me-labs/wf-basecalling/releases/tag/v1.0.0&quot;&gt;v1.0.0&lt;/a&gt; includes and updated version of dorado and automates the efficient generation of duplex reads.&lt;/li&gt;&lt;li&gt;wf-human-variation &lt;a href=&quot;https://github.com/epi2me-labs/wf-human-variation/releases/tag/v1.7.0&quot;&gt;v1.7.0&lt;/a&gt; contains a veritable smörgåsbord of updates covering improvements to automated annotation, downsampling and joint phasing.&lt;/li&gt;&lt;li&gt;wf-clone-validation &lt;a href=&quot;https://github.com/epi2me-labs/wf-clone-validation/releases/tag/v0.5.0&quot;&gt;v0.5.0&lt;/a&gt; contains an &lt;a href=&quot;https://labs.epi2me.io/workflows/wf-metagenomics-report.html&quot;&gt;updated report&lt;/a&gt; and &lt;a href=&quot;/inkling&quot;&gt;dedicated support&lt;/a&gt; for Apple silicon Mac computers (and ARM devices in general).
+&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The EPI2ME software release is available from the &lt;a href=&quot;/downloads&quot;&gt;downloads&lt;/a&gt; page. Current users should have been notified of the update within the application.&lt;/p&gt;&lt;p&gt;As a reminder we are currently soliciting early access users for the new cloud analysis functionality in the EPI2ME desktop application that will launch in 2024. You can register your interest &lt;a href=&quot;https://register.nanoporetech.com/epi2me-cloud&quot; title=&quot;https://register.nanoporetech.com/epi2me-cloud&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;We look forward to any feedback and welcome recommendations for workflows and EPI2ME features that could be included in future releases.&lt;/p&gt;</content:encoded><content:thumbnail>https://labs.epi2me.io/static/001ab376b5bfb5c384ad08a397d1d331/59ccf/release-croc.jpg</content:thumbnail><content:toenail>https://labs.epi2me.io/static/001ab376b5bfb5c384ad08a397d1d331/release-croc.jpeg</content:toenail></item><item><title><![CDATA[The road not taken]]></title><description><![CDATA[A ramble through the undergrowth on a road to bioinformatics on ARM64 devices.]]></description><link>https://labs.epi2me.io/inkling</link><guid isPermaLink="false">https://labs.epi2me.io/inkling</guid><pubDate>Wed, 09 Aug 2023 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/78d100efddafbf9215dc107b302fbe98/59ccf/inkling-river.jpg" length="0" type="image/jpeg"/><content:encoded>&lt;p&gt;Three years ago I foresaw a cloud arriving on the bioinformatics horizon. Apple were about to
+launch their new line of hardware
+that would include their own system-on-a-chip, &lt;a href=&quot;https://en.wikipedia.org/wiki/Apple_M1&quot;&gt;Apple M1&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;The release of M1 powered computers would be the third time that Apple changed the CPU architecture used in their products. For the
+previous 14 years Apple had used processors from Intel in its laptop and desktop hardware. These were
+the same Intel processors ubiquitously used across the rest of the computer industry from home computers
+to high-performance computer clusters.&lt;/p&gt;&lt;h3 id=&quot;two-roads-diverged&quot;&gt;Two roads diverged&lt;/h3&gt;&lt;p&gt;For the living memory of many (but not all) people working in the bioinformatics space,
+distributing software that could run on both Apple and non-Apple computers had been made less
+complicated by Apple’s choice to use Intel processors. There were certainly still wrinkles when
+trying to compile code to run on on macOS compared to Linux operating systems (let’s not get
+into the Windows thing here), but things were certainly easier than when Apple used
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Mac_transition_to_Intel_processors&quot;&gt;PowerPC&lt;/a&gt; processors.
+With the introduction of these new powerful and efficient M1 processors from Apple there
+would be the task of compiling code to run on them.&lt;/p&gt;&lt;p&gt;Before the fanboys get flustered, let’s talk about &lt;a href=&quot;https://en.wikipedia.org/wiki/Rosetta_(software)&quot;&gt;Rosetta&lt;/a&gt;.
+Apple &lt;a href=&quot;https://web.archive.org/web/20101116094453/http://www.apple.com/asia/rosetta/&quot;&gt;once&lt;/a&gt; described Rosetta as
+“The most amazing software you’ll never see.” This is a bold claim, with some justification. Without
+getting too technical, Rosetta allows current Apple hardware to run computer code created for
+Intel processors to run on M1 (and M2) processors. It implements something called “dynamic binary
+translation”: processor instructions are translated from the language of Intel processors (x86-64) to
+that of M1 processors (AArch64, also known as ARM64) whilst a program is running. Rosetta allows code created for earlier
+Intel-based Apple computers to run on current ARM-based systems.&lt;/p&gt;&lt;p&gt;The binary translation afforded by Rosetta is not however perfect. Certain extensions to the x86-64
+language used by Intel processors are &lt;a href=&quot;https://developer.apple.com/documentation/apple-silicon/about-the-rosetta-translation-environment#What-Cant-Be-Translated&quot;&gt;not supported&lt;/a&gt;
+by Rosetta. This means various programs simply will not run without being recompiled to run natively
+on ARM processors. The situation is worse than this in fact because of the dynamic nature of
+Rosetta: programs will run happily until the point at which an instruction that Rosetta cannot
+handle is encountered. When this happens the program will abruptly exit, often without any indication
+as to the cause.&lt;/p&gt;&lt;p&gt;“This is all great Chris, but aren’t you being a bit melodramatic? We’re all still running things
+just fine on our MacBooks.” Yes, yes you are. Rosetta truly is a marvel, accept when it isn’t. Its
+a useful technology whilst developers play catchup and release their software to run natively
+on ARM processors. The use of Rosetta is not free. Aside from the issue of not supporting all x86-64
+instructions such that not all programs will run, there is a performance cost to use of Rosetta.
+In our experiments below, recompiling a set of commonly used tools to run natively without Rosetta leads
+to at worst a 2x performance improvement.&lt;/p&gt;&lt;h3 id=&quot;then-took-the-other-as-just-as-fair&quot;&gt;Then took the other, as just as fair&lt;/h3&gt;&lt;p&gt;On the surface recompiling bioinformatics tools to run natively on ARM would seem fairly simple. Just
+grab your favourite software, run the compilation commands, and voila some nice new ARM binary files
+ready to run. As it happens growing ARMs is not so easy in practice. We quickly find that many
+software projects have been written in ways that mean they are intimately coupled to running on x86-64
+processors. Add in the fact that many projects depend on other projects and you quickly find yourself
+bent in the undergrowth.&lt;/p&gt;&lt;p&gt;To make the job somewhat easier we can make use of available public repositories of pre-compiled
+software libaries. Unfortunately the go-to repository of bioinformatics software,
+&lt;a href=&quot;https://bioconda.github.io/index.html&quot;&gt;bioconda&lt;/a&gt;, does not build any software for ARM64! This is the
+cloud I saw on the horizon back in November 2020: without Rosetta duck-taping the ship together,
+bioinformatics on Mac would be a no go for many. Theres little impetus to provide native packages,
+with maintainers hiding behind the excuse, “Rosetta will take care of it.”&lt;/p&gt;&lt;p&gt;For software that doesn’t run with a helping hand from Rosetta the only option for end users
+is to compile software themselves. This is beyond the skill of many. Getting a bioinformatics pipeline
+running with multiple pieces of software all compiled to native ARM64 code is not trivial. After one
+developer has gone through the pain of creating ARM software packages however, the results
+can be shared with everyone. The premise of package libraries like bioconda is exactly this:
+a community of package maintainers build executable code from source code for everyone’s use.&lt;/p&gt;&lt;p&gt;With this in mind we started project &lt;a href=&quot;https://octonauts.fandom.com/wiki/Professor_Inkling&quot;&gt;inkling&lt;/a&gt;.
+The idea is to steadily and progressively create ARM conda packages for the software used
+within our &lt;a href=&quot;/wfindex&quot;&gt;Nextflow workflows&lt;/a&gt;. To achieve this we make use of our existing
+conda packaging continuous integration pipelines that we have used for packaging our own software
+projects such as &lt;a href=&quot;www.github.com/epi2me-labs/fastcat&quot;&gt;fastcat&lt;/a&gt; and
+&lt;a href=&quot;www.github.com/epi2me-labs/modbam2bed&quot;&gt;modbam2bed&lt;/a&gt;. These pipelines are backed by a set of
+Linux virtual machines and Apple devices running on both x86-64 and ARM64 hardware. These
+machines provide us with the ability to create a total of four different software builds which
+we push to our &lt;a href=&quot;https://anaconda.org/nanoporetech/repo&quot;&gt;anaconda repository&lt;/a&gt;.&lt;/p&gt;&lt;h3 id=&quot;yet-knowing-how-way-leads-on-to-way&quot;&gt;Yet knowing how way leads on to way&lt;/h3&gt;&lt;p&gt;One of our most popular workflows is
+&lt;a href=&quot;https://github.com/epi2me-labs/wf-clone-validation&quot;&gt;wf-clone-validation&lt;/a&gt;, which can be used
+for the de novo assembly and annotation of plasmid sequences. So let’s try to compile all the
+software it requires for ARM. At its core the workflow uses
+&lt;a href=&quot;https://github.com/fenderglass/Flye&quot;&gt;flye&lt;/a&gt; and &lt;a href=&quot;https://github.com/rrwick/Trycycler&quot;&gt;trycyler&lt;/a&gt;
+to first create a high quality assembly before inspection and annotation with
+&lt;a href=&quot;https://github.com/mmcguffi/pLannotate&quot;&gt;pLannotate&lt;/a&gt;. So three packages to build for ARM on
+macOS and Linux. Not quite. Each of these, notably trycycler and pLannotate depend on multiple
+other software libraries and packages. Not all of these are required for our use case in
+wf-clone-validation but without deconstructing the original software components it is necessary
+to also compile the dependencies for ARM. To do otherwise would lead to ARM packages without
+the full functionality of the exisiting x86-64 packages. All-in-all we ended up needing
+to create more than 20 new ARM packages! (Various non-specific libraries are available for
+ARM already through &lt;a href=&quot;https://conda-forge.org/&quot;&gt;conda-forge&lt;/a&gt;).&lt;/p&gt;&lt;p&gt;Building all these packages was not a terribly exciting affair, certainly not a &lt;a href=&quot;https://twitter.com/chrisnrg/status/1687178403567349761?s=20&quot;&gt;spectator
+sport&lt;/a&gt;. But neither was it
+objectively difficult given patience and perseverance. Starting from one of the direct
+dependencies of wf-clone-validation (say flye) we can copy the
+&lt;a href=&quot;https://github.com/bioconda/bioconda-recipes/tree/master/recipes/flye&quot;&gt;recipe&lt;/a&gt;
+(package build instructions) from bioconda and run the build process on our ARM
+continuous integration machines to give us shiny new ARM conda packages. However for many
+packages this process doesn’t work out of the box. As noted above in order to build
+a package successfully, its dependencies must be available. A usual build failure is
+to find prerequisite packages need to be built first: so to build one package
+we must first build others, potentially in a recursive fashion. In creating the
+package hierarchy for wf-clone-validation we reached four layers deep of dependencies
+that needed to be built.&lt;/p&gt;&lt;p&gt;Perhaps more interesting an issue is when the source code of a piece of software
+is written in a manner which does not permit compilation on ARM. This is where we have
+to get our hands dirty. A most common issue is when code has been used to explicitly
+use particular extensions to the x86 instruction set. Often developers will use
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Intrinsic_function&quot;&gt;intrinsic functions&lt;/a&gt; in their code
+to aid runtime performance. However such functions are generally not portable across
+different types of processor such as x86 to ARM: code must be rewritten
+if it is to work on multiple processor architectures. Fortunately there are special
+software libraries that can help with this. For example &lt;a href=&quot;https://github.com/simd-everywhere/simde&quot;&gt;SIMD Everywhere&lt;/a&gt;
+and &lt;a href=&quot;https://github.com/DLTcollab/sse2neon&quot;&gt;sse2neon&lt;/a&gt; are two tools for allowing the
+use of so called &lt;a href=&quot;https://en.wikipedia.org/wiki/Single_instruction,_multiple_data&quot;&gt;SIMD&lt;/a&gt;
+function intrinsics in a portable manner.&lt;/p&gt;&lt;p&gt;Tool developers who are on-the-ball will already be using these tools, so creating
+and conda package from the source code is typically simply a matter of enabling
+options during the build process. This was the case for tools such as
+&lt;a href=&quot;https://github.com/lh3/minimap2&quot;&gt;minimap2&lt;/a&gt; (sse2neon) and
+&lt;a href=&quot;https://github.com/rvaser/spoa&quot;&gt;spoa&lt;/a&gt;/racon (SIMDe).
+Other times we found that we had to perform the work ourselves in order to create
+a working software build. It always pays to ask the software developers before
+embarking on anywork however: I spent a morning doing this for one tool, only to
+find the developer had &lt;a href=&quot;https://github.com/EddyRivasLab/infernal/issues/30#issuecomment-1662351606&quot;&gt;already done&lt;/a&gt;
+the work on a branch of their code.&lt;/p&gt;&lt;p&gt;A note of caution to anyone embarking on a similar ramble. An issue you will almost
+certainly encounter at some stage is openssl versions being worn really about a the
+same. Various conda packages will require different, incompatible versions of
+openssl with the result that some packages cannot be simultaneously used. In our
+case we found that the project &lt;a href=&quot;https://github.com/capnproto/capnproto&quot;&gt;capnproto&lt;/a&gt;
+only recently &lt;a href=&quot;https://github.com/capnproto/capnproto/pull/1596&quot;&gt;enabled&lt;/a&gt;
+support for openssl version 3.0.8 in addition to version 1.1.1. Unfortunately
+there remain some &lt;a href=&quot;https://github.com/conda-forge/capnproto-feedstock/pull/32&quot;&gt;issues&lt;/a&gt;
+with compiling the 3.0.8 supporting capnproto with the conda toolchain. To resolve this,
+and because we do not need openssl support we broke our own rule from above and
+created a boutique
+&lt;a href=&quot;https://anaconda.org/nanoporetech/capnproto-nossl&quot;&gt;capnproto-nossl&lt;/a&gt; package.&lt;/p&gt;&lt;p&gt;All-in-all in order to create the necessary packages for wf-clone-validation
+we had to make patches to the source code of around a third of the projects. In
+addition we had to make alterations to around two-thirds of the build recipes.&lt;/p&gt;&lt;h3 id=&quot;i-shall-be-telling-this-with-a-sigh&quot;&gt;I shall be telling this with a sigh&lt;/h3&gt;&lt;p&gt;So was all the effort worth it? We can judge this by whether the effort makes a difference
+to end users. To do this we can run the wf-clone-validation on Apple hardware using
+both the standard x86-64 compiled software and our new ARM64 code. The benchmarks
+were run on a MacBook with an M1 Max processor. The input data used to obtain the timings was
+the demostration data included with the workflow: a dataset comprising three samples, two of which are intended to not pass QC steps of the workflow.&lt;/p&gt;&lt;p&gt;Figure 1. shows the execution time of the core steps of the workflow. These are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Plasmid assembly using the flye assembler and Trycyler (which using a variety of tools to clean up reconcile assemblies).&lt;/li&gt;&lt;li&gt;Consensus calculation using &lt;a href=&quot;https://github.com/nanoporetech/medaka&quot;&gt;medaka&lt;/a&gt;.&lt;/li&gt;&lt;li&gt;Plasmid annotation using pLannotate, which itself uses a variety of tools including blastn, diamond, and cmscan from &lt;a href=&quot;http://eddylab.org/infernal/&quot;&gt;infernal&lt;/a&gt;.&lt;/li&gt;&lt;li&gt;Primer search using seqkit.&lt;/li&gt;&lt;li&gt;construction of an insert MSA across multiple samples using SPOA.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For each of these steps we see between a two and five-fold improvement in speed. The largest increase observed is for the numerically intensive medaka step. Note however that even the seemingly trivial step of the primer search using seqkit is sped up by almost 4 times. The total execution time for the workflow was reduced from 9 minutes and 2 seconds to just 3 minutes and 18 seconds. &lt;/p&gt;&lt;div plotJson=&quot;[object Object]&quot; plotName=&quot;wfclonetimingPlot&quot; plotCaption=&quot;Figure 1. Workflow execution timings for critical steps of wf-clone-validation. We observed between a two and five-fold improvement in execution time.&quot;&gt;&lt;/div&gt;&lt;p&gt;The wf-clone validation workflow is not a particularly strenuous workflow for the processing of a single sample. Ten minutes of bioinformatics analysis time is not really something necessarily deserving of optimisation. The results do however scale nicely with the number of samples processed.&lt;/p&gt;&lt;h3 id=&quot;and-that-has-made-all-the-difference&quot;&gt;And that has made all the difference&lt;/h3&gt;&lt;p&gt;In the above we’ve journeyed through the process of converting our popular wf-clone-validation Nextflow workflow to use ARM64 code - the language of Apple’s M1 and M2
+families of processors. This was motivated by a desire to better support
+users of Apple Hardware, which account for a good proportion of users of the EPI2ME Desktop
+application. Apple’s Rosetta technology cannot be relied upon to allow the running of
+all possible software. It does a good job in providing a compatibility layer, but ultimately
+it is preferable to run natively compiled code.&lt;/p&gt;&lt;p&gt;For our wf-clone-validation workflow the performance improvement is not particularly relevant; the workflow runs quickly enough as it stands. The performance improvement of the individual tools is however more intriguing. For example the computational work that medaka performs scales with the length of the genome processed. We can
+conceive that the processing of larger genomes, which could take on the order of hours to process previous, will now take only minutes. If several samples are to be processed the gains soon add up. Many of the tools used within wf-clone-validation are also used within
+several other of our workflows.&lt;/p&gt;&lt;p&gt;We shall certainly be continuing project inkling until and hope to bring native ARM64 code
+to all of our Nextflow workflows.&lt;/p&gt;</content:encoded><content:thumbnail>https://labs.epi2me.io/static/78d100efddafbf9215dc107b302fbe98/59ccf/inkling-river.jpg</content:thumbnail><content:toenail>https://labs.epi2me.io/static/78d100efddafbf9215dc107b302fbe98/inkling-river.jpeg</content:toenail></item><item><title><![CDATA[EPI2ME 23.07-01 Release]]></title><description><![CDATA[A post London Calling 2023 release including the refreshed EPI2ME desktop bioinformatics application, updated workflows and newly released datasets.]]></description><link>https://labs.epi2me.io/epi2me-23.07-01-release</link><guid isPermaLink="false">https://labs.epi2me.io/epi2me-23.07-01-release</guid><pubDate>Wed, 26 Jul 2023 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/8160f37cabf4095a3e87c9acdb705af9/59ccf/singapore.jpg" length="0" type="image/jpeg"/><content:encoded>&lt;p&gt;Dear Nanopore Community,&lt;/p&gt;&lt;p&gt;We’re pleased to bring user experience updates to our EPI2ME desktop application (v5.1.0). For our Microsoft Windows users we have overhauled and simplified the installation process and we are now providing an EPI2ME WSL distribution. To improve feedback while your analysis is running, the application now reports progress bars for our workflows (Figure 1).&lt;/p&gt;&lt;p&gt;Other improvements include:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Enhanced handling of demonstration data when workflows are updated&lt;/li&gt;&lt;li&gt;Exporting of log information to assist issue reporting&lt;/li&gt;&lt;li&gt;Automatic checking for available updates to the application&lt;/li&gt;&lt;li&gt;Enabling more powerful workflow schemas&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The EPI2ME software release is available from the &lt;a href=&quot;/downloads&quot;&gt;downloads&lt;/a&gt; page&lt;/p&gt;&lt;p&gt;As a reminder we are currently soliciting early access users for the new cloud analysis functionality in the EPI2ME desktop application that will launch in 2024. You can register your interest &lt;a href=&quot;https://register.nanoporetech.com/epi2me-cloud&quot; title=&quot;https://register.nanoporetech.com/epi2me-cloud&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position:relative;display:block;margin-left:auto;margin-right:auto;max-width:1140px&quot;&gt;
       &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom:65.26315789473685%;position:relative;bottom:0;left:0;display:block&quot;&gt;&lt;/span&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Workflow Progress&quot; title=&quot;Figure 1. EPI2ME Workflow Progress dialog&quot; src=&quot;/static/abfdaa6e534085c6cf28a2a76d202ebb/b5cea/progress.png&quot; srcSet=&quot;/static/abfdaa6e534085c6cf28a2a76d202ebb/0e2fe/progress.png 285w,/static/abfdaa6e534085c6cf28a2a76d202ebb/432e7/progress.png 570w,/static/abfdaa6e534085c6cf28a2a76d202ebb/b5cea/progress.png 1140w,/static/abfdaa6e534085c6cf28a2a76d202ebb/d5b59/progress.png 1370w&quot; sizes=&quot;(max-width: 1140px) 100vw, 1140px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;/&gt;
@@ -1181,54 +1305,4 @@ the tool is now an option in wf-human-snp.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Cas
 which is able to compare expected to observed counts of spike-in controls.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Introduction to Pychopper&lt;/strong&gt; - see the instructions for using Pychopper &lt;a href=&quot;https://github.com/epi2me-labs/pychopper&quot;&gt;here&lt;/a&gt;,
 pychopper is a preprocessing tool used within our wf-transcriptomes workflow.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Isoform Tutorial&lt;/strong&gt; - see &lt;a href=&quot;https://github.com/epi2me-labs/wf-transcriptomes&quot;&gt;wf-transcriptomes&lt;/a&gt; for a more fullsome
 and automated cDNA/RNA preprocessing and classification workflow.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Metagenomic classification tutorial&lt;/strong&gt; - please see &lt;a href=&quot;https://github.com/epi2me-labs/wf-metagenomics&quot;&gt;wf-metagenomics&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Viral and Bacterial Variant Calling&lt;/strong&gt; - please see the workflow &lt;a href=&quot;https://github.com/epi2me-labs/wf-bacterial-genomes&quot;&gt;wf-bacterial-genomes&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;We are always keen to here feedback from our users. Were you using this notebooks? What aspects of them were useful to
-you? Would you like to see them make a return. Get in touch through the &lt;a href=&quot;/contactus&quot;&gt;contact&lt;/a&gt; page.&lt;/p&gt;</content:encoded><content:thumbnail></content:thumbnail><content:toenail></content:toenail></item><item><title><![CDATA[CliveOME 5mC dataset]]></title><description><![CDATA[5mC basecall dataset from Nanopore's CTO, including cfDNA and .]]></description><link>https://labs.epi2me.io/cliveome_5mc_cfdna_celldna</link><guid isPermaLink="false">https://labs.epi2me.io/cliveome_5mc_cfdna_celldna</guid><pubDate>Tue, 31 May 2022 12:30:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/41068825a7dfd6793e22bdc74ddde796/59ccf/sample-tubes.jpg" length="0" type="image/jpeg"/><content:encoded>&lt;p&gt;Following on from our &lt;a href=&quot;/cliveome_cfdna&quot;&gt;CliveOME 2022.05&lt;/a&gt; data release we are
-now excited to present 5mC basecalls for both the original cfDNA reads and reads
-from a second ultralong cellular DNA sample preparation.&lt;/p&gt;&lt;p&gt;Aligned reads are available in BAM format with modified base tags as defined in
-the &lt;a href=&quot;https://samtools.github.io/hts-specs/SAMtags.pdf&quot;&gt;hts-specs&lt;/a&gt; document. The
-cfDNA basecalls are available at (see below for more details):&lt;/p&gt;&lt;pre&gt;&lt;code&gt;s3://ont-open-data/cliveome_kit14_2022.05/cfdna/basecalls/bonito_mod
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;with three flowcells of cellular WGS data available at:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;s3://ont-open-data/cliveome_kit14_2022.05/gdna/basecalling/
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Figure 1. shows the data output for one of the three ULK flowcells as a function
-of read length. This ULK sample preparation has yielded a total of 70 gigabases
-of data with over 20 gigabases of data contained with reads over 100kb.  Figure
-2. presents the read accuracy as measured by alignment to the GRCh38 reference
-sequence for both DNA samples. Note that the cfDNA distribution here appears
-rather broad as explained &lt;a href=&quot;/cliveome_cfdna&quot;&gt;previously&lt;/a&gt;: the single-read base
-accuracy density is broadened by the appearance of 1 or 2 errors in reads of
-length ~100 bases.&lt;/p&gt;&lt;div plotJson=&quot;[object Object]&quot; plotName=&quot;CliveOME Ultralong Read Lengths&quot; plotCaption=&quot;Figure 1. Cumulative data volume for one of the three flowcells used to sequence the ULK cellular DNA sample. This flowcell produced 20Gbases of reads greater than 100 kbase in length.&quot;&gt;&lt;/div&gt;&lt;div plotJson=&quot;[object Object]&quot; plotName=&quot;CliveOME Read Accuracies&quot; plotCaption=&quot;Figure 2. Kernel density estimate depicting the read accuracy for short fragment mode cfDNA sequencing as well as long-read cellular DNA data.&quot;&gt;&lt;/div&gt;&lt;h3 id=&quot;data-availability&quot;&gt;Data Availability&lt;/h3&gt;&lt;p&gt;The FAST5 files from the sequencing run have been placed within our Amazon S3
-bucket publicly available at:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;s3://ont-open-data/cliveome_kit14_2022.05/
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;More information on downloading the data from &lt;code&gt;s3://ont-open-data&lt;/code&gt; may be found
-on our &lt;a href=&quot;/tutorials&quot;&gt;Open datasets Tutorials&lt;/a&gt; page.&lt;/p&gt;&lt;h3 id=&quot;sample-extraction&quot;&gt;Sample extraction&lt;/h3&gt;&lt;p&gt;The cellular DNA sample was prepared for sequencing using Oxford Nanopore’s
-Ultra-Long DNA Sequencing Kit, the details of which can be found on the &lt;a href=&quot;https://store.nanoporetech.com/productDetail/?id=ultra-long-dna-sequencing-kit&quot;&gt;ONT
-Store&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Details of the cfDNA sample preparation can be found on the &lt;a href=&quot;/cliveome_cfdna&quot;&gt;previous
-post&lt;/a&gt;.&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;The samples taken for DNA extractions of cfDNA and cellular-DNA were not
-contemporaneous.&lt;/p&gt;&lt;/blockquote&gt;&lt;h3 id=&quot;data-processing&quot;&gt;Data processing.&lt;/h3&gt;&lt;p&gt;In both cases, cfDNA and cellular-DNA,
-&lt;a href=&quot;https://www.github.com/nanoporetech/bonito&quot;&gt;bonito&lt;/a&gt; was used to perform
-basecalling straight to BAM files with modified base tags. Bonito was chosen
-over Guppy because at the time of writing bonito implements a slightly more
-accurate algorithm for 5mC calling which is thought to help particularly in the
-case of short fragment mode.&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;Ordinarily users should use Guppy for obtaining
-5mC calls, which can be performed in real-time on the sequencing instrument
-to further lower the barrier to obtaining such data.&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;This extremely simple workflow is in contrast to the laborious sample
-preparation and data processing required for techniques such as bisulfite
-sequencing. We previously discussed these differences in our &lt;a href=&quot;/gm24385-5mc&quot;&gt;5mC
-GM24385&lt;/a&gt; blog post. To recap, all that is required to obtain 5mC
-calls from the primary sequencing data is to run:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;bonito basecaller \
-    dna_r10.4.1_e8.2_sup@v3.5.1 \
-    &amp;lt;input location&amp;gt;
-    --recursive \
-    --modified-bases 5mC \
-    --reference &amp;lt;reference fasta&amp;gt; \
-    | samtools sort -@16 \
-    &amp;gt; bonito_calls.bam
-samtools index bonito_calls.bam
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Aggregation of 5mC information by genomic position can be performed by our
-&lt;a href=&quot;https://www.github.com/epi2me-labs/modbam2bed&quot;&gt;modbam2bed&lt;/a&gt; program:&lt;/p&gt;&lt;pre&gt;&lt;code&gt;modbam2bed \
-    -e -m 5mC --cpg -t 10 \
-    &amp;lt;reference fasta&amp;gt; bonito_calls.bam \
-    &amp;gt; bonito.cpg.bed
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;to obtain per-site methylation frequencies in &lt;/p&gt;&lt;p&gt;The &lt;code&gt;modbam2bed&lt;/code&gt; program can accept a BAM file with additional tags specifiying
-the haplotype to which each read belongs. In this manner it is possible to
-simply acquire haplotype specific methylation frequencies for CpG sites in human
-samples, greatly accelerating research into phenomena controlled by genetic
-imprinting.  We will leave these tasks for another blog post, in the meanwhile
-please do download and explore the dataset.&lt;/p&gt;</content:encoded><content:thumbnail>https://labs.epi2me.io/static/41068825a7dfd6793e22bdc74ddde796/59ccf/sample-tubes.jpg</content:thumbnail><content:toenail>https://labs.epi2me.io/static/41068825a7dfd6793e22bdc74ddde796/sample-tubes.jpg</content:toenail></item></channel></rss>
+you? Would you like to see them make a return. Get in touch through the &lt;a href=&quot;/contactus&quot;&gt;contact&lt;/a&gt; page.&lt;/p&gt;</content:encoded><content:thumbnail></content:thumbnail><content:toenail></content:toenail></item></channel></rss>
