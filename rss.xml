@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2ME Labs's RSS Feed]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 19 Jan 2024 19:29:21 GMT</lastBuildDate><item><title><![CDATA[Bed bugs]]></title><description><![CDATA[Introducing BED Bugs: an online toold for validating adaptive sampling inputs.]]></description><link>https://labs.epi2me.io/beg-bugs-intro</link><guid isPermaLink="false">https://labs.epi2me.io/beg-bugs-intro</guid><pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/e5312e44ad2c4508791b18a2f4b00178/59ccf/coconut-rhinoceros-beetle.jpg" length="0" type="image/jpeg"/><content:encoded>&lt;p&gt;&lt;em&gt;(Yes, I know that’s not a bed bug; its a coconut rhinoceros beetle.)&lt;/em&gt;&lt;/p&gt;&lt;p&gt;The EPI2ME team is happy to release &lt;a href=&quot;https://labs.epi2me.io/bed-bugs&quot;&gt;Bed Bugs&lt;/a&gt;, an online
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[EPI2ME Labs's RSS Feed]]></title><description><![CDATA[Tutorials and workflows for nanopore sequencing.]]></description><link>https://labs.epi2me.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 22 Jan 2024 10:19:10 GMT</lastBuildDate><item><title><![CDATA[Bed bugs]]></title><description><![CDATA[Introducing BED Bugs: an online toold for validating adaptive sampling inputs.]]></description><link>https://labs.epi2me.io/beg-bugs-intro</link><guid isPermaLink="false">https://labs.epi2me.io/beg-bugs-intro</guid><pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate><enclosure url="https://labs.epi2me.io/static/e5312e44ad2c4508791b18a2f4b00178/59ccf/coconut-rhinoceros-beetle.jpg" length="0" type="image/jpeg"/><content:encoded>&lt;p&gt;&lt;em&gt;(Yes, I know that’s not a bed bug; its a coconut rhinoceros beetle.)&lt;/em&gt;&lt;/p&gt;&lt;p&gt;The EPI2ME team is happy to release &lt;a href=&quot;https://labs.epi2me.io/bed-bugs&quot;&gt;Bed Bugs&lt;/a&gt;, an online
 tool for validating input files for &lt;a href=&quot;https://nanoporetech.com/resource-centre/adaptive-sampling-oxford-nanopore&quot;&gt;adaptive sampling&lt;/a&gt;
 experiments with MinKNOW.
 This was a little bit of a fun side project for us using some technologies we’ve
@@ -36,33 +36,33 @@ By running in a web browser, Wasm allows developers to reach a large audience wi
 code without worrying about different operating systems and processor types.&lt;/p&gt;&lt;p&gt;Bed Bugs contains WebAssembly components created from bioinformatics codebases
 written in C and C++, along with more standard Javascript code,
 As BED files are at their heart simply tab-delimited text files, Bed Bugs
-use the robust and popular text-file parser &lt;a href=&quot;https://www.papaparse.com/&quot;&gt;PapaParse&lt;/a&gt;
+uses the robust and popular text-file parser &lt;a href=&quot;https://www.papaparse.com/&quot;&gt;PapaParse&lt;/a&gt;
 to perform basic checks on the literal file contents.
 In order to check the format of the user provided reference files we use
-C code using the venerable &lt;code&gt;kseq.h&lt;/code&gt; header to create a WebAssembly &lt;code&gt;.fasta&lt;/code&gt;
+C code including the venerable &lt;code&gt;kseq.h&lt;/code&gt; header to create a WebAssembly &lt;code&gt;.fasta&lt;/code&gt;
 parser.
 By successfully parsing the users reference with this library we can assert that
 the file is valid.
 For the case of the user providing their reference as a minimap2 index (&lt;code&gt;.mmi&lt;/code&gt;)
 we have a WebAssembly module compiled from custom C code that reads the header
 sections of the file.
-Both the &lt;code&gt;.fasta&lt;/code&gt; and &lt;code&gt;.mmi&lt;/code&gt; parses extracts the names and lengths of sequences stored within the file.&lt;/p&gt;&lt;p&gt;Having performed basic checks on the BED and reference file provided by the user,
+Both the &lt;code&gt;.fasta&lt;/code&gt; and &lt;code&gt;.mmi&lt;/code&gt; parsers extract the names and lengths of sequences stored within the file.&lt;/p&gt;&lt;p&gt;Having performed basic checks on the BED and reference file provided by the user,
 BED Bugs applies additional contextual validations using &lt;a href=&quot;https://bedtools.readthedocs.io/en/latest/&quot;&gt;bedtools&lt;/a&gt;.
-Using Bedtools to parse the BED provides a secondary test on the file’s basic
+Using Bedtools to parse the BED file provides a secondary test on the file’s basic
 formatting as well as checking the file is logically consistent for the purposes
 of adaptive sampling.
 BED Bugs checks that no two intervals in the file intersect; a circumstance which
 although technically not an error in all circumstances could be not what the user
 intended.
 The tool also checks that all the intervals in the BED file correctly represent
-valid regions of of the provided reference sequences, again using &lt;code&gt;bedtools&lt;/code&gt; to
-intersect the users BED file with a BED file constructed from the &lt;code&gt;.fasta&lt;/code&gt; and &lt;code&gt;.mmi&lt;/code&gt;
+valid regions of of the provided reference sequences, again using &lt;code&gt;bedtools&lt;/code&gt;.
+This check intersects the user’s BED file with a BED file constructed from the &lt;code&gt;.fasta&lt;/code&gt; and &lt;code&gt;.mmi&lt;/code&gt;
 WebAssembly parsers.&lt;/p&gt;&lt;h3 id=&quot;why-not-use-wasm-more&quot;&gt;Why not use Wasm more?&lt;/h3&gt;&lt;p&gt;As part of our mission to simplify bioinformatics, the EPI2ME team has previously
 dabbled with Wasm to provide bioinformatics tools to our users.
 We experimented with providing our bioinformatics tutorials as
 WebAssembly-based web pages, before the most excellent &lt;a href=&quot;https://sandbox.bio/&quot;&gt;sandbox.bio&lt;/a&gt;
 project did a better job of this than we ever could.
-As part of this effort we infact contributed tools to the &lt;a href=&quot;https://github.com/biowasm/biowasm&quot;&gt;biowasm&lt;/a&gt; project.&lt;/p&gt;&lt;p&gt;Larger scale use of WebAssembly is prohibited by one key issue: memory use.
+As part of this effort we infact contributed tools to the &lt;a href=&quot;https://github.com/biowasm/biowasm&quot;&gt;biowasm&lt;/a&gt; project.&lt;/p&gt;&lt;p&gt;Larger scale use of WebAssembly is hampered by one key issue: memory use.
 The WebAssembly runtime is limited to using 4GB of memory,
 this is prohibitively small for a variety of bioinformatics tasks such as
 genome assembly and even alignment of reads to large-ish genomes.
